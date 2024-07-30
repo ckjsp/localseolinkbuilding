@@ -1,0 +1,4 @@
+[04-Jun-2024 15:15:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/localseolinkbuil/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/localseolinkbuil/public_html/config/database.php on line 18
