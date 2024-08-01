@@ -111,7 +111,7 @@ Route::get('/lslb-admin/login', function () {
 
 Auth::routes(['verify' => true]);
 Route::get('auth/redirect/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
-Route::get('auth/callback/google', [GoogleController::class, 'handleGoogleCallback']);
+Route::get('/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 
 // Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
