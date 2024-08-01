@@ -1,0 +1,4 @@
+[07-Jun-2024 06:07:57 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 111153152 bytes) in /home/localseolinkbuil/public_html/app/Http/Controllers/OrdersController.php on line 83
+[07-Jun-2024 06:12:13 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 113250304 bytes) in /home/localseolinkbuil/public_html/app/Http/Controllers/OrdersController.php on line 78
+[07-Jun-2024 06:27:34 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 113250304 bytes) in /home/localseolinkbuil/public_html/app/Http/Controllers/OrdersController.php on line 78
+[14-Jun-2024 19:21:56 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/localseolinkbuil/public_html/vendor/composer/platform_check.php on line 24
