@@ -43,6 +43,7 @@ class lslbUser extends Authenticatable implements MustVerifyEmail
         'billing_city',
         'billing_country',
         'postal_code',
+        'google_id',
     ];
 
     /**
@@ -70,7 +71,8 @@ class lslbUser extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(lslbRoles::class);
     }
 
-    public function websites() {
+    public function websites()
+    {
         return $this->hasMany(lslbWebsite::class);
     }
 
@@ -87,7 +89,7 @@ class lslbUser extends Authenticatable implements MustVerifyEmail
 
     //     // Select the columns you want from both tables
     //     $query->select('users.id as id', 'users.*', 'user_roles.id as roles_id', 'user_roles.*');
-        
+
     //     // Add the join condition with the 'user_roles' table
     //     $query->join('user_roles', 'users.role_id', '=', 'user_roles.id');
 

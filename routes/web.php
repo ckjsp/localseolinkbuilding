@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\StripePaymentController;
 // use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,18 +32,18 @@ use App\Http\Controllers\StripePaymentController;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/logout', [LoginController::class, 'logout']);
-    Route::controller(HomeController::class)->group(function(){
+    Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'index')->name('home');
         Route::post('/change-password', 'changePassword')->name('password.change.update');
         Route::get('/user/profile', 'userProfile')->name('user.profile');
         Route::post('/user/update/{id}', 'userUpdate')->name('user.update');
     });
-    
+
     Route::middleware(['firstLogin', 'redirectMiddleware'])->group(function () {
         Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
         Route::get('/publisher', [PublisherController::class, 'index'])->name('publisher');
-        
-        Route::controller(WebsiteController::class)->group(function(){
+
+        Route::controller(WebsiteController::class)->group(function () {
             Route::get('/publisher/website', 'index')->name('publisher.website');
             Route::get('/publisher/website/create', 'create')->name('publisher.website.create');
             Route::post('/publisher/website/add', 'store')->name('publisher.website.store');
@@ -52,7 +53,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/website/filter', 'filterData')->name('website.filter');
             Route::get('/publisher/sales', 'index')->name('publisher.sales');
         });
-        Route::controller(OrdersController::class)->group(function(){
+        Route::controller(OrdersController::class)->group(function () {
             Route::get('/publisher/orders', 'index')->name('publisher.orders');
             Route::get('/publisher/orders/create', 'create')->name('publisher.orders.create');
             Route::get('/publisher/blog/{id}', 'checkArticle')->name('publisher.blog');
@@ -60,20 +61,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/advertiser/orders', 'index')->name('advertiser.orders');
             Route::post('/advertiser/orders/add', 'store')->name('advertiser.orders.store');
         });
-        
-        Route::controller(AdvertiserController::class)->group(function(){
+
+        Route::controller(AdvertiserController::class)->group(function () {
             Route::get('/advertiser', 'index')->name('advertiser');
             Route::get('/advertiser/marketplace', 'marketplace')->name('advertiser.marketplace');
             Route::get('/advertiser/cart', 'cart')->name('advertiser.cart');
         });
 
-        Route::controller(PaymentController::class)->group(function(){
+        Route::controller(PaymentController::class)->group(function () {
             Route::get('/publisher/payment', 'index')->name('publisher.payment');
             Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
         });
     });
-    
-    Route::controller(OrdersController::class)->group(function(){
+
+    Route::controller(OrdersController::class)->group(function () {
         Route::get('/order/info/{id}', 'orderInfo')->name('order.info');
         Route::post('/order/update-status/{id}', 'updateStatus')->name('order.update.status');
         // Route::post('/publisher/orders/add', 'store')->name('publisher.orders.store');
@@ -81,11 +82,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Route::put('/publisher/orders/{id}', 'update')->name('publisher.orders.update');
         // Route::get('/publisher/orders/{id}/delete', 'destroy')->name('publisher.orders.delete');
     });
-    
+
     Route::post('charge', [StripePaymentController::class, 'charge'])->name('stripe.charge');
 });
 
-Route::controller(AdminController::class)->group(function(){
+Route::controller(AdminController::class)->group(function () {
     Route::middleware(['AdminAuth', 'redirectMiddleware'])->group(function () {
         Route::get('/lslb-admin', 'index')->name('lslbadmin.dashboard');
         Route::get('/lslb-admin/websites', 'getWebsites')->name('lslbadmin.websites');
@@ -104,11 +105,13 @@ Route::controller(AdminController::class)->group(function(){
     });
 });
 
-Route::get('/lslb-admin/login', function() {
+Route::get('/lslb-admin/login', function () {
     return view('lslbadmin.login');
 })->name('lslbadmin.login');
 
 Auth::routes(['verify' => true]);
+Route::get('auth/redirect/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('auth/callback/google', [GoogleController::class, 'handleGoogleCallback']);
 
 
 // Route::get('/dashboard', 'DashboardController@index')->middleware('auth');

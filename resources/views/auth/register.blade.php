@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('css')
-<link rel="stylesheet" href="{{ asset_url('css/pages/page-auth.css') }}" />
+    <link rel="stylesheet" href="{{ asset_url('css/pages/page-auth.css') }}" />
 @endpush
 
 @section('auth-content')
@@ -20,8 +20,13 @@
         <!-- /Left Text -->
         <div class="d-none d-lg-flex col-lg-7 p-0">
             <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
-                <img src="{{ asset_url('img/illustrations/auth-register-illustration.png') }}" alt="auth-register-cover" class="img-fluid my-5 auth-illustration" data-app-light-img="illustrations/auth-register-illustration.png" data-app-dark-img="illustrations/auth-register-illustration.png" />
-                <img src="{{ asset_url('img/illustrations/bg-shape-image-light.png') }}" alt="auth-register-cover" class="platform-bg" data-app-light-img="illustrations/bg-shape-image-light.png" data-app-dark-img="illustrations/bg-shape-image-dark.png" />
+                <img src="{{ asset_url('img/illustrations/auth-register-illustration.png') }}" alt="auth-register-cover"
+                    class="img-fluid my-5 auth-illustration"
+                    data-app-light-img="illustrations/auth-register-illustration.png"
+                    data-app-dark-img="illustrations/auth-register-illustration.png" />
+                <img src="{{ asset_url('img/illustrations/bg-shape-image-light.png') }}" alt="auth-register-cover"
+                    class="platform-bg" data-app-light-img="illustrations/bg-shape-image-light.png"
+                    data-app-dark-img="illustrations/bg-shape-image-dark.png" />
             </div>
         </div>
         <!-- /Left Text -->
@@ -43,44 +48,55 @@
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">{{ __('Name') }}</label>
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Enter your username" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                            name="name" placeholder="Enter your username" value="{{ old('name') }}" required
+                            autocomplete="name" autofocus>
                         @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">{{ __('Email') }}</label>
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Enter your email" name="email" value="{{ old('email') }}" required autocomplete="email">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                            placeholder="Enter your email" name="email" value="{{ old('email') }}" required
+                            autocomplete="email">
                         @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
                     </div>
                     <div class="mb-3 form-password-toggle">
                         <label class="form-label" for="password">{{ __('Password') }}</label>
                         <div class="input-group input-group-merge">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" required autocomplete="new-password">
+                            <input id="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror" name="password"
+                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                aria-describedby="password" required autocomplete="new-password">
                             <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                             <span class="invalid-feedback"><strong class="pass-msg"></strong></span>
                             @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 form-password-toggle">
                         <label class="form-label" for="password-confirm">{{ __('Confirm Password') }}</label>
                         <div class="input-group input-group-merge">
-                            <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" required autocomplete="new-password">
+                            <input id="password-confirm" type="password"
+                                class="form-control @error('password_confirmation') is-invalid @enderror"
+                                name="password_confirmation"
+                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                aria-describedby="password" required autocomplete="new-password">
                             <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                             @error('password_confirmation')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                     </div>
@@ -88,7 +104,8 @@
                         <label class="d-block form-label">{{ __('User Role') }}</label>
                         <div class="col-5 form-check custom-option custom-option-basic checked mx-4">
                             <label class="form-check-label custom-option-content" for="role-publisher">
-                                <input type="radio" id="role-publisher" name="role" value="2" checked class="form-check-input role" required="">
+                                <input type="radio" id="role-publisher" name="role" value="2" checked
+                                    class="form-check-input role" required="">
                                 <span class="custom-option-header">
                                     <span class="h6 mb-0">Publisher</span>
                                 </span>
@@ -96,7 +113,8 @@
                         </div>
                         <div class="col-5 form-check custom-option custom-option-basic">
                             <label class="form-check-label custom-option-content" for="role-advertiser">
-                                <input type="radio" id="role-advertiser" name="role" value="3" class="form-check-input role" required="">
+                                <input type="radio" id="role-advertiser" name="role" value="3"
+                                    class="form-check-input role" required="">
                                 <span class="custom-option-header">
                                     <span class="h6 mb-0">Advertiser</span>
                                 </span>
@@ -114,7 +132,9 @@
                         </div>
                     </div> -->
                     <button type="submit" class="btn btn-primary d-grid w-100">{{ __('Register') }}</button>
+
                 </form>
+                <a href="{{ route('google.login') }}" class="btn btn-primary">Sign in with Google</a>
 
                 <p class="text-center">
                     <span>Already have an account?</span>
@@ -150,76 +170,76 @@
 @endsection
 
 @push('script')
-<script src="{{ asset_url('js/pages-auth.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="{{ asset_url('js/pages-auth.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 
-<script>
-    $(document).ready(function() {
-        var validator = $('#user-register-form').validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 2
+    <script>
+        $(document).ready(function () {
+            var validator = $('#user-register-form').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8
+                    },
+                    password_confirmation: {
+                        required: true,
+                        equalTo: "#password"
+                    },
+                    role: {
+                        required: true
+                    }
                 },
-                email: {
-                    required: true,
-                    email: true
+                messages: {
+                    name: {
+                        required: "Please enter your username",
+                        minlength: "Your username must be at least 2 characters long"
+                    },
+                    email: {
+                        required: "Please enter your email",
+                        email: "Please enter a valid email address"
+                    },
+                    password: {
+                        required: "Your password must be at least 8 characters long",
+                        minlength: "Your password must be at least 8 characters long"
+                    },
+                    password_confirmation: {
+                        required: "Please confirm your password",
+                        equalTo: "Passwords do not match"
+                    },
+                    role: {
+                        required: "Please select a role"
+                    }
                 },
-                password: {
-                    required: true,
-                    minlength: 8
+                errorClass: "is-invalid",
+                validClass: "is-valid",
+                errorElement: "div",
+                errorPlacement: function (error, element) {
+                    if (element.attr("name") == "role") {
+                        error.insertAfter(element.closest(".row"));
+                    } else {
+                        error.addClass("invalid-feedback");
+                        element.closest(".mb-3").append(error);
+                    }
                 },
-                password_confirmation: {
-                    required: true,
-                    equalTo: "#password"
+                highlight: function (element) {
+                    $(element).addClass("is-invalid").removeClass("is-valid");
                 },
-                role: {
-                    required: true
+                unhighlight: function (element) {
+                    $(element).addClass("is-valid").removeClass("is-invalid");
                 }
-            },
-            messages: {
-                name: {
-                    required: "Please enter your username",
-                    minlength: "Your username must be at least 2 characters long"
-                },
-                email: {
-                    required: "Please enter your email",
-                    email: "Please enter a valid email address"
-                },
-                password: {
-                    required: "Your password must be at least 8 characters long",
-                    minlength: "Your password must be at least 8 characters long"
-                },
-                password_confirmation: {
-                    required: "Please confirm your password",
-                    equalTo: "Passwords do not match"
-                },
-                role: {
-                    required: "Please select a role"
-                }
-            },
-            errorClass: "is-invalid",
-            validClass: "is-valid",
-            errorElement: "div",
-            errorPlacement: function(error, element) {
-                if (element.attr("name") == "role") {
-                    error.insertAfter(element.closest(".row"));
-                } else {
-                    error.addClass("invalid-feedback");
-                    element.closest(".mb-3").append(error);
-                }
-            },
-            highlight: function(element) {
-                $(element).addClass("is-invalid").removeClass("is-valid");
-            },
-            unhighlight: function(element) {
-                $(element).addClass("is-valid").removeClass("is-invalid");
-            }
-        });
+            });
 
-        $('#password').on('keyup', function() {
-            validator.element('#password');  // Validate the password field on keyup
+            $('#password').on('keyup', function () {
+                validator.element('#password');  // Validate the password field on keyup
+            });
         });
-    });
-</script>
+    </script>
 @endpush
