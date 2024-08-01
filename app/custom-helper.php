@@ -18,7 +18,12 @@ if (!function_exists('asset_url')) {
     function asset_url($mainSlug = null)
     {
         $base_url = env('APP_URL');
-        return $base_url . '/' . $mainSlug;
+        if (env('APP_ENV') === 'local') {
+            return $base_url . '/' . $mainSlug;
+        } else {
+            return $base_url . '/public/' . $mainSlug;
+        }
+        //return $base_url . '/' . $mainSlug;
     }
 }
 
