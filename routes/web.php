@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\StripePaymentController;
 // use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,9 +64,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
 
         Route::controller(AdvertiserController::class)->group(function () {
-            Route::get('/advertiser', 'index')->name('advertiser');
+            Route::get('/advertiser/{page?}', 'index')->name('advertiser');
+            Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
             Route::get('/advertiser/marketplace', 'marketplace')->name('advertiser.marketplace');
             Route::get('/advertiser/cart', 'cart')->name('advertiser.cart');
+            Route::post('/advertiser/projects/store', 'projectStore')->name('advertiser.projects.store');
+            Route::get('/advertiser/menu', 'showMenu')->name('advertiser.menu');
         });
 
         Route::controller(PaymentController::class)->group(function () {
