@@ -94,7 +94,7 @@ class HomeController extends Controller
             'company_website_url' => 'required|url',
             'country' => 'required',
             'preferred_method' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
         ];
         if ($user->role->name === 'Advertiser') {
             $userRules = [
@@ -104,9 +104,12 @@ class HomeController extends Controller
                 'billing_city' => 'required',
                 'billing_country' => 'required',
                 'postal_code' => 'required',
+                'whatsapp_msg' => 'nullable|boolean',
+                'how_hear_about_us' => 'required|string|max:255',
+                'additional_info' => 'nullable|string',
             ];
             $rules = array_merge($commonRules, $userRules);
-        }else{
+        } else {
             $rules = $commonRules;
         }
         // Validate and update the record
@@ -114,10 +117,10 @@ class HomeController extends Controller
         if ($validated_data->fails()) {
             return redirect()->back()->withInput()->withErrors($validated_data);
             // return back()->with('errorMsg', $validatedData1->errors());
-        }else{
-            if(!empty($request->file('image'))){
+        } else {
+            if (!empty($request->file('image'))) {
                 $path = $request->file('image')->store('profile_image');
-            }else{
+            } else {
                 $path = $request->post('old_image');
             }
             $validatedData = $request->validate($rules);

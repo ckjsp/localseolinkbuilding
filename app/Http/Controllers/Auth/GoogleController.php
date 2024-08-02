@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\lslbUser;
+use Illuminate\Support\Facades\Session;
 
 class GoogleController extends Controller
 {
@@ -15,26 +16,53 @@ class GoogleController extends Controller
 
     public function handleGoogleCallback()
     {
-        $googleUser = Socialite::driver('google')->user();
+        try {
+            $googleUser = Socialite::driver('google')->user();
+            $existingUser = lslbUser::where('email', $googleUser->email)->first();
 
-        // Find or create a user in your database
-        $existingUser = lslbUser::where('google_id', $googleUser->id)->first();
+            if ($existingUser) {
+                if ($existingUser->google_id) {
+                    Auth::login($existingUser, true);
+                    return redirect()->intended('home');
+                } else {
+                    Session::put('google_user', $googleUser);
+                    return redirect()->route('link-google');
+                }
+            } else {
+                $newUser = lslbUser::create([
+                    'name' => $googleUser->name,
+                    'email' => $googleUser->email,
+                    'google_id' => $googleUser->id,
+                    'password' => bcrypt(uniqid()),
+                ]);
 
-        if ($existingUser) {
-            // Log in the existing user
-            Auth::login($existingUser);
-        } else {
-            // Create a new user
-            $newUser = lslbUser::create([
-                'name' => $googleUser->name,
-                'email' => $googleUser->email,
-                'google_id' => $googleUser->id,
-                'password' => bcrypt(uniqid()), // Generate a random password
-            ]);
-
-            Auth::login($newUser);
+                Auth::login($newUser, true);
+                return redirect()->intended('home');
+            }
+        } catch (Exception $e) {
+            return redirect('/login')->withErrors(['message' => 'Authentication failed']);
+        }
+    }
+    /**
+     * Link Google account to existing user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function linkGoogleAccount()
+    {
+        $googleUser = Session::get('google_user');
+        if (!$googleUser) {
+            return redirect('/login')->withErrors(['message' => 'No Google user found in session']);
         }
 
-        return redirect()->to('/home'); // Redirect to a desired location
+        $user = lslbUser::where('email', $googleUser->getEmail())->first();
+        if ($user) {
+            $user->update(['google_id' => $googleUser->getId()]);
+            Auth::login($user, true);
+            Session::forget('google_user');
+            return redirect()->intended('home');
+        }
+
+        return redirect('/login')->withErrors(['message' => 'No matching user found']);
     }
 }
