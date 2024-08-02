@@ -13,6 +13,14 @@
                 </a>
             </li>
 
+            <!-- Project List -->
+            <li class="menu-item {{ (isset($slug) && $slug == 'marketplace') ? 'active' : '' }}">
+                <a href="{{ route('advertiser.marketplace') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-briefcase"></i>
+                    <div data-i18n="Marketplace">Marketplace</div>
+                </a>
+            </li>
+
             <!-- Market Place -->
             <li class="menu-item {{ (isset($slug) && $slug == 'marketplace') ? 'active' : '' }}">
                 <a href="{{ route('advertiser.marketplace') }}" class="menu-link">
@@ -20,7 +28,7 @@
                     <div data-i18n="Marketplace">Marketplace</div>
                 </a>
             </li>
-            
+
             <!-- My Order -->
             <li class="menu-item {{ (isset($slug) && $slug == 'orders') ? 'active' : '' }}">
                 <a href="{{ route('advertiser.orders') }}" class="menu-link">

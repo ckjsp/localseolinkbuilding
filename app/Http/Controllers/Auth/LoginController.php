@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 // use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Socialite\Facades\Socialite;
+use Exception;
+use App\Models\lslbUser;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -38,5 +42,37 @@ class LoginController extends Controller
     {
         // echo Hash::make('jspinfotech');exit;
         $this->middleware('guest')->except('logout');
+    }
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+    public function handleGoogleCallback()
+    {
+        try {
+            $googleUser = Socialite::driver('google')->user();
+            $user = lslbUser::where('email', $googleUser->getEmail())->first();
+
+            if ($user) {
+                $user->update([
+                    'name' => $googleUser->getName(),
+                    'google_id' => $googleUser->getId(),
+                ]);
+            } else {
+                $user = lslbUser::create([
+                    'name' => $googleUser->getName(),
+                    'email' => $googleUser->getEmail(),
+                    'google_id' => $googleUser->getId(),
+                    'password' => bcrypt('password'),
+                ]);
+            }
+
+            Auth::login($user, true);
+
+            return redirect()->intended('home');
+        } catch (Exception $e) {
+            // Handle the error
+            return redirect('/login')->withErrors(['message' => 'Authentication failed']);
+        }
     }
 }
