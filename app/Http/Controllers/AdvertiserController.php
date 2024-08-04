@@ -8,7 +8,7 @@ use App\Models\lslbWebsite;
 use App\Models\lslbOrder;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-use App\Models\LslbProject;
+use App\Models\lslbProject;
 
 class AdvertiserController extends Controller
 {
@@ -91,7 +91,7 @@ class AdvertiserController extends Controller
         }
 
         $validatedData = $validator->validated();
-        $project = LslbProject::create($validatedData);
+        $project = lslbProject::create($validatedData);
 
         return redirect()->route('advertiser.projects.show', ['id' => $project->id])
                          ->with('success', 'Project created successfully!');
@@ -99,7 +99,7 @@ class AdvertiserController extends Controller
 
     public function update($id)
     {
-        $project = LslbProject::findOrFail($id);
+        $project = lslbProject::findOrFail($id);
         return view('advertiser.projects', compact('project'));
     }
     public function projectUpdate(Request $request, $id)
@@ -118,7 +118,7 @@ class AdvertiserController extends Controller
                             ->withInput();
         }
 
-        $project = LslbProject::findOrFail($id);
+        $project = lslbProject::findOrFail($id);
         $validatedData = $validator->validated();
         $validatedData['categories'] = json_encode($validatedData['categories']);
         $validatedData['forbidden_category'] = json_encode($validatedData['forbidden_category']);
@@ -130,7 +130,7 @@ class AdvertiserController extends Controller
     }
     public function showMenu()
     {
-        $projects = LslbProject::select('id', 'project_name')->get()->toArray();
+        $projects = lslbProject::select('id', 'project_name')->get()->toArray();
         
         return response()->json([
             'statuscode' => 200,
