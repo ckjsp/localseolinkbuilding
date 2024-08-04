@@ -43,14 +43,17 @@ class LoginController extends Controller
         // echo Hash::make('jspinfotech');exit;
         $this->middleware('guest')->except('logout');
     }
+    
     public function redirectToGoogle()
     {
         return Socialite::driver('google')->redirect();
     }
+
     public function handleGoogleCallback()
     {
         try {
             $googleUser = Socialite::driver('google')->user();
+            
             $user = lslbUser::where('email', $googleUser->getEmail())->first();
 
             if ($user) {
