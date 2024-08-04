@@ -19,8 +19,14 @@
             </li>
 
             <!-- Project List -->
+<<<<<<< HEAD
+            <li class="menu-item {{ (isset($slug) && $slug == 'projects') ? 'active' : '' }}">
+                <a href="{{ route('advertiser.projects') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-briefcase"></i>
+=======
             <li id="hover-dropdown-demo" class="menu-item {{ (isset($slug) && $slug == 'projects') ? 'active' : '' }} dropdown">
                 <a href="#" type="button" class="dropdown-toggle menu-link" data-bs-toggle="dropdown" data-trigger="hover" aria-expanded="false">
+>>>>>>> google-sign-in
                     <div data-i18n="Projects">Projects</div>
                 </a>
                 <ul class="dropdown-menu" id="projects-menu">

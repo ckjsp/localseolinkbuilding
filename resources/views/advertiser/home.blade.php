@@ -4,14 +4,16 @@
 <!-- Content -->
 
 <div class="container-xxl flex-grow-1 container-p-y">
-    <div class="row">
+    <div class="row mb-5">
 
         <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card card-border-shadow-primary h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2 pb-1">
                         <div class="avatar me-2">
-                            <a href="{{ url('/advertiser/orders') }}"><span class="avatar-initial rounded bg-label-primary"><i class="ti ti-truck ti-md"></i></span></a>
+                            <a href="{{ url('/advertiser/orders') }}"><span
+                                    class="avatar-initial rounded bg-label-primary"><i
+                                        class="ti ti-truck ti-md"></i></span></a>
                         </div>
                         <h4 class="ms-1 mb-0">{{$orderCount}}</h4>
                     </div>
@@ -33,7 +35,8 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2 pb-1">
                         <div class="avatar me-2">
-                            <span class="avatar-initial rounded bg-label-warning"><i class="ti ti-alert-triangle ti-md"></i></span>
+                            <span class="avatar-initial rounded bg-label-warning"><i
+                                    class="ti ti-alert-triangle ti-md"></i></span>
                         </div>
                         <h4 class="ms-1 mb-0">$0</h4>
                     </div>
@@ -41,13 +44,18 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+
+=======
          
+>>>>>>> google-sign-in
         <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card card-border-shadow-danger h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2 pb-1">
                         <div class="avatar me-2">
-                            <span class="avatar-initial rounded bg-label-danger"><i class="ti ti-git-fork ti-md"></i></span>
+                            <span class="avatar-initial rounded bg-label-danger"><i
+                                    class="ti ti-git-fork ti-md"></i></span>
                         </div>
                         <h4 class="ms-1 mb-0">0</h4>
                     </div>
@@ -55,7 +63,12 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+
+
+=======
         
+>>>>>>> google-sign-in
         <!-- <div class="col-lg-3 col-sm-6 mb-4">
             <div class="card card-border-shadow-info h-100">
                 <div class="card-body">
@@ -75,6 +88,88 @@
         </div> -->
 
     </div>
+<<<<<<< HEAD
+    <div class="row mt-5">
+        <div class="text-center">
+            <img src="{{ asset('img/pages/create-project.png') }}" width="170">
+            <h5>Unlock High-Quality Backlinks and Boost<br />
+                Traffic with a New Project</h5>
+            <p>Reach engaged audiences, build brand awareness, and drive conversions<br />
+                through strategic guest posting campaigns.</p>
+            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#advertiser-project-pop"
+                id="advertiserProjectBtn" class="btn btn-primary me-sm-3 me-1 waves-effect waves-light">+ Add New
+                Project </a>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="advertiser-project-pop" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-simple modal-edit-user" style="max-width: 30%;">
+        <div class="modal-content p-3 p-md-5">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="text-center mb-4">
+                    <h3 class="mb-2">{{ __('Project Info') }}</h3>
+                </div>
+                @if(session('error'))
+                    <div class="alert alert-danger">
+                        <ul class="m-auto">
+                            <li>{{ session('error') }}</li>
+                        </ul>
+                    </div>
+                @endif
+                <form action="{{ route('advertiser.projects.store') }}" method="POST">
+                    @csrf
+                    <div class="form-group mb-3">
+                        <label for="project_name">Project Name <span style="color:red;">*</span></label>
+                        <input type="text" class="form-control" id="project_name" name="project_name"
+                            placeholder="Enter Project Name" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="project_url">Project URL <span style="color:red;">*</span></label>
+                        <input type="text" class="form-control" id="project_url" name="project_url"
+                            placeholder="Enter Project URL" required>
+                    </div>
+
+                    <div class="form-group row mb-3">
+                        <label>Category <span style="color:red;">*</span></label>
+                        <div class="col-md-6">
+                            <select class="form-control" id="categories" name="categories" required>
+                                <option value="">Select a category</option>
+                                <option value="category1">Category 1</option>
+                                <option value="category2">Category 2</option>
+                                <option value="category3">Category 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-control" id="forbidden_category" name="forbidden_category" required>
+                                <option value="">Select forbidden category</option>
+                                <option value="forbidden1">Forbidden Category 1</option>
+                                <option value="forbidden2">Forbidden Category 2</option>
+                                <option value="forbidden3">Forbidden Category 3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="additional_note">Additional Note</label>
+                        <textarea class="form-control" id="additional_note" name="additional_note" rows="3"
+                            placeholder="Enter Additional Note"></textarea>
+                    </div>
+
+                    <div class="col-12 text-center mb-3">
+                        <button type="submit"
+                            class="btn btn-primary me-sm-3 me-1 waves-effect waves-light">Save</button>
+                        <button type="reset" class="btn btn-label-secondary waves-effect" data-bs-dismiss="modal"
+                            aria-label="Close">Cancel</button>
+                    </div>
+                </form>
+                @if (session('success'))
+                    <div class="alert alert-success mt-3">
+                        {{ session('success') }}
+                    </div>
+                @endif
+=======
     <div class="row text-center">
         <img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;">
         <h5>Unlock High-Quality Backlinks and Boost<br/> Traffic with a New Project</h5>
@@ -144,6 +239,7 @@
                         </div>
                     </form>
                 </div>
+>>>>>>> google-sign-in
             </div>
         </div>
     </div>
