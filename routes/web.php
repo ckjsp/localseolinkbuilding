@@ -74,8 +74,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::put('/advertiser/projects/{id}', 'projectUpdate')->name('advertiser.projects.update');
             Route::get('/advertiser/projects/{id}', 'update')->name('advertiser.projects.show');
             Route::post('/advertiser/menu', 'showMenu')->name('advertiser.menu');
-
->>>>>>> google-sign-in
         });
 
         Route::controller(PaymentController::class)->group(function () {
