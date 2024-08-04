@@ -8,6 +8,7 @@ use App\Models\lslbWebsite;
 use App\Models\lslbOrder;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use App\Models\LslbProject;
 
 class AdvertiserController extends Controller
 {
@@ -40,6 +41,15 @@ class AdvertiserController extends Controller
             return redirect('/login');
         }
     }
+
+    public function projects()
+    {
+        $data = array();
+        $data['slug'] = 'projects';
+        $data['userDetail'] = Auth::user();
+        $data['websites'] = lslbWebsite::where('status', 'approve')->get();
+        return view('advertiser/projects')->with($data);
+    }
     
     public function marketplace()
     {
@@ -59,5 +69,73 @@ class AdvertiserController extends Controller
         $data['userDetail'] = Auth::user();
         $data['websites'] = lslbWebsite::findMany($ids);
         return view('advertiser/cart')->with($data);
+    }
+    public function projectCreate()
+    {
+        return view('advertiser/home');
+    }
+    public function projectStore(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'project_name' => 'required|string|max:255',
+            'project_url' => 'required|string|max:255',
+            'categories' => 'required',
+            'forbidden_category' => 'required',
+            'additional_note' => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('advertiser.projects.create')
+                             ->withErrors($validator)
+                             ->withInput();
+        }
+
+        $validatedData = $validator->validated();
+        $project = LslbProject::create($validatedData);
+
+        return redirect()->route('advertiser.projects.show', ['id' => $project->id])
+                         ->with('success', 'Project created successfully!');
+    }
+
+    public function update($id)
+    {
+        $project = LslbProject::findOrFail($id);
+        return view('advertiser.projects', compact('project'));
+    }
+    public function projectUpdate(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'project_name' => 'required|string|max:255',
+            'project_url' => 'required|string|max:255',
+            'categories' => 'required|array',
+            'forbidden_category' => 'required|array',
+            'additional_note' => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('advertiser.projects.show', ['id' => $id])
+                            ->withErrors($validator)
+                            ->withInput();
+        }
+
+        $project = LslbProject::findOrFail($id);
+        $validatedData = $validator->validated();
+        $validatedData['categories'] = json_encode($validatedData['categories']);
+        $validatedData['forbidden_category'] = json_encode($validatedData['forbidden_category']);
+
+        $project->update($validatedData);
+
+        return redirect()->route('advertiser.projects.show', ['id' => $project->id])
+                        ->with('success', 'Project updated successfully!');
+    }
+    public function showMenu()
+    {
+        $projects = LslbProject::select('id', 'project_name')->get()->toArray();
+        
+        return response()->json([
+            'statuscode' => 200,
+            'message' => 'Projects retrieved successfully',
+            'data' => $projects
+        ], 200);
     }
 }

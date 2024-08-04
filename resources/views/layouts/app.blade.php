@@ -10,7 +10,7 @@
     <title>@yield('title')</title>
 
     <meta name="description" content="" />
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset_url('img/favicon.svg') }}" />
 
@@ -55,7 +55,7 @@
     <script src="{{ asset_url('js/config.js') }}"></script>
     <script src="{{ asset_url('js/form-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset_url('js/form-validation/additional-methods.min.js') }}"></script>
-    <script src="{{ asset_url('js/config.js') }}"></script>
+    
 </head>
 
 <body>
@@ -119,6 +119,7 @@
                 $('.nav-cart-icon').attr('data-item-count', $cartArr.length);
             }
         </script>
+        
     @endif
     @endauth
     @stack('script')
