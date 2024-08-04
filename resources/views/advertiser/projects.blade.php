@@ -1,4 +1,5 @@
 @extends('advertiser.menu')
+<<<<<<< HEAD
 @push('css')
     <link rel="stylesheet" href="{{ asset_url('libs/select2/select2.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('libs/bootstrap-select/bootstrap-select.css') }}" />
@@ -69,4 +70,23 @@
         </div>
     @endif
 </div>
+=======
+
+@section('content')
+    <div class="container">
+        <h1>Project Details</h1>
+        <div class="card">
+            <div class="card-header">
+                Project Information
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ $project->project_name }}</h5>
+                <p class="card-text">URL: {{ $project->project_url }}</p>
+                <p class="card-text">Categories: {{ $project->categories }}</p>
+                <p class="card-text">Forbidden Categories: {{ $project->forbidden_category }}</p>
+                <p class="card-text">Additional Note: {{ $project->additional_note }}</p>
+            </div>
+        </div>
+    </div>
+>>>>>>> google-sign-in
 @endsection
