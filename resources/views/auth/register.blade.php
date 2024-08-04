@@ -135,7 +135,7 @@
 
                 </form>
                 <p class="text-center">OR</p>
-                <a href="{{ route('google.login') }}" class="btn btn-primary  d-grid w-100 mb-3">Sign in with Google</a>
+                <a href="{{ route('login.google') }}" class="btn btn-primary  d-grid w-100 mb-3">Sign in with Google</a>
 
                 <p class="text-center">
                     <span>Already have an account?</span>

@@ -10,9 +10,10 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\StripePaymentController;
-// use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\ProjectController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,11 @@ use App\Http\Controllers\ProjectController;
 // });
 
 // Route::get('/admin', 'AdminController@index')->middleware('checkUserRole:admin');
+
+Auth::routes();
+
+Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/logout', [LoginController::class, 'logout']);
@@ -117,19 +123,15 @@ Route::get('/lslb-admin/login', function () {
     return view('lslbadmin.login');
 })->name('lslbadmin.login');
 
-Auth::routes(['verify' => true]);
-Route::get('auth/redirect/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
-Route::get('/callback', [GoogleController::class, 'handleGoogleCallback']);
-Route::get('/link-google', function () {
-    return view('auth.link-google');
-})->name('link-google');
-Route::post('/link-google', [GoogleController::class, 'linkGoogleAccount'])->name('link-google.post');
-
-
+// Auth::routes(['verify' => true]);
+// Route::get('auth/redirect/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+// Route::get('/callback', [GoogleController::class, 'handleGoogleCallback']);
+// Route::get('/link-google', function () {
+//     return view('auth.link-google');
+// })->name('link-google');
+// Route::post('/link-google', [GoogleController::class, 'linkGoogleAccount'])->name('link-google.post');
 
 // Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
-
-
 // Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
 // Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('payment.process');
 // Route::get('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
