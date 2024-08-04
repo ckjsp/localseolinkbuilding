@@ -8,19 +8,11 @@ use App\Models\lslbWebsite;
 use App\Models\lslbOrder;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-<<<<<<< HEAD
-use App\Models\lslbProject;
-=======
-<<<<<<< HEAD
 use App\Models\lslbProject;
 
 // Validator::extend('url', function ($attribute, $value, $parameters, $validator) {
 //     return preg_match('/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/', $value);
 // });
-=======
-use App\Models\lslbProject;
->>>>>>> google-sign-in
->>>>>>> main
 
 class AdvertiserController extends Controller
 {
@@ -56,26 +48,17 @@ class AdvertiserController extends Controller
             return redirect('/login');
         }
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> google-sign-in
     public function projects()
     {
         $data = array();
         $data['slug'] = 'projects';
         $data['userDetail'] = Auth::user();
         $data['websites'] = lslbWebsite::where('status', 'approve')->get();
-<<<<<<< HEAD
         session(['slug' => $data['slug']]);
         return view('advertiser/projects')->with($data);
     }
-
-=======
-        return view('advertiser/projects')->with($data);
-    }
     
->>>>>>> google-sign-in
     public function marketplace()
     {
         $data = array();
@@ -95,32 +78,12 @@ class AdvertiserController extends Controller
         $data['websites'] = lslbWebsite::findMany($ids);
         return view('advertiser/cart')->with($data);
     }
-<<<<<<< HEAD
-    public function projectStore(Request $request)
-    {
 
-        $request->validate([
-            'project_name' => 'required',
-            'project_url' => 'required',
-            'categories' => 'required',
-            'forbidden_category' => 'required',
-        ]);
-
-        lslbProject::create([
-
-            'project_name' => $request->input('project_name'),
-            'project_url' => $request->input('project_url'),
-            'categories' => $request->input('categories'),
-            'forbidden_category' => $request->input('forbidden_category'),
-            'additional_note' => $request->input('additional_note'),
-        ]);
-
-        return redirect()->route('advertiser.projects')->with('success', 'Project created successfully!');
-=======
     public function projectCreate()
     {
         return view('advertiser/home');
     }
+
     public function projectStore(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -149,6 +112,7 @@ class AdvertiserController extends Controller
         $project = lslbProject::findOrFail($id);
         return view('advertiser.projects', compact('project'));
     }
+
     public function projectUpdate(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
@@ -175,6 +139,7 @@ class AdvertiserController extends Controller
         return redirect()->route('advertiser.projects.show', ['id' => $project->id])
                         ->with('success', 'Project updated successfully!');
     }
+                        
     public function showMenu()
     {
         $projects = lslbProject::select('id', 'project_name')->get()->toArray();
@@ -184,6 +149,5 @@ class AdvertiserController extends Controller
             'message' => 'Projects retrieved successfully',
             'data' => $projects
         ], 200);
->>>>>>> google-sign-in
     }
 }
