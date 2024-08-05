@@ -44,11 +44,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-
-=======
-         
->>>>>>> google-sign-in
         <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card card-border-shadow-danger h-100">
                 <div class="card-body">
@@ -63,12 +58,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-
-
-=======
-        
->>>>>>> google-sign-in
         <!-- <div class="col-lg-3 col-sm-6 mb-4">
             <div class="card card-border-shadow-info h-100">
                 <div class="card-body">
