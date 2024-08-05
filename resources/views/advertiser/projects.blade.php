@@ -1,13 +1,9 @@
 @extends('advertiser.menu')
-<<<<<<< HEAD
-@push('css')
-    <link rel="stylesheet" href="{{ asset_url('libs/select2/select2.css') }}" />
-    <link rel="stylesheet" href="{{ asset_url('libs/bootstrap-select/bootstrap-select.css') }}" />
-@endpush
-@section('sidebar-content')
-<div class="container-xxl flex-grow-1 container-p-y">
-    <div class="row mb-5">
 
+@section('sidebar-content')
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row mb-3">
         <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card card-border-shadow-primary h-100">
                 <div class="card-body">
@@ -46,7 +42,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card card-border-shadow-danger h-100">
                 <div class="card-body">
@@ -61,32 +56,54 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-</div>
-=======
-
-@section('content')
-    <div class="container">
-        <h1>Project Details</h1>
+    <div class="d-flex justify-content-between my-3">
+        <h5 class="card-title">{{ $project->project_name }}</h5>
+        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
+            class="btn btn-primary w-auto">+Add Projects
+        </a>
+    </div>
+    <div class="row">
         <div class="card">
             <div class="card-header">
-                Project Information
-            </div>
-            <div class="card-body">
                 <h5 class="card-title">{{ $project->project_name }}</h5>
-                <p class="card-text">URL: {{ $project->project_url }}</p>
-                <p class="card-text">Categories: {{ $project->categories }}</p>
-                <p class="card-text">Forbidden Categories: {{ $project->forbidden_category }}</p>
-                <p class="card-text">Additional Note: {{ $project->additional_note }}</p>
+                <div class="d-flex gap-3">
+                    <p class="card-text"> {{ $project->project_url }}</p>
+                    <span> {{ $project->created_at }} </span>
+                </div>
+            </div>
+            <hr />
+            <div class="card-body">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-3 border rounded p-4 pb-0 bg-light">
+                        <div>
+                            <p>Total Backlinks built from LP</p>
+                            <h4>0</h4>
+                        </div>
+                        <div>
+                            <p>Total Paid</p>
+                            <h4>$0</h4>
+                        </div>
+                        <div>
+                            <p>Total Content Written</p>
+                            <h4>0</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center border rounded">
+                        <img src="{{ asset('img/pages/search-icon.png') }}"
+                            style="max-width: 100px;height: fit-content;">
+                        <p>Data is being prepared and will be presented here once it is ready.</p>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#" id="addcompetitorBtn"
+                            class="btn btn-primary w-auto">+Add Competitors
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
->>>>>>> google-sign-in
+</div>
+@include('advertiser.partials.createprojectmodal')
+
 @endsection

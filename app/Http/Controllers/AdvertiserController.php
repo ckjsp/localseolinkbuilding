@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use App\Models\lslbProject;
 
-// Validator::extend('url', function ($attribute, $value, $parameters, $validator) {
-//     return preg_match('/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/', $value);
-// });
+Validator::extend('url', function ($attribute, $value, $parameters, $validator) {
+    return preg_match('/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/', $value);
+});
 
 class AdvertiserController extends Controller
 {
@@ -31,6 +31,18 @@ class AdvertiserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    private function getCommonData()
+    {
+        $data = [];
+        if (Auth::check()) {
+            $data['orderCount'] = lslbOrder::where('u_id', Auth::id())->count();
+            $data['successOrderCount'] = lslbOrder::where('u_id', Auth::id())->where('payment_status', 'success')->count();
+            $data['pendingOrderCount'] = lslbOrder::where('u_id', Auth::id())->where('payment_status', 'pending')->count();
+            $data['progressingOrderCount'] = lslbOrder::where('u_id', Auth::id())->where('payment_status', 'progressing')->count();
+            $data['failedOrderCount'] = lslbOrder::where('u_id', Auth::id())->where('payment_status', 'failed')->count();
+        }
+        return $data;
+    }
     public function index($page = 'home')
     {
         $data = array();
@@ -58,7 +70,7 @@ class AdvertiserController extends Controller
         session(['slug' => $data['slug']]);
         return view('advertiser/projects')->with($data);
     }
-    
+
     public function marketplace()
     {
         $data = array();
@@ -81,14 +93,21 @@ class AdvertiserController extends Controller
 
     public function projectCreate()
     {
-        return view('advertiser/home');
+        if (!Auth::check()) {
+            return redirect('/login');
+        }
+
+        $data = $this->getCommonData();
+        //$data['project'] = lslbProject::findOrFail($id);
+        return view('advertiser/home')->with($data);
+        //return view('advertiser/home');
     }
 
     public function projectStore(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'project_name' => 'required|string|max:255',
-            'project_url' => 'required|string|max:255',
+            'project_url' => 'required|url',
             'categories' => 'required',
             'forbidden_category' => 'required',
             'additional_note' => 'nullable|string',
@@ -96,28 +115,35 @@ class AdvertiserController extends Controller
 
         if ($validator->fails()) {
             return redirect()->route('advertiser.projects.create')
-                             ->withErrors($validator)
-                             ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
 
         $validatedData = $validator->validated();
         $project = lslbProject::create($validatedData);
 
         return redirect()->route('advertiser.projects.show', ['id' => $project->id])
-                         ->with('success', 'Project created successfully!');
+            ->with('success', 'Project created successfully!');
     }
 
     public function update($id)
     {
-        $project = lslbProject::findOrFail($id);
-        return view('advertiser.projects', compact('project'));
+        // $project = lslbProject::findOrFail($id);
+        // return view('advertiser.projects', compact('project'));
+        if (!Auth::check()) {
+            return redirect('/login');
+        }
+
+        $data = $this->getCommonData();
+        $data['project'] = lslbProject::findOrFail($id);
+        return view('advertiser.projects')->with($data);
     }
 
     public function projectUpdate(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'project_name' => 'required|string|max:255',
-            'project_url' => 'required|string|max:255',
+            'project_url' => 'required|url',
             'categories' => 'required|array',
             'forbidden_category' => 'required|array',
             'additional_note' => 'nullable|string',
@@ -125,8 +151,8 @@ class AdvertiserController extends Controller
 
         if ($validator->fails()) {
             return redirect()->route('advertiser.projects.show', ['id' => $id])
-                            ->withErrors($validator)
-                            ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
 
         $project = lslbProject::findOrFail($id);
@@ -137,13 +163,13 @@ class AdvertiserController extends Controller
         $project->update($validatedData);
 
         return redirect()->route('advertiser.projects.show', ['id' => $project->id])
-                        ->with('success', 'Project updated successfully!');
+            ->with('success', 'Project updated successfully!');
     }
-                        
+
     public function showMenu()
     {
         $projects = lslbProject::select('id', 'project_name')->get()->toArray();
-        
+
         return response()->json([
             'statuscode' => 200,
             'message' => 'Projects retrieved successfully',
