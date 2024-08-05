@@ -1,6 +1,7 @@
 @extends('advertiser.menu')
 
 @section('sidebar-content')
+<link rel="stylesheet" href="{{ asset_url('libs/shepherd/shepherd.css') }}" />
 
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row mb-3">
@@ -98,6 +99,9 @@
                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#" id="addcompetitorBtn"
                             class="btn btn-primary w-auto">+Add Competitors
                         </a>
+                        <button class="btn btn-primary" id="shepherd-example">
+                            Start tour
+                        </button>
                     </div>
                 </div>
             </div>
@@ -106,4 +110,110 @@
 </div>
 @include('advertiser.partials.createprojectmodal')
 
+<script src="{{ asset_url('libs/shepherd/shepherd.js') }}"></script>
+<script>
+    const startBtn = document.querySelector('#shepherd-example');
+
+    function setupTour(tour) {
+    const backBtnClass = 'btn btn-sm btn-label-secondary md-btn-flat',
+        nextBtnClass = 'btn btn-sm btn-primary btn-next';
+    tour.addStep({
+        title: 'Navbar',
+        text: 'This is your navbar',
+        attachTo: { element: '.navbar', on: 'bottom' },
+        buttons: [
+        {
+            action: tour.cancel,
+            classes: backBtnClass,
+            text: 'Skip'
+        },
+        {
+            text: 'Next',
+            classes: nextBtnClass,
+            action: tour.next
+        }
+        ]
+    });
+    tour.addStep({
+        title: 'Card',
+        text: 'This is a card',
+        attachTo: { element: '.tour-card', on: 'top' },
+        buttons: [
+        {
+            text: 'Skip',
+            classes: backBtnClass,
+            action: tour.cancel
+        },
+        {
+            text: 'Back',
+            classes: backBtnClass,
+            action: tour.back
+        },
+        {
+            text: 'Next',
+            classes: nextBtnClass,
+            action: tour.next
+        }
+        ]
+    });
+    tour.addStep({
+        title: 'Footer',
+        text: 'This is the Footer',
+        attachTo: { element: '.footer', on: 'top' },
+        buttons: [
+        {
+            text: 'Skip',
+            classes: backBtnClass,
+            action: tour.cancel
+        },
+        {
+            text: 'Back',
+            classes: backBtnClass,
+            action: tour.back
+        },
+        {
+            text: 'Next',
+            classes: nextBtnClass,
+            action: tour.next
+        }
+        ]
+    });
+    tour.addStep({
+        title: 'About US',
+        text: 'Click here to learn about us',
+        attachTo: { element: '.footer-link', on: 'top' },
+        buttons: [
+        {
+            text: 'Back',
+            classes: backBtnClass,
+            action: tour.back
+        },
+        {
+            text: 'Finish',
+            classes: nextBtnClass,
+            action: tour.cancel
+        }
+        ]
+    });
+
+    return tour;
+    }
+
+    if (startBtn) {
+    // On start tour button click
+    startBtn.onclick = function() {
+        const tourVar = new Shepherd.Tour({
+        defaultStepOptions: {
+            scrollTo: false,
+            cancelIcon: {
+            enabled: true
+            }
+        },
+        useModalOverlay: true
+        });
+
+        setupTour(tourVar).start();
+    };
+    }
+</script>
 @endsection
