@@ -59,7 +59,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-between my-3">
-        <h5 class="card-title">{{ $project->project_name }}</h5>
+        <h5 class="card-title">{{ $projects->project_name }}</h5>
         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
             class="btn btn-primary w-auto">+Add Projects
         </a>
@@ -115,105 +115,105 @@
     const startBtn = document.querySelector('#shepherd-example');
 
     function setupTour(tour) {
-    const backBtnClass = 'btn btn-sm btn-label-secondary md-btn-flat',
-        nextBtnClass = 'btn btn-sm btn-primary btn-next';
-    tour.addStep({
-        title: 'Navbar',
-        text: 'This is your navbar',
-        attachTo: { element: '.navbar', on: 'bottom' },
-        buttons: [
-        {
-            action: tour.cancel,
-            classes: backBtnClass,
-            text: 'Skip'
-        },
-        {
-            text: 'Next',
-            classes: nextBtnClass,
-            action: tour.next
-        }
-        ]
-    });
-    tour.addStep({
-        title: 'Card',
-        text: 'This is a card',
-        attachTo: { element: '.tour-card', on: 'top' },
-        buttons: [
-        {
-            text: 'Skip',
-            classes: backBtnClass,
-            action: tour.cancel
-        },
-        {
-            text: 'Back',
-            classes: backBtnClass,
-            action: tour.back
-        },
-        {
-            text: 'Next',
-            classes: nextBtnClass,
-            action: tour.next
-        }
-        ]
-    });
-    tour.addStep({
-        title: 'Footer',
-        text: 'This is the Footer',
-        attachTo: { element: '.footer', on: 'top' },
-        buttons: [
-        {
-            text: 'Skip',
-            classes: backBtnClass,
-            action: tour.cancel
-        },
-        {
-            text: 'Back',
-            classes: backBtnClass,
-            action: tour.back
-        },
-        {
-            text: 'Next',
-            classes: nextBtnClass,
-            action: tour.next
-        }
-        ]
-    });
-    tour.addStep({
-        title: 'About US',
-        text: 'Click here to learn about us',
-        attachTo: { element: '.footer-link', on: 'top' },
-        buttons: [
-        {
-            text: 'Back',
-            classes: backBtnClass,
-            action: tour.back
-        },
-        {
-            text: 'Finish',
-            classes: nextBtnClass,
-            action: tour.cancel
-        }
-        ]
-    });
+        const backBtnClass = 'btn btn-sm btn-label-secondary md-btn-flat',
+            nextBtnClass = 'btn btn-sm btn-primary btn-next';
+        tour.addStep({
+            title: 'Navbar',
+            text: 'This is your navbar',
+            attachTo: { element: '.navbar', on: 'bottom' },
+            buttons: [
+                {
+                    action: tour.cancel,
+                    classes: backBtnClass,
+                    text: 'Skip'
+                },
+                {
+                    text: 'Next',
+                    classes: nextBtnClass,
+                    action: tour.next
+                }
+            ]
+        });
+        tour.addStep({
+            title: 'Card',
+            text: 'This is a card',
+            attachTo: { element: '.tour-card', on: 'top' },
+            buttons: [
+                {
+                    text: 'Skip',
+                    classes: backBtnClass,
+                    action: tour.cancel
+                },
+                {
+                    text: 'Back',
+                    classes: backBtnClass,
+                    action: tour.back
+                },
+                {
+                    text: 'Next',
+                    classes: nextBtnClass,
+                    action: tour.next
+                }
+            ]
+        });
+        tour.addStep({
+            title: 'Footer',
+            text: 'This is the Footer',
+            attachTo: { element: '.footer', on: 'top' },
+            buttons: [
+                {
+                    text: 'Skip',
+                    classes: backBtnClass,
+                    action: tour.cancel
+                },
+                {
+                    text: 'Back',
+                    classes: backBtnClass,
+                    action: tour.back
+                },
+                {
+                    text: 'Next',
+                    classes: nextBtnClass,
+                    action: tour.next
+                }
+            ]
+        });
+        tour.addStep({
+            title: 'About US',
+            text: 'Click here to learn about us',
+            attachTo: { element: '.footer-link', on: 'top' },
+            buttons: [
+                {
+                    text: 'Back',
+                    classes: backBtnClass,
+                    action: tour.back
+                },
+                {
+                    text: 'Finish',
+                    classes: nextBtnClass,
+                    action: tour.cancel
+                }
+            ]
+        });
 
-    return tour;
+        return tour;
     }
 
     if (startBtn) {
-    // On start tour button click
-    startBtn.onclick = function() {
-        const tourVar = new Shepherd.Tour({
-        defaultStepOptions: {
-            scrollTo: false,
-            cancelIcon: {
-            enabled: true
-            }
-        },
-        useModalOverlay: true
-        });
+        // On start tour button click
+        startBtn.onclick = function () {
+            const tourVar = new Shepherd.Tour({
+                defaultStepOptions: {
+                    scrollTo: false,
+                    cancelIcon: {
+                        enabled: true
+                    }
+                },
+                useModalOverlay: true
+            });
 
-        setupTour(tourVar).start();
-    };
+            setupTour(tourVar).start();
+        };
     }
 </script>
 @endsection

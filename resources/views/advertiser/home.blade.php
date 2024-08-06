@@ -1,9 +1,9 @@
 @extends('advertiser.menu')
 
 @section('sidebar-content')
+<link rel="stylesheet" href="{{ asset_url('libs/shepherd/shepherd.css') }}" />
 <!-- Content -->
-
-<div class="container-xxl flex-grow-1 container-p-y">
+<div class="container-xxl flex-grow-1 container-p-y pt-5 mt-5">
     <div class="row mb-5">
 
         <div class="col-lg-4 col-sm-6 mb-4">
@@ -77,36 +77,195 @@
         </div> -->
 
     </div>
-    <div class="row text-center justify-content-center">
-        <img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;">
-        <h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5>
-        <p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting
-            campaigns.</p>
-        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
-            class="btn btn-primary w-auto">+Add Projects
-        </a>
-    </div>
-    @include('advertiser.partials.createprojectmodal')
-</div>
-<!--/ Content -->
-
-<!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Advertiser Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+    @if($projects->isEmpty())
+        <div class="row text-center justify-content-center">
+            <img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;">
+            <h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5>
+            <p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting
+                campaigns.</p>
+            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
+                class="btn btn-primary w-auto">+Add Projects
+            </a>
+        </div>
+    @else
+        <div class="d-flex justify-content-between my-3">
+            <h5 class="card-title" id="selected-project-name">
+                Select a project
+            </h5>
+            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
+                class="btn btn-primary w-auto">+Add Projects
+            </a>
+            <button class="btn btn-primary" id="shepherd-example">
+                Start tour
+            </button>
+        </div>
+        @foreach($projects as $project)
+            <div class="row mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">{{ $project->project_name }}</h5>
+                        <div class="d-flex gap-3">
+                            <p class="card-text"> {{ $project->project_url }}</p>
+                            <span> {{ $project->created_at }} </span>
                         </div>
-                    @endif
+                    </div>
+                    <hr />
+                    <div class="card-body">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-md-3 border rounded p-4 pb-0 bg-light">
+                                <div>
+                                    <p>Total Backlinks built from LP</p>
+                                    <h4>0</h4>
+                                </div>
+                                <div>
+                                    <p>Total Paid</p>
+                                    <h4>$0</h4>
+                                </div>
+                                <div>
+                                    <p>Total Content Written</p>
+                                    <h4>0</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-flex align-items-center border rounded">
+                                <img src="{{ asset('img/pages/search-icon.png') }}"
+                                    style="max-width: 100px;height: fit-content;">
+                                <p>Data is being prepared and will be presented here once it is ready.</p>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#" id="addcompetitorBtn"
+                                    class="btn btn-primary w-auto">+Add Competitors
+                                </a>
 
-                    {{ __('You are logged in!') }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div> -->
+        @endforeach
+    @endif
+    @include('advertiser.partials.createprojectmodal')
+</div>
+
+<script src="{{ asset_url('libs/shepherd/shepherd.js') }}"></script>
+@if (session('project_created'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const startBtn = document.querySelector('#shepherd-example');
+
+            function setupTour(tour) {
+                const backBtnClass = 'btn btn-sm btn-label-secondary md-btn-flat',
+                    nextBtnClass = 'btn btn-sm btn-primary btn-next';
+                tour.addStep({
+                    title: 'Navbar',
+                    text: "Add Projects to check Which orders belong to </br>which client, stayorganized, and effortlessly </br> keep track of progress and spending. It's straightforward!",
+                    attachTo: { element: '#hover-dropdown-demo', on: 'bottom' },
+                    buttons: [
+                        {
+                            action: tour.cancel,
+                            classes: backBtnClass,
+                            text: 'Skip'
+                        },
+                        {
+                            text: 'Next',
+                            classes: nextBtnClass,
+                            action: tour.next,
+                        }
+                    ]
+                });
+                tour.addStep({
+                    title: 'Card',
+                    text: 'This is a card',
+                    attachTo: { element: '.tour-card', on: 'top' },
+                    buttons: [
+                        {
+                            text: 'Skip',
+                            classes: backBtnClass,
+                            action: tour.cancel
+                        },
+                        {
+                            text: 'Back',
+                            classes: backBtnClass,
+                            action: tour.back
+                        },
+                        {
+                            text: 'Next',
+                            classes: nextBtnClass,
+                            action: tour.next
+                        }
+                    ]
+                });
+                tour.addStep({
+                    title: 'Footer',
+                    text: 'This is the Footer',
+                    attachTo: { element: '.footer', on: 'top' },
+                    buttons: [
+                        {
+                            text: 'Skip',
+                            classes: backBtnClass,
+                            action: tour.cancel
+                        },
+                        {
+                            text: 'Back',
+                            classes: backBtnClass,
+                            action: tour.back
+                        },
+                        {
+                            text: 'Next',
+                            classes: nextBtnClass,
+                            action: tour.next
+                        }
+                    ]
+                });
+                tour.addStep({
+                    title: 'About US',
+                    text: 'Click here to learn about us',
+                    attachTo: { element: '.footer-link', on: 'top' },
+                    buttons: [
+                        {
+                            text: 'Back',
+                            classes: backBtnClass,
+                            action: tour.back
+                        },
+                        {
+                            text: 'Finish',
+                            classes: nextBtnClass,
+                            action: tour.cancel
+                        }
+                    ]
+                });
+
+                return tour;
+            }
+
+            if (startBtn) {
+                // On start tour button click
+                startBtn.onclick = function () {
+                    const tourVar = new Shepherd.Tour({
+                        defaultStepOptions: {
+                            scrollTo: false,
+                            cancelIcon: {
+                                enabled: true
+                            }
+                        },
+                        useModalOverlay: true
+                    });
+
+                    setupTour(tourVar).start();
+                };
+                // Automatically start the tour if the session variable is set
+                const tourVar = new Shepherd.Tour({
+                    defaultStepOptions: {
+                        scrollTo: false,
+                        cancelIcon: {
+                            enabled: true
+                        }
+                    },
+                    useModalOverlay: true
+                });
+
+                setupTour(tourVar).start();
+            }
+        });
+    </script>
+@endif
 @endsection
