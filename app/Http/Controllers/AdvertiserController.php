@@ -52,9 +52,16 @@ class AdvertiserController extends Controller
             $data['pendingOrderCount'] = lslbOrder::where('u_id', Auth::user()->id)->where('payment_status', 'pending')->count();
             $data['progressingOrderCount'] = lslbOrder::where('u_id', Auth::user()->id)->where('payment_status', 'progressing')->count();
             $data['failedOrderCount'] = lslbOrder::where('u_id', Auth::user()->id)->where('payment_status', 'failed')->count();
-            if ($page === 'projects') {
-                return view('advertiser.projects')->with($data);
-            }
+            $projects = lslbProject::all();
+            $selectedProjectId = session('selected_project_id', $projects->first()->id ?? null);
+            $selectedProject = $projects->where('id', $selectedProjectId)->first();
+            $projects = $projects->filter(function ($project) use ($selectedProjectId) {
+                return $project->id !== $selectedProjectId;
+            })->prepend($selectedProject);
+
+            $data['projects'] = $projects;
+            $data['selectedProject'] = $selectedProject;
+
             return view('advertiser/home')->with($data);
         } else {
             return redirect('/login');
@@ -120,9 +127,10 @@ class AdvertiserController extends Controller
         }
 
         $validatedData = $validator->validated();
-        $project = lslbProject::create($validatedData);
+        $projects = lslbProject::create($validatedData);
+        session()->flash('project_created', true);
 
-        return redirect()->route('advertiser.projects.show', ['id' => $project->id])
+        return redirect()->route('advertiser.projects')
             ->with('success', 'Project created successfully!');
     }
 
@@ -175,5 +183,30 @@ class AdvertiserController extends Controller
             'message' => 'Projects retrieved successfully',
             'data' => $projects
         ], 200);
+    }
+    public function getProjectName(Request $request)
+    {
+        $projectId = $request->input('id');
+        $project = lslbProject::find($projectId);
+
+        if ($project) {
+            session(['selected_project_id' => $projectId]);
+            return response()->json([
+                'success' => true,
+                'project_name' => $project->project_name
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'error' => 'Project not found'
+            ]);
+        }
+    }
+    public function setSelectedProject(Request $request)
+    {
+        $selectedProjectId = $request->input('selected_project_id');
+        session(['selected_project_id' => $selectedProjectId]);
+
+        return response()->json(['success' => true]);
     }
 }

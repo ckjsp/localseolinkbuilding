@@ -33,9 +33,9 @@
             <!-- Project List -->
             <li id="hover-dropdown-demo"
                 class="menu-item {{ (isset($slug) && $slug == 'projects') ? 'active' : '' }} dropdown">
-                <a href="#" type="button" class="dropdown-toggle menu-link active" aria-expanded="false">
+                <div type="button" class="dropdown-toggle menu-link active" aria-expanded="false">
                     <div data-i18n="Projects">Projects</div>
-                </a>
+                </div>
                 <ul class="dropdown-menu" id="projects-menu" style="display: none;">
                 </ul>
             </li>
@@ -73,28 +73,72 @@
     <script>
         $(document).ready(function () {
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                url: "{{ route('advertiser.menu') }}",
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                success: function (response) {
+                    var projectsMenu = $('#projects-menu');
+                    projectsMenu.empty();
+                    if (response.data.length > 0) {
+                        var selectedProjectId = "{{ session('selected_project_id') }}";
+                        var firstProject = response.data[0];
+                        var selectedProject = selectedProjectId ? response.data.find(project => project.id == selectedProjectId) : firstProject;
+                        var selectedProjectName = selectedProject ? selectedProject.project_name : firstProject.project_name;
 
-            if ($('#projects-menu').children().length === 0) {
-                $.ajax({
-                    url: "{{ route('advertiser.menu') }}",
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': csrfToken // Add the CSRF token to the request headers
-                    },
-                    success: function (response) {
-                        var projectsMenu = $('#projects-menu');
-                        projectsMenu.empty(); // Clear any existing content
 
+                        //var selectedProjectName = firstProject.project_name;
+                        $('#selected-project-name').text(selectedProjectName);
+                        $('#hover-dropdown-demo .dropdown-toggle div').text(selectedProjectName);
                         $.each(response.data, function (index, project) {
-                            var projectItem = '<li class="menu-item"><a class="menu-link" href="/advertiser/projects/' + project.id + '">' + project.project_name + '</a></li>';
+                            var projectItem = '<li class="menu-item"><a class="menu-link" href="#" data-project-id="' + project.id + '">' + project.project_name + '</a></li>';
                             projectsMenu.append(projectItem);
                         });
+                    }
+                },
+                error: function (xhr) {
+                    console.error('Error fetching projects:', xhr);
+                }
+            });
+            // project click event - update the selected project name
+            $(document).on('click', '#projects-menu .menu-link', function (e) {
+                e.preventDefault();
+                var projectId = $(this).data('project-id');
+
+                $.ajax({
+                    url: "{{ route('advertiser.project.name') }}",
+                    method: 'GET',
+                    data: { id: projectId },
+                    success: function (response) {
+                        if (response.success) {
+                            $('#selected-project-name').text(response.project_name);
+                            $('#hover-dropdown-demo .dropdown-toggle div').text(response.project_name);
+                            $.ajax({
+                                url: "{{ route('advertiser.set.selected.project') }}",
+                                method: 'POST',
+                                data: {
+                                    _token: csrfToken,
+                                    selected_project_id: projectId
+                                },
+                                success: function (res) {
+                                    console.log('Selected project ID stored in session');
+                                    location.reload(); // Reload the page to show the selected project
+                                },
+                                error: function (xhr) {
+                                    console.error('Error storing selected project ID:', xhr);
+                                }
+                            });
+                        } else {
+                            console.error('Error retrieving project name:', response.error);
+                        }
                     },
                     error: function (xhr) {
-                        console.error('Error fetching projects:', xhr);
+                        console.error('Error fetching project name:', xhr);
                     }
                 });
-            }
+            });
             $('#hover-dropdown-demo .dropdown-toggle').on('click', function (e) {
                 e.preventDefault(); // Prevent default link behavior
                 $(this).toggleClass('active');
