@@ -52,12 +52,17 @@ class AdvertiserController extends Controller
             $data['pendingOrderCount'] = lslbOrder::where('u_id', Auth::user()->id)->where('payment_status', 'pending')->count();
             $data['progressingOrderCount'] = lslbOrder::where('u_id', Auth::user()->id)->where('payment_status', 'progressing')->count();
             $data['failedOrderCount'] = lslbOrder::where('u_id', Auth::user()->id)->where('payment_status', 'failed')->count();
-            $projects = lslbProject::all();
+
+            $userId = Auth::user()->id;
+            //$projects = lslbProject::all();
+            $projects = lslbProject::where('user_id', $userId)->get();
             $selectedProjectId = session('selected_project_id', $projects->first()->id ?? null);
             $selectedProject = $projects->where('id', $selectedProjectId)->first();
-            $projects = $projects->filter(function ($project) use ($selectedProjectId) {
-                return $project->id !== $selectedProjectId;
-            })->prepend($selectedProject);
+            if ($selectedProject) {
+                $projects = $projects->filter(function ($project) use ($selectedProjectId) {
+                    return $project->id !== $selectedProjectId;
+                })->prepend($selectedProject);
+            }
 
             $data['projects'] = $projects;
             $data['selectedProject'] = $selectedProject;
@@ -119,18 +124,18 @@ class AdvertiserController extends Controller
             'forbidden_category' => 'required',
             'additional_note' => 'nullable|string',
         ]);
-
         if ($validator->fails()) {
             return redirect()->route('advertiser.projects.create')
                 ->withErrors($validator)
                 ->withInput();
         }
-
         $validatedData = $validator->validated();
-        $projects = lslbProject::create($validatedData);
-        session()->flash('project_created', true);
+        $validatedData['user_id'] = Auth::user()->id;
+        lslbProject::create($validatedData);
+        // session()->flash('project_created', true);
 
-        return redirect()->route('advertiser.projects')
+        cookie()->queue(cookie()->forever('new_project_created', true));
+        return redirect()->route('advertiser.projects.store')
             ->with('success', 'Project created successfully!');
     }
 
@@ -176,7 +181,8 @@ class AdvertiserController extends Controller
 
     public function showMenu()
     {
-        $projects = lslbProject::select('id', 'project_name')->get()->toArray();
+        $userId = Auth::id();
+        $projects = lslbProject::select('id', 'project_name')->where('user_id', $userId)->get()->toArray();
 
         return response()->json([
             'statuscode' => 200,

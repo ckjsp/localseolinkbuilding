@@ -11,6 +11,7 @@ class lslbProject extends Model
     protected $table = 'lslb_project';
 
     protected $fillable = [
+        'user_id',
         'project_name',
         'project_url',
         'categories',

@@ -1,6 +1,7 @@
 @extends('advertiser.menu')
 
 @section('sidebar-content')
+
 <link rel="stylesheet" href="{{ asset_url('libs/shepherd/shepherd.css') }}" />
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y pt-5 mt-5">
