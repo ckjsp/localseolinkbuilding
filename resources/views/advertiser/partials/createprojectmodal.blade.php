@@ -16,17 +16,17 @@
                 <form method="POST" action="{{ route('advertiser.projects.store') }}" class="needs-validation"
                     id="user-update-form" novalidate enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="project_name">Project Name</label>
                         <input type="text" name="project_name" id="project_name" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="project_url">Project URL</label>
                         <input type="text" name="project_url" id="project_url" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="categories">Categories</label>
                         <select name="categories" id="categories" class="form-control" required>
                             <option value="category1">Category 1</option>
