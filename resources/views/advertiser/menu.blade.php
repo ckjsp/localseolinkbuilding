@@ -68,6 +68,7 @@
 </aside>
 <!-- / Menu -->
 @yield('sidebar-content')
+@include('advertiser.partials.createprojectmodal')
 @endsection
 @push('script')
     <script>
