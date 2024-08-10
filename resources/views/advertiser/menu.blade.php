@@ -95,7 +95,7 @@
                         $('#hover-dropdown-demo .dropdown-toggle div').text(selectedProjectName);
                         $.each(response.data, function (index, project) {
                             // var projectItem = '<li class="menu-item"><a class="menu-link" href="#" data-project-id="' + project.id + '">' + project.project_name + '</a></li>';
-                            var projectItem = `<li class="menu-item d-flex flex-row align-items-center justify-content-between"><a class="menu-link" href="#" data-project-id="${project.id}">${project.project_name}</a><span><button type="button" class="btn p-0 edit-btn text-info" data-bs-toggle="modal" data-bs-target="#add-projects-pop" data-project-id="${project.id}" data-project-name="${project.project_name}"><i class="ti ti-pencil me-1"></i></button><button type="button" class="btn p-0 delete-btn text-danger" data-project-id="${project.id}"><i class="ti ti-trash me-1"></i></button></span></li>`;
+                            var projectItem = `<li class="menu-item d-flex flex-row align-items-center justify-content-between"><a class="menu-link" href="#" data-project-id="${project.id}">${project.project_name}</a><span><button type="button" class="btn p-0 edit-btn edit-btn-project text-info" data-bs-toggle="modal" data-bs-target="#add-projects-pop" data-project-id="${project.id}" data-project-name="${project.project_name}"><i class="ti ti-pencil me-1"></i></button><button type="button" class="btn p-0 delete-btn text-danger" data-project-id="${project.id}"><i class="ti ti-trash me-1"></i></button></span></li>`;
                             projectsMenu.append(projectItem);
                         });
                     }
@@ -153,6 +153,22 @@
                     $('#hover-dropdown-demo .dropdown-toggle').removeClass('active');
                     $('#hover-dropdown-demo .dropdown-menu').hide();
                 }
+            });
+            $(document).on('click', '.edit-btn-project', function () {
+                var projectId = $(this).data('project-id');
+                var editUrl = `{{ route('advertiser.projects.edit', ':id') }}`.replace(':id', projectId);
+
+                $.ajax({
+                    url: editUrl,
+                    type: 'GET',
+                    success: function (data) {
+                        $('#project-name').val(data.project_name);
+                        $('#project-form').attr('action', `{{ route('advertiser.projects.update', ':id') }}`.replace(':id', projectId));
+                    },
+                    error: function (error) {
+                        console.error('Error:', error);
+                    }
+                });
             });
         });
     </script>

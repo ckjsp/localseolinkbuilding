@@ -78,7 +78,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/advertiser/projects', 'projectCreate')->name('advertiser.projects.create');
             Route::post('/advertiser/projects', 'projectStore')->name('advertiser.projects.store');
             Route::put('/advertiser/projects/{id}', 'projectUpdate')->name('advertiser.projects.update');
-            Route::get('/advertiser/projects/{id}', 'update')->name('advertiser.projects.show');
+            Route::get('/advertiser/projects/{id}/edit', 'projectEdit')->name('advertiser.projects.edit');
             Route::post('/advertiser/menu', 'showMenu')->name('advertiser.menu');
             Route::get('/advertiser/project/name', 'getProjectName')->name('advertiser.project.name');
             Route::post('/advertiser/set-selected-project', 'setSelectedProject')->name('advertiser.set.selected.project');

@@ -139,44 +139,35 @@ class AdvertiserController extends Controller
             ->with('success', 'Project created successfully!');
     }
 
-    public function update($id)
+    public function projectEdit($id)
     {
-        // $project = lslbProject::findOrFail($id);
-        // return view('advertiser.projects', compact('project'));
-        if (!Auth::check()) {
-            return redirect('/login');
-        }
-
-        $data = $this->getCommonData();
-        $data['project'] = lslbProject::findOrFail($id);
-        return view('advertiser.projects')->with($data);
+        $project = lslbProject::find($id);
+        return response()->json($project);
     }
 
     public function projectUpdate(Request $request, $id)
     {
+        $project = lslbProject::find($id);
+        if (!$project) {
+            abort(404); // Handle not found gracefully
+        }
         $validator = Validator::make($request->all(), [
             'project_name' => 'required|string|max:255',
             'project_url' => 'required|url',
-            'categories' => 'required|array',
-            'forbidden_category' => 'required|array',
+            'categories' => 'required',
+            'forbidden_category' => 'required',
             'additional_note' => 'nullable|string',
         ]);
-
         if ($validator->fails()) {
-            return redirect()->route('advertiser.projects.show', ['id' => $id])
+            return redirect()->route('advertiser.projects.edit')
                 ->withErrors($validator)
                 ->withInput();
         }
-
-        $project = lslbProject::findOrFail($id);
         $validatedData = $validator->validated();
-        $validatedData['categories'] = json_encode($validatedData['categories']);
-        $validatedData['forbidden_category'] = json_encode($validatedData['forbidden_category']);
-
+        $validatedData['user_id'] = Auth::user()->id;
         $project->update($validatedData);
 
-        return redirect()->route('advertiser.projects.show', ['id' => $project->id])
-            ->with('success', 'Project updated successfully!');
+        return redirect()->route('advertiser/home')->with('success', 'Project updated successfully');
     }
 
     public function showMenu()

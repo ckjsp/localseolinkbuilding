@@ -1,7 +1,10 @@
 @extends('advertiser.menu')
 
 @section('sidebar-content')
-
+@push('css')
+    <link rel="stylesheet" href="{{ asset_url('libs/select2/select2.css') }}" />
+    <link rel="stylesheet" href="{{ asset_url('libs/bootstrap-select/bootstrap-select.css') }}" />
+@endpush
 <link rel="stylesheet" href="{{ asset_url('libs/shepherd/shepherd.css') }}" />
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y pt-5 mt-5">
@@ -148,6 +151,16 @@
 </div>
 
 <script src="{{ asset_url('libs/shepherd/shepherd.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        $('#projectCategories').select2();
+        $(document).on('click', '#addprojectBtn', function () {
+            $('#project-form')[0].reset();
+            $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
+            $('input[name="project_id"]').val('');
+        });
+    });
+</script>
 @if (session('project_created'))
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -267,6 +280,12 @@
                 setupTour(tourVar).start();
             }
         });
+
     </script>
 @endif
 @endsection
+@push('script')
+    <script src="{{ asset_url('libs/bootstrap-select/bootstrap-select.js') }}"></script>
+    <script src="{{ asset_url('libs/select2/select2.js') }}"></script>
+    <script src="{{ asset_url('js/forms-selects.js') }}"></script>
+@endpush
