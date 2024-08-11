@@ -120,55 +120,96 @@ class AdvertiserController extends Controller
         $validator = Validator::make($request->all(), [
             'project_name' => 'required|string|max:255',
             'project_url' => 'required|url',
-            'categories' => 'required',
-            'forbidden_category' => 'required',
+            'projectCategories' => 'required|array',
+            'projectForbiddenCategories' => 'required|array',
             'additional_note' => 'nullable|string',
         ]);
+    
         if ($validator->fails()) {
             return redirect()->route('advertiser.projects.create')
                 ->withErrors($validator)
                 ->withInput();
         }
-        $validatedData = $validator->validated();
-        $validatedData['user_id'] = Auth::user()->id;
-        lslbProject::create($validatedData);
-        // session()->flash('project_created', true);
+    
+        try {
+            $validatedData = $validator->validated();
+    
+            $user_id = Auth::user()->id;
+            $data = [
+                'user_id' => $user_id,
+                'project_name' => $validatedData['project_name'],
+                'project_url' => $validatedData['project_url'],
+                'categories' => serialize($validatedData['projectCategories']),
+                'forbidden_category' => serialize($validatedData['projectForbiddenCategories']),
+                'additional_note' => $validatedData['additional_note'],
+            ];
+    
+            $result = lslbProject::create($data);
+            // session()->flash('project_created', true);
 
-        cookie()->queue(cookie()->forever('new_project_created', true));
-        return redirect()->route('advertiser.projects.store')
-            ->with('success', 'Project created successfully!');
+            cookie()->queue(cookie()->forever('new_project_created', true));
+    
+            // Return a success response
+            return redirect()->route('advertiser.projects.store')
+                ->with('success', 'Project created successfully!');
+        } catch (\Exception $e) {
+            return redirect()->route('advertiser.projects.create')
+                ->with('error', 'Failed to create project. Please try again later.')
+                ->withInput();
+        }
     }
+    
 
     public function projectEdit($id)
     {
-        $project = lslbProject::find($id);
-        return response()->json($project);
+        $getProjectDetail = lslbProject::find($id);
+        $getProjectDetail->categories = unserialize($getProjectDetail->categories);
+        $getProjectDetail->forbidden_category = unserialize($getProjectDetail->forbidden_category);
+
+        return response()->json($getProjectDetail);
     }
 
     public function projectUpdate(Request $request, $id)
     {
-        $project = lslbProject::find($id);
-        if (!$project) {
-            abort(404); // Handle not found gracefully
+        if (isset($id)) {
+            $validator = Validator::make($request->all(), [
+                'project_name' => 'required|string|max:255',
+                'project_url' => 'required|url',
+                'projectCategories' => 'required|array',
+                'projectForbiddenCategories' => 'required|array',
+                'additional_note' => 'nullable|string',
+            ]);
+    
+            if ($validator->fails()) {
+                return redirect()->route('advertiser')
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+    
+            try {
+                $validatedData = $validator->validated();
+    
+                $project = lslbProject::findOrFail($id);
+    
+                $project->update([
+                    'project_name' => $validatedData['project_name'],
+                    'project_url' => $validatedData['project_url'],
+                    'categories' => serialize($validatedData['projectCategories']),
+                    'forbidden_category' => serialize($validatedData['projectForbiddenCategories']),
+                    'additional_note' => $validatedData['additional_note'],
+                ]);
+    
+                return redirect()->route('advertiser')->with('success', 'Project updated successfully');
+            } catch (\Exception $e) {
+                return redirect()->route('advertiser')
+                    ->with('error', 'Failed to update project. Please try again later.')
+                    ->withInput();
+            }
         }
-        $validator = Validator::make($request->all(), [
-            'project_name' => 'required|string|max:255',
-            'project_url' => 'required|url',
-            'categories' => 'required',
-            'forbidden_category' => 'required',
-            'additional_note' => 'nullable|string',
-        ]);
-        if ($validator->fails()) {
-            return redirect()->route('advertiser.projects.edit')
-                ->withErrors($validator)
-                ->withInput();
-        }
-        $validatedData = $validator->validated();
-        $validatedData['user_id'] = Auth::user()->id;
-        $project->update($validatedData);
-
-        return redirect()->route('advertiser/home')->with('success', 'Project updated successfully');
+    
+        return redirect()->route('advertiser')->with('error', 'Project ID is missing.');
     }
+    
 
     public function showMenu()
     {

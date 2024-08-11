@@ -20,6 +20,8 @@ class lslbProject extends Model
     ];
 
     protected $casts = [
+        'categories' => 'array',
+        'forbidden_category' => 'array',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];

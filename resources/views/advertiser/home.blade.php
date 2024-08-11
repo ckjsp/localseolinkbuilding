@@ -154,10 +154,13 @@
 <script>
     $(document).ready(function () {
         $('#projectCategories').select2();
+        $('#projectForbiddenCategories').select2();
         $(document).on('click', '#addprojectBtn', function () {
             $('#project-form')[0].reset();
-            $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
             $('input[name="project_id"]').val('');
+            $('#projectCategories').val(null).trigger('change');
+            $('#projectForbiddenCategories').val(null).trigger('change');
+            $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
         });
     });
 </script>

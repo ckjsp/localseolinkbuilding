@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->string('project_name');
             $table->char('project_url', 255);
-            $table->longText('categories');
-            $table->longText('forbidden_category');
+            $table->json('categories');
+            $table->json('forbidden_category');
             $table->text('additional_note')->nullable();
             $table->timestamps();
         });

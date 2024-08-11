@@ -157,13 +157,21 @@
             $(document).on('click', '.edit-btn-project', function () {
                 var projectId = $(this).data('project-id');
                 var editUrl = `{{ route('advertiser.projects.edit', ':id') }}`.replace(':id', projectId);
-
+                
                 $.ajax({
                     url: editUrl,
                     type: 'GET',
                     success: function (data) {
-                        $('#project-name').val(data.project_name);
+                        // Bind data to form fields
+                        $('#project_id').val(data.id);
+                        $('#project_name').val(data.project_name);
+                        $('#project_url').val(data.project_url);
+                        $('#projectCategories').val(data.categories).trigger('change');
+                        $('#projectForbiddenCategories').val(data.forbidden_category).trigger('change');
+                        $('#additional_note').val(data.additional_note);
                         $('#project-form').attr('action', `{{ route('advertiser.projects.update', ':id') }}`.replace(':id', projectId));
+                        $('#project-form').find('input[name="_method"]').remove();
+                        $('#project-form').append('<input type="hidden" name="_method" value="PUT">');
                     },
                     error: function (error) {
                         console.error('Error:', error);

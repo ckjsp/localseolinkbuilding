@@ -15,8 +15,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('project_name', 255);
             $table->char('project_url', 255);
-            $table->longText('categories');
-            $table->longText('forbidden_category');
+            $table->json('categories');
+            $table->json('forbidden_category');
             $table->text('additional_note')->nullable();
             $table->timestamps();
         });
