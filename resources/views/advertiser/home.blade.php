@@ -4,6 +4,8 @@
 @push('css')
     <link rel="stylesheet" href="{{ asset_url('libs/select2/select2.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('libs/bootstrap-select/bootstrap-select.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('libs/toastr/toastr.css') }}">
+
 @endpush
 <link rel="stylesheet" href="{{ asset_url('libs/shepherd/shepherd.css') }}" />
 <!-- Content -->
@@ -99,12 +101,10 @@
             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
                 class="btn btn-primary w-auto">+Add Projects
             </a>
-            <button class="btn btn-primary" id="shepherd-example">
-                Start tour
-            </button>
+            <button id="shepherd-example">Start Tour</button>
         </div>
         @foreach($projects as $project)
-            <div class="row mb-3">
+            <div class="row mb-3" id="project-card-{{ $project->id }}">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">{{ $project->project_name }}</h5>
@@ -149,8 +149,12 @@
     @endif
     @include('advertiser.partials.createprojectmodal')
 </div>
-
+<style>
+    #projectCategories ~.select2 .select2-search__field{ width: 100% !important; }
+</style>
 <script src="{{ asset_url('libs/shepherd/shepherd.js') }}"></script>
+<script src=" {{ asset_url('libs/toastr/toastr.js') }}"></script>
+<script src="{{ asset('js/projects.js') }}"></script>
 <script>
     $(document).ready(function () {
         $('#projectCategories').select2();
@@ -162,11 +166,92 @@
             $('#projectForbiddenCategories').val(null).trigger('change');
             $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
         });
+        $(document).on('submit', '#project-form', function(e) {
+            e.preventDefault(); 
+
+            var form = $(this);
+            var formData = new FormData(form[0]);
+
+            $.ajax({
+                url: form.attr('action'),
+                type: form.attr('method'),
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log('response', response);
+                    if (response.status == 1) { 
+                        var success = response.message; 
+                        localStorage.setItem('showProjectTour', 'true');
+                        $('#project-form').prev('.alert.alert-danger').remove();
+                        $('#add-projects-pop').modal('hide'); 
+                        toastr.success(success, 'Success!', {
+                            closeButton: true,
+                            progressBar: true,
+                            positionClass: 'toast-top-right'
+                        });
+                        loadProjectsMenu();
+                    } else if (response.status == 0) { 
+                        var errors = response.message; 
+                        var errorHtml = '<div class="alert alert-danger">';
+                        for (var key in errors) {
+                            if (errors.hasOwnProperty(key)) {
+                                var errorMessages = errors[key];
+                                errorMessages.forEach(function(message) {
+                                    errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
+                                });
+                            }
+                        }
+                        errorHtml += '</div>';
+                        $('#project-form').before(errorHtml);
+                        setTimeout(function () {
+                            $('#project-form').prev('.alert.alert-danger').remove();
+                        }, 2500);
+                    }
+                },
+                error: function(xhr) {
+                    console.log('xhr', xhr);
+                    if (xhr.responseJSON) {
+                        var response = xhr.responseJSON;
+                        console.log('responseJSON', response);
+                        if (response.status === '0') { 
+                                var errors = response.errors;
+                                var errorHtml = '<div class="alert alert-danger">';
+
+                                // Loop through each error and append it to the errorHtml string
+                                for (var key in errors) {
+                                    if (errors.hasOwnProperty(key)) {
+                                        var errorMessages = errors[key];
+                                        errorMessages.forEach(function(message) {
+                                            errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
+                                        });
+                                    }
+                                }
+                            errorHtml += '</div>';
+                            $('#project-form').before(errorHtml);
+                            setTimeout(function () {
+                                $('#project-form').prev('.alert.alert-danger').remove();
+                            }, 2500);
+                        } else {
+                            console.log("Error: responseJSON is undefined");
+                        }
+                    } else {
+                        console.log("Error: responseJSON is undefined");
+                    }
+                }
+            });
+        });
+
+        // Clear error messages when modal is opened
+        $('#add-projects-pop').on('show.bs.modal', function () {
+            $('#project-form').find('.invalid-feedback').remove();
+            $('#project-form').find('.is-invalid').removeClass('is-invalid');
+        });
     });
 </script>
-@if (session('project_created'))
+{{-- @if (session('project_created') && !isset($_COOKIE['project_tour_completed'])) --}}
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () { 
             const startBtn = document.querySelector('#shepherd-example');
 
             function setupTour(tour) {
@@ -174,7 +259,7 @@
                     nextBtnClass = 'btn btn-sm btn-primary btn-next';
                 tour.addStep({
                     title: 'Navbar',
-                    text: "Add Projects to check Which orders belong to </br>which client, stayorganized, and effortlessly </br> keep track of progress and spending. It's straightforward!",
+                    text: "Add Projects to check Which orders belong to </br>which client, stay organized, and effortlessly </br> keep track of progress and spending. It's straightforward!",
                     attachTo: { element: '#hover-dropdown-demo', on: 'bottom' },
                     buttons: [
                         {
@@ -192,7 +277,16 @@
                 tour.addStep({
                     title: 'Card',
                     text: 'This is a card',
-                    attachTo: { element: '.tour-card', on: 'top' },
+                    attachTo: { element: '.project-list', on: 'top' }, 
+                    beforeShowPromise: function () {
+                        return new Promise(function (resolve) {
+                            const projectList = document.querySelector('.project-list');
+                            if (projectList) {
+                                projectList.style.display = 'block';
+                            }
+                            resolve();
+                        });
+                    },
                     buttons: [
                         {
                             text: 'Skip',
@@ -254,6 +348,10 @@
                 return tour;
             }
 
+            function saveTourCookie() {
+                document.cookie = "project_tour_completed=true; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+            }
+
             if (startBtn) {
                 // On start tour button click
                 startBtn.onclick = function () {
@@ -267,8 +365,16 @@
                         useModalOverlay: true
                     });
 
-                    setupTour(tourVar).start();
+                    // Setup and start tour
+                    const tour = setupTour(tourVar);
+                    //alert();
+                    // Save the cookie when the tour is closed or finished
+                    tour.on('cancel', saveTourCookie);
+                    tour.on('complete', saveTourCookie);
+
+                    tour.start();
                 };
+
                 // Automatically start the tour if the session variable is set
                 const tourVar = new Shepherd.Tour({
                     defaultStepOptions: {
@@ -280,12 +386,19 @@
                     useModalOverlay: true
                 });
 
-                setupTour(tourVar).start();
+                // Setup and start tour
+                const tour = setupTour(tourVar);
+
+                // Save the cookie when the tour is closed or finished
+                tour.on('cancel', saveTourCookie);
+                tour.on('complete', saveTourCookie);
+
+                tour.start();
             }
         });
-
     </script>
-@endif
+{{-- @endif --}}
+
 @endsection
 @push('script')
     <script src="{{ asset_url('libs/bootstrap-select/bootstrap-select.js') }}"></script>

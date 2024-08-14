@@ -55,6 +55,7 @@
     <script src="{{ asset_url('js/config.js') }}"></script>
     <script src="{{ asset_url('js/form-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset_url('js/form-validation/additional-methods.min.js') }}"></script>
+    <script src="{{ asset('js/projectMenu.js') }}"></script>
     
 </head>
 

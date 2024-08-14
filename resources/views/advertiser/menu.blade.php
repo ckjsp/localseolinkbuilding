@@ -7,6 +7,7 @@
         display: none;
         position: absolute;
         top: 100%;
+        width: max-content;
     }
 
     #hover-dropdown-demo .dropdown-toggle.active+.dropdown-menu {
@@ -17,6 +18,7 @@
     .menu-horizontal .menu-inner {
         overflow: visible;
     }
+    .edit-btn-project{ box-shadow: none !important; }
 </style>
 
 <aside id="layout-menu" class="layout-menu-horizontal menu-horizontal menu bg-menu-theme flex-grow-0">
@@ -37,6 +39,9 @@
                     <div data-i18n="Projects">Projects</div>
                 </div>
                 <ul class="dropdown-menu" id="projects-menu" style="display: none;">
+                    <li><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
+                        class="btn btn-primary w-auto">+Add Projects
+                    </a></li>
                 </ul>
             </li>
 
@@ -74,37 +79,10 @@
     <script>
         $(document).ready(function () {
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
-            $.ajax({
-                url: "{{ route('advertiser.menu') }}",
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken
-                },
-                success: function (response) {
-                    var projectsMenu = $('#projects-menu');
-                    projectsMenu.empty();
-                    if (response.data.length > 0) {
-                        var selectedProjectId = "{{ session('selected_project_id') }}";
-                        var firstProject = response.data[0];
-                        var selectedProject = selectedProjectId ? response.data.find(project => project.id == selectedProjectId) : firstProject;
-                        var selectedProjectName = selectedProject ? selectedProject.project_name : firstProject.project_name;
+            var projectsMenu = $('#projects-menu');
 
+            loadProjectsMenu();
 
-                        //var selectedProjectName = firstProject.project_name;
-                        $('#selected-project-name').text(selectedProjectName);
-                        $('#hover-dropdown-demo .dropdown-toggle div').text(selectedProjectName);
-                        $.each(response.data, function (index, project) {
-                            // var projectItem = '<li class="menu-item"><a class="menu-link" href="#" data-project-id="' + project.id + '">' + project.project_name + '</a></li>';
-                            var projectItem = `<li class="menu-item d-flex flex-row align-items-center justify-content-between"><a class="menu-link" href="#" data-project-id="${project.id}">${project.project_name}</a><span><button type="button" class="btn p-0 edit-btn edit-btn-project text-info" data-bs-toggle="modal" data-bs-target="#add-projects-pop" data-project-id="${project.id}" data-project-name="${project.project_name}"><i class="ti ti-pencil me-1"></i></button><button type="button" class="btn p-0 delete-btn text-danger" data-project-id="${project.id}"><i class="ti ti-trash me-1"></i></button></span></li>`;
-                            projectsMenu.append(projectItem);
-                        });
-                    }
-                },
-                error: function (xhr) {
-                    console.error('Error fetching projects:', xhr);
-                }
-            });
-            // project click event - update the selected project name
             $(document).on('click', '#projects-menu .menu-link', function (e) {
                 e.preventDefault();
                 var projectId = $(this).data('project-id');
@@ -141,19 +119,19 @@
                     }
                 });
             });
+
             $('#hover-dropdown-demo .dropdown-toggle').on('click', function (e) {
-                e.preventDefault(); // Prevent default link behavior
-                $(this).toggleClass('active');
-                $(this).next('.dropdown-menu').toggle();
+                var projectsMenu = $('#projects-menu');
+                projectsMenu.toggle();
             });
 
-            // Close the dropdown if clicked outside
             $(document).on('click', function (e) {
                 if (!$(e.target).closest('#hover-dropdown-demo').length) {
                     $('#hover-dropdown-demo .dropdown-toggle').removeClass('active');
                     $('#hover-dropdown-demo .dropdown-menu').hide();
                 }
             });
+            
             $(document).on('click', '.edit-btn-project', function () {
                 var projectId = $(this).data('project-id');
                 var editUrl = `{{ route('advertiser.projects.edit', ':id') }}`.replace(':id', projectId);
@@ -162,7 +140,6 @@
                     url: editUrl,
                     type: 'GET',
                     success: function (data) {
-                        // Bind data to form fields
                         $('#project_id').val(data.id);
                         $('#project_name').val(data.project_name);
                         $('#project_url').val(data.project_url);
@@ -177,6 +154,26 @@
                         console.error('Error:', error);
                     }
                 });
+            });
+            $(document).on('click', '.delete-btn', function() {
+                var projectId = $(this).data('project-id');
+                var deleteUrl = `{{ route('advertiser.delete', ':id') }}`.replace(':id', projectId);                if (confirm('Are you sure you want to delete this project?')) {
+                    $.ajax({
+                        url: deleteUrl,
+                        type: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(response) {
+                            $(`[data-project-id="${projectId}"]`).closest('li').remove();
+                            $(`#project-card-${projectId}`).remove();
+                            alert('Project deleted successfully.');
+                        },
+                        error: function(xhr) {
+                            alert('Failed to delete the project.');
+                        }
+                    });
+                }
             });
         });
     </script>

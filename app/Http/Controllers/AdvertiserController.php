@@ -124,11 +124,12 @@ class AdvertiserController extends Controller
             'projectForbiddenCategories' => 'required|array',
             'additional_note' => 'nullable|string',
         ]);
-    
+        
         if ($validator->fails()) {
-            return redirect()->route('advertiser.projects.create')
-                ->withErrors($validator)
-                ->withInput();
+            return response()->json([
+                'status' => 0,
+                'message' => $validator->errors()
+            ]);
         }
     
         try {
@@ -145,20 +146,22 @@ class AdvertiserController extends Controller
             ];
     
             $result = lslbProject::create($data);
-            // session()->flash('project_created', true);
-
-            cookie()->queue(cookie()->forever('new_project_created', true));
-    
-            // Return a success response
-            return redirect()->route('advertiser.projects.store')
-                ->with('success', 'Project created successfully!');
+            if (!session()->has('project_created')) {
+                session()->flash('project_created', true);
+                cookie()->queue(cookie()->forever('new_project_created', true));
+            }
+            return response()->json([
+                'status' => 1,
+                'message' => "Project saved successfully!"
+            ]);
+            
         } catch (\Exception $e) {
-            return redirect()->route('advertiser.projects.create')
-                ->with('error', 'Failed to create project. Please try again later.')
-                ->withInput();
+            return response()->json([
+                'status' => 0,
+                'message' => $e->getMessage()
+            ]);
         }
-    }
-    
+    }    
 
     public function projectEdit($id)
     {
@@ -181,9 +184,10 @@ class AdvertiserController extends Controller
             ]);
     
             if ($validator->fails()) {
-                return redirect()->route('advertiser')
-                    ->withErrors($validator)
-                    ->withInput();
+                return response()->json([
+                    'status' => 0,
+                    'message' => $validator->errors()
+                ]);
             }
     
             try {
@@ -199,17 +203,37 @@ class AdvertiserController extends Controller
                     'additional_note' => $validatedData['additional_note'],
                 ]);
     
-                return redirect()->route('advertiser')->with('success', 'Project updated successfully');
+                return response()->json([
+                    'status' => 1,
+                    'message' => 'Project updated successfully'
+                ]);
             } catch (\Exception $e) {
-                return redirect()->route('advertiser')
-                    ->with('error', 'Failed to update project. Please try again later.')
-                    ->withInput();
+                return response()->json([
+                    'status' => 0,
+                    'message' => 'Failed to update project. Please try again later.',
+                    'error' => $e->getMessage()
+                ]);
             }
         }
     
-        return redirect()->route('advertiser')->with('error', 'Project ID is missing.');
+        return response()->json([ 'status' => 0, 'message' => 'Project ID is missing.' ]);
     }
-    
+
+    public function projectDestroy($id)
+    {
+        $project = lslbProject::findOrFail($id);
+
+        if ($project->delete()) {
+            $remainingProjects = lslbProject::count();
+
+            if ($remainingProjects === 0) {
+                cookie()->queue(cookie()->forget('project_tour_completed'));
+            }
+            return response()->json(['success' => 'Project deleted successfully.']);
+        } else {
+            return response()->json(['error' => 'Failed to delete the project.'], 500);
+        }
+    }    
 
     public function showMenu()
     {

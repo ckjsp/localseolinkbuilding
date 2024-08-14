@@ -80,6 +80,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::put('/advertiser/projects/{id}', 'projectUpdate')->name('advertiser.projects.update');
             Route::get('/advertiser/projects/edit/{id}', 'projectEdit')->name('advertiser.projects.edit');
             Route::post('/advertiser/menu', 'showMenu')->name('advertiser.menu');
+            Route::delete('/advertiser/delete-project/{id}', 'projectDestroy')->name('advertiser.delete');
             Route::get('/advertiser/project/name', 'getProjectName')->name('advertiser.project.name');
             Route::post('/advertiser/set-selected-project', 'setSelectedProject')->name('advertiser.set.selected.project');
         });
