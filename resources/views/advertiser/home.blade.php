@@ -166,6 +166,7 @@
             $('#projectForbiddenCategories').val(null).trigger('change');
             $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
         });
+
         $(document).on('submit', '#project-form', function(e) {
             e.preventDefault(); 
 
@@ -181,16 +182,20 @@
                 success: function(response) {
                     console.log('response', response);
                     if (response.status == 1) { 
-                        var success = response.message; 
-                        localStorage.setItem('showProjectTour', 'true');
+                        var success = response.message;
                         $('#project-form').prev('.alert.alert-danger').remove();
                         $('#add-projects-pop').modal('hide'); 
+                        loadProjectsMenu();
                         toastr.success(success, 'Success!', {
                             closeButton: true,
                             progressBar: true,
-                            positionClass: 'toast-top-right'
+                            positionClass: 'toast-top-right',
+                            onHidden: function() {
+                                if (!localStorage.getItem('project_tour_completed')) {
+                                    startProjectTour();
+                                }
+                            }
                         });
-                        loadProjectsMenu();
                     } else if (response.status == 0) { 
                         var errors = response.message; 
                         var errorHtml = '<div class="alert alert-danger">';
@@ -242,162 +247,129 @@
             });
         });
 
-        // Clear error messages when modal is opened
+        function startProjectTour() {
+            const tourVar = new Shepherd.Tour({
+                defaultStepOptions: {
+                    scrollTo: false,
+                    cancelIcon: {
+                        enabled: true
+                    }
+                },
+                useModalOverlay: true
+            });
+
+            const tour = setupTour(tourVar);
+            tour.on('cancel', saveTourCookie);
+            tour.on('complete', saveTourCookie);
+
+            tour.start();
+        }
+
+        function setupTour(tour) {
+            const backBtnClass = 'btn btn-sm btn-label-secondary md-btn-flat',
+                nextBtnClass = 'btn btn-sm btn-primary btn-next';
+            tour.addStep({
+                title: 'Navbar',
+                text: "Add Projects to check Which orders belong to </br>which client, stay organized, and effortlessly </br> keep track of progress and spending. It's straightforward!",
+                attachTo: { element: '#hover-dropdown-demo', on: 'bottom' },
+                buttons: [
+                    {
+                        action: tour.cancel,
+                        classes: backBtnClass,
+                        text: 'Skip'
+                    },
+                    {
+                        text: 'Next',
+                        classes: nextBtnClass,
+                        action: tour.next,
+                    }
+                ]
+            });
+            tour.addStep({
+                title: 'Card',
+                text: 'This is a card',
+                attachTo: { element: '.project-list', on: 'top' }, 
+                beforeShowPromise: function () {
+                    return new Promise(function (resolve) {
+                        const projectList = document.querySelector('.project-list');
+                        if (projectList) {
+                            projectList.style.display = 'block';
+                        }
+                        resolve();
+                    });
+                },
+                buttons: [
+                    {
+                        text: 'Skip',
+                        classes: backBtnClass,
+                        action: tour.cancel
+                    },
+                    {
+                        text: 'Back',
+                        classes: backBtnClass,
+                        action: tour.back
+                    },
+                    {
+                        text: 'Next',
+                        classes: nextBtnClass,
+                        action: tour.next
+                    }
+                ]
+            });
+            tour.addStep({
+                title: 'Footer',
+                text: 'This is the Footer',
+                attachTo: { element: '.footer', on: 'top' },
+                buttons: [
+                    {
+                        text: 'Skip',
+                        classes: backBtnClass,
+                        action: tour.cancel
+                    },
+                    {
+                        text: 'Back',
+                        classes: backBtnClass,
+                        action: tour.back
+                    },
+                    {
+                        text: 'Next',
+                        classes: nextBtnClass,
+                        action: tour.next
+                    }
+                ]
+            });
+            tour.addStep({
+                title: 'About US',
+                text: 'Click here to learn about us',
+                attachTo: { element: '.footer-link', on: 'top' },
+                buttons: [
+                    {
+                        text: 'Back',
+                        classes: backBtnClass,
+                        action: tour.back
+                    },
+                    {
+                        text: 'Finish',
+                        classes: nextBtnClass,
+                        action: tour.cancel
+                    }
+                ]
+            });
+
+            return tour;
+        }
+
+        function saveTourCookie() {
+            localStorage.setItem('project_tour_completed', 'true');
+            window.location.reload();
+        }
+
         $('#add-projects-pop').on('show.bs.modal', function () {
             $('#project-form').find('.invalid-feedback').remove();
             $('#project-form').find('.is-invalid').removeClass('is-invalid');
         });
     });
 </script>
-{{-- @if (session('project_created') && !isset($_COOKIE['project_tour_completed'])) --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', function () { 
-            const startBtn = document.querySelector('#shepherd-example');
-
-            function setupTour(tour) {
-                const backBtnClass = 'btn btn-sm btn-label-secondary md-btn-flat',
-                    nextBtnClass = 'btn btn-sm btn-primary btn-next';
-                tour.addStep({
-                    title: 'Navbar',
-                    text: "Add Projects to check Which orders belong to </br>which client, stay organized, and effortlessly </br> keep track of progress and spending. It's straightforward!",
-                    attachTo: { element: '#hover-dropdown-demo', on: 'bottom' },
-                    buttons: [
-                        {
-                            action: tour.cancel,
-                            classes: backBtnClass,
-                            text: 'Skip'
-                        },
-                        {
-                            text: 'Next',
-                            classes: nextBtnClass,
-                            action: tour.next,
-                        }
-                    ]
-                });
-                tour.addStep({
-                    title: 'Card',
-                    text: 'This is a card',
-                    attachTo: { element: '.project-list', on: 'top' }, 
-                    beforeShowPromise: function () {
-                        return new Promise(function (resolve) {
-                            const projectList = document.querySelector('.project-list');
-                            if (projectList) {
-                                projectList.style.display = 'block';
-                            }
-                            resolve();
-                        });
-                    },
-                    buttons: [
-                        {
-                            text: 'Skip',
-                            classes: backBtnClass,
-                            action: tour.cancel
-                        },
-                        {
-                            text: 'Back',
-                            classes: backBtnClass,
-                            action: tour.back
-                        },
-                        {
-                            text: 'Next',
-                            classes: nextBtnClass,
-                            action: tour.next
-                        }
-                    ]
-                });
-                tour.addStep({
-                    title: 'Footer',
-                    text: 'This is the Footer',
-                    attachTo: { element: '.footer', on: 'top' },
-                    buttons: [
-                        {
-                            text: 'Skip',
-                            classes: backBtnClass,
-                            action: tour.cancel
-                        },
-                        {
-                            text: 'Back',
-                            classes: backBtnClass,
-                            action: tour.back
-                        },
-                        {
-                            text: 'Next',
-                            classes: nextBtnClass,
-                            action: tour.next
-                        }
-                    ]
-                });
-                tour.addStep({
-                    title: 'About US',
-                    text: 'Click here to learn about us',
-                    attachTo: { element: '.footer-link', on: 'top' },
-                    buttons: [
-                        {
-                            text: 'Back',
-                            classes: backBtnClass,
-                            action: tour.back
-                        },
-                        {
-                            text: 'Finish',
-                            classes: nextBtnClass,
-                            action: tour.cancel
-                        }
-                    ]
-                });
-
-                return tour;
-            }
-
-            function saveTourCookie() {
-                document.cookie = "project_tour_completed=true; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-            }
-
-            if (startBtn) {
-                // On start tour button click
-                startBtn.onclick = function () {
-                    const tourVar = new Shepherd.Tour({
-                        defaultStepOptions: {
-                            scrollTo: false,
-                            cancelIcon: {
-                                enabled: true
-                            }
-                        },
-                        useModalOverlay: true
-                    });
-
-                    // Setup and start tour
-                    const tour = setupTour(tourVar);
-                    //alert();
-                    // Save the cookie when the tour is closed or finished
-                    tour.on('cancel', saveTourCookie);
-                    tour.on('complete', saveTourCookie);
-
-                    tour.start();
-                };
-
-                // Automatically start the tour if the session variable is set
-                const tourVar = new Shepherd.Tour({
-                    defaultStepOptions: {
-                        scrollTo: false,
-                        cancelIcon: {
-                            enabled: true
-                        }
-                    },
-                    useModalOverlay: true
-                });
-
-                // Setup and start tour
-                const tour = setupTour(tourVar);
-
-                // Save the cookie when the tour is closed or finished
-                tour.on('cancel', saveTourCookie);
-                tour.on('complete', saveTourCookie);
-
-                tour.start();
-            }
-        });
-    </script>
-{{-- @endif --}}
 
 @endsection
 @push('script')

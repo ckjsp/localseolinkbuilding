@@ -146,10 +146,7 @@ class AdvertiserController extends Controller
             ];
     
             $result = lslbProject::create($data);
-            if (!session()->has('project_created')) {
-                session()->flash('project_created', true);
-                cookie()->queue(cookie()->forever('new_project_created', true));
-            }
+
             return response()->json([
                 'status' => 1,
                 'message' => "Project saved successfully!"
@@ -227,7 +224,7 @@ class AdvertiserController extends Controller
             $remainingProjects = lslbProject::count();
 
             if ($remainingProjects === 0) {
-                cookie()->queue(cookie()->forget('project_tour_completed'));
+                return response()->json(['success' => 'Project deleted successfully.', 'clearLocalStorage' => true]);
             }
             return response()->json(['success' => 'Project deleted successfully.']);
         } else {
