@@ -155,6 +155,7 @@
                     }
                 });
             });
+
             $(document).on('click', '.delete-btn', function() {
                 var projectId = $(this).data('project-id');
                 var deleteUrl = `{{ route('advertiser.delete', ':id') }}`.replace(':id', projectId);                if (confirm('Are you sure you want to delete this project?')) {
@@ -167,6 +168,13 @@
                         success: function(response) {
                             $(`[data-project-id="${projectId}"]`).closest('li').remove();
                             $(`#project-card-${projectId}`).remove();
+
+                            if ($('li.project-menu-list').length === 0) {
+                                localStorage.removeItem('project_tour_completed');
+                            } else if (response.clearLocalStorage) {
+                                localStorage.removeItem('project_tour_completed');
+                            }
+
                             alert('Project deleted successfully.');
                         },
                         error: function(xhr) {
