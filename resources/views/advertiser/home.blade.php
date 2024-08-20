@@ -150,7 +150,9 @@
     @include('advertiser.partials.createprojectmodal')
 </div>
 <style>
-    #projectCategories ~.select2 .select2-search__field{ width: 100% !important; }
+    #projectCategories~.select2 .select2-search__field {
+        width: 100% !important;
+    }
 </style>
 <script src="{{ asset_url('libs/shepherd/shepherd.js') }}"></script>
 <script src=" {{ asset_url('libs/toastr/toastr.js') }}"></script>
@@ -167,8 +169,8 @@
             $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
         });
 
-        $(document).on('submit', '#project-form', function(e) {
-            e.preventDefault(); 
+        $(document).on('submit', '#project-form', function (e) {
+            e.preventDefault();
 
             var form = $(this);
             var formData = new FormData(form[0]);
@@ -179,7 +181,7 @@
                 data: formData,
                 processData: false,
                 contentType: false,
-                success: function(response) {
+                success: function (response) {
                     console.log('response', response);
                     if (response.status == 1) { 
                         var success = response.message;
@@ -288,7 +290,7 @@
             tour.addStep({
                 title: 'Card',
                 text: 'This is a card',
-                attachTo: { element: '.project-list', on: 'top' }, 
+                attachTo: { element: '.project-list', on: 'top' },
                 beforeShowPromise: function () {
                     return new Promise(function (resolve) {
                         const projectList = document.querySelector('.project-list');
