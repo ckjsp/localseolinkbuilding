@@ -169,7 +169,7 @@
             $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
         });
         $(document).on('submit', '#project-form', function (e) {
-            e.preventDefault(); 
+            e.preventDefault();
 
             var form = $(this);
             var formData = new FormData(form[0]);
@@ -180,26 +180,26 @@
                 data: formData,
                 processData: false,
                 contentType: false,
-                success: function(response) {
+                success: function (response) {
                     console.log('response', response);
-                    if (response.status == 1) { 
-                        var success = response.message; 
+                    if (response.status == 1) {
+                        var success = response.message;
                         localStorage.setItem('showProjectTour', 'true');
                         $('#project-form').prev('.alert.alert-danger').remove();
-                        $('#add-projects-pop').modal('hide'); 
+                        $('#add-projects-pop').modal('hide');
                         toastr.success(success, 'Success!', {
                             closeButton: true,
                             progressBar: true,
                             positionClass: 'toast-top-right'
                         });
                         loadProjectsMenu();
-                    } else if (response.status == 0) { 
-                        var errors = response.message; 
+                    } else if (response.status == 0) {
+                        var errors = response.message;
                         var errorHtml = '<div class="alert alert-danger">';
                         for (var key in errors) {
                             if (errors.hasOwnProperty(key)) {
                                 var errorMessages = errors[key];
-                                errorMessages.forEach(function(message) {
+                                errorMessages.forEach(function (message) {
                                     errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
                                 });
                             }
@@ -211,24 +211,24 @@
                         }, 2500);
                     }
                 },
-                error: function(xhr) {
+                error: function (xhr) {
                     console.log('xhr', xhr);
                     if (xhr.responseJSON) {
                         var response = xhr.responseJSON;
                         console.log('responseJSON', response);
-                        if (response.status === '0') { 
-                                var errors = response.errors;
-                                var errorHtml = '<div class="alert alert-danger">';
+                        if (response.status === '0') {
+                            var errors = response.errors;
+                            var errorHtml = '<div class="alert alert-danger">';
 
-                                // Loop through each error and append it to the errorHtml string
-                                for (var key in errors) {
-                                    if (errors.hasOwnProperty(key)) {
-                                        var errorMessages = errors[key];
-                                        errorMessages.forEach(function(message) {
-                                            errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
-                                        });
-                                    }
+                            // Loop through each error and append it to the errorHtml string
+                            for (var key in errors) {
+                                if (errors.hasOwnProperty(key)) {
+                                    var errorMessages = errors[key];
+                                    errorMessages.forEach(function (message) {
+                                        errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
+                                    });
                                 }
+                            }
                             errorHtml += '</div>';
                             $('#project-form').before(errorHtml);
                             setTimeout(function () {
@@ -251,9 +251,9 @@
         });
     });
 </script>
-{{-- @if (session('project_created') && !isset($_COOKIE['project_tour_completed'])) --}}
+@if (session('project_created') && !isset($_COOKIE['project_tour_completed']))
     <script>
-        document.addEventListener('DOMContentLoaded', function () { 
+        document.addEventListener('DOMContentLoaded', function () {
             const startBtn = document.querySelector('#shepherd-example');
 
             function setupTour(tour) {
@@ -279,7 +279,7 @@
                 tour.addStep({
                     title: 'Card',
                     text: 'This is a card',
-                    attachTo: { element: '.project-list', on: 'top' }, 
+                    attachTo: { element: '.project-list', on: 'top' },
                     beforeShowPromise: function () {
                         return new Promise(function (resolve) {
                             const projectList = document.querySelector('.project-list');
@@ -399,7 +399,7 @@
             }
         });
     </script>
-{{-- @endif --}}
+@endif
 
 @endsection
 @push('script')
