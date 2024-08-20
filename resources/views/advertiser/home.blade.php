@@ -183,28 +183,28 @@
                 contentType: false,
                 success: function (response) {
                     console.log('response', response);
-                    if (response.status == 1) { 
+                    if (response.status == 1) {
                         var success = response.message;
                         $('#project-form').prev('.alert.alert-danger').remove();
-                        $('#add-projects-pop').modal('hide'); 
+                        $('#add-projects-pop').modal('hide');
                         loadProjectsMenu();
                         toastr.success(success, 'Success!', {
                             closeButton: true,
                             progressBar: true,
                             positionClass: 'toast-top-right',
-                            onHidden: function() {
+                            onHidden: function () {
                                 if (!localStorage.getItem('project_tour_completed')) {
                                     startProjectTour();
                                 }
                             }
                         });
-                    } else if (response.status == 0) { 
-                        var errors = response.message; 
+                    } else if (response.status == 0) {
+                        var errors = response.message;
                         var errorHtml = '<div class="alert alert-danger">';
                         for (var key in errors) {
                             if (errors.hasOwnProperty(key)) {
                                 var errorMessages = errors[key];
-                                errorMessages.forEach(function(message) {
+                                errorMessages.forEach(function (message) {
                                     errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
                                 });
                             }
@@ -216,24 +216,24 @@
                         }, 2500);
                     }
                 },
-                error: function(xhr) {
+                error: function (xhr) {
                     console.log('xhr', xhr);
                     if (xhr.responseJSON) {
                         var response = xhr.responseJSON;
                         console.log('responseJSON', response);
-                        if (response.status === '0') { 
-                                var errors = response.errors;
-                                var errorHtml = '<div class="alert alert-danger">';
+                        if (response.status === '0') {
+                            var errors = response.errors;
+                            var errorHtml = '<div class="alert alert-danger">';
 
-                                // Loop through each error and append it to the errorHtml string
-                                for (var key in errors) {
-                                    if (errors.hasOwnProperty(key)) {
-                                        var errorMessages = errors[key];
-                                        errorMessages.forEach(function(message) {
-                                            errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
-                                        });
-                                    }
+                            // Loop through each error and append it to the errorHtml string
+                            for (var key in errors) {
+                                if (errors.hasOwnProperty(key)) {
+                                    var errorMessages = errors[key];
+                                    errorMessages.forEach(function (message) {
+                                        errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
+                                    });
                                 }
+                            }
                             errorHtml += '</div>';
                             $('#project-form').before(errorHtml);
                             setTimeout(function () {
@@ -252,7 +252,7 @@
         function startProjectTour() {
             const tourVar = new Shepherd.Tour({
                 defaultStepOptions: {
-                    scrollTo: false,
+                    scrollTo: true,
                     cancelIcon: {
                         enabled: true
                     }
