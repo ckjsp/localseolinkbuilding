@@ -138,7 +138,7 @@
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#" id="addcompetitorBtn"
                                     class="btn btn-primary w-auto">+Add Competitors
                                 </a>
-
+                                
                             </div>
                         </div>
                     </div>
@@ -152,11 +152,9 @@
     #projectCategories~.select2 .select2-search__field {
         width: 100% !important;
     }
-
     .width-calc {
         width: calc(25% - 20px);
     }
-
     .card-body .row {
         gap: 10px;
     }
@@ -176,7 +174,7 @@
             $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
         });
 
-        $(document).on('submit', '#project-form', function (e) {
+        $(document).on('submit', '#project-form', function(e) {
             e.preventDefault();
 
             var form = $(this);
@@ -236,7 +234,7 @@
                             for (var key in errors) {
                                 if (errors.hasOwnProperty(key)) {
                                     var errorMessages = errors[key];
-                                    errorMessages.forEach(function (message) {
+                                    errorMessages.forEach(function(message) {
                                         errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
                                     });
                                 }
@@ -296,15 +294,17 @@
             });
             tour.addStep({
                 title: 'Card',
-                text: 'This is a card',
-                attachTo: { element: '.project-list', on: 'top' },
+                text: 'Manage Projects seamlessly. Edit details or archive projects as needed.',
+                attachTo: { element: '#projects-menu', on: 'top' },
                 beforeShowPromise: function () {
                     return new Promise(function (resolve) {
-                        const projectList = document.querySelector('.project-list');
-                        if (projectList) {
-                            projectList.style.display = 'block';
-                        }
-                        resolve();
+                        setTimeout(function () {
+                            const projectList = document.querySelector('#projects-menu');
+                            if (projectList) {
+                                projectList.style.display = 'block';
+                            }
+                            resolve();
+                        }, 500);
                     });
                 },
                 buttons: [
