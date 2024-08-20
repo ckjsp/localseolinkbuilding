@@ -150,7 +150,9 @@
     @include('advertiser.partials.createprojectmodal')
 </div>
 <style>
-    #projectCategories ~.select2 .select2-search__field{ width: 100% !important; }
+    #projectCategories~.select2 .select2-search__field {
+        width: 100% !important;
+    }
 </style>
 <script src="{{ asset_url('libs/shepherd/shepherd.js') }}"></script>
 <script src=" {{ asset_url('libs/toastr/toastr.js') }}"></script>
@@ -166,7 +168,7 @@
             $('#projectForbiddenCategories').val(null).trigger('change');
             $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
         });
-        $(document).on('submit', '#project-form', function(e) {
+        $(document).on('submit', '#project-form', function (e) {
             e.preventDefault(); 
 
             var form = $(this);
