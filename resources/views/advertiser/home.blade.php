@@ -150,7 +150,9 @@
     @include('advertiser.partials.createprojectmodal')
 </div>
 <style>
-    #projectCategories ~.select2 .select2-search__field{ width: 100% !important; }
+    #projectCategories~.select2 .select2-search__field {
+        width: 100% !important;
+    }
 </style>
 <script src="{{ asset_url('libs/shepherd/shepherd.js') }}"></script>
 <script src=" {{ asset_url('libs/toastr/toastr.js') }}"></script>
@@ -168,7 +170,7 @@
         });
 
         $(document).on('submit', '#project-form', function(e) {
-            e.preventDefault(); 
+            e.preventDefault();
 
             var form = $(this);
             var formData = new FormData(form[0]);
@@ -181,10 +183,10 @@
                 contentType: false,
                 success: function(response) {
                     console.log('response', response);
-                    if (response.status == 1) { 
+                    if (response.status == 1) {
                         var success = response.message;
                         $('#project-form').prev('.alert.alert-danger').remove();
-                        $('#add-projects-pop').modal('hide'); 
+                        $('#add-projects-pop').modal('hide');
                         loadProjectsMenu();
                         toastr.success(success, 'Success!', {
                             closeButton: true,
@@ -196,8 +198,8 @@
                                 }
                             }
                         });
-                    } else if (response.status == 0) { 
-                        var errors = response.message; 
+                    } else if (response.status == 0) {
+                        var errors = response.message;
                         var errorHtml = '<div class="alert alert-danger">';
                         for (var key in errors) {
                             if (errors.hasOwnProperty(key)) {
@@ -219,19 +221,19 @@
                     if (xhr.responseJSON) {
                         var response = xhr.responseJSON;
                         console.log('responseJSON', response);
-                        if (response.status === '0') { 
-                                var errors = response.errors;
-                                var errorHtml = '<div class="alert alert-danger">';
+                        if (response.status === '0') {
+                            var errors = response.errors;
+                            var errorHtml = '<div class="alert alert-danger">';
 
-                                // Loop through each error and append it to the errorHtml string
-                                for (var key in errors) {
-                                    if (errors.hasOwnProperty(key)) {
-                                        var errorMessages = errors[key];
+                            // Loop through each error and append it to the errorHtml string
+                            for (var key in errors) {
+                                if (errors.hasOwnProperty(key)) {
+                                    var errorMessages = errors[key];
                                         errorMessages.forEach(function(message) {
-                                            errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
-                                        });
-                                    }
+                                        errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
+                                    });
                                 }
+                            }
                             errorHtml += '</div>';
                             $('#project-form').before(errorHtml);
                             setTimeout(function () {
@@ -287,15 +289,17 @@
             });
             tour.addStep({
                 title: 'Card',
-                text: 'This is a card',
-                attachTo: { element: '.project-list', on: 'top' }, 
+                text: 'Manage Projects seamlessly. Edit details or archive projects as needed.',
+                attachTo: { element: '#projects-menu', on: 'top' },
                 beforeShowPromise: function () {
                     return new Promise(function (resolve) {
-                        const projectList = document.querySelector('.project-list');
-                        if (projectList) {
-                            projectList.style.display = 'block';
-                        }
-                        resolve();
+                        setTimeout(function () {
+                            const projectList = document.querySelector('#projects-menu');
+                            if (projectList) {
+                                projectList.style.display = 'block';
+                            }
+                            resolve();
+                        }, 500);
                     });
                 },
                 buttons: [
