@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="{{ asset_url('libs/select2/select2.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('libs/bootstrap-select/bootstrap-select.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('libs/toastr/toastr.css') }}">
-
 @endpush
 <link rel="stylesheet" href="{{ asset_url('libs/shepherd/shepherd.css') }}" />
 <!-- Content -->
@@ -115,7 +114,7 @@
                     </div>
                     <hr />
                     <div class="card-body">
-                        <div class="row d-flex align-items-center">
+                        <div class="row d-flex">
                             <div class="col-md-3 border rounded p-4 pb-0 bg-light">
                                 <div>
                                     <p>Total Backlinks built from LP</p>
@@ -135,7 +134,7 @@
                                     style="max-width: 100px;height: fit-content;">
                                 <p>Data is being prepared and will be presented here once it is ready.</p>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 d-flex align-items-center width-calc">
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#" id="addcompetitorBtn"
                                     class="btn btn-primary w-auto">+Add Competitors
                                 </a>
@@ -152,6 +151,14 @@
 <style>
     #projectCategories~.select2 .select2-search__field {
         width: 100% !important;
+    }
+
+    .width-calc {
+        width: calc(25% - 20px);
+    }
+
+    .card-body .row {
+        gap: 10px;
     }
 </style>
 <script src="{{ asset_url('libs/shepherd/shepherd.js') }}"></script>
