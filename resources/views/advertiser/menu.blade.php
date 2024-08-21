@@ -7,7 +7,10 @@
         display: none;
         position: absolute;
         top: 100%;
-        width: max-content;
+    }
+
+    #hover-dropdown-demo .dropdown-toggle {
+        cursor: pointer;
     }
 
     #hover-dropdown-demo .dropdown-toggle.active+.dropdown-menu {
@@ -18,7 +21,25 @@
     .menu-horizontal .menu-inner {
         overflow: visible;
     }
-    .edit-btn-project{ box-shadow: none !important; }
+
+    .edit-btn-project {
+        box-shadow: none !important;
+    }
+
+    #hover-dropdown-demo {
+        min-width: 140px;
+        max-width: 160px;
+    }
+
+    #hover-dropdown-demo>div>div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #projects-menu {
+        width: 390px;
+    }
 </style>
 
 <aside id="layout-menu" class="layout-menu-horizontal menu-horizontal menu bg-menu-theme flex-grow-0">
@@ -35,13 +56,13 @@
             <!-- Project List -->
             <li id="hover-dropdown-demo"
                 class="menu-item {{ (isset($slug) && $slug == 'projects') ? 'active' : '' }} dropdown">
-                <div type="button" class="dropdown-toggle menu-link active" aria-expanded="false">
+                <div type="" class="dropdown-toggle menu-link active" aria-expanded="false">
                     <div data-i18n="Projects">Projects</div>
                 </div>
-                <ul class="dropdown-menu" id="projects-menu" style="display: none;">
-                    <li><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
-                        class="btn btn-primary w-auto">+Add Projects
-                    </a></li>
+                <ul class="dropdown-menu p-2" id="projects-menu" style="display: none;">
+                    <li><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop"
+                            id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects
+                        </a></li>
                 </ul>
             </li>
 
@@ -131,11 +152,11 @@
                     $('#hover-dropdown-demo .dropdown-menu').hide();
                 }
             });
-            
+
             $(document).on('click', '.edit-btn-project', function () {
                 var projectId = $(this).data('project-id');
                 var editUrl = `{{ route('advertiser.projects.edit', ':id') }}`.replace(':id', projectId);
-                
+
                 $.ajax({
                     url: editUrl,
                     type: 'GET',
@@ -156,16 +177,16 @@
                 });
             });
 
-            $(document).on('click', '.delete-btn', function() {
+            $(document).on('click', '.delete-btn', function () {
                 var projectId = $(this).data('project-id');
-                var deleteUrl = `{{ route('advertiser.delete', ':id') }}`.replace(':id', projectId);                if (confirm('Are you sure you want to delete this project?')) {
+                var deleteUrl = `{{ route('advertiser.delete', ':id') }}`.replace(':id', projectId); if (confirm('Are you sure you want to delete this project?')) {
                     $.ajax({
                         url: deleteUrl,
                         type: 'DELETE',
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        success: function(response) {
+                        success: function (response) {
                             $(`[data-project-id="${projectId}"]`).closest('li').remove();
                             $(`#project-card-${projectId}`).remove();
 
@@ -177,7 +198,7 @@
 
                             alert('Project deleted successfully.');
                         },
-                        error: function(xhr) {
+                        error: function (xhr) {
                             alert('Failed to delete the project.');
                         }
                     });
