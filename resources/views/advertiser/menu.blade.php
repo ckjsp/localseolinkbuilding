@@ -177,16 +177,16 @@
                 });
             });
 
-            $(document).on('click', '.delete-btn', function() {
+            $(document).on('click', '.delete-btn', function () {
                 var projectId = $(this).data('project-id');
-                var deleteUrl = `{{ route('advertiser.delete', ':id') }}`.replace(':id', projectId);                if (confirm('Are you sure you want to delete this project?')) {
+                var deleteUrl = `{{ route('advertiser.delete', ':id') }}`.replace(':id', projectId); if (confirm('Are you sure you want to delete this project?')) {
                     $.ajax({
                         url: deleteUrl,
                         type: 'DELETE',
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        success: function(response) {
+                        success: function (response) {
                             $(`[data-project-id="${projectId}"]`).closest('li').remove();
                             $(`#project-card-${projectId}`).remove();
 
@@ -198,7 +198,7 @@
 
                             alert('Project deleted successfully.');
                         },
-                        error: function(xhr) {
+                        error: function (xhr) {
                             alert('Failed to delete the project.');
                         }
                     });
