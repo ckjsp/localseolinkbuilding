@@ -93,17 +93,17 @@
             </a>
         </div>
     @else
-        <div class="d-flex justify-content-between my-3">
+        <div class="d-flex justify-content-between my-3 step-3">
             <h5 class="card-title" id="selected-project-name">
                 Select a project
             </h5>
             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
                 class="btn btn-primary w-auto">+Add Projects
             </a>
-            <button id="shepherd-example">Start Tour</button>
+            {{-- <button id="shepherd-example">Start Tour</button> --}}
         </div>
         @foreach($projects as $project)
-            <div class="row mb-3" id="project-card-{{ $project->id }}">
+            <div class="row mb-3 step-4" id="project-card-{{ $project->id }}">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">{{ $project->project_name }}</h5>
@@ -136,7 +136,7 @@
                             </div>
                             <div class="col-md-3 d-flex align-items-center width-calc">
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#" id="addcompetitorBtn"
-                                    class="btn btn-primary w-auto">+Add Competitors
+                                    class="btn btn-primary w-auto step-5">+Add Competitors
                                 </a>
                                 
                             </div>
@@ -294,8 +294,8 @@
             });
             tour.addStep({
                 title: 'Card',
-                text: 'Manage Projects seamlessly. Edit details or archive projects as needed.',
-                attachTo: { element: '#projects-menu', on: 'top' },
+                text: 'Manage Projects seamlessly. Edit details or delete projects as needed.',
+                attachTo: { element: '#projects-menu', on: 'right' },
                 beforeShowPromise: function () {
                     return new Promise(function (resolve) {
                         setTimeout(function () {
@@ -327,8 +327,8 @@
             });
             tour.addStep({
                 title: 'Footer',
-                text: 'This is the Footer',
-                attachTo: { element: '.footer', on: 'top' },
+                text: 'Add a project by filling in the Project Name and Project URL, then include categories',
+                attachTo: { element: '.step-3', on: 'bottom' },
                 buttons: [
                     {
                         text: 'Skip',
@@ -349,8 +349,25 @@
             });
             tour.addStep({
                 title: 'About US',
-                text: 'Click here to learn about us',
-                attachTo: { element: '.footer-link', on: 'top' },
+                text: 'Keep your budget in check by monitoring expenses. Track the amount spent on link-building for each specific order.',
+                attachTo: { element: '.step-4', on: 'bottom' },
+                buttons: [
+                    {
+                        text: 'Back',
+                        classes: backBtnClass,
+                        action: tour.back
+                    },
+                    {
+                        text: 'Next',
+                        classes: nextBtnClass,
+                        action: tour.next
+                    }
+                ]
+            });
+            tour.addStep({
+                title: 'About US',
+                text: 'Keep your budget in check by monitoring expenses. Track the amount spent on link-building for each specific order.',
+                attachTo: { element: '.step-5', on: 'bottom' },
                 buttons: [
                     {
                         text: 'Back',

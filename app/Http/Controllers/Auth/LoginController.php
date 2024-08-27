@@ -60,6 +60,7 @@ class LoginController extends Controller
                 $user->update([
                     'name' => $googleUser->getName(),
                     'google_id' => $googleUser->getId(),
+                    'email_verified_at' => now(),
                 ]);
             } else {
                 $user = lslbUser::create([
@@ -67,6 +68,7 @@ class LoginController extends Controller
                     'email' => $googleUser->getEmail(),
                     'google_id' => $googleUser->getId(),
                     'password' => bcrypt('password'),
+                    'email_verified_at' => now(),
                 ]);
             }
 
