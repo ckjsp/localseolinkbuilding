@@ -124,17 +124,17 @@ class AdvertiserController extends Controller
             'projectForbiddenCategories' => 'required|array',
             'additional_note' => 'nullable|string',
         ]);
-        
+
         if ($validator->fails()) {
             return response()->json([
                 'status' => 0,
                 'message' => $validator->errors()
             ]);
         }
-    
+
         try {
             $validatedData = $validator->validated();
-    
+
             $user_id = Auth::user()->id;
             $data = [
                 'user_id' => $user_id,
@@ -144,21 +144,21 @@ class AdvertiserController extends Controller
                 'forbidden_category' => serialize($validatedData['projectForbiddenCategories']),
                 'additional_note' => $validatedData['additional_note'],
             ];
-    
+
             $result = lslbProject::create($data);
 
             return response()->json([
                 'status' => 1,
                 'message' => "Project saved successfully!"
             ]);
-            
+
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 0,
                 'message' => $e->getMessage()
             ]);
         }
-    }    
+    }
 
     public function projectEdit($id)
     {
@@ -179,19 +179,19 @@ class AdvertiserController extends Controller
                 'projectForbiddenCategories' => 'required|array',
                 'additional_note' => 'nullable|string',
             ]);
-    
+
             if ($validator->fails()) {
                 return response()->json([
                     'status' => 0,
                     'message' => $validator->errors()
                 ]);
             }
-    
+
             try {
                 $validatedData = $validator->validated();
-    
+
                 $project = lslbProject::findOrFail($id);
-    
+
                 $project->update([
                     'project_name' => $validatedData['project_name'],
                     'project_url' => $validatedData['project_url'],
@@ -199,7 +199,7 @@ class AdvertiserController extends Controller
                     'forbidden_category' => serialize($validatedData['projectForbiddenCategories']),
                     'additional_note' => $validatedData['additional_note'],
                 ]);
-    
+
                 return response()->json([
                     'status' => 1,
                     'message' => 'Project updated successfully'
@@ -212,8 +212,8 @@ class AdvertiserController extends Controller
                 ]);
             }
         }
-    
-        return response()->json([ 'status' => 0, 'message' => 'Project ID is missing.' ]);
+
+        return response()->json(['status' => 0, 'message' => 'Project ID is missing.']);
     }
 
     public function projectDestroy($id)
@@ -230,7 +230,7 @@ class AdvertiserController extends Controller
         } else {
             return response()->json(['error' => 'Failed to delete the project.'], 500);
         }
-    }    
+    }
 
     public function showMenu()
     {
