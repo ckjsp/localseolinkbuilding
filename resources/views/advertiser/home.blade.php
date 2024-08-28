@@ -82,79 +82,86 @@
         </div> -->
 
     </div>
-    @if($projects->isEmpty())
-        <div class="row text-center justify-content-center">
-            <img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;">
-            <h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5>
-            <p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting
-                campaigns.</p>
-            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
-                class="btn btn-primary w-auto">+Add Projects
-            </a>
-        </div>
-    @else
-        <div class="d-flex justify-content-between my-3 step-3">
-            <h5 class="card-title" id="selected-project-name">
-                Select a project
-            </h5>
-            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
-                class="btn btn-primary w-auto">+Add Projects
-            </a>
-            {{-- <button id="shepherd-example">Start Tour</button> --}}
-        </div>
-        @foreach($projects as $project)
-            <div class="row mb-3 step-4" id="project-card-{{ $project->id }}">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">{{ $project->project_name }}</h5>
-                        <div class="d-flex gap-3">
-                            <p class="card-text"> {{ $project->project_url }}</p>
-                            <span> {{ $project->created_at }} </span>
-                        </div>
-                    </div>
-                    <hr />
-                    <div class="card-body">
-                        <div class="row d-flex">
-                            <div class="col-md-3 border rounded p-4 pb-0 bg-light">
-                                <div>
-                                    <p>Total Backlinks built from LP</p>
-                                    <h4>0</h4>
-                                </div>
-                                <div>
-                                    <p>Total Paid</p>
-                                    <h4>$0</h4>
-                                </div>
-                                <div>
-                                    <p>Total Content Written</p>
-                                    <h4>0</h4>
-                                </div>
-                            </div>
-                            <div class="col-md-6 d-flex align-items-center border rounded">
-                                <img src="{{ asset('img/pages/search-icon.png') }}"
-                                    style="max-width: 100px;height: fit-content;">
-                                <p>Data is being prepared and will be presented here once it is ready.</p>
-                            </div>
-                            <div class="col-md-3 d-flex align-items-center width-calc">
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#" id="addcompetitorBtn"
-                                    class="btn btn-primary w-auto step-5">+Add Competitors
-                                </a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="project_details">
+        @if($projects->isEmpty())
+            <div class="row text-center justify-content-center empty-container">
+                <img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;">
+                <h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5>
+                <p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest
+                    posting
+                    campaigns.</p>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
+                    class="btn btn-primary w-auto">+Add Projects
+                </a>
             </div>
-        @endforeach
-    @endif
+        @else
+            <div class="d-flex justify-content-between my-3 step-3">
+                <h5 class="card-title" id="selected-project-name">
+                    Select a project
+                </h5>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
+                    class="btn btn-primary w-auto">+Add Projects
+                </a>
+                {{-- <button id="shepherd-example">Start Tour</button> --}}
+            </div>
+            <div id="projects-container">
+                @foreach($projects as $project)            
+                    <div class="row mb-3 step-4" id="project-card-{{ $project->id }}">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">{{ $project->project_name }}</h5>
+                                <div class="d-flex gap-3">
+                                    <p class="card-text"> {{ $project->project_url }}</p>
+                                    <span> {{ $project->created_at }} </span>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <div class="row d-flex">
+                                    <div class="col-md-3 border rounded p-4 pb-0 bg-light">
+                                        <div>
+                                            <p>Total Backlinks built from LP</p>
+                                            <h4>0</h4>
+                                        </div>
+                                        <div>
+                                            <p>Total Paid</p>
+                                            <h4>$0</h4>
+                                        </div>
+                                        <div>
+                                            <p>Total Content Written</p>
+                                            <h4>0</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex align-items-center border rounded">
+                                        <img src="{{ asset('img/pages/search-icon.png') }}"
+                                            style="max-width: 100px;height: fit-content;">
+                                        <p>Data is being prepared and will be presented here once it is ready.</p>
+                                    </div>
+                                    <div class="col-md-3 d-flex align-items-center width-calc">
+                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#"
+                                            id="addcompetitorBtn" class="btn btn-primary w-auto step-5">+Add Competitors
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+    </div>
     @include('advertiser.partials.createprojectmodal')
 </div>
 <style>
     #projectCategories~.select2 .select2-search__field {
         width: 100% !important;
     }
+
     .width-calc {
         width: calc(25% - 20px);
     }
+
     .card-body .row {
         gap: 10px;
     }
@@ -174,7 +181,7 @@
             $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
         });
 
-        $(document).on('submit', '#project-form', function(e) {
+        $(document).on('submit', '#project-form', function (e) {
             e.preventDefault();
 
             var form = $(this);
@@ -187,11 +194,74 @@
                 processData: false,
                 contentType: false,
                 success: function (response) {
-                    console.log('response', response);
                     if (response.status == 1) {
                         var success = response.message;
                         $('#project-form').prev('.alert.alert-danger').remove();
                         $('#add-projects-pop').modal('hide');
+                        var projects = response.projects;
+                        console.log('projects', projects);
+                        var projectsHtml = '';
+                        projects.forEach(function (project) {
+                            projectsHtml = `
+                        <div class="row mb-3 step-4" id="project-card-${project.id}">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">${project.project_name}</h5>
+                                    <div class="d-flex gap-3">
+                                        <p class="card-text"> ${project.project_url}</p>
+                                        <span> ${project.created_at} </span>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="card-body">
+                                    <div class="row d-flex">
+                                        <div class="col-md-3 border rounded p-4 pb-0 bg-light">
+                                            <div>
+                                                <p>Total Backlinks built from LP</p>
+                                                <h4>0</h4>
+                                            </div>
+                                            <div>
+                                                <p>Total Paid</p>
+                                                <h4>$0</h4>
+                                            </div>
+                                            <div>
+                                                <p>Total Content Written</p>
+                                                <h4>0</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center border rounded">
+                                            <img src="{{ asset('img/pages/search-icon.png') }}"
+                                                style="max-width: 100px;height: fit-content;">
+                                            <p>Data is being prepared and will be presented here once it is ready.</p>
+                                        </div>
+                                        <div class="col-md-3 d-flex align-items-center width-calc">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#" id="addcompetitorBtn"
+                                                class="btn btn-primary w-auto step-5">+Add Competitors
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                        });
+                        if ($('.step-3').length > 0) {
+                            // Append new projects to #projects-container
+                            $('#projects-container').append(projectsHtml);
+                        } else {
+                            $('.empty-container').remove();
+                            var step3Html = `
+                        <div class="d-flex justify-content-between my-3 step-3">
+                            <h5 class="card-title" id="selected-project-name">Select a project</h5>
+                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a>
+                        </div>
+                        <div id="projects-container">
+                            ${projectsHtml}
+                        </div>`;
+
+                            // Insert step-3 and projects-container into the parent element
+                            $('.project_details').append(step3Html);
+                        }
+                        //$('#projects-container').html(projectsHtml);
                         loadProjectsMenu();
                         toastr.success(success, 'Success!', {
                             closeButton: true,
@@ -234,7 +304,7 @@
                             for (var key in errors) {
                                 if (errors.hasOwnProperty(key)) {
                                     var errorMessages = errors[key];
-                                    errorMessages.forEach(function(message) {
+                                    errorMessages.forEach(function (message) {
                                         errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
                                     });
                                 }

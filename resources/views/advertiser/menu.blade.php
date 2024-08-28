@@ -113,6 +113,7 @@
                     method: 'GET',
                     data: { id: projectId },
                     success: function (response) {
+                        console.log('project name', response);
                         if (response.success) {
                             $('#selected-project-name').text(response.project_name);
                             $('#hover-dropdown-demo .dropdown-toggle div').text(response.project_name);
@@ -125,7 +126,7 @@
                                 },
                                 success: function (res) {
                                     console.log('Selected project ID stored in session');
-                                    location.reload(); // Reload the page to show the selected project
+                                    //location.reload(); // Reload the page to show the selected project
                                 },
                                 error: function (xhr) {
                                     console.error('Error storing selected project ID:', xhr);
@@ -195,7 +196,19 @@
                             } else if (response.clearLocalStorage) {
                                 localStorage.removeItem('project_tour_completed');
                             }
-
+                            loadProjectsMenu();
+                            var emtyProject = `<div class="row text-center justify-content-center empty-container">
+                                                    <img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;">
+                                                    <h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5>
+                                                    <p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest
+                                                        posting campaigns.</p>
+                                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
+                                                        class="btn btn-primary w-auto">+Add Projects
+                                                    </a>
+                                                </div>`;
+                            $('#projects-container').html(emtyProject);
+                            $('#selected-project-name').text('Select a project');
+                            $('#hover-dropdown-demo .dropdown-toggle div').text('Projects');
                             alert('Project deleted successfully.');
                         },
                         error: function (xhr) {
