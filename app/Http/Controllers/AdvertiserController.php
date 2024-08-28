@@ -147,9 +147,12 @@ class AdvertiserController extends Controller
 
             $result = lslbProject::create($data);
 
+            $projects = lslbProject::where('user_id', $user_id)->get();
+
             return response()->json([
                 'status' => 1,
-                'message' => "Project saved successfully!"
+                'message' => "Project saved successfully!",
+                'projects' => $projects
             ]);
 
         } catch (\Exception $e) {

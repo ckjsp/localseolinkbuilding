@@ -43,7 +43,7 @@ class LoginController extends Controller
         // echo Hash::make('jspinfotech');exit;
         $this->middleware('guest')->except('logout');
     }
-    
+
     public function redirectToGoogle()
     {
         return Socialite::driver('google')->redirect();
@@ -51,10 +51,12 @@ class LoginController extends Controller
 
     public function handleGoogleCallback()
     {
+
         try {
-            $googleUser = Socialite::driver('google')->user();
-            
-            $user = lslbUser::where('email', $googleUser->getEmail())->first();
+            //$googleUser = Socialite::driver('google')->user();
+            $googleUser = Socialite::driver('google')->stateless()->user();
+
+            $user = lslbUser::where('email', $googleUser->email)->first();
 
             if ($user) {
                 $user->update([
@@ -64,6 +66,7 @@ class LoginController extends Controller
                 ]);
             } else {
                 $user = lslbUser::create([
+                    'role_id' => 3,
                     'name' => $googleUser->getName(),
                     'email' => $googleUser->getEmail(),
                     'google_id' => $googleUser->getId(),
@@ -72,9 +75,15 @@ class LoginController extends Controller
                 ]);
             }
 
-            Auth::login($user, true);
+            //Auth::login($user, true);
 
-            return redirect()->intended('home');
+            //return redirect()->intended('home');
+
+            if (Auth::login($user, true)) {
+                return redirect()->intended('home');
+            } else {
+                return redirect('/login')->withErrors(['message' => 'Authentication failed']);
+            }
         } catch (Exception $e) {
             // Handle the error
             return redirect('/login')->withErrors(['message' => 'Authentication failed']);
