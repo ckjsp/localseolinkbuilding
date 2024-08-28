@@ -182,6 +182,7 @@
         });
 
         $(document).on('submit', '#project-form', function (e) {
+        $(document).on('submit', '#project-form', function (e) {
             e.preventDefault();
 
             var form = $(this);
@@ -305,6 +306,7 @@
                                 if (errors.hasOwnProperty(key)) {
                                     var errorMessages = errors[key];
                                     errorMessages.forEach(function (message) {
+                                    errorMessages.forEach(function (message) {
                                         errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
                                     });
                                 }
@@ -327,7 +329,7 @@
         function startProjectTour() {
             const tourVar = new Shepherd.Tour({
                 defaultStepOptions: {
-                    scrollTo: true,
+                    scrollTo: false,
                     cancelIcon: {
                         enabled: true
                     }
