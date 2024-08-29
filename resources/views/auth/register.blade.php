@@ -135,8 +135,32 @@
 
                 </form>
                 <p class="text-center">OR</p>
-                <a href="{{ route('login.google') }}" class="btn btn-primary  d-grid w-100 mb-3">Sign in with Google</a>
-
+                <div class="row mb-3">
+                    <label class="d-block form-label">{{ __('User Role') }}</label>
+                    <div class="col-5 form-check custom-option custom-option-basic mx-4">
+                        <label class="form-check-label custom-option-content" for="g-role-publisher">
+                            <input type="radio" id="g-role-publisher" name="g-role" value="2"
+                                class="form-check-input role" required="">
+                            <span class="custom-option-header">
+                                <span class="h6 mb-0">Publisher</span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="col-5 form-check custom-option custom-option-basic">
+                        <label class="form-check-label custom-option-content" for="g-role-advertiser">
+                            <input type="radio" id="g-role-advertiser" name="g-role" value="3"
+                                class="form-check-input role" required="">
+                            <span class="custom-option-header">
+                                <span class="h6 mb-0">Advertiser</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <form method="GET" action="{{ route('login.google') }}" id="google-form">
+                    <input type="hidden" name="selected_role" id="selected_role">
+                    <a href="{{ route('login.google') }}" class="btn btn-primary  d-grid w-100 mb-3">Sign in with
+                        Google</a>
+                </form>
                 <p class="text-center">
                     <span>Already have an account?</span>
                     <a href="{{ route('login') }}">

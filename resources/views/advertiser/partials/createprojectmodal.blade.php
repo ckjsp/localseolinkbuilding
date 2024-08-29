@@ -50,7 +50,7 @@
                                     <option value="Health & Fitness">Health & Fitness</option>
                                     <option value="Home & Garden">Home & Garden</option>
                                     <option value="Humor">Humor</option>
-                                    <ption value="Internet & Telecom">Internet & Telecom</ption>
+                                    <option value="Internet & Telecom">Internet & Telecom</option>
                                     <option value="Law & Government">Law & Government</option>
                                     <option value="Leisure & Hobbies">Leisure & Hobbies</option>
                                     <option value="Magazine">Magazine</option>
@@ -105,4 +105,4 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.3/jquery.validate.min.js"></script>
-<script src="{{ asset('js/projects.js') }}"></script>
+<script src="{{ asset_url('js/projects.js') }}"></script>

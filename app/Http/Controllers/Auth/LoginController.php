@@ -44,8 +44,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectToGoogle()
+    public function redirectToGoogle(Request $request)
     {
+        $request->session()->put('selected_role', $request->input('selected_role'));
         return Socialite::driver('google')->redirect();
     }
 
@@ -55,7 +56,7 @@ class LoginController extends Controller
         try {
             //$googleUser = Socialite::driver('google')->user();
             $googleUser = Socialite::driver('google')->stateless()->user();
-
+            $selectedRole = session('selected_role');
             $user = lslbUser::where('email', $googleUser->email)->first();
 
             if ($user) {
@@ -66,7 +67,7 @@ class LoginController extends Controller
                 ]);
             } else {
                 $user = lslbUser::create([
-                    'role_id' => 3,
+                    'role_id' => $selectedRole,
                     'name' => $googleUser->getName(),
                     'email' => $googleUser->getEmail(),
                     'google_id' => $googleUser->getId(),
