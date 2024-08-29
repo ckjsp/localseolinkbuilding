@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 d-flex align-items-center border rounded">
-                        <img src="{{ asset('img/pages/search-icon.png') }}"
+                        <img src="{{ asset_url('img/pages/search-icon.png') }}"
                             style="max-width: 100px;height: fit-content;">
                         <p>Data is being prepared and will be presented here once it is ready.</p>
                     </div>
