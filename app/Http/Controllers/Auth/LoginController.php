@@ -10,6 +10,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Exception;
 use App\Models\lslbUser;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -46,7 +47,13 @@ class LoginController extends Controller
 
     public function redirectToGoogle(Request $request)
     {
-        $request->session()->put('selected_role', $request->input('selected_role'));
+        $request->validate([
+            'selected_role' => 'required|in:2,3',
+        ], [
+            'selected_role.required' => 'Please select a role before signing in with Google.',
+            'selected_role.in' => 'Invalid role selected.',
+        ]);
+        session(['selected_role' => $request->selected_role]);
         return Socialite::driver('google')->redirect();
     }
 
