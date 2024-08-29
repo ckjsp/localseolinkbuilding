@@ -349,8 +349,8 @@
             const backBtnClass = 'btn btn-sm btn-label-secondary md-btn-flat',
                 nextBtnClass = 'btn btn-sm btn-primary btn-next';
             tour.addStep({
-                title: 'Navbar',
-                text: "Add Projects to check Which orders belong to </br>which client, stay organized, and effortlessly </br> keep track of progress and spending. It's straightforward!",
+                //title: 'Navbar',
+                text: "Add Projects to check Which orders belong to </br>which client, stay organized, and effortlessly </br> keep track of progress and spending. It's straightforward! 🚀",
                 attachTo: { element: '#hover-dropdown-demo', on: 'bottom' },
                 buttons: [
                     {
@@ -366,7 +366,7 @@
                 ]
             });
             tour.addStep({
-                title: 'Card',
+                //title: 'Card',
                 text: 'Manage Projects seamlessly. Edit details or delete projects as needed.',
                 attachTo: { element: '#projects-menu', on: 'right' },
                 beforeShowPromise: function () {
@@ -399,7 +399,7 @@
                 ]
             });
             tour.addStep({
-                title: 'Footer',
+                //title: 'Footer',
                 text: 'Add a project by filling in the Project Name and Project URL, then include categories',
                 attachTo: { element: '.step-3', on: 'bottom' },
                 buttons: [
@@ -421,7 +421,7 @@
                 ]
             });
             tour.addStep({
-                title: 'About US',
+                //title: 'About US',
                 text: 'Keep your budget in check by monitoring expenses. Track the amount spent on link-building for each specific order.',
                 attachTo: { element: '.step-4', on: 'bottom' },
                 buttons: [

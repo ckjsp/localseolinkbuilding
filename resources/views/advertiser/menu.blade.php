@@ -40,6 +40,10 @@
     #projects-menu {
         width: 390px;
     }
+
+    .shepherd-header {
+        display: none !important;
+    }
 </style>
 
 <aside id="layout-menu" class="layout-menu-horizontal menu-horizontal menu bg-menu-theme flex-grow-0">
@@ -193,28 +197,12 @@
 
                             if ($('li.project-menu-list').length === 0) {
                                 localStorage.removeItem('project_tour_completed');
-                                var emtyProject = `<div class="row text-center justify-content-center empty-container">
-                                                        <img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;">
-                                                        <h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5>
-                                                        <p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest
-                                                            posting campaigns.</p>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
-                                                            class="btn btn-primary w-auto">+Add Projects
-                                                        </a>
-                                                    </div>`;
-                                $('#projects-container').html(emtyProject);
+                                var emtyProject = `<div class="row text-center justify-content-center empty-container"><img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;"><h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5><p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting campaigns.</p><a href="javascript:void(0)" data-bs-toggle="modal"  data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a></div>`;
+                                $('.project_details').html(emtyProject);
                             } else if (response.clearLocalStorage) {
                                 localStorage.removeItem('project_tour_completed');
-                                var emtyProject = `<div class="row text-center justify-content-center empty-container">
-                                                        <img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;">
-                                                        <h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5>
-                                                        <p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest
-                                                            posting campaigns.</p>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
-                                                            class="btn btn-primary w-auto">+Add Projects
-                                                        </a>
-                                                    </div>`;
-                                $('#projects-container').html(emtyProject);
+                                var emtyProject = `<div class="row text-center justify-content-center empty-container"><img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;"><h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5><p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting campaigns.</p><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a></div>`;
+                                $('.project_details').html(emtyProject);
                             }
                             loadProjectsMenu();
 
