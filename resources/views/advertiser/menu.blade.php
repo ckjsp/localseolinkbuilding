@@ -44,6 +44,14 @@
     .shepherd-header {
         display: none !important;
     }
+
+    .project-menu-list a {
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+    }
 </style>
 
 <aside id="layout-menu" class="layout-menu-horizontal menu-horizontal menu bg-menu-theme flex-grow-0">
@@ -65,7 +73,7 @@
                 </div>
                 <ul class="dropdown-menu p-2" id="projects-menu" style="display: none;">
                     <li><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop"
-                            id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects
+                            id="addprojectBtn" class="btn btn-primary w-100">+Add Projects
                         </a></li>
                 </ul>
             </li>
