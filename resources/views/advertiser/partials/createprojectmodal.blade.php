@@ -105,4 +105,4 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.3/jquery.validate.min.js"></script>
-<script src="/js/projects.js"></script>
+<script src="{{ asset('js/projects.js') }}"></script>

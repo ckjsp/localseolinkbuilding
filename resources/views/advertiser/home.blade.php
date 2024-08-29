@@ -4,7 +4,7 @@
 @push('css')
     <link rel="stylesheet" href="{{ asset_url('libs/select2/select2.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('libs/bootstrap-select/bootstrap-select.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('libs/toastr/toastr.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url('libs/toastr/toastr.css') }}">
 @endpush
 <link rel="stylesheet" href="{{ asset_url('libs/shepherd/shepherd.css') }}" />
 <!-- Content -->
@@ -168,7 +168,7 @@
 </style>
 <script src="{{ asset_url('libs/shepherd/shepherd.js') }}"></script>
 <script src=" {{ asset_url('libs/toastr/toastr.js') }}"></script>
-<script src="{{ asset('js/projects.js') }}"></script>
+<script src="{{ asset_url('js/projects.js') }}"></script>
 <script>
     $(document).ready(function () {
         $('#projectCategories').select2();
@@ -181,7 +181,6 @@
             $('#project-form').attr('action', `{{ route('advertiser.projects.store') }}`);
         });
 
-        $(document).on('submit', '#project-form', function (e) {
         $(document).on('submit', '#project-form', function (e) {
             e.preventDefault();
 
@@ -306,9 +305,11 @@
                                 if (errors.hasOwnProperty(key)) {
                                     var errorMessages = errors[key];
                                     errorMessages.forEach(function (message) {
-                                    errorMessages.forEach(function (message) {
-                                        errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
+                                        errorMessages.forEach(function (message) {
+                                            errorHtml += '<ul class="m-0"><li>' + message + '</li></ul>';
+                                        });
                                     });
+
                                 }
                             }
                             errorHtml += '</div>';
