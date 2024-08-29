@@ -265,6 +265,17 @@
             $('#password').on('keyup', function () {
                 validator.element('#password');  // Validate the password field on keyup
             });
+
+            $('#google-form').on('submit', function (event) {
+                var selectedRole = $('input[name="g-role"]:checked').val();
+                if (!selectedRole) {
+                    event.preventDefault();
+                    alert('Please select a role before signing in with Google.');
+                } else {
+                    $('#selected_role').val(selectedRole);
+                }
+            });
+
         });
     </script>
 @endpush
