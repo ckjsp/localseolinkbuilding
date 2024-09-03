@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Auth;
 
 // Route::get('/admin', 'AdminController@index')->middleware('checkUserRole:admin');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);

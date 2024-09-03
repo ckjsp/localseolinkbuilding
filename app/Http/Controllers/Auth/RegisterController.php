@@ -78,6 +78,8 @@ class RegisterController extends Controller
 
         // Send the verification email
         $user->sendEmailVerificationNotification();
+    
+         var_dump($user); die;
         
         return $user;
     }
