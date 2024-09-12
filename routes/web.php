@@ -64,17 +64,22 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/publisher/orders', 'index')->name('publisher.orders');
             Route::get('/publisher/orders/create', 'create')->name('publisher.orders.create');
             Route::get('/publisher/blog/{id}', 'checkArticle')->name('publisher.blog');
-
             Route::get('/advertiser/orders', 'index')->name('advertiser.orders');
             Route::post('/advertiser/orders/add', 'store')->name('advertiser.orders.store');
         });
+   Route::controller(PaymentController::class)->group(function () {
+            Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
+            Route::get('/publisher/payment', 'index')->name('publisher.payment');
+        });
+    });
 
         Route::controller(AdvertiserController::class)->group(function () {
+             Route::get('/advertiser/marketplace', 'marketplace')->name('advertiser.marketplace');
+             Route::get('/advertiser/cart', 'cart')->name('advertiser.cart');
             Route::get('/advertiser/{page?}', 'index')->name('advertiser');
             //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
-            Route::get('/advertiser/marketplace', 'marketplace')->name('advertiser.marketplace');
             //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
-            Route::get('/advertiser/cart', 'cart')->name('advertiser.cart');
+           
             Route::get('/advertiser/projects', 'projectCreate')->name('advertiser.projects.create');
             Route::post('/advertiser/projects', 'projectStore')->name('advertiser.projects.store');
             Route::put('/advertiser/projects/{id}', 'projectUpdate')->name('advertiser.projects.update');
@@ -85,12 +90,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/advertiser/set-selected-project', 'setSelectedProject')->name('advertiser.set.selected.project');
         });
 
-        Route::controller(PaymentController::class)->group(function () {
-            Route::get('/publisher/payment', 'index')->name('publisher.payment');
-            Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
-        });
-    });
-
+     
     Route::controller(OrdersController::class)->group(function () {
         Route::get('/order/info/{id}', 'orderInfo')->name('order.info');
         Route::post('/order/update-status/{id}', 'updateStatus')->name('order.update.status');

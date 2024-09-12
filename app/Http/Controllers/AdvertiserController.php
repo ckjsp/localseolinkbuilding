@@ -93,15 +93,19 @@ class AdvertiserController extends Controller
     }
 
     public function cart()
-    {
-        $data = array();
-        $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart']) : array();
-        $ids = array_column($arrCookie, 'web_id');
-        $data['slug'] = 'cart';
-        $data['userDetail'] = Auth::user();
-        $data['websites'] = lslbWebsite::findMany($ids);
-        return view('advertiser/cart')->with($data);
-    }
+{
+    $data = array();
+    $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart']) : array();
+    $ids = array_column($arrCookie, 'web_id');
+    $data['slug'] = 'cart';
+    $data['userDetail'] = Auth::user();
+    $data['websites'] = lslbWebsite::findMany($ids);
+    $data['allWebsites'] = lslbWebsite::all();  // Retrieve all websites
+    return view('advertiser/cart')->with($data);
+}
+
+
+
 
     public function projectCreate()
     {
