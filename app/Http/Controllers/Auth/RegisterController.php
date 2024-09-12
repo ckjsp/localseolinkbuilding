@@ -64,6 +64,7 @@ class RegisterController extends Controller
      * @return \App\Models\lslbUser
      */
     protected function create(array $data)
+
     {
         $data['identity'] = ($data['role'] == 3) ? 'in-house team' : 'individual link builder';
         $user = lslbUser::create([
@@ -79,8 +80,6 @@ class RegisterController extends Controller
         // Send the verification email
         $user->sendEmailVerificationNotification();
     
-         var_dump($user); die;
-        
         return $user;
     }
 }

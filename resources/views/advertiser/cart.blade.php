@@ -156,6 +156,49 @@
     </div>
     <!--/ Checkout Wizard -->
 </div>
+
+<!-- resources/views/advertiser/cart.blade.php -->
+<div class="container-xxl flex-grow-1 container-p-y mt-5">
+    <h5 class="shadow-lg p-3 bg-white rounded">Similar Website</h5>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Website URL</th>
+                    <th>Categories</th>
+                    <th>Da</th>
+                    <th>Guest Post</th>
+                    <th>Actions</th> <!-- Added for buttons -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($allWebsites as $k => $website)
+                    @php
+                        $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
+                        $isAdded = array_search($website->id, array_column($arrCookie, 'web_id')) !== false;
+                        $cls = $isAdded ? 'btn-primary' : 'btn-label-primary';
+                        $text = $isAdded ? '<i class="ti ti-shopping-cart-plus"></i> Added' : '<i class="ti ti-shopping-cart-plus"></i> Add';
+                    @endphp
+                    <tr>
+                        <td>{{ $website->id }}</td>
+                        <td><a href="{{ $website->website_url }}" target="_blank">{{ $website->website_url }}</a></td>
+                        <td>{{ $website->categories }}</td>
+                        <td>{{ $website->domain_authority }}</td>
+                        <td>${{ $website->guest_post_price }}</td>
+                        <td>
+                            <button type="button" class="btn {{ $cls }} waves-effect waves-light" data-web_id="{{ $website->id }}"
+                                onclick="addToCart($(this))">
+                                {!! $text !!}
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <!--/ Content -->
 <div class="modal fade" id="billing-pop" tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-simple modal-enable-otp modal-dialog-centered">
@@ -400,5 +443,70 @@
 <script>
     removeFromCart($('#tempWebId'));
 </script>
+<script>
+    // Ensure this script runs after the DOM is fully loaded
+$(document).ready(function() {
+    // Bind click event to AddToCart buttons
+    $("button[data-web_id]").click(function () {
+        addToCart($(this));
+    });
+});
+
+function addToCart($button) {
+    var web_id = $button.data("web_id");
+    var user_id = $("#user_id").val(); // Ensure you have a hidden input or similar element with ID user_id
+
+    var cartCookie = getCookie("cart");
+    var cartArr = cartCookie ? JSON.parse(cartCookie) : [];
+    var newCartArr = [];
+    var itemExists = false;
+
+    // Check if the item is already in the cart
+    $.each(cartArr, function(i, item) {
+        if (item.user_id == user_id && item.web_id == web_id) {
+            itemExists = true;
+        } else {
+            newCartArr.push(item);
+        }
+    });
+
+    // Add or remove item based on its existence
+    if (itemExists) {
+        $button.removeClass("btn-primary").addClass("btn-label-primary");
+        $button.html('<i class="ti ti-shopping-cart-plus"></i> Add');
+    } else {
+        newCartArr.push({ user_id: user_id, web_id: web_id, quantity: 1 });
+        $button.removeClass("btn-label-primary").addClass("btn-primary");
+        $button.html('<i class="ti ti-shopping-cart-plus"></i> Added');
+    }
+
+    // Update cart icon count
+    $('.nav-cart-icon').attr('data-item-count', newCartArr.length);
+
+    // Save updated cart to cookie
+    setCookie("cart", JSON.stringify(newCartArr), 2);
+}
+
+// Function to get a cookie by name
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+// Function to set a cookie
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+</script>
 @endif
+
+
 @endpush
