@@ -91,11 +91,7 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="d-flex mb-3">
-                                                        <div class="col-md-9 m-0">
-                                                            <p class="m-0 fs-6">Category: <span>xyz, xyz1</span></p>
-                                                        </div>
-                                                    </div> -->
+                                               
                                                 <div class="post-title-main d-flex mb-3 justify-content-between">
                                                     <div class="col-md-6 pe-2 ">
                                                         <label class="form-label" for="inputArticleTitle{{$v->id}}">Post Title</label>
@@ -103,27 +99,14 @@
                                                         <div class="valid-feedback"></div>
                                                         <div class="invalid-feedback">Invalid Post Title or Empty Post Title Please Insert Title Without Link.</div>
                                                     </div>
-                                                    <!-- <div class="col-md-6 mb-3">
-                                                        <label class="form-label" for="inputDocFile{{$v->id}}">Attachments <small>Note: Support only doc, docx
-                                                        </small><label>
-                                                        <input type="file" class="form-control attachments-control inputDocFile" name="attachment" id="inputDocFile{{$v->id}}" required="">
-                                                        <div class="valid-feedback">File type is allowed. You can upload it.</div>
-                                                        <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
-                                                    </div> -->
+                                                 
                                                     <div class="col-md-6">
                                                         <label class="form-label" for="inputDocFile{{$v->id}}">Attachments <small>Note: Support only doc, docx</small></label>
                                                         <input type="file" class="form-control attachments-control inputDocFile" name="attachment" id="inputDocFile{{$v->id}}" required="">
                                                         <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                                         <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
                                                     </div>
-                                                    <!-- <div class="col-md-6 pe-2">
-                                                            <label class="form-label" for="inputDocFile{{$v->id}}">Attachments<small>Note: Support
-                                                                    only doc, docx</small></label>
-                                                            <input type="file" class="form-control inputDocFile" name="attachment" id="inputDocFile{{$v->id}}" required>
-                                                            <div class="valid-feedback">File type is allowed. You can upload it.
-                                                            </div>
-                                                            <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
-                                                        </div> -->
+                                             
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label class="form-label" for="inputSpecialInstructions{{$v->id}}">Special Instructions</label>
@@ -187,10 +170,16 @@
                         <td>{{ $website->domain_authority }}</td>
                         <td>${{ $website->guest_post_price }}</td>
                         <td>
-                            <button type="button" class="btn {{ $cls }} waves-effect waves-light" data-web_id="{{ $website->id }}"
-                                onclick="addToCart($(this))">
-                                {!! $text !!}
-                            </button>
+                        <button type="button" class="btn {{ $cls }} waves-effect waves-light" 
+                            data-web_id="{{ $website->id }}"
+                            data-price="{{ $website->guest_post_price }}" 
+                            data-website_url="{{ $website->website_url }}" 
+                            data-categories="{{ $website->categories }}" 
+                            data-forbidden_categories="{{ $website->forbidden_categories }}" 
+                            onclick="addToCart($(this))">
+                        {!! $text !!}
+                    </button>
+
                         </td>
                     </tr>
                 @endforeach
@@ -252,42 +241,164 @@
         }
     });
 
-    $('AddToCart').click(function() {
-        addToCart($(this));
-    });
+        function addToCart($this) {
 
-    function addToCart($this) {
         var $web_id = $this.data('web_id');
         var $user_id = $('#user_id').val();
-        $newCartArr = [];
-        $data = {
+        var $price = $this.data('price') || 0;
+        var $website_url = $this.data('website_url') || '';
+        var $categories = $this.data('categories') || '';
+        var $forbidden_categories = $this.data('forbidden_categories') || '';
+        
+        if ($web_id === undefined || $user_id === undefined) {
+            console.error('Missing web_id or user_id:', $web_id, $user_id);
+            return;
+        }
+
+        var $data = {
             'user_id': $user_id,
             'web_id': $web_id,
             'quantity': 1,
-        };
-        $cartCookie = getCookie('cart')
-        $num = 0;
-        if ($cartCookie != '') {
-            $cartArr = JSON.parse($cartCookie);
+            'price': $price,
+            'website_url': $website_url,
+            'categories': $categories,
+            'forbidden_categories': $forbidden_categories
+        };    
+
+        var $cartCookie = getCookie('cart');
+        console.log($cartCookie);
+        
+        var $newCartArr = [];
+        var $num = 0;
+
+        if ($cartCookie) {
+            var $cartArr = JSON.parse($cartCookie);
             $.each($cartArr, function(i, v) {
                 if (v.user_id == $user_id && v.web_id == $web_id) {
                     $num++;
                     $this.addClass('btn-label-primary').removeClass('btn-primary');
                     $this.html('<i class="ti ti-shopping-cart-plus"></i> Add');
                 } else {
-                    $newCartArr[$newCartArr.length] = v;
+                    $newCartArr.push(v);
                 }
             });
         }
 
         if ($num == 0) {
-            $newCartArr[$newCartArr.length] = $data;
+            $newCartArr.push($data);
             $this.removeClass('btn-label-primary').addClass('btn-primary');
             $this.html('<i class="ti ti-shopping-cart-plus"></i> Added');
         }
-        $('.nav-cart-icon').attr('data-item-count',$newCartArr.length);
+
+        $('.nav-cart-icon').attr('data-item-count', $newCartArr.length);
         setCookie('cart', JSON.stringify($newCartArr), 2);
+
+        // Update the cart UI dynamically
+        updateCartUI($newCartArr);
     }
+    
+    function updateCartUI(cartItems) {
+        var $cartContainer = $('.container');
+
+        // Iterate through each item and update the cart UI
+        $.each(cartItems, function(i, item) {
+            // Check if the item already exists in the cart
+            var $existingItem = $cartContainer.find('.card.web_id_' + item.web_id);
+
+            if ($existingItem.length) {
+                // Update the existing item
+                $existingItem.find('.quantity').val(item.quantity);
+              
+                
+            } else {
+                // Append the new item
+                var $cartItem = `
+                    <div class="card mb-4 web_id_${item.web_id}">
+                        <div class="card-body">
+                            <form action="{{ route('advertiser.orders.store') }}" method="post" id="cartform-${item.web_id}" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="quantity" value="${item.quantity}" />
+                                <input type="hidden" name="user_id" value="${item.user_id}">
+                                <input type="hidden" name="website_id" value="${item.web_id}">
+                                <input type="hidden" name="payment_method" value="paypal">
+                                <input type="hidden" name="price" value="${item.price}">
+                                <input type="hidden" name="type" value="guest post">
+                                <div class="d-flex mt-4">
+                                    <button type="button" class="btn-close btn-pinned" data-web_id="${item.web_id}" onclick="removeFromCart($(this))" aria-label="Close"></button>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6 d-flex align-items-start flex-column">
+                                        <a href="${item.website_url}" class="badge text-primary p-3 pb-0 px-0 fs-5" target="_blank">${item.website_url}</a>
+                                        <div>
+                                            <p class="m-0 fs-6">Categories: <span>${item.categories}</span></p>
+                                            <p class="m-0 fs-6">Forbidden Categories: <span>${item.forbidden_categories}</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="col-md-4 text-md">
+                                            <label class="form-label">Quantity</label>
+                                            <input type="number" id="inputQuantity" data-price="${item.price}" data-web_id="${item.web_id}" onchange="changeQuantity($(this))" class="form-control quantity" value="${item.quantity}" min="1" max="5" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 text-center d-flex align-items-end justify-content-center">
+                                        <span class="badge fs-5 p-2 price-box quantityPrice${item.web_id}">
+                                            $${item.price}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="post-title-main d-flex mb-3 justify-content-between">
+                                    <div class="col-md-6 pe-2">
+                                        <label class="form-label" for="inputArticleTitle${item.web_id}">Post Title</label>
+                                        <input type="text" class="form-control inputArticleTitle" name="article_title" id="inputArticleTitle${item.web_id}" required placeholder="Enter post title">
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">Invalid Post Title or Empty Post Title Please Insert Title Without Link.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="inputDocFile${item.web_id}">Attachments <small>Note: Support only doc, docx</small></label>
+                                        <input type="file" class="form-control attachments-control inputDocFile" name="attachment" id="inputDocFile${item.web_id}" required="">
+                                        <div class="valid-feedback">File type is allowed. You can upload it.</div>
+                                        <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label" for="inputSpecialInstructions${item.web_id}">Special Instructions</label>
+                                    <textarea type="text" class="form-control" rows="5" name="special_instructions" id="inputSpecialInstructions${item.web_id}" required></textarea>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <div class="text-center mx-2">
+                                        <button type="button" class="btn btn-primary checkout-btn" data-formid="cartform-${item.web_id}" data-webid="${item.web_id}" data-web_userid="${item.user_id}" onclick="orderPlace($(this))">
+                                            <span class="loader-box spinner-border me-1" role="status" aria-hidden="true" style="display: none;"></span>
+                                            Check Out
+                                        </button>
+                                    </div>
+                                    <div class="text-center mx-2">
+                                        <button type="button" class="btn btn-danger btn-label-danger" data-web_id="${item.web_id}" onclick="removeFromCart($(this))">Remove</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>`;
+
+                $cartContainer.append($cartItem);
+            }
+        });
+    }
+        function getCookie(name) {
+        let value = "; " + document.cookie;
+        let parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
 
     function removeFromCart($this) {
         var $web_id = $this.data('web_id');
@@ -443,69 +554,7 @@
 <script>
     removeFromCart($('#tempWebId'));
 </script>
-<script>
-    // Ensure this script runs after the DOM is fully loaded
-$(document).ready(function() {
-    // Bind click event to AddToCart buttons
-    $("button[data-web_id]").click(function () {
-        addToCart($(this));
-    });
-});
 
-function addToCart($button) {
-    var web_id = $button.data("web_id");
-    var user_id = $("#user_id").val(); // Ensure you have a hidden input or similar element with ID user_id
-
-    var cartCookie = getCookie("cart");
-    var cartArr = cartCookie ? JSON.parse(cartCookie) : [];
-    var newCartArr = [];
-    var itemExists = false;
-
-    // Check if the item is already in the cart
-    $.each(cartArr, function(i, item) {
-        if (item.user_id == user_id && item.web_id == web_id) {
-            itemExists = true;
-        } else {
-            newCartArr.push(item);
-        }
-    });
-
-    // Add or remove item based on its existence
-    if (itemExists) {
-        $button.removeClass("btn-primary").addClass("btn-label-primary");
-        $button.html('<i class="ti ti-shopping-cart-plus"></i> Add');
-    } else {
-        newCartArr.push({ user_id: user_id, web_id: web_id, quantity: 1 });
-        $button.removeClass("btn-label-primary").addClass("btn-primary");
-        $button.html('<i class="ti ti-shopping-cart-plus"></i> Added');
-    }
-
-    // Update cart icon count
-    $('.nav-cart-icon').attr('data-item-count', newCartArr.length);
-
-    // Save updated cart to cookie
-    setCookie("cart", JSON.stringify(newCartArr), 2);
-}
-
-// Function to get a cookie by name
-function getCookie(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length == 2) return parts.pop().split(";").shift();
-}
-
-// Function to set a cookie
-function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
-
-</script>
 @endif
 
 

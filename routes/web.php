@@ -73,6 +73,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
     });
 
+
+
+
         Route::controller(AdvertiserController::class)->group(function () {
              Route::get('/advertiser/marketplace', 'marketplace')->name('advertiser.marketplace');
              Route::get('/advertiser/cart', 'cart')->name('advertiser.cart');
