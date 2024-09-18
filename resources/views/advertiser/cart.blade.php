@@ -11,6 +11,7 @@
 
 <div class="container-xxl flex-grow-1 container-p-y mt-5">
     @if(session('success'))
+
     <div class="alert alert-primary mt-3">{{ session('success') }}</div>
     <input type="hidden" id="tempWebId" data-web_id="<?= session('website_id') ?>">
     @endif
@@ -25,22 +26,7 @@
                     <div class="row">
                         <!-- Cart left -->
                         <div class="col-xl-12 mb-3 mb-xl-0 pt-3">
-                            <!-- Offer alert -->
-                            <!-- <div class="alert alert-success mb-3" role="alert">
-                                    <div class="d-flex gap-3">
-                                        <div class="flex-shrink-0">
-                                            <i class="ti ti-bookmarks ti-sm alert-icon alert-icon-lg"></i>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <div class="fw-medium fs-5 mb-2">Available Offers</div>
-                                            <ul class="list-unstyled mb-0">
-                                                <li>- 10% Instant Discount on Bank of America Corp Bank Debit and Credit cards</li>
-                                                <li>- 25% Cashback Voucher of up to $60 on first ever PayPal transaction. TCA</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn-close btn-pinned" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div> -->
+                        
                             @if(isset($websites) && !empty($websites))
                             <!-- Shopping bag -->
                             @if($errors->any())
@@ -52,6 +38,8 @@
                                 </ul>
                             </div>
                             @endif
+                            <!-- Container for displaying success messages -->
+
                             <div class="container">
                                 <div class="mb-3">
                                     @foreach($websites as $k => $v)
@@ -159,9 +147,7 @@
                 @foreach($allWebsites as $k => $website)
                     @php
                         $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
-                        $isAdded = array_search($website->id, array_column($arrCookie, 'web_id')) !== false;
-                        $cls = $isAdded ? 'btn-primary' : 'btn-label-primary';
-                        $text = $isAdded ? '<i class="ti ti-shopping-cart-plus"></i> Added' : '<i class="ti ti-shopping-cart-plus"></i> Add';
+                      
                     @endphp
                     <tr>
                         <td>{{ $website->id }}</td>
@@ -170,14 +156,14 @@
                         <td>{{ $website->domain_authority }}</td>
                         <td>${{ $website->guest_post_price }}</td>
                         <td>
-                        <button type="button" class="btn {{ $cls }} waves-effect waves-light" 
+                        <button type="button" class="btn btn-primary waves-effect waves-light" 
                             data-web_id="{{ $website->id }}"
                             data-price="{{ $website->guest_post_price }}" 
                             data-website_url="{{ $website->website_url }}" 
                             data-categories="{{ $website->categories }}" 
                             data-forbidden_categories="{{ $website->forbidden_categories }}" 
                             onclick="addToCart($(this))">
-                        {!! $text !!}
+                            Add
                     </button>
 
                         </td>
@@ -218,10 +204,23 @@
         <span class="loader-text visually-hidden">Loading...</span>
     </div>
 </div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body">
+      <!-- Toast message will be dynamically inserted here -->
+    </div>
+  </div>
+</div>
+
+
+
 @endsection
 
 @push('script')
+
 <script>
+    
     $('.inputDocFile').change(function() {
         const selectedFile = this.files[0]; // Get the selected file
 
@@ -241,61 +240,80 @@
         }
     });
 
-        function addToCart($this) {
+    function addToCart($this) {
+    var $web_id = $this.data('web_id');
+    var $user_id = $('#user_id').val();
+    var $price = $this.data('price') || 0;
+    var $website_url = $this.data('website_url') || '';
+    var $categories = $this.data('categories') || '';
+    var $forbidden_categories = $this.data('forbidden_categories') || '';
 
-        var $web_id = $this.data('web_id');
-        var $user_id = $('#user_id').val();
-        var $price = $this.data('price') || 0;
-        var $website_url = $this.data('website_url') || '';
-        var $categories = $this.data('categories') || '';
-        var $forbidden_categories = $this.data('forbidden_categories') || '';
-        
-        if ($web_id === undefined || $user_id === undefined) {
-            console.error('Missing web_id or user_id:', $web_id, $user_id);
-            return;
-        }
-
-        var $data = {
-            'user_id': $user_id,
-            'web_id': $web_id,
-            'quantity': 1,
-            'price': $price,
-            'website_url': $website_url,
-            'categories': $categories,
-            'forbidden_categories': $forbidden_categories
-        };    
-
-        var $cartCookie = getCookie('cart');
-        console.log($cartCookie);
-        
-        var $newCartArr = [];
-        var $num = 0;
-
-        if ($cartCookie) {
-            var $cartArr = JSON.parse($cartCookie);
-            $.each($cartArr, function(i, v) {
-                if (v.user_id == $user_id && v.web_id == $web_id) {
-                    $num++;
-                    $this.addClass('btn-label-primary').removeClass('btn-primary');
-                    $this.html('<i class="ti ti-shopping-cart-plus"></i> Add');
-                } else {
-                    $newCartArr.push(v);
-                }
-            });
-        }
-
-        if ($num == 0) {
-            $newCartArr.push($data);
-            $this.removeClass('btn-label-primary').addClass('btn-primary');
-            $this.html('<i class="ti ti-shopping-cart-plus"></i> Added');
-        }
-
-        $('.nav-cart-icon').attr('data-item-count', $newCartArr.length);
-        setCookie('cart', JSON.stringify($newCartArr), 2);
-
-        // Update the cart UI dynamically
-        updateCartUI($newCartArr);
+    if ($web_id === undefined || $user_id === undefined) {
+        console.error('Missing web_id or user_id:', $web_id, $user_id);
+        return;
     }
+
+    var $data = {
+        'user_id': $user_id,
+        'web_id': $web_id,
+        'quantity': 1,  // You can allow users to specify quantity
+        'price': $price,
+        'website_url': $website_url,
+        'categories': $categories,
+        'forbidden_categories': $forbidden_categories
+    };
+
+    // Get existing cart from the cookie
+    var $cartCookie = getCookie('cart');
+    var $newCartArr = [];
+
+    if ($cartCookie) {
+        // Parse the existing cart data into an array
+        $newCartArr = JSON.parse($cartCookie);
+    }
+
+    // Check if the item is already in the cart
+    var itemExists = $newCartArr.find(item => item.web_id === $web_id);
+
+    if (itemExists) {
+        // If the item is already in the cart, update the quantity
+        itemExists.quantity += 1;
+    } else {
+        // Otherwise, add the new item to the cart
+        $newCartArr.push($data);
+    }
+
+    // Update the cart count in the UI
+    $('.nav-cart-icon').attr('data-item-count', $newCartArr.length);
+
+    // Save the updated cart back to the cookie
+    setCookie('cart', JSON.stringify($newCartArr), 2);
+
+    // Update the cart UI dynamically
+    updateCartUI($newCartArr);
+
+    // Show success message
+    showSuccessMessage("Website successfully added to the cart!");
+}
+
+// Function to show success message
+function showSuccessMessage(message) {
+    // Select the toast element
+    var toastEl = document.getElementById('liveToast');
+    var toastBody = toastEl.querySelector('.toast-body');
+
+    // Set the message in the toast body
+    toastBody.textContent = message;
+
+    // Create a new Toast instance and show it
+    var toast = new bootstrap.Toast(toastEl, {
+        autohide: true,
+        delay: 3000 // Show toast for 3 seconds
+    });
+    toast.show();
+}
+
+
     
     function updateCartUI(cartItems) {
         var $cartContainer = $('.container');
@@ -420,6 +438,8 @@
             $('.nav-cart-icon').attr('data-item-count',$newCartArr.length);
             setCookie('cart', JSON.stringify($newCartArr), 2);
         }
+        updateCartUI($newCartArr);
+
     }
 
     function changeQuantity($this) {
