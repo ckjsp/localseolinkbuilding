@@ -47,7 +47,7 @@
                             @endphp
                             <tr aria-expanded="false">
                                 <td>{{ date('d M, Y',strtotime($v->order_date)) }}</td>
-                                <td><a href="{{ route('order.info', $v->order_id) }}" title="{{ $v->order_id }}">{{ __('Order Id') }}</a></td>
+                                <td><a href="{{ route('order.info', $v->order_id) }}" title="{{ $v->order_id }}">{{($v->order_id) }}</a></td>
                                 <td><a href="{{ $v->website->website_url }}" target="_blank" title="Web Site Link ({{ $v->website->website_url }})" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="{{ $v->website->website_url }}">Link <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
                                 <td>
                                     @if($v->attachment != '') 

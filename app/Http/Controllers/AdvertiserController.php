@@ -9,6 +9,8 @@ use App\Models\lslbOrder;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use App\Models\lslbProject;
+use Illuminate\Support\Facades\Session;
+
 
 Validator::extend('url', function ($attribute, $value, $parameters, $validator) {
     return preg_match('/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/', $value);
@@ -167,7 +169,77 @@ class AdvertiserController extends Controller
         }
     }
 
+
+            public function addcompetitor(Request $request)
+            
+            {
+                // Validate the request
+                $request->validate([
+                    'project_id' => 'required|integer',
+                    'competitor_name' => 'required|string|max:255',
+                ]);
+
+                // Store the data in session
+                $competitors = Session::get('competitors', []);
+                $competitors[] = [
+                    'project_id' => $request->input('project_id'),
+                    'competitor_name' => $request->input('competitor_name'),
+                ];
+                Session::put('competitors', $competitors);
+                
+                return response()->json(['success' => true]);
+            }
+
+                public function getCompetitors($project_id)
+                {
+                    // Retrieve competitors from the session
+                    $competitors = Session::get('competitors', []);
+
+                    // Filter competitors for the specific project_id
+                    $projectCompetitors = array_filter($competitors, function ($competitor) use ($project_id) {
+                        return $competitor['project_id'] == $project_id;
+                    });
+
+                    // Return the competitors in JSON format
+                    return response()->json(['competitors' => array_values($projectCompetitors)]);
+                }
+
+                   public function removeCompetitor(Request $request)
+
+                    {
+                        $competitorName = $request->input('competitor_name');
+                        
+                        try {
+                            // Get the current list of competitors from the session
+                            $competitors = session()->get('competitors', []);
+
+                            // Find the competitor in the session list
+                            $index = array_search($competitorName, array_column($competitors, 'competitor_name'));
+
+                            if ($index !== false) {
+                                // Remove the competitor from the array
+                                unset($competitors[$index]);
+                                
+                                // Reindex the array
+                                $competitors = array_values($competitors);
+
+                                // Store the updated list back in the session
+                                session()->put('competitors', $competitors);
+
+                                return response()->json(['success' => true]);
+                            } else {
+                                return response()->json(['success' => false, 'message' => 'Competitor not found.']);
+                            }
+                        } catch (\Exception $e) {
+                            \Log::error('Failed to remove competitor: ' . $e->getMessage());
+                            return response()->json(['success' => false, 'message' => $e->getMessage()]);
+                        }
+                    }
+
+
+            
     public function projectEdit($id)
+
     {
         $getProjectDetail = lslbProject::find($id);
         $getProjectDetail->categories = unserialize($getProjectDetail->categories);
@@ -177,6 +249,7 @@ class AdvertiserController extends Controller
     }
 
     public function projectUpdate(Request $request, $id)
+
     {
         if (isset($id)) {
             $validator = Validator::make($request->all(), [
