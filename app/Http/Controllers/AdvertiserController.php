@@ -168,74 +168,91 @@ class AdvertiserController extends Controller
             ]);
         }
     }
+    
+    public function addCompetitor(Request $request)
+
+    {
+        // Validate the request data
+        $validated = $request->validate([
+            'project_id' => 'required|', // Assuming 'lsl_b_projects' is your table name
+            'add_competitor' => 'required|url',
+        ]);
+    
+        // Check if a project already exists for the given project_id
+        $project = lslbProject::where('id', $validated['project_id'])->first();
+    
+        if ($project) {
+            // If project exists, update the add_competitor field
+            $currentCompetitors = $project->add_competitor;
+            $newCompetitor = $validated['add_competitor'];
+    
+            // Append the new competitor URL, avoiding duplicate entries
+            $updatedCompetitors = $currentCompetitors ? $currentCompetitors . ',' . $newCompetitor : $newCompetitor;
+    
+            $project->update([
+                'add_competitor' => $updatedCompetitors,
+            ]);
+        } else {
+            // If project doesn't exist, create a new one
+            lslbProject::create([
+                'id' => $validated['project_id'],
+                'add_competitor' => $validated['add_competitor'],
+            ]);
+        }
+    
+        // Return a redirect response with a success message
+        return redirect()->back()->with('success', 'Competitor saved successfully!');
+    }
+    
+    public function getCompetitorsByProjectId($projectId)
+{
+    // Fetch the record for the given project ID
+    $project = DB::table('lslb_project')
+                ->where('id', $projectId)
+                ->first(['add_competitor']); // Get only the 'add_competitor' field
+
+    if ($project) {
+        // Explode the comma-separated string into an array
+        $competitorUrls = explode(',', $project->add_competitor);
+
+        // Prepare the array for response
+        $competitors = array_map('trim', $competitorUrls); // Optional: Remove extra spaces
+
+        return response()->json(['competitors' => $competitors]);
+    } else {
+        return response()->json(['error' => 'Project not found'], 404);
+    }
+}
 
 
-            public function addcompetitor(Request $request)
+            public function removeCompetitor(Request $request, $projectId)
             
             {
-                // Validate the request
-                $request->validate([
-                    'project_id' => 'required|integer',
-                    'competitor_name' => 'required|string|max:255',
-                ]);
-
-                // Store the data in session
-                $competitors = Session::get('competitors', []);
-                $competitors[] = [
-                    'project_id' => $request->input('project_id'),
-                    'competitor_name' => $request->input('competitor_name'),
-                ];
-                Session::put('competitors', $competitors);
+                $urlToRemove = $request->input('url');
                 
-                return response()->json(['success' => true]);
-            }
+                // Fetch the project
+                $project = DB::table('lslb_project')->where('id', $projectId)->first(['add_competitor']);
 
-                public function getCompetitors($project_id)
-                {
-                    // Retrieve competitors from the session
-                    $competitors = Session::get('competitors', []);
-
-                    // Filter competitors for the specific project_id
-                    $projectCompetitors = array_filter($competitors, function ($competitor) use ($project_id) {
-                        return $competitor['project_id'] == $project_id;
+                if ($project) {
+                    // Explode the comma-separated string into an array
+                    $competitorUrls = explode(',', $project->add_competitor);
+                    
+                    // Remove the URL
+                    $competitorUrls = array_filter($competitorUrls, function($url) use ($urlToRemove) {
+                        return trim($url) !== trim($urlToRemove);
                     });
 
-                    // Return the competitors in JSON format
-                    return response()->json(['competitors' => array_values($projectCompetitors)]);
+                    // Rebuild the comma-separated string
+                    $updatedCompetitors = implode(',', $competitorUrls);
+
+                    // Update the record
+                    DB::table('lslb_project')->where('id', $projectId)->update(['add_competitor' => $updatedCompetitors]);
+
+                    return response()->json(['success' => true]);
+                } else {
+                    return response()->json(['error' => 'Project not found'], 404);
                 }
-
-                   public function removeCompetitor(Request $request)
-
-                    {
-                        $competitorName = $request->input('competitor_name');
-                        
-                        try {
-                            // Get the current list of competitors from the session
-                            $competitors = session()->get('competitors', []);
-
-                            // Find the competitor in the session list
-                            $index = array_search($competitorName, array_column($competitors, 'competitor_name'));
-
-                            if ($index !== false) {
-                                // Remove the competitor from the array
-                                unset($competitors[$index]);
-                                
-                                // Reindex the array
-                                $competitors = array_values($competitors);
-
-                                // Store the updated list back in the session
-                                session()->put('competitors', $competitors);
-
-                                return response()->json(['success' => true]);
-                            } else {
-                                return response()->json(['success' => false, 'message' => 'Competitor not found.']);
-                            }
-                        } catch (\Exception $e) {
-                            \Log::error('Failed to remove competitor: ' . $e->getMessage());
-                            return response()->json(['success' => false, 'message' => $e->getMessage()]);
-                        }
-                    }
-
+            }
 
             
     public function projectEdit($id)

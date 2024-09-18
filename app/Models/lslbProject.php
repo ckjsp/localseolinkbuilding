@@ -14,6 +14,7 @@ class lslbProject extends Model
         'user_id',
         'project_name',
         'project_url',
+        'add_competitor',
         'categories',
         'forbidden_category',
         'additional_note',

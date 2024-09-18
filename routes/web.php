@@ -74,16 +74,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
 
-
+    Route::get('/competitors/{project_id}', [AdvertiserController::class, 'getCompetitorsByProjectId'])->name('competitors.get');
+    Route::post('/add-competitor', [AdvertiserController::class, 'addCompetitor'])->name('addcompetitor');
+    
+    Route::post('/competitors/{projectId}/remove', [AdvertiserController::class, 'removeCompetitor'])->name('removeCompetitor');
+    
 
 
         Route::controller(AdvertiserController::class)->group(function () {
              Route::get('/advertiser/marketplace', 'marketplace')->name('advertiser.marketplace');
              Route::get('/advertiser/cart', 'cart')->name('advertiser.cart');
             Route::get('/advertiser/{page?}', 'index')->name('advertiser');
-            Route::get('/competitors/{project_id}',  'getCompetitors')->name('competitors.get');
-            Route::post('/removecompetitor',  'removeCompetitor')->name('removecompetitor');
-            Route::post('/save-competitor', 'addcompetitor')->name('addcompetitor');
+            
 
             //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
             //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');

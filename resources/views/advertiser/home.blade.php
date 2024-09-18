@@ -96,8 +96,8 @@
                                 <h5 class="card-title">{{ $project->project_name }}</h5>
                                 <div class="d-flex gap-3">
                                     <p class="card-text"> {{ $project->project_url }}</p>
-                                    <span> {{ $project->created_at }} </span>
-                                </div>
+                                    <span>{{ \Carbon\Carbon::parse($project->created_at)->format('F d, Y') }}</span>
+                                    </div>
                             </div>
                             <hr />
                             <div class="card-body">
@@ -121,12 +121,12 @@
                                             style="max-width: 100px;height: fit-content;">
                                         <p>Data is being prepared and will be presented here once it is ready.</p>
                                     </div>
-                                                            <div class="col-md-3 d-flex align-items-center width-calc">
+                                    <div class="col-md-3 d-flex align-items-center width-calc">
                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#competitorModal"
-                            data-project-id="{{ $project->id }}" id="addcompetitorBtn" class="btn btn-primary w-auto step-5">
+                               data-project-id="{{ $project->id }}" id="addcompetitorBtn" class="btn btn-primary w-auto step-5">
                                 +Add Competitors
                             </a>
-                        </div>  <!-- Modal Structure -->
+                        </div>
 
                                 </div>
                             </div>
@@ -139,6 +139,7 @@
     @include('advertiser.partials.createprojectmodal')
 </div>
 
+<!-- Modal for Adding Competitor -->
 <div class="modal fade" id="competitorModal" tabindex="-1" aria-labelledby="competitorModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -147,30 +148,33 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="competitorForm">
+                <form id="competitorForm" action="{{ route('addcompetitor') }}" method="POST">
+                    @csrf
                     <input type="hidden" id="projectId" name="project_id">
                     <div class="mb-3">
-                        <label for="competitorName" class="form-label">Competitor Name</label>
-                        <input type="url" class="form-control" id="competitorName" name="competitor_name" placeholder="Enter competitor name">
-                        
+                        <label for="competitorUrl" class="form-label">Competitor URL</label>
+                        <input type="url" class="form-control" id="competitorUrl" name="add_competitor" placeholder="Enter competitor URL" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid URL.
+                        </div>
                     </div>
+                    <button type="submit" class="btn btn-primary">Save</button> 
                 </form>
 
-                <!-- Competitors List -->
-            <h6>Current Competitors</h6>
-            <ul id="competitorsList">
-                <!-- Competitors will be dynamically added here -->
-            </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="saveCompetitor">Save</button>
+                <!-- Section to display competitors -->
+                <h5 class="mt-3">Competitors for this Project:</h5>
+                <ul id="competitorList" class="list-group mt-2">
+                    <!-- Competitors will be inserted here dynamically -->
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
 
+
 <style>
+
     #projectCategories~.select2 .select2-search__field {
         width: 100% !important;
     }
@@ -182,6 +186,7 @@
     .card-body .row {
         gap: 10px;
     }
+    
 </style>
 
 <script src="{{ asset_url('libs/shepherd/shepherd.js') }}"></script>
@@ -191,122 +196,91 @@
 
 <script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var addCompetitorBtn = document.getElementById('addcompetitorBtn');
-        var projectIdInput = document.getElementById('projectId');
-
-        addCompetitorBtn.addEventListener('click', function () {
-            var projectId = this.getAttribute('data-project-id');
-            projectIdInput.value = projectId;
-        });
-
-        document.getElementById('saveCompetitor').addEventListener('click', function () {
-            var form = document.getElementById('competitorForm');
-            var formData = new FormData(form);
-
-            fetch("{{ route('addcompetitor') }}", {
-                method: 'POST',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-    if (data.success) {
-        var competitorName = data.competitor_name; // Make sure your backend returns this
-        var competitorsList = document.getElementById('competitorsList');
-        var li = document.createElement('li');
-        li.textContent = competitorName;
-        competitorsList.appendChild(li);
-        
-        toastr.success('Competitor added successfully!');
-        $('#competitorModal').modal('hide');
-    } else {
-        toastr.error('An error occurred!');
-    }
-})
-
-            .catch(error => console.error('Error:', error));
-        });
-    });
-
-</script>
-
-<script>
-
-    $(document).on('click', '#addcompetitorBtn', function() {
-        var projectId = $(this).data('project-id');
-        $('#projectId').val(projectId);
-
-        // Clear the competitors list in the modal
-        $('#competitorsList').empty();
-
-        // Fetch competitors for the selected project
-        $.ajax({
-            type: 'GET',
-            url: '/competitors/' + projectId,
-            success: function(response) {
-                var competitors = response.competitors;
-
-                // If there are competitors, display them
-                if (competitors.length > 0) {
-                    $.each(competitors, function(index, competitor) {
-                        var listItem = $('<li>').text(competitor.competitor_name);
-                        var removeBtn = $('<button>')
-                            .addClass('btn btn-danger btn-sm ms-2')
-                            .attr('data-name', competitor.competitor_name)
-                            .html('<i class="ti ti-trash me-1"></i>') // Add icon and text
-                            .on('click', function() {
-                                removeCompetitor(competitor.competitor_name, listItem);
-                            });
-
-                        listItem.append(removeBtn);
-                        $('#competitorsList').append(listItem);
-                        $('#competitorsList').append('<br>');
-
-                    });
-                } else {
-                    $('#competitorsList').append('<li>No competitors added yet.</li>');
-                }
-            }
-        });
-
-        // Show the modal
-        $('#competitorModal').modal('show');
-    });
-
-    function removeCompetitor(competitor_name, listItem) {
-
-        $.ajax({
-            type: 'POST',
-            url: '/removecompetitor',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            data: {
-                competitor_name: competitor_name
-            },
-            success: function(response) {
-                if (response.success) {
-                    listItem.remove();
-                    toastr.success('Competitor removed successfully!');
-                } else {
-                    toastr.error('An error occurred: ' + response.message);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('AJAX Error: ', status, error);
-                toastr.error('An error occurred: ' + xhr.responseText);
-            }
-        });
-    }
-
-</script>
-
-<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const addCompetitorBtns = document.querySelectorAll('#addcompetitorBtn');
     
+    addCompetitorBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const projectId = btn.getAttribute('data-project-id');
+            document.getElementById('projectId').value = projectId;
+
+            // Fetch competitors for the project
+            fetch(`/competitors/${projectId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const competitorList = document.getElementById('competitorList');
+                    competitorList.innerHTML = '';
+
+                    if (Array.isArray(data.competitors)) {
+                        let counter = 1;
+
+                        data.competitors.forEach(url => {
+                            url = url.trim(); // Remove extra spaces
+
+                            if (url) { // Check if URL is not empty
+                                const listItem = document.createElement('li');
+                                listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+
+                                listItem.textContent = `${counter}. ${url}`;
+
+                                // Create and append remove button
+                                const removeBtn = document.createElement('button');
+                                removeBtn.className = 'btn btn-danger btn-sm ms-2';
+                                removeBtn.textContent = 'Remove';
+                                removeBtn.addEventListener('click', function() {
+                                    // Remove the competitor
+                                    fetch(`/competitors/${projectId}/remove`, {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                            'X-Requested-With': 'XMLHttpRequest',
+                                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                                        },
+                                        body: JSON.stringify({ url: url })
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.success) {
+                                            listItem.remove();
+                                        } else {
+                                            console.error('Error removing competitor:', data.error);
+                                        }
+                                    })
+                                    .catch(error => console.error('Error:', error));
+                                });
+
+                                listItem.appendChild(removeBtn);
+                                competitorList.appendChild(listItem);
+
+                                counter++;
+                            }
+                        });
+                    } else {
+                        console.error('Competitors data is not an array:', data.competitors);
+                    }
+                })
+                .catch(error => console.error('Error fetching competitors:', error));
+        });
+    });
+});
+
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addCompetitorBtns = document.querySelectorAll('#addcompetitorBtn');
+        
+        addCompetitorBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const projectId = btn.getAttribute('data-project-id');
+                document.getElementById('projectId').value = projectId;
+            });
+        });
+    });
+</script>
+
+<script>
+
     $(document).ready(function () {
         $('#projectCategories').select2();
         $('#projectForbiddenCategories').select2();
