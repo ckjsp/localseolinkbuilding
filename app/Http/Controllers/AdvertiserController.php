@@ -170,39 +170,53 @@ class AdvertiserController extends Controller
     }
     
     public function addCompetitor(Request $request)
-
     {
         // Validate the request data
         $validated = $request->validate([
-            'project_id' => 'required|', // Assuming 'lsl_b_projects' is your table name
-            'add_competitor' => 'required|url',
+            'project_id' => 'required', // Ensure project exists
+            'add_competitor' => 'required', // Validate URL
         ]);
     
-        // Check if a project already exists for the given project_id
-        $project = lslbProject::where('id', $validated['project_id'])->first();
+        // Find the project by the given ID
+        $project = lslbProject::find($validated['project_id']);
     
         if ($project) {
             // If project exists, update the add_competitor field
-            $currentCompetitors = $project->add_competitor;
+            $currentCompetitors = $project->add_competitor ? explode(',', $project->add_competitor) : [];
             $newCompetitor = $validated['add_competitor'];
     
-            // Append the new competitor URL, avoiding duplicate entries
-            $updatedCompetitors = $currentCompetitors ? $currentCompetitors . ',' . $newCompetitor : $newCompetitor;
+            // Check if we already have three competitors
+            if (count($currentCompetitors) >= 3) {
+                return redirect()->back()->with('error', 'Cannot add more than 3 competitors.');
+            }
     
-            $project->update([
-                'add_competitor' => $updatedCompetitors,
-            ]);
+            // Avoid duplicate entries
+            if (!in_array($newCompetitor, $currentCompetitors)) {
+                $currentCompetitors[] = $newCompetitor;
+                $updatedCompetitors = implode(',', $currentCompetitors);
+    
+                $project->update([
+                    'add_competitor' => $updatedCompetitors,
+                ]);
+    
+                // Return success message
+                return redirect()->back()->with('success', 'Competitor added successfully!');
+            } else {
+                // Return message if competitor already exists
+                return redirect()->back()->with('success', 'Competitor already exists!');
+            }
         } else {
             // If project doesn't exist, create a new one
             lslbProject::create([
                 'id' => $validated['project_id'],
                 'add_competitor' => $validated['add_competitor'],
             ]);
-        }
     
-        // Return a redirect response with a success message
-        return redirect()->back()->with('success', 'Competitor saved successfully!');
+            // Return success message
+            return redirect()->back()->with('success', 'Competitor added successfully to a new project!');
+        }
     }
+    
     
     public function getCompetitorsByProjectId($projectId)
 {
@@ -340,6 +354,8 @@ class AdvertiserController extends Controller
             'data' => $projects
         ], 200);
     }
+
+
     public function getProjectName(Request $request)
     {
         $projectId = $request->input('id');
@@ -358,6 +374,8 @@ class AdvertiserController extends Controller
             ]);
         }
     }
+
+
     public function setSelectedProject(Request $request)
     {
         $selectedProjectId = $request->input('selected_project_id');

@@ -8,6 +8,7 @@
 @endpush
 <link rel="stylesheet" href="{{ asset_url('libs/shepherd/shepherd.css') }}" />
 <!-- Content -->
+
 <div class="container-xxl flex-grow-1 container-p-y pt-5 mt-5">
     <div class="row mb-5">
 
@@ -88,6 +89,12 @@
                 </a>
                 {{-- <button id="shepherd-example">Start Tour</button> --}}
             </div>
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
             <div id="projects-container">
                 @foreach($projects as $project)            
                     <div class="row mb-3 step-4" id="project-card-{{ $project->id }}">
@@ -148,15 +155,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="competitorForm" action="{{ route('addcompetitor') }}" method="POST">
+                <form id="competitorForm" action="{{ route('addcompetitor') }}" method="POST" onsubmit="return validateCompetitorUrl()">
                     @csrf
                     <input type="hidden" id="projectId" name="project_id">
                     <div class="mb-3">
                         <label for="competitorUrl" class="form-label">Competitor URL</label>
-                        <input type="url" class="form-control" id="competitorUrl" name="add_competitor" placeholder="Enter competitor URL" required>
-                        <div class="invalid-feedback">
-                            Please enter a valid URL.
+                        <input type="text" class="form-control" id="competitorUrl" name="add_competitor" placeholder="Enter competitor URL" required oninput="validateCompetitorUrl()">
+                        <div class="invalid-feedback" id="urlErrorMsg">
+                            Please enter a valid .com URL without any additional path (e.g., no / after .com).
                         </div>
+                        Cannot add more than 3 competitors
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button> 
                 </form>
@@ -170,7 +178,6 @@
         </div>
     </div>
 </div>
-
 
 
 <style>
@@ -195,78 +202,6 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <script>
-
-document.addEventListener('DOMContentLoaded', function() {
-    const addCompetitorBtns = document.querySelectorAll('#addcompetitorBtn');
-    
-    addCompetitorBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const projectId = btn.getAttribute('data-project-id');
-            document.getElementById('projectId').value = projectId;
-
-            // Fetch competitors for the project
-            fetch(`/competitors/${projectId}`)
-                .then(response => response.json())
-                .then(data => {
-                    const competitorList = document.getElementById('competitorList');
-                    competitorList.innerHTML = '';
-
-                    if (Array.isArray(data.competitors)) {
-                        let counter = 1;
-
-                        data.competitors.forEach(url => {
-                            url = url.trim(); // Remove extra spaces
-
-                            if (url) { // Check if URL is not empty
-                                const listItem = document.createElement('li');
-                                listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
-
-                                listItem.textContent = `${counter}. ${url}`;
-
-                                // Create and append remove button
-                                const removeBtn = document.createElement('button');
-                                removeBtn.className = 'btn btn-danger btn-sm ms-2';
-                                removeBtn.textContent = 'Remove';
-                                removeBtn.addEventListener('click', function() {
-                                    // Remove the competitor
-                                    fetch(`/competitors/${projectId}/remove`, {
-                                        method: 'POST',
-                                        headers: {
-                                            'Content-Type': 'application/json',
-                                            'X-Requested-With': 'XMLHttpRequest',
-                                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                                        },
-                                        body: JSON.stringify({ url: url })
-                                    })
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        if (data.success) {
-                                            listItem.remove();
-                                        } else {
-                                            console.error('Error removing competitor:', data.error);
-                                        }
-                                    })
-                                    .catch(error => console.error('Error:', error));
-                                });
-
-                                listItem.appendChild(removeBtn);
-                                competitorList.appendChild(listItem);
-
-                                counter++;
-                            }
-                        });
-                    } else {
-                        console.error('Competitors data is not an array:', data.competitors);
-                    }
-                })
-                .catch(error => console.error('Error fetching competitors:', error));
-        });
-    });
-});
-
-</script>
-
-<script>
     document.addEventListener('DOMContentLoaded', function() {
         const addCompetitorBtns = document.querySelectorAll('#addcompetitorBtn');
         
@@ -274,9 +209,91 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.addEventListener('click', function() {
                 const projectId = btn.getAttribute('data-project-id');
                 document.getElementById('projectId').value = projectId;
+
+                // Fetch competitors for the project
+                fetch(`/competitors/${projectId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const competitorList = document.getElementById('competitorList');
+                        competitorList.innerHTML = ''; // Clear the list first
+
+                        if (Array.isArray(data.competitors)) {
+                            let counter = 1;
+
+                            data.competitors.forEach(url => {
+                                url = url.trim(); // Remove extra spaces
+
+                                if (url) { // Ensure URL is not empty
+                                    const listItem = document.createElement('li');
+                                    listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+
+                                    listItem.textContent = `${counter}. ${url}`;
+
+                                    // Create remove button
+                                    const removeBtn = document.createElement('button');
+                                    removeBtn.className = 'btn btn-danger btn-sm ms-2';
+                                    removeBtn.textContent = 'Remove';
+                                    removeBtn.addEventListener('click', function() {
+                                        // Remove competitor URL
+                                        fetch(`/competitors/${projectId}/remove`, {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                                'X-Requested-With': 'XMLHttpRequest',
+                                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                                            },
+                                            body: JSON.stringify({ url: url })
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.success) {
+                                                listItem.remove(); // Remove from the list on success
+                                            } else {
+                                                console.error('Error removing competitor:', data.error);
+                                            }
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                    });
+
+                                    listItem.appendChild(removeBtn);
+                                    competitorList.appendChild(listItem);
+
+                                    counter++;
+                                }
+                            });
+                        } else {
+                            console.error('Competitors data is not an array:', data.competitors);
+                        }
+                    })
+                    .catch(error => console.error('Error fetching competitors:', error));
             });
         });
     });
+</script>
+
+<!-- URL Validation Script -->
+
+<script>
+
+   function validateCompetitorUrl() {
+    const urlField = document.getElementById('competitorUrl');
+    const errorMsg = document.getElementById('urlErrorMsg');
+    const urlValue = urlField.value;
+
+    // Updated regex to ensure valid domain structure and TLD, and no path after the domain
+    const regex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/)?$/;
+
+    if (!regex.test(urlValue)) {
+        urlField.classList.add('is-invalid');
+        errorMsg.style.display = 'block';
+        return false;
+    } else {
+        urlField.classList.remove('is-invalid');
+        errorMsg.style.display = 'none';
+        return true;
+    }
+}
+
 </script>
 
 <script>
@@ -580,7 +597,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 </script>
-
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set timeout to remove alerts after 3 seconds
+            setTimeout(() => {
+                const alerts = document.querySelectorAll('.alert');
+                alerts.forEach(alert => {
+                    alert.classList.remove('show');
+                    alert.classList.add('fade');
+                });
+            }, 3000); // 3 seconds
+        });
+    </script>
 @endsection
 @push('script')
     <script src="{{ asset_url('libs/bootstrap-select/bootstrap-select.js') }}"></script>
