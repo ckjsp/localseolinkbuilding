@@ -105,36 +105,70 @@
                                     <p class="card-text"> {{ $project->project_url }}</p>
                                     <span>{{ \Carbon\Carbon::parse($project->created_at)->format('F d, Y') }}</span>
                                     </div>
-                            </div>
-                            <hr />
-                            <div class="card-body">
+                                        </div>
+                                              
+                                        <div class="card-body">
                                 <div class="row d-flex">
-                                    <div class="col-md-3 border rounded p-4 pb-0 bg-light">
+                                    <div class="col col-md-3 border rounded p-4 pb-0 bg-light">
                                         <div>
                                             <p>Total Backlinks built from LP</p>
-                                            <h4>0</h4>
+                                            <h4>1</h4>
                                         </div>
                                         <div>
                                             <p>Total Paid</p>
-                                            <h4>$0</h4>
+                                            <h4>$25</h4>
                                         </div>
                                         <div>
                                             <p>Total Content Written</p>
-                                            <h4>0</h4>
+                                            <h4>10</h4>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 d-flex align-items-center border rounded">
-                                        <img src="{{ asset_url('img/pages/search-icon.png') }}"
-                                            style="max-width: 100px;height: fit-content;">
-                                        <p>Data is being prepared and will be presented here once it is ready.</p>
-                                    </div>
-                                    <div class="col-md-3 d-flex align-items-center width-calc">
-                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#competitorModal"
-                               data-project-id="{{ $project->id }}" id="addcompetitorBtn" class="btn btn-primary w-auto step-5">
-                                +Add Competitors
-                            </a>
-                        </div>
+                                    <div class="col col-md-3 d-flex flex-column border rounded p-3">
+                                <img src="{{ asset_url('img/pages/project-moz-logo.svg') }}" style="max-width: 67px; height: 23px;" />
+                                <div class="mt-3 d-flex align-items-center">
+                                    <span class="mt-3">Domain Authority</span><br>
+                                </div>
+                               
+                                 <h4 class="mt-3"> <svg width="20"  viewBox="0 0 160 160">
+                                <circle r="70" cx="80" cy="80" fill="transparent" stroke="#e0e0e0" stroke-width="12px"></circle>
+                                <circle r="70" cx="80" cy="80" fill="transparent" stroke="#60e6a8" stroke-width="12px" stroke-dasharray="439.6px" stroke-dashoffset="109.9px"></circle>
+                                </svg>  70</h4> 
 
+                                <div class="mt-2 d-flex align-items-center">
+                                    <span class="mt-3">Spam Score</span><br>
+                                </div>
+
+                                <h4 class="mt-3">20%</h4> 
+
+                            </div>
+
+                                    <div class="col  d-flex flex-column border rounded p-3">
+                                        <img src="{{ asset_url('img/pages/project-semrush-logo.svg') }}" style="max-width: 30%;" alt="Project SEMrush Logo" />
+                                        <div class="d-flex gap-2 flex-wrap mt-2">
+                                            <div class="mt-3 justify-content-between align-items-center">
+                                                <p >Authority Score</p>
+                                                <h4 >4</h4>
+                                            </div>
+                                            <div class="mt-3  justify-content-between align-items-center">
+                                                <p >Organic Traffic</p>
+                                                <h4 >268</h4>
+                                            </div>
+                                            <div class="mt-3  justify-content-between align-items-center">
+                                                <p  >Referring Domain</p>
+                                                <h4 >1.1K</h4>
+                                            </div>
+                                            <div class="mt-3  justify-content-between align-items-center">
+                                                <p >Total Backlinks</p>
+                                                <h4 >66.2K</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col col-md-12 d-flex align-items-center justify-content-end  px-0">
+                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#competitorModal" data-project-id="100" id="addcompetitorBtn" class="btn btn-primary w-auto step-5 waves-effect waves-light ">
+                                    +Add Competitors
+                                </a>
+                                 </div>
                                 </div>
                             </div>
                         </div>
