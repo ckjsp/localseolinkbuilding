@@ -11,14 +11,7 @@
 <!-- Content -->
 
 <div class="container-xxl flex-grow-1 container-p-y">
-    <!-- <div class="alert alert-primary alert-dismissible" role="alert">
-        Fleet page is using Mapbox to display maps. The maps on the fleet page may not load on your localhost or
-        domain because you need to add your own access token for Mapbox. <br />For more details refer to the
-        <a href="https://docs.mapbox.com/mapbox-gl-js/guides/" target="_blank">Mapbox</a> section in the
-        <a href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation//faq.html#mapbox-not-loading" class="alert-link" target="_blank">documentation</a>.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div> -->
-
+   
     <div class="card overflow-hidden">
         <!-- Map Menu Wrapper -->
         <div class="row app-logistics-fleet-wrapper mb-5">
@@ -60,13 +53,7 @@
                             </div>
                             <div id="fleet1" class="accordion-collapse collapse show" data-bs-parent="#fleet">
                                 <div class="accordion-body pt-3 pb-0">
-                                    <!-- <div class="d-flex align-items-center justify-content-between">
-                                        <h6 class="mb-1">Delivery Process</h6>
-                                        <p class="text-body mb-1">88%</p>
-                                    </div>
-                                    <div class="progress" style="height: 5px">
-                                        <div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div> -->
+                                
                                     <ul class="timeline ps-3 mt-4 mb-0">
                                         <li class="timeline-item ms-1 ps-4 border-left-dashed">
                                             <span class="timeline-indicator-advanced timeline-indicator-success border-0 shadow-none">
@@ -77,7 +64,6 @@
                                                 <div class="timeline-header">
                                                     <small class="text-success text-uppercase fw-medium">Order Placed</small>
                                                 </div>
-                                                <h6 class="mb-1">{{ $order[0]->website->user->name }}</h6>
                                                 <p class="text-muted mb-0">{{ date('M d, H:i A', strtotime($order[0]->created_at)) }}</p>
                                             </div>
                                         </li>

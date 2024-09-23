@@ -179,21 +179,18 @@
     </div>
     @include('advertiser.partials.createprojectmodal')
 </div>
+
+
 <!-- Modal for Adding Competitor -->
-<div class="modal fade" id="competitorModal" tabindex="-1" aria-labelledby="competitorModalLabel" aria-hidden="true">
-     <!-- Loader -->
-     <div id="loader" class="text-center mt-3" style="display: none;">
-                <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
+
+<div class="modal fade loader" id="competitorModal" tabindex="-1" aria-labelledby="competitorModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="competitorModalLabel">Add Competitor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body">    
                 <form id="competitorForm" action="{{ route('addcompetitor') }}" method="POST" onsubmit="return handleCompetitorFormSubmit()">
                     @csrf
                     <input type="hidden" id="projectId" name="project_id">
@@ -208,18 +205,18 @@
                     <button type="submit" class="btn btn-primary">Save</button> 
                 </form>
 
-                <!-- Section to display competitors -->
-                <h5 class="mt-3">Competitors for this Project:</h5>
+                <!-- Loader -->
+                <div id="loader" class="text-center" style="display: none;">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
                 <ul id="competitorList" class="list-group mt-2">
-                    <!-- Competitors will be inserted here dynamically -->
                 </ul>
             </div>
-
-           
         </div>
     </div>
 </div>
-
 
 <style>
 
@@ -242,23 +239,31 @@
 <script src="{{ asset_url('js/projects.js') }}"></script>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const addCompetitorBtns = document.querySelectorAll('#addcompetitorBtn');
-        
-        addCompetitorBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const projectId = btn.getAttribute('data-project-id');
-                document.getElementById('projectId').value = projectId;
 
-                // Fetch competitors for the project
-                fetch(`/competitors/${projectId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        const competitorList = document.getElementById('competitorList');
-                        competitorList.innerHTML = ''; // Clear the list first
+document.addEventListener('DOMContentLoaded', function() {
+    const addCompetitorBtns = document.querySelectorAll('#addcompetitorBtn');
+    const loader = document.getElementById('loader');
 
-                        if (Array.isArray(data.competitors)) {
+    addCompetitorBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const projectId = btn.getAttribute('data-project-id');
+            document.getElementById('projectId').value = projectId;
+
+            // Show loader
+            loader.style.display = 'block';
+
+            // Fetch competitors for the project
+            fetch(`/competitors/${projectId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const competitorList = document.getElementById('competitorList');
+                    competitorList.innerHTML = ''; // Clear the list first
+
+                    // Handle competitors after a delay
+                    setTimeout(() => {
+                        if (Array.isArray(data.competitors) && data.competitors.length > 0) {
                             let counter = 1;
 
                             data.competitors.forEach(url => {
@@ -275,6 +280,9 @@
                                     removeBtn.className = 'btn btn-danger btn-sm ms-2';
                                     removeBtn.textContent = 'Remove';
                                     removeBtn.addEventListener('click', function() {
+                                        // Show loader
+                                        loader.style.display = 'block';
+
                                         // Remove competitor URL
                                         fetch(`/competitors/${projectId}/remove`, {
                                             method: 'POST',
@@ -293,7 +301,12 @@
                                                 console.error('Error removing competitor:', data.error);
                                             }
                                         })
-                                        .catch(error => console.error('Error:', error));
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                        })
+                                        .finally(() => {
+                                            loader.style.display = 'none'; // Hide loader after processing
+                                        });
                                     });
 
                                     listItem.appendChild(removeBtn);
@@ -303,13 +316,28 @@
                                 }
                             });
                         } else {
-                            console.error('Competitors data is not an array:', data.competitors);
+                            competitorList.innerHTML = '<li class="list-group-item">No competitors found.</li>';
                         }
-                    })
-                    .catch(error => console.error('Error fetching competitors:', error));
-            });
+
+                        // Hide loader after displaying competitors
+                        loader.style.display = 'none';
+                    }, 1000); // Show competitors after 3 seconds
+                })
+                .catch(error => {
+                    console.error('Error fetching competitors:', error);
+                    // Hide loader on error
+                    loader.style.display = 'none';
+                });
         });
     });
+
+    // Reset data when the modal is closed
+    $('#competitorModal').on('hidden.bs.modal', function () {
+        document.getElementById('competitorForm').reset(); // Reset form fields
+        document.getElementById('competitorList').innerHTML = ''; // Clear competitor list
+    });
+});
+
 </script>
 
 <!-- URL Validation Script -->
@@ -335,10 +363,6 @@
     }
 }
 
-
-</script>
-
-<script>
 function handleCompetitorFormSubmit() {
         // Validate URL first
         const isValid = validateCompetitorUrl();
@@ -351,6 +375,7 @@ function handleCompetitorFormSubmit() {
         document.getElementById('loader').style.display = 'block';
         return true; // Allow form to be submitted
     }
+
 </script>
 
 <script>
