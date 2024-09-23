@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loader = document.getElementById('loader');
 
     addCompetitorBtns.forEach(btn => {
+        
         btn.addEventListener('click', function() {
             const projectId = btn.getAttribute('data-project-id');
             document.getElementById('projectId').value = projectId;
