@@ -206,11 +206,7 @@ class AdvertiserController extends Controller
                 return redirect()->back()->with('success', 'Competitor already exists!');
             }
         } else {
-            // If project doesn't exist, create a new one
-            lslbProject::create([
-                'id' => $validated['project_id'],
-                'add_competitor' => $validated['add_competitor'],
-            ]);
+       
     
             // Return success message
             return redirect()->back()->with('success', 'Competitor added successfully to a new project!');
