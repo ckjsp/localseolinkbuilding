@@ -60,6 +60,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/website/filter', 'filterData')->name('website.filter');
             Route::get('/publisher/sales', 'index')->name('publisher.sales');
         });
+        
         Route::controller(OrdersController::class)->group(function () {
             Route::get('/publisher/orders', 'index')->name('publisher.orders');
             Route::get('/publisher/orders/create', 'create')->name('publisher.orders.create');
@@ -67,19 +68,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/advertiser/orders', 'index')->name('advertiser.orders');
             Route::post('/advertiser/orders/add', 'store')->name('advertiser.orders.store');
         });
-   Route::controller(PaymentController::class)->group(function () {
-            Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
-            Route::get('/publisher/payment', 'index')->name('publisher.payment');
-        });
-    });
 
-
-    Route::get('/competitors/{project_id}', [AdvertiserController::class, 'getCompetitorsByProjectId'])->name('competitors.get');
-    Route::post('/add-competitor', [AdvertiserController::class, 'addCompetitor'])->name('addcompetitor');
-    
-    Route::post('/competitors/{projectId}/remove', [AdvertiserController::class, 'removeCompetitor'])->name('removeCompetitor');
-    
-
+        Route::controller(PaymentController::class)->group(function () {
+                    Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
+                    Route::get('/publisher/payment', 'index')->name('publisher.payment');
+                });
+            });
 
         Route::controller(AdvertiserController::class)->group(function () {
              Route::get('/advertiser/marketplace', 'marketplace')->name('advertiser.marketplace');
@@ -87,6 +81,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/advertiser/{page?}', 'index')->name('advertiser');
             
 
+            Route::get('/competitors/{project_id}', 'getCompetitorsByProjectId')->name('competitors.get');
+            Route::post('/add-competitor', 'addCompetitor')->name('addcompetitor');
+            Route::post('/competitors/{projectId}/remove', 'removeCompetitor')->name('removeCompetitor');
             //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
             //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
            
@@ -131,6 +128,8 @@ Route::controller(AdminController::class)->group(function () {
 
     });
 });
+
+
 
 Route::get('/lslb-admin/login', function () {
     return view('lslbadmin.login');

@@ -57,15 +57,6 @@ class WebsiteController extends Controller
         return view('publisher/website_create')->with($data);
     }
 
-    /* protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'role' => ['required'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:lslb_users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    } */
 
 
     protected function rules()
@@ -87,9 +78,7 @@ class WebsiteController extends Controller
             'forbidden_categories' => 'required',
             'guest_post_price' => 'required',
             'link_insertion_price' => 'required',
-            // 'fc_guest_post_price' => 'required',
-            // 'fc_link_insertion_price' => 'required',
-            //'site_verification_file' => 'required',
+
         ];
     }
 
@@ -100,21 +89,16 @@ class WebsiteController extends Controller
     {
         $this->chekRole();
 
+
         $validatedData = Validator::make($request->all(), $this->rules());
 
         if ($request->hasFile('site_verification_file')) {
-            $validatedData->merge($request->validate([
+            $fileValidation = Validator::make($request->all(), [
                 'site_verification_file' => 'file|mimes:pdf,png,jpg,jpeg|max:5120',
-            ]));
+            ]);
         }
 
-        // $request->validate([
-        //     'site_verification_file' => 'required|file|mimes:pdf,png,jpg,jpeg|max:5120',
-        // ]);
 
-        // if ($request->file('site_verification_file')->isValid()) {
-        //     $path = $request->file('site_verification_file')->store('verification');
-        //     $validatedData = Validator::make($request->all(), $this->rules());
         if ($validatedData->fails()) {
             $errors = $validatedData->errors()->all();
             return redirect()->back()->withInput()->withErrors($errors);
@@ -126,7 +110,8 @@ class WebsiteController extends Controller
                 $path = null;
             }
 
-            $data = $request->only(['user_id', 'website_url', 'domain_authority', 'page_authority', 'spam_score', 'publishing_time', 'minimum_word_count_required', 'backlink_type', 'maximum_no_of_backlinks_allowed', 'domain_life_validity', 'sample_post_url', 'guidelines', 'categories', 'forbidden_categories', 'guest_post_price', 'link_insertion_price',]);
+            $data = $request->only(['user_id', 'website_url', 'domain_authority', 'domain_rating', 'page_authority', 'spam_score', 'publishing_time', 'minimum_word_count_required', 'backlink_type', 'maximum_no_of_backlinks_allowed', 'domain_life_validity', 'traffic_by_country', 'sample_post_url', 'guidelines', 'categories', 'forbidden_categories', 'guest_post_price', 'link_insertion_price',]);
+
             $data['user_id'] = Auth::user()->id;
             $data['status'] = 'pending';
             $data['site_verification_file'] = $path;
@@ -145,6 +130,7 @@ class WebsiteController extends Controller
                 <p>Wait for admin approval; after admin approval, your website will be ready to be visible in the marketplace.</p>
                 <p>Thank you</p>";
             Mail::to(Auth::user()->email)->send(new MyMail($customData));
+
             $customData['subject'] = 'Notification: Local SEO Link Builder - New website added';
             $customData['msg'] = "<p>New website added and awaiting approval:</p>
                 <ul>
@@ -157,14 +143,6 @@ class WebsiteController extends Controller
             Mail::to($user[0]->email)->send(new MyMail($customData));
             return redirect()->route('publisher.website')->with('success', 'Record added successfully');
         }
-        // } else {
-        //     $arr = array();
-        //     $arr['success'] = false;
-        //     $arr['error'] = 'File upload failed.';
-        //     echo json_encode($arr);
-        //     exit;
-        //     // return redirect()->back()->withInput()->withErrors('File upload failed.');
-        // }
     }
 
     /**
@@ -182,8 +160,7 @@ class WebsiteController extends Controller
     {
         $this->chekRole();
         $data = array();
-        // Request $request
-        // $id = $request->route('id');
+
         $data['slug'] = 'websites';
         $data['website'] = lslbWebsite::find($id);
 
@@ -209,6 +186,7 @@ class WebsiteController extends Controller
         // Validate and update the record
         $validatedData = $request->validate([
             'domain_authority' => 'required',
+            'domain_rating' => 'required',
             'page_authority' => 'required',
             'spam_score' => 'required',
             'publishing_time' => 'required',
@@ -216,14 +194,14 @@ class WebsiteController extends Controller
             'backlink_type' => 'required',
             'maximum_no_of_backlinks_allowed' => 'required',
             'domain_life_validity' => 'required',
+            'traffic_by_country' => 'required',
             'sample_post_url' => 'required|url',
             'guidelines' => 'required|string|max:1000',
             'categories' => 'required',
             'forbidden_categories' => 'required',
             'guest_post_price' => 'required',
             'link_insertion_price' => 'required',
-            // 'fc_guest_post_price' => 'required',
-            // 'fc_link_insertion_price' => 'required',
+
         ]);
 
         if (!empty($request->file('site_verification_file'))) {
@@ -269,12 +247,18 @@ class WebsiteController extends Controller
      * Filter a newly created resource in storage.
      */
     public function filterData(Request $request)
+
     {
+
+
         $lslbWebsite = new lslbWebsite;
         $lslbWebsite = $lslbWebsite->where(function ($query) use ($request) {
 
-            if (!empty ($request->post('categories'))) {
-                $categoryArr = explode(',', $request->post('categories'));
+            // Handle categories filter
+            if (!empty($request->post('selectcategory'))) {
+                // Get the selected categories array directly from the request
+                $categoryArr = $request->post('selectcategory'); // This should already be an array if multiple is enabled
+
                 $query->where(function ($query) use ($categoryArr) {
                     foreach ($categoryArr as $category) {
                         $query->orWhere('categories', 'LIKE', "%$category%");
@@ -282,51 +266,167 @@ class WebsiteController extends Controller
                 });
             }
 
-            if (!empty ($request->post('price_filters'))) {
-                $query->where(function ($query) use ($request) {
-                    foreach ($request->post('price_filters') as $range) {
-                        list ($min, $max) = explode('-', $range);
-                        $query->orWhereBetween('guest_post_price', [$min, $max]);
+            // Handle categories filter
+            if (!empty($request->post('selectcontry'))) {
+                // Get the selected categories array directly from the request
+                $ContryArr = $request->post('selectcontry'); // This should already be an array if multiple is enabled
+
+                $query->where(function ($query) use ($ContryArr) {
+                    foreach ($ContryArr as $Contry) {
+                        $query->orWhere('traffic_by_country', 'LIKE', "%$Contry%");
                     }
                 });
             }
 
-            if (!empty ($request->post('backlink_type'))) {
+
+            // Check if price_filters exists
+            if ($request->has('price_filters')) {
+                $priceFilters = $request->post('price_filters');
+
+                // Check if price_filters is an array
+                if (is_array($priceFilters)) {
+                    // If it's an array, loop through each value
+                    $query->where(function ($query) use ($priceFilters) {
+                        foreach ($priceFilters as $range) {
+                            // Ensure the range is valid
+                            if (strpos($range, '-') !== false) {
+                                list($min, $max) = explode('-', $range);
+                                // Use float values to ensure type safety
+                                $query->orWhereBetween('guest_post_price', [(float)$min, (float)$max]);
+                            }
+                        }
+                    });
+                } else {
+                    // If it's a single value, directly apply the filter
+                    if (strpos($priceFilters, '-') !== false) {
+                        list($min, $max) = explode('-', $priceFilters);
+                        $query->whereBetween('guest_post_price', [(float)$min, (float)$max]);
+                    }
+                }
+            }
+
+            if ($request->has('priceMin') && $request->has('priceMax')) {
+
+                $priceMin = $request->input('priceMin');
+                $priceMax = $request->input('priceMax');
+                if ($priceMin !== null && $priceMax !== null) {
+                    $query->whereBetween('guest_post_price', [(float)$priceMin, (float)$priceMax]);
+                }
+            }
+
+
+            // Handle backlink type filter
+            if (!empty($request->post('backlink_type'))) {
                 $query->where('backlink_type', $request->post('backlink_type'));
             }
+
+            // Handle DA filters
+            if (!empty($request->post('da_filter'))) {
+                $daFilters = $request->post('da_filter');
+
+                // Check if da_filters is an array
+                if (is_array($daFilters)) {
+                    // If it's an array, loop through each range
+                    $query->where(function ($query) use ($daFilters) {
+                        foreach ($daFilters as $daRange) {
+                            list($min, $max) = explode('-', $daRange);
+                            $query->orWhereBetween('domain_authority', [(int)$min, (int)$max]);
+                        }
+                    });
+                } else {
+                    // If it's a single value, apply the filter directly
+                    list($min, $max) = explode('-', $daFilters);
+                    $query->whereBetween('domain_authority', [(int)$min, (int)$max]);
+                }
+            }
+
+
+            // Handle Ahrefs traffic filters
+            if (!empty($request->post('ahrefs_traffic'))) {
+                $trafficFilters = $request->post('ahrefs_traffic');
+
+                // Check if ahrefs_traffics is an array
+                if (is_array($trafficFilters)) {
+                    // If it's an array, loop through each range
+                    $query->where(function ($query) use ($trafficFilters) {
+                        foreach ($trafficFilters as $trafficRange) {
+                            list($min, $max) = explode('-', $trafficRange);
+                            $query->orWhereBetween('ahrefs_traffic', [(int)$min, (int)$max]);
+                        }
+                    });
+                } else {
+                    // If it's a single value, apply the filter directly
+                    list($min, $max) = explode('-', $trafficFilters);
+                    $query->whereBetween('ahrefs_traffic', [(int)$min, (int)$max]);
+                }
+            }
+
+
+            // Handle Semrush traffic filters
+            if (!empty($request->post('semrush_traffic'))) {
+                $trafficFilters = $request->post('semrush_traffic');
+
+                // Check if semrush_traffics is an array
+                if (is_array($trafficFilters)) {
+                    // If it's an array, loop through each range
+                    $query->where(function ($query) use ($trafficFilters) {
+                        foreach ($trafficFilters as $trafficRange) {
+                            list($min, $max) = explode('-', $trafficRange);
+                            // Check if min and max are numeric before adding to query
+                            if (is_numeric($min) && is_numeric($max)) {
+                                $query->orWhereBetween('samrush_traffic', [(int)$min, (int)$max]);
+                            }
+                        }
+                    });
+                } else {
+                    // If it's a single value, apply the filter directly
+                    list($min, $max) = explode('-', $trafficFilters);
+                    // Check if min and max are numeric before adding to query
+                    if (is_numeric($min) && is_numeric($max)) {
+                        $query->whereBetween('samrush_traffic', [(int)$min, (int)$max]);
+                    }
+                }
+            }
+
+            // Handle Domain Ratings filters
+            if (!empty($request->post('domain_rating'))) {
+                $ratingsFilters = $request->post('domain_rating');
+
+                // Check if domain_ratings is an array
+                if (is_array($ratingsFilters)) {
+                    // If it's an array, loop through each range
+                    $query->where(function ($query) use ($ratingsFilters) {
+                        foreach ($ratingsFilters as $ratingRange) {
+                            list($min, $max) = explode('-', $ratingRange);
+                            // Check if min and max are numeric before adding to query
+                            if (is_numeric($min) && is_numeric($max)) {
+                                $query->orWhereBetween('domain_rating', [(int)$min, (int)$max]);
+                            }
+                        }
+                    });
+                } else {
+                    // If it's a single value, apply the filter directly
+                    list($min, $max) = explode('-', $ratingsFilters);
+                    // Check if min and max are numeric before adding to query
+                    if (is_numeric($min) && is_numeric($max)) {
+                        $query->whereBetween('domain_rating', [(int)$min, (int)$max]);
+                    }
+                }
+            }
+
+            // Handle selected days filter
+            if (!empty($request->post('selectday'))) {
+                $days = $request->post('selectday');
+                $dateLimit = now()->subDays(max($days)); // Get the date limit based on selected days
+                $query->where('created_at', '>=', $dateLimit); // Adjust this to your relevant date field
+            }
+
+
             $query->where('status', 'approve');
             $query->where('deleted_at', null);
         });
 
-
-        /* $lslbWebsite = new lslbWebsite;
-        if(!empty($request->post('backlink_type'))){
-            $lslbWebsite = $lslbWebsite->where('backlink_type', $request->post('backlink_type'));
-        }
-        if(!empty($request->post('categories'))){
-            $categoryArr = explode(',', $request->post('categories'));
-            $lslbWebsite = $lslbWebsite->where(function($query) use ($categoryArr) {
-                foreach ($categoryArr as $category) {
-                    $query->orWhere('categories', 'LIKE', "%$category%");
-                }
-            });
-            
-        }
-        // $priceRanges = ['100-200', '500-100', '3001-99999'];
-        // $results = [];
-        if(!empty($request->post('price_filters'))){
-            foreach ($request->post('price_filters') as $range) {
-                list($min, $max) = explode('-', $range);
-                // $lslbWebsite = $lslbWebsite->orWhere(function ($query) use ($min, $max) {
-                //     $query->whereBetween('guest_post_price', [$min, $max]);
-                // });
-                $lslbWebsite = $lslbWebsite->orWhereBetween('guest_post_price', [$min, $max]);
-                // $lslbWebsite = $lslbWebsite->whereBetween('guest_post_price', [$min, $max]);
-                // $results = $results->merge($filteredRecords);
-            }
-        } */
         $website = $lslbWebsite->get();
         return response()->json($website);
-        // $lslbWebsite->whereIn('categories', $categoryArr);
     }
 }
