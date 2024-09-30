@@ -95,16 +95,16 @@ class AdvertiserController extends Controller
     }
 
     public function cart()
-{
-    $data = array();
-    $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart']) : array();
-    $ids = array_column($arrCookie, 'web_id');
-    $data['slug'] = 'cart';
-    $data['userDetail'] = Auth::user();
-    $data['websites'] = lslbWebsite::findMany($ids);
-    $data['allWebsites'] = lslbWebsite::all();  // Retrieve all websites
-    return view('advertiser/cart')->with($data);
-}
+    {
+        $data = array();
+        $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart']) : array();
+        $ids = array_column($arrCookie, 'web_id');
+        $data['slug'] = 'cart';
+        $data['userDetail'] = Auth::user();
+        $data['websites'] = lslbWebsite::findMany($ids);
+        $data['allWebsites'] = lslbWebsite::all();  // Retrieve all websites
+        return view('advertiser/cart')->with($data);
+    }
 
 
 
@@ -160,7 +160,6 @@ class AdvertiserController extends Controller
                 'message' => "Project saved successfully!",
                 'projects' => $projects
             ]);
-
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 0,
@@ -168,7 +167,7 @@ class AdvertiserController extends Controller
             ]);
         }
     }
-    
+
     public function addCompetitor(Request $request)
     {
         // Validate the request data
@@ -176,29 +175,29 @@ class AdvertiserController extends Controller
             'project_id' => 'required', // Ensure project exists
             'add_competitor' => 'required', // Validate URL
         ]);
-    
+
         // Find the project by the given ID
         $project = lslbProject::find($validated['project_id']);
-    
+
         if ($project) {
             // If project exists, update the add_competitor field
             $currentCompetitors = $project->add_competitor ? explode(',', $project->add_competitor) : [];
             $newCompetitor = $validated['add_competitor'];
-    
+
             // Check if we already have three competitors
             if (count($currentCompetitors) >= 3) {
                 return redirect()->back()->with('error', 'Cannot add more than 3 competitors.');
             }
-    
+
             // Avoid duplicate entries
             if (!in_array($newCompetitor, $currentCompetitors)) {
                 $currentCompetitors[] = $newCompetitor;
                 $updatedCompetitors = implode(',', $currentCompetitors);
-    
+
                 $project->update([
                     'add_competitor' => $updatedCompetitors,
                 ]);
-    
+
                 // Return success message
                 return redirect()->back()->with('success', 'Competitor added successfully!');
             } else {
@@ -211,64 +210,64 @@ class AdvertiserController extends Controller
                 'id' => $validated['project_id'],
                 'add_competitor' => $validated['add_competitor'],
             ]);
-    
+
             // Return success message
             return redirect()->back()->with('success', 'Competitor added successfully to a new project!');
         }
     }
-    
-    
+
+
     public function getCompetitorsByProjectId($projectId)
-{
-    // Fetch the record for the given project ID
-    $project = DB::table('lslb_project')
-                ->where('id', $projectId)
-                ->first(['add_competitor']); // Get only the 'add_competitor' field
+    {
+        // Fetch the record for the given project ID
+        $project = DB::table('lslb_project')
+            ->where('id', $projectId)
+            ->first(['add_competitor']); // Get only the 'add_competitor' field
 
-    if ($project) {
-        // Explode the comma-separated string into an array
-        $competitorUrls = explode(',', $project->add_competitor);
+        if ($project) {
+            // Explode the comma-separated string into an array
+            $competitorUrls = explode(',', $project->add_competitor);
 
-        // Prepare the array for response
-        $competitors = array_map('trim', $competitorUrls); // Optional: Remove extra spaces
+            // Prepare the array for response
+            $competitors = array_map('trim', $competitorUrls); // Optional: Remove extra spaces
 
-        return response()->json(['competitors' => $competitors]);
-    } else {
-        return response()->json(['error' => 'Project not found'], 404);
+            return response()->json(['competitors' => $competitors]);
+        } else {
+            return response()->json(['error' => 'Project not found'], 404);
+        }
     }
-}
 
 
-            public function removeCompetitor(Request $request, $projectId)
-            
-            {
-                $urlToRemove = $request->input('url');
-                
-                // Fetch the project
-                $project = DB::table('lslb_project')->where('id', $projectId)->first(['add_competitor']);
+    public function removeCompetitor(Request $request, $projectId)
 
-                if ($project) {
-                    // Explode the comma-separated string into an array
-                    $competitorUrls = explode(',', $project->add_competitor);
-                    
-                    // Remove the URL
-                    $competitorUrls = array_filter($competitorUrls, function($url) use ($urlToRemove) {
-                        return trim($url) !== trim($urlToRemove);
-                    });
+    {
+        $urlToRemove = $request->input('url');
 
-                    // Rebuild the comma-separated string
-                    $updatedCompetitors = implode(',', $competitorUrls);
+        // Fetch the project
+        $project = DB::table('lslb_project')->where('id', $projectId)->first(['add_competitor']);
 
-                    // Update the record
-                    DB::table('lslb_project')->where('id', $projectId)->update(['add_competitor' => $updatedCompetitors]);
+        if ($project) {
+            // Explode the comma-separated string into an array
+            $competitorUrls = explode(',', $project->add_competitor);
 
-                    return response()->json(['success' => true]);
-                } else {
-                    return response()->json(['error' => 'Project not found'], 404);
-                }
-            }
+            // Remove the URL
+            $competitorUrls = array_filter($competitorUrls, function ($url) use ($urlToRemove) {
+                return trim($url) !== trim($urlToRemove);
+            });
 
-            
+            // Rebuild the comma-separated string
+            $updatedCompetitors = implode(',', $competitorUrls);
+
+            // Update the record
+            DB::table('lslb_project')->where('id', $projectId)->update(['add_competitor' => $updatedCompetitors]);
+
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['error' => 'Project not found'], 404);
+        }
+    }
+
+
     public function projectEdit($id)
 
     {
@@ -313,7 +312,9 @@ class AdvertiserController extends Controller
 
                 return response()->json([
                     'status' => 1,
-                    'message' => 'Project updated successfully'
+                    'message' => 'Project updated successfully',
+                    'redirect_url' => route('advertiser') // Optional redirect URL
+
                 ]);
             } catch (\Exception $e) {
                 return response()->json([

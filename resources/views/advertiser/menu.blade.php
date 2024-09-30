@@ -96,126 +96,146 @@
         </ul>
     </div>
 </aside>
+
 <!-- / Menu -->
+
 @yield('sidebar-content')
 @include('advertiser.partials.createprojectmodal')
 @endsection
 @push('script')
-    <script>
-        $(document).ready(function () {
-            var csrfToken = $('meta[name="csrf-token"]').attr('content');
-            var projectsMenu = $('#projects-menu');
 
-            loadProjectsMenu();
+<script>
+    $(document).ready(function() {
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+        var projectsMenu = $('#projects-menu');
 
-            $(document).on('click', '#projects-menu .menu-link', function (e) {
-                e.preventDefault();
-                var projectId = $(this).data('project-id');
+        loadProjectsMenu();
 
-                $.ajax({
-                    url: "{{ route('advertiser.project.name') }}",
-                    method: 'GET',
-                    data: { id: projectId },
-                    success: function (response) {
-                        console.log('project name', response);
-                        if (response.success) {
-                            $('#selected-project-name').text(response.project_name);
-                            $('#hover-dropdown-demo .dropdown-toggle div').text(response.project_name);
-                            $.ajax({
-                                url: "{{ route('advertiser.set.selected.project') }}",
-                                method: 'POST',
-                                data: {
-                                    _token: csrfToken,
-                                    selected_project_id: projectId
-                                },
-                                success: function (res) {
-                                    console.log('Selected project ID stored in session');
-                                    //location.reload(); // Reload the page to show the selected project
-                                },
-                                error: function (xhr) {
-                                    console.error('Error storing selected project ID:', xhr);
-                                }
-                            });
-                        } else {
-                            console.error('Error retrieving project name:', response.error);
-                        }
-                    },
-                    error: function (xhr) {
-                        console.error('Error fetching project name:', xhr);
+        $(document).on('click', '#projects-menu .menu-link', function(e) {
+            e.preventDefault();
+            var projectId = $(this).data('project-id');
+
+            $.ajax({
+                url: "{{ route('advertiser.project.name') }}",
+                method: 'GET',
+                data: {
+                    id: projectId
+                },
+                success: function(response) {
+                    console.log('project name', response);
+                    if (response.success) {
+                        $('#selected-project-name').text(response.project_name);
+                        $('#hover-dropdown-demo .dropdown-toggle div').text(response.project_name);
+                        $.ajax({
+                            url: "{{ route('advertiser.set.selected.project') }}",
+                            method: 'POST',
+                            data: {
+                                _token: csrfToken,
+                                selected_project_id: projectId
+                            },
+                            success: function(res) {
+                                console.log('Selected project ID stored in session');
+                                //location.reload(); // Reload the page to show the selected project
+                            },
+                            error: function(xhr) {
+                                console.error('Error storing selected project ID:', xhr);
+                            }
+                        });
+                    } else {
+                        console.error('Error retrieving project name:', response.error);
                     }
-                });
-            });
-
-            $('#hover-dropdown-demo .dropdown-toggle').on('click', function (e) {
-                var projectsMenu = $('#projects-menu');
-                projectsMenu.toggle();
-            });
-
-            $(document).on('click', function (e) {
-                if (!$(e.target).closest('#hover-dropdown-demo').length) {
-                    $('#hover-dropdown-demo .dropdown-toggle').removeClass('active');
-                    $('#hover-dropdown-demo .dropdown-menu').hide();
+                },
+                error: function(xhr) {
+                    console.error('Error fetching project name:', xhr);
                 }
             });
+        });
 
-            $(document).on('click', '.edit-btn-project', function () {
-                var projectId = $(this).data('project-id');
-                var editUrl = `{{ route('advertiser.projects.edit', ':id') }}`.replace(':id', projectId);
+        $('#hover-dropdown-demo .dropdown-toggle').on('click', function(e) {
+            var projectsMenu = $('#projects-menu');
+            projectsMenu.toggle();
+        });
 
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('#hover-dropdown-demo').length) {
+                $('#hover-dropdown-demo .dropdown-toggle').removeClass('active');
+                $('#hover-dropdown-demo .dropdown-menu').hide();
+            }
+        });
+
+        $(document).on('click', '.edit-btn-project', function() {
+            var projectId = $(this).data('project-id'); // Get the project ID from the button's data attribute
+            var editUrl = `{{ route('advertiser.projects.edit', ':id') }}`.replace(':id', projectId);
+
+            // Check if projectId exists
+            if (projectId) {
+                // Perform an AJAX request to get the project details
                 $.ajax({
                     url: editUrl,
                     type: 'GET',
-                    success: function (data) {
+                    success: function(data) {
+                        // Populate form fields with project data
                         $('#project_id').val(data.id);
                         $('#project_name').val(data.project_name);
                         $('#project_url').val(data.project_url);
                         $('#projectCategories').val(data.categories).trigger('change');
                         $('#projectForbiddenCategories').val(data.forbidden_category).trigger('change');
                         $('#additional_note').val(data.additional_note);
+
+                        // Update the form action for editing
                         $('#project-form').attr('action', `{{ route('advertiser.projects.update', ':id') }}`.replace(':id', projectId));
                         $('#project-form').find('input[name="_method"]').remove();
                         $('#project-form').append('<input type="hidden" name="_method" value="PUT">');
+
+                        // Set the modal title for editing
+                        $('#add-projects-pop .modal-title').text('{{ __("Edit Project Detail") }}');
+
+                        // Show the modal
+                        $('#add-projects-pop').modal('show');
                     },
-                    error: function (error) {
+                    error: function(error) {
                         console.error('Error:', error);
                     }
                 });
-            });
-
-            $(document).on('click', '.delete-btn', function () {
-                var projectId = $(this).data('project-id');
-                var deleteUrl = `{{ route('advertiser.delete', ':id') }}`.replace(':id', projectId); if (confirm('Are you sure you want to delete this project?')) {
-                    $.ajax({
-                        url: deleteUrl,
-                        type: 'DELETE',
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        success: function (response) {
-                            $(`[data-project-id="${projectId}"]`).closest('li').remove();
-                            $(`#project-card-${projectId}`).remove();
-
-                            if ($('li.project-menu-list').length === 0) {
-                                localStorage.removeItem('project_tour_completed');
-                                var emtyProject = `<div class="row text-center justify-content-center empty-container"><img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;"><h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5><p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting campaigns.</p><a href="javascript:void(0)" data-bs-toggle="modal"  data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a></div>`;
-                                $('.project_details').html(emtyProject);
-                            } else if (response.clearLocalStorage) {
-                                localStorage.removeItem('project_tour_completed');
-                                var emtyProject = `<div class="row text-center justify-content-center empty-container"><img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;"><h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5><p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting campaigns.</p><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a></div>`;
-                                $('.project_details').html(emtyProject);
-                            }
-                            loadProjectsMenu();
-
-                            $('#selected-project-name').text('Select a project');
-                            $('#hover-dropdown-demo .dropdown-toggle div').text('Projects');
-                            alert('Project deleted successfully.');
-                        },
-                        error: function (xhr) {
-                            alert('Failed to delete the project.');
-                        }
-                    });
-                }
-            });
+            }
         });
-    </script>
+
+
+        $(document).on('click', '.delete-btn', function() {
+            var projectId = $(this).data('project-id');
+            var deleteUrl = `{{ route('advertiser.delete', ':id') }}`.replace(':id', projectId);
+            if (confirm('Are you sure you want to delete this project?')) {
+                $.ajax({
+                    url: deleteUrl,
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        $(`[data-project-id="${projectId}"]`).closest('li').remove();
+                        $(`#project-card-${projectId}`).remove();
+
+                        if ($('li.project-menu-list').length === 0) {
+                            localStorage.removeItem('project_tour_completed');
+                            var emtyProject = `<div class="row text-center justify-content-center empty-container"><img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;"><h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5><p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting campaigns.</p><a href="javascript:void(0)" data-bs-toggle="modal"  data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a></div>`;
+                            $('.project_details').html(emtyProject);
+                        } else if (response.clearLocalStorage) {
+                            localStorage.removeItem('project_tour_completed');
+                            var emtyProject = `<div class="row text-center justify-content-center empty-container"><img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;"><h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5><p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting campaigns.</p><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a></div>`;
+                            $('.project_details').html(emtyProject);
+                        }
+                        loadProjectsMenu();
+
+                        $('#selected-project-name').text('Select a project');
+                        $('#hover-dropdown-demo .dropdown-toggle div').text('Projects');
+                        alert('Project deleted successfully.');
+                    },
+                    error: function(xhr) {
+                        alert('Failed to delete the project.');
+                    }
+                });
+            }
+        });
+    });
+</script>
 @endpush
