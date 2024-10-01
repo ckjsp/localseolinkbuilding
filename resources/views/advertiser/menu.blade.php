@@ -103,9 +103,13 @@
 @include('advertiser.partials.createprojectmodal')
 @endsection
 @push('script')
-
+<script>
+    $('#projectCategories').select2();
+    $('#projectForbiddenCategories').select2();
+</script>
 <script>
     $(document).ready(function() {
+
         var csrfToken = $('meta[name="csrf-token"]').attr('content');
         var projectsMenu = $('#projects-menu');
 
@@ -135,7 +139,7 @@
                             },
                             success: function(res) {
                                 console.log('Selected project ID stored in session');
-                                //location.reload(); // Reload the page to show the selected project
+                                // location.reload(); // Reload the page to show the selected project
                             },
                             error: function(xhr) {
                                 console.error('Error storing selected project ID:', xhr);
@@ -164,41 +168,63 @@
         });
 
         $(document).on('click', '.edit-btn-project', function() {
-            var projectId = $(this).data('project-id'); // Get the project ID from the button's data attribute
+            var projectId = $(this).data('project-id');
             var editUrl = `{{ route('advertiser.projects.edit', ':id') }}`.replace(':id', projectId);
 
-            // Check if projectId exists
-            if (projectId) {
-                // Perform an AJAX request to get the project details
-                $.ajax({
-                    url: editUrl,
-                    type: 'GET',
-                    success: function(data) {
-                        // Populate form fields with project data
-                        $('#project_id').val(data.id);
-                        $('#project_name').val(data.project_name);
-                        $('#project_url').val(data.project_url);
-                        $('#projectCategories').val(data.categories).trigger('change');
-                        $('#projectForbiddenCategories').val(data.forbidden_category).trigger('change');
-                        $('#additional_note').val(data.additional_note);
+            $.ajax({
+                url: editUrl,
+                type: 'GET',
+                success: function(data) {
+                    // Set form fields
+                    $('#project_id').val(data.id);
+                    $('#project_name').val(data.project_name);
+                    $('#project_url').val(data.project_url);
+                    $('#projectCategories').val(data.categories).trigger('change');
+                    $('#projectForbiddenCategories').val(data.forbidden_category).trigger('change');
+                    $('#additional_note').val(data.additional_note);
+                    $('#project-form').attr('action', `{{ route('advertiser.projects.update', ':id') }}`.replace(':id', projectId));
 
-                        // Update the form action for editing
-                        $('#project-form').attr('action', `{{ route('advertiser.projects.update', ':id') }}`.replace(':id', projectId));
-                        $('#project-form').find('input[name="_method"]').remove();
-                        $('#project-form').append('<input type="hidden" name="_method" value="PUT">');
 
-                        // Set the modal title for editing
-                        $('#add-projects-pop .modal-title').text('{{ __("Edit Project Detail") }}');
+                    // Set fields to readonly if they have values
+                    $('#project_name').attr('readonly', !!data.project_name);
+                    $('#project_url').attr('readonly', !!data.project_url);
 
-                        // Show the modal
-                        $('#add-projects-pop').modal('show');
-                    },
-                    error: function(error) {
-                        console.error('Error:', error);
-                    }
-                });
-            }
+                    // Add hidden input for PUT method
+                    $('#project-form').find('input[name="_method"]').remove();
+                    $('#project-form').append('<input type="hidden" name="_method" value="PUT">');
+
+                    // Show the modal
+                    $('#add-projects-pop').modal('show');
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
         });
+
+        // Reset form when the modal is closed
+        $(document).on('hidden.bs.modal', '#add-projects-pop', function() {
+            resetProjectForm();
+        });
+
+        function resetProjectForm() {
+            // Clear form fields explicitly
+            $('#project_id').val('');
+            $('#project_name').val('').removeAttr('readonly');
+            $('#project_url').val('').removeAttr('readonly');
+            $('#projectCategories').val('').trigger('change'); // Adjust as necessary for your select
+            $('#projectForbiddenCategories').val('').trigger('change'); // Adjust as necessary for your select
+            $('#additional_note').val('');
+
+            // Remove any hidden input for PUT method
+            $('#project-form').find('input[name="_method"]').remove();
+
+            // Reset the form action
+            $('#project-form').attr('action', ''); // or set to the default action if necessary
+
+            // Reset the modal title to "Add Project Details"
+            $('#add-projects-pop .modal-title').text('{{ __("Add Project Details") }}');
+        }
 
 
         $(document).on('click', '.delete-btn', function() {
@@ -209,7 +235,7 @@
                     url: deleteUrl,
                     type: 'DELETE',
                     headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        'X-CSRF-TOKEN': csrfToken
                     },
                     success: function(response) {
                         $(`[data-project-id="${projectId}"]`).closest('li').remove();
@@ -217,12 +243,12 @@
 
                         if ($('li.project-menu-list').length === 0) {
                             localStorage.removeItem('project_tour_completed');
-                            var emtyProject = `<div class="row text-center justify-content-center empty-container"><img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;"><h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5><p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting campaigns.</p><a href="javascript:void(0)" data-bs-toggle="modal"  data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a></div>`;
-                            $('.project_details').html(emtyProject);
+                            var emptyProject = `<div class="row text-center justify-content-center empty-container"><img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;"><h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5><p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting campaigns.</p><a href="javascript:void(0)" data-bs-toggle="modal"  data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a></div>`;
+                            $('.project_details').html(emptyProject);
                         } else if (response.clearLocalStorage) {
                             localStorage.removeItem('project_tour_completed');
-                            var emtyProject = `<div class="row text-center justify-content-center empty-container"><img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;"><h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5><p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting campaigns.</p><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a></div>`;
-                            $('.project_details').html(emtyProject);
+                            var emptyProject = `<div class="row text-center justify-content-center empty-container"><img src="{{ asset('img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;"><h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5><p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest posting campaigns.</p><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn" class="btn btn-primary w-auto">+Add Projects</a></div>`;
+                            $('.project_details').html(emptyProject);
                         }
                         loadProjectsMenu();
 
@@ -238,4 +264,5 @@
         });
     });
 </script>
+
 @endpush
