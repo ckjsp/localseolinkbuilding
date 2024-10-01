@@ -60,7 +60,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/website/filter', 'filterData')->name('website.filter');
             Route::get('/publisher/sales', 'index')->name('publisher.sales');
         });
-        
+
         Route::controller(OrdersController::class)->group(function () {
             Route::get('/publisher/orders', 'index')->name('publisher.orders');
             Route::get('/publisher/orders/create', 'create')->name('publisher.orders.create');
@@ -70,34 +70,35 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
 
         Route::controller(PaymentController::class)->group(function () {
-                    Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
-                    Route::get('/publisher/payment', 'index')->name('publisher.payment');
-                });
-            });
-
-        Route::controller(AdvertiserController::class)->group(function () {
-             Route::get('/advertiser/marketplace', 'marketplace')->name('advertiser.marketplace');
-             Route::get('/advertiser/cart', 'cart')->name('advertiser.cart');
-            Route::get('/advertiser/{page?}', 'index')->name('advertiser');
-            
-
-            Route::get('/competitors/{project_id}', 'getCompetitorsByProjectId')->name('competitors.get');
-            Route::post('/add-competitor', 'addCompetitor')->name('addcompetitor');
-            Route::post('/competitors/{projectId}/remove', 'removeCompetitor')->name('removeCompetitor');
-            //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
-            //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
-           
-            Route::get('/advertiser/projects', 'projectCreate')->name('advertiser.projects.create');
-            Route::post('/advertiser/projects', 'projectStore')->name('advertiser.projects.store');
-            Route::put('/advertiser/projects/{id}', 'projectUpdate')->name('advertiser.projects.update');
-            Route::get('/advertiser/projects/edit/{id}', 'projectEdit')->name('advertiser.projects.edit');
-            Route::post('/advertiser/menu', 'showMenu')->name('advertiser.menu');
-            Route::delete('/advertiser/delete-project/{id}', 'projectDestroy')->name('advertiser.delete');
-            Route::get('/advertiser/project/name', 'getProjectName')->name('advertiser.project.name');
-            Route::post('/advertiser/set-selected-project', 'setSelectedProject')->name('advertiser.set.selected.project');
+            Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
+            Route::get('/publisher/payment', 'index')->name('publisher.payment');
         });
+    });
 
-     
+    Route::controller(AdvertiserController::class)->group(function () {
+        Route::get('/advertiser/marketplace', 'marketplace')->name('advertiser.marketplace');
+        Route::get('/advertiser/cart', 'cart')->name('advertiser.cart');
+        Route::get('/advertiser/{page?}', 'index')->name('advertiser');
+        Route::get('/advertiser/{page?}', 'index')->name('advertiser');
+        Route::get('/check-url', 'checkUrl')->name('check.url');
+
+        Route::get('/competitors/{project_id}', 'getCompetitorsByProjectId')->name('competitors.get');
+        Route::post('/add-competitor', 'addCompetitor')->name('addcompetitor');
+        Route::post('/competitors/{projectId}/remove', 'removeCompetitor')->name('removeCompetitor');
+        //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
+        //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
+
+        Route::get('/advertiser/projects', 'projectCreate')->name('advertiser.projects.create');
+        Route::post('/advertiser/projects', 'projectStore')->name('advertiser.projects.store');
+        Route::put('/advertiser/projects/{id}', 'projectUpdate')->name('advertiser.projects.update');
+        Route::get('/advertiser/projects/edit/{id}', 'projectEdit')->name('advertiser.projects.edit');
+        Route::post('/advertiser/menu', 'showMenu')->name('advertiser.menu');
+        Route::delete('/advertiser/delete-project/{id}', 'projectDestroy')->name('advertiser.delete');
+        Route::get('/advertiser/project/name', 'getProjectName')->name('advertiser.project.name');
+        Route::post('/advertiser/set-selected-project', 'setSelectedProject')->name('advertiser.set.selected.project');
+    });
+
+
     Route::controller(OrdersController::class)->group(function () {
         Route::get('/order/info/{id}', 'orderInfo')->name('order.info');
         Route::post('/order/update-status/{id}', 'updateStatus')->name('order.update.status');
@@ -125,7 +126,6 @@ Route::controller(AdminController::class)->group(function () {
         Route::get('/lslb-admin/user/{id}/edit', 'userEdit')->name('lslbadmin.user.edit');
         Route::post('/lslb-admin/user/{id}', 'userUpdate')->name('lslbadmin.user.update');
         Route::get('/lslb-admin/user/{id}/delete', 'userDestroy')->name('lslbadmin.user.delete');
-
     });
 });
 

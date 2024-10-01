@@ -168,6 +168,14 @@ class AdvertiserController extends Controller
         }
     }
 
+    public function checkUrl(Request $request)
+    {
+        $url = $request->query('url');
+        $exists = lslbProject::where('project_url', $url)->exists(); // Check if URL exists
+
+        return response()->json(['exists' => $exists]);
+    }
+
     public function addCompetitor(Request $request)
     {
         // Validate the request data
@@ -312,8 +320,7 @@ class AdvertiserController extends Controller
 
                 return response()->json([
                     'status' => 1,
-                    'message' => 'Project updated successfully',
-                    'redirect_url' => route('advertiser') // Optional redirect URL
+                    'message' => 'Project updated successfully'
 
                 ]);
             } catch (\Exception $e) {

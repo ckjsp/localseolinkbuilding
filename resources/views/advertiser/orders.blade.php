@@ -1,6 +1,9 @@
 @extends('advertiser.menu')
 
 @push('css')
+<link rel="stylesheet" href="{{ asset_url('libs/select2/select2.css') }}" />
+<link rel="stylesheet" href="{{ asset_url('libs/bootstrap-select/bootstrap-select.css') }}" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 @endpush
 
 @section('sidebar-content')
@@ -42,18 +45,18 @@
                         <tbody class="table-border-bottom-0">
                             @foreach($orders as $k => $v)
                             @php
-                                $categories = explode(',', $v->categories);
-                                $forbidden_categories = explode(',', $v->forbidden_categories);
+                            $categories = explode(',', $v->categories);
+                            $forbidden_categories = explode(',', $v->forbidden_categories);
                             @endphp
                             <tr aria-expanded="false">
                                 <td>{{ date('d M, Y',strtotime($v->order_date)) }}</td>
                                 <td><a href="{{ route('order.info', $v->order_id) }}" title="{{ $v->order_id }}">{{($v->order_id) }}</a></td>
                                 <td><a href="{{ $v->website->website_url }}" target="_blank" title="Web Site Link ({{ $v->website->website_url }})" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="{{ $v->website->website_url }}">Link <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
                                 <td>
-                                    @if($v->attachment != '') 
-                                        <a href="{{ url('/storage/app/'.$v->attachment) }}" target="_blank" title="Attachment Link">{{ $v->article_title }}</a>
-                                    @else 
-                                        Data Not Found  
+                                    @if($v->attachment != '')
+                                    <a href="{{ url('/storage/app/'.$v->attachment) }}" target="_blank" title="Attachment Link">{{ $v->article_title }}</a>
+                                    @else
+                                    Data Not Found
                                     @endif
                                 </td>
                                 <td>${{ $v->price }}</td>
@@ -94,19 +97,26 @@
 </div>
 @endsection
 @push('script')
-    <script>
-        var table = $('#order-tbl').DataTable({
-            "columns": [
-                { "width": "11%" },
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-            ]
-        });
-    </script>
+<script>
+    var table = $('#order-tbl').DataTable({
+        "columns": [{
+                "width": "11%"
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+        ]
+    });
+</script>
+<script src="{{
+        asset_url('libs/bootstrap-select/bootstrap-select.js')
+        }}"></script>
+<script src="{{ asset_url('libs/select2/select2.js') }}"></script>
+<script src="{{ asset_url('js/forms-selects.js') }}"></script>
+
 @endpush

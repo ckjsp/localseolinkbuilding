@@ -3,9 +3,7 @@
         <div class="modal-content p-3 p-md-5">
             <div class="modal-body">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class="text-center mb-4">
-                    <h3 class="modal-title mb-2">{{ __('Add Project Detail') }}</h3> <!-- Default title -->
-                </div>
+
                 <form method="POST" action="{{ route('advertiser.projects.store') }}" class="needs-validation"
                     id="project-form" novalidate>
                     <input type="hidden" id="project_id" name="project_id" value="">

@@ -8,6 +8,26 @@ $(document).ready(function () {
         "Please select at least {0} options."
     );
 
+    $.validator.addMethod("urlExists", function (value, element) {
+        // Skip the AJAX check if the field is readonly
+        if ($(element).prop("readonly")) {
+            return true; // Treat as valid since we are not checking readonly fields
+        }
+
+        let urlExists = false;
+        // Perform AJAX check
+        $.ajax({
+            url: '/check-url', // Your endpoint to check URL
+            type: 'GET',
+            data: { url: value },
+            async: false, // Synchronous request for validation
+            success: function (response) {
+                urlExists = response.exists; // Set the value based on response
+            },
+        });
+        return !urlExists; // Return true if the URL does NOT exist
+    }, "This URL is already added in a project.");
+
     // jQuery Validation Code
     $("#project-form").validate({
         rules: {
@@ -18,6 +38,7 @@ $(document).ready(function () {
             project_url: {
                 required: true,
                 url: true,
+                urlExists: true, // Add URL check here
             },
             "projectCategories[]": {
                 minSelected: 1,
@@ -37,6 +58,7 @@ $(document).ready(function () {
             project_url: {
                 required: "Please enter a project URL.",
                 url: "Please enter a valid URL.",
+                urlExists: "This URL has already been added in a project.", // Custom message
             },
             "projectCategories[]": "Please select at least one category.",
             "projectForbiddenCategories[]":
