@@ -3,25 +3,16 @@
 <link rel="stylesheet" href="{{ asset_url('libs/select2/select2.css') }}" />
 <link rel="stylesheet" href="{{ asset_url('libs/bootstrap-select/bootstrap-select.css') }}" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="{{ asset_url('libs/toastr/toastr.css') }}">
+
 @endpush
 @section('sidebar-content') @include('advertiser.filter_second')
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/select/2.0.8/css/select.dataTables.min.css" />
 
-<style>
-    /*#websitesTable .accordion-collapse td:not(.accordion-body){ display: none; }*/
-</style>
+
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
-    <!-- <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        {{ __('Marketplace') }}
-                    </div>
-                </div>
-            </div>
-        </div> -->
     @if(session('success'))
     <div class="alert alert-primary mt-3">{{ session("success") }}</div>
     @endif
@@ -106,8 +97,7 @@
                                         aria-controls="website-{{ $k }}" aria-expanded="false"
                                         class="accordion accordion-button collapsed"></button>
                                 </td>
-                                <!--</tr>-->
-                                <!--<tr id="website-{{ $k }}" class="accordion-collapse collapse extra-info">-->
+
                                 <td class="accordion-body" style="display: none;">
                                     <div class="row">
                                         <div class="col-md-2 my-3">
@@ -124,8 +114,7 @@
                                                 backlinks:</strong>
                                             {{ $v->maximum_no_of_backlinks_allowed }}
                                         </div>
-                                        <!-- <div class="col-md-2 my-3"><strong>FC Guest Post Price:</strong>${{ $v->fc_guest_post_price }}</div>
-                                                                            <div class="col-md-3 my-3"><strong>FC Link Insertion Price:</strong>${{ $v->fc_link_insertion_price }}</div> -->
+
                                         <div class="col-md-4 my-3">
                                             <button type="button" class="border-none badge bg-label-info me-1 p-2"
                                                 data-bs-toggle="modal" data-bs-target="#guidelines-{{$k}}">
@@ -244,131 +233,145 @@
 
 <script>
     $(document).ready(function() {
-        // Event listeners for radio buttons and dropdowns
-        $("input[name='price_filters']").on('click', function() {
-            tblFilter();
-        });
 
-        $("input[name='da_filter']").on('click', function() {
-            tblFilter();
-        });
-
-        $("input[name='domain_rating']").on('click', function() {
-            tblFilter();
-        });
-
-
-        $("input[name='ahrefs_traffic']").on('click', function() {
-            tblFilter();
-        });
-
-        $("input[name='semrush_traffic']").on('click', function() {
-            tblFilter();
-        });
-
-        $("input[name='backlink_type']").on('click', function() {
-            tblFilter();
-        });
-
-        $("#selectday").on('change', function() {
-            tblFilter();
-        });
-
-        $("#selectcategory").on('change', function() {
-            tblFilter();
-        });
-
-        $("#selectcontry").on('change', function() {
-            tblFilter();
-        });
-
-        // Enable or disable the "GO" button based on price inputs
-        $("#priceMin, #priceMax").on('input', function() {
-            let minPrice = $("#priceMin").val();
-            let maxPrice = $("#priceMax").val();
-            $(".priceMinMax").prop("disabled", !($.isNumeric(minPrice) && $.isNumeric(maxPrice) && parseFloat(minPrice) <= parseFloat(maxPrice)));
-
-            // Show/hide validation message
-            $("#price_traffic_msg").toggle(!$.isNumeric(minPrice) || !$.isNumeric(maxPrice) || parseFloat(minPrice) > parseFloat(maxPrice));
-        });
-
-        // Event listener for the "GO" button
-        $(".priceMinMax").on('click', function() {
-            console.log("GO button clicked"); // Debugging log
-            tblFilter(); // Call tblFilter when the button is clicked
-        });
-
-        const tblFilter = () => {
-            const $url = $("#url").val();
-            const $_token = $('input[name="_token"]').val();
-            let formData = $('#websitefilter').serialize();
-
-            // Capture manual price inputs
-            const priceMin = $("#priceMin").val();
-            const priceMax = $("#priceMax").val();
-
-            // Append the price range to the serialized form data
-            if (priceMin || priceMax) {
-                formData += '&priceMin=' + priceMin + '&priceMax=' + priceMax;
+        //toggle for new tr
+        // $('.accordion-button').click(function() {
+        $(".dataTables_wrapper").on("click", ".accordion-button", function() {
+            var currentRow = $(this).closest('tr');
+            var appendedRow = currentRow.next('.appended-row');
+            currentRow.next('.appended-row').remove();
+            if (appendedRow.length) {
+                appendedRow.toggle();
+            } else {
+                var rowHtml = currentRow.find('td[style="display: none;"]').html();
+                var newRow = $('<tr class="appended-row">').append($('<td>').attr('colspan', '11').html(rowHtml));
+                currentRow.after(newRow);
             }
-
-            console.log(formData);
-
-            $.ajax({
-                type: "POST",
-                url: $url,
-                data: formData,
-                success: function(response) {
-                    console.log(response);
-                    const $websites = response;
-
-                    if ($websites.length > 0) {
-                        const userDetailId = $('#user_id').val();
-                        const $cartCookie = getCookie("cart");
-                        const arrCookie = ($cartCookie != '') ? JSON.parse($cartCookie) : [];
-
-                        $("#websitesTable tbody").html('');
-                        $.each($websites, function(k, v) {
-                            let cls = "btn-label-primary";
-                            let text = '<i class="ti ti-shopping-cart-plus"></i> Add';
-
-                            const userIdIndex = arrCookie.findIndex(cookie => cookie.user_id === userDetailId);
-                            const webIdIndex = arrCookie.findIndex(cookie => cookie.web_id === v.id);
-
-                            if (userIdIndex !== -1 && webIdIndex !== -1) {
-                                cls = "btn-primary";
-                                text = '<i class="ti ti-shopping-cart-plus"></i> Added';
-                            }
-
-                            let newRow = '<tr>' +
-                                '<td>' + v.website_url + '</td>' +
-                                '<td>' + v.domain_authority + '</td>' +
-                                '<td>' + v.page_authority + '</td>' +
-                                '<td>' + v.ahrefs_traffic + '</td>' +
-                                '<td>' + v.samrush_traffic + '</td>' +
-                                '<td>' + v.publishing_time + ' Days</td>' +
-                                '<td>' + v.maximum_no_of_backlinks_allowed + ' ' + v.backlink_type + '</td>' +
-                                '<td>$' + v.guest_post_price + '</td>' +
-                                '<td>$' + v.link_insertion_price + '</td>' +
-                                '<td><button type="button" class="btn ' + cls + ' waves-effect waves-light" data-web_id="' + v.id + '" onclick="addToCart($(this))">' + text + '</button></td>' +
-                                '</tr>';
-
-                            $("#websitesTable tbody").append(newRow);
-                        });
-                    } else {
-                        let newRow = '<tr><td colspan="9"><div class="text-center text-primary">Oops! Data Not Found</div></td></tr>';
-                        $("#websitesTable tbody").html(newRow);
-                    }
-                },
-                error: function(error) {
-                    // Handle errors
-                    console.log(error);
-                },
-            });
-        }
+        });
     });
-</script>
+    // Event listeners for radio buttons and dropdowns
+    $("input[name='price_filters']").on('click', function() {
+        tblFilter();
+    });
 
+    $("input[name='da_filter']").on('click', function() {
+        tblFilter();
+    });
+
+    $("input[name='domain_rating']").on('click', function() {
+        tblFilter();
+    });
+
+
+    $("input[name='ahrefs_traffic']").on('click', function() {
+        tblFilter();
+    });
+
+    $("input[name='semrush_traffic']").on('click', function() {
+        tblFilter();
+    });
+
+    $("input[name='backlink_type']").on('click', function() {
+        tblFilter();
+    });
+
+    $("#selectday").on('change', function() {
+        tblFilter();
+    });
+
+    $("#selectcategory").on('change', function() {
+        tblFilter();
+    });
+
+    $("#selectcontry").on('change', function() {
+        tblFilter();
+    });
+
+    // Enable or disable the "GO" button based on price inputs
+    $("#priceMin, #priceMax").on('input', function() {
+        let minPrice = $("#priceMin").val();
+        let maxPrice = $("#priceMax").val();
+        $(".priceMinMax").prop("disabled", !($.isNumeric(minPrice) && $.isNumeric(maxPrice) && parseFloat(minPrice) <= parseFloat(maxPrice)));
+
+        // Show/hide validation message
+        $("#price_traffic_msg").toggle(!$.isNumeric(minPrice) || !$.isNumeric(maxPrice) || parseFloat(minPrice) > parseFloat(maxPrice));
+    });
+
+    // Event listener for the "GO" button
+    $(".priceMinMax").on('click', function() {
+        console.log("GO button clicked"); // Debugging log
+        tblFilter(); // Call tblFilter when the button is clicked
+    });
+
+    const tblFilter = () => {
+        const $url = $("#url").val();
+        const $_token = $('input[name="_token"]').val();
+        let formData = $('#websitefilter').serialize();
+
+        // Capture manual price inputs
+        const priceMin = $("#priceMin").val();
+        const priceMax = $("#priceMax").val();
+
+        // Append the price range to the serialized form data
+        if (priceMin || priceMax) {
+            formData += '&priceMin=' + priceMin + '&priceMax=' + priceMax;
+        }
+
+        console.log(formData);
+
+        $.ajax({
+            type: "POST",
+            url: $url,
+            data: formData,
+            success: function(response) {
+                console.log(response);
+                const $websites = response;
+
+                if ($websites.length > 0) {
+                    const userDetailId = $('#user_id').val();
+                    const $cartCookie = getCookie("cart");
+                    const arrCookie = ($cartCookie != '') ? JSON.parse($cartCookie) : [];
+
+                    $("#websitesTable tbody").html('');
+                    $.each($websites, function(k, v) {
+                        let cls = "btn-label-primary";
+                        let text = '<i class="ti ti-shopping-cart-plus"></i> Add';
+
+                        const userIdIndex = arrCookie.findIndex(cookie => cookie.user_id === userDetailId);
+                        const webIdIndex = arrCookie.findIndex(cookie => cookie.web_id === v.id);
+
+                        if (userIdIndex !== -1 && webIdIndex !== -1) {
+                            cls = "btn-primary";
+                            text = '<i class="ti ti-shopping-cart-plus"></i> Added';
+                        }
+
+                        let newRow = '<tr>' +
+                            '<td>' + v.website_url + '</td>' +
+                            '<td>' + v.domain_authority + '</td>' +
+                            '<td>' + v.page_authority + '</td>' +
+                            '<td>' + v.ahrefs_traffic + '</td>' +
+                            '<td>' + v.samrush_traffic + '</td>' +
+                            '<td>' + v.publishing_time + ' Days</td>' +
+                            '<td>' + v.maximum_no_of_backlinks_allowed + ' ' + v.backlink_type + '</td>' +
+                            '<td>$' + v.guest_post_price + '</td>' +
+                            '<td>$' + v.link_insertion_price + '</td>' +
+                            '<td><button type="button" class="btn ' + cls + ' waves-effect waves-light" data-web_id="' + v.id + '" onclick="addToCart($(this))">' + text + '</button></td>' +
+                            '</tr>';
+
+                        $("#websitesTable tbody").append(newRow);
+                    });
+                } else {
+                    let newRow = '<tr><td colspan="9"><div class="text-center text-primary">Oops! Data Not Found</div></td></tr>';
+                    $("#websitesTable tbody").html(newRow);
+                }
+            },
+            error: function(error) {
+                // Handle errors
+                console.log(error);
+            },
+        });
+    }
+</script>
 <script src="{{
         asset_url('libs/bootstrap-select/bootstrap-select.js')
         }}"></script>
