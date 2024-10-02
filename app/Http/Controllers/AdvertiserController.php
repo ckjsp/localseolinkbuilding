@@ -306,6 +306,7 @@ class AdvertiserController extends Controller
             }
 
             try {
+
                 $validatedData = $validator->validated();
 
                 $project = lslbProject::findOrFail($id);
@@ -336,6 +337,7 @@ class AdvertiserController extends Controller
     }
 
     public function projectDestroy($id)
+
     {
         $project = lslbProject::findOrFail($id);
 
