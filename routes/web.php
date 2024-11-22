@@ -10,6 +10,8 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\PaypalPaymentController;
+
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\ProjectController;
@@ -68,6 +70,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/advertiser/orders', 'index')->name('advertiser.orders');
             Route::post('/advertiser/orders/add', 'store')->name('advertiser.orders.store');
         });
+
+
+
+        Route::get('/paypal/create/{price}', [PaypalPaymentController::class, 'createPayment'])->name('paypal.create');
+        Route::get('/paypal/execute', [PaypalPaymentController::class, 'executePayment'])->name('paypal.executePayment');
+        Route::get('/paypal/cancel', [PaypalPaymentController::class, 'cancelPayment'])->name('paypal.cancelPayment');
+
+
 
         Route::controller(PaymentController::class)->group(function () {
             Route::get('/advertiser/payment', 'index')->name('advertiser.payment');

@@ -102,12 +102,9 @@ class AdvertiserController extends Controller
         $data['slug'] = 'cart';
         $data['userDetail'] = Auth::user();
         $data['websites'] = lslbWebsite::findMany($ids);
-        $data['allWebsites'] = lslbWebsite::all();  // Retrieve all websites
+        $data['allWebsites'] = lslbWebsite::all();
         return view('advertiser/cart')->with($data);
     }
-
-
-
 
     public function projectCreate()
     {
@@ -116,9 +113,7 @@ class AdvertiserController extends Controller
         }
 
         $data = $this->getCommonData();
-        //$data['project'] = lslbProject::findOrFail($id);
         return view('advertiser/home')->with($data);
-        //return view('advertiser/home');
     }
 
     public function projectStore(Request $request)
@@ -389,6 +384,7 @@ class AdvertiserController extends Controller
     public function setSelectedProject(Request $request)
     {
         $selectedProjectId = $request->input('selected_project_id');
+
         session(['selected_project_id' => $selectedProjectId]);
 
         return response()->json(['success' => true]);

@@ -12,6 +12,7 @@ use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\Shared\Html;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyMail;
+
 use DOMDocument;
 use Illuminate\Support\Facades\DB;
 use Stripe\Stripe;
@@ -75,22 +76,23 @@ class OrdersController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    { 
+    {
         $request->validate([
             'attachment' => 'required|file|mimes:doc,docx|max:2048',
         ]);
 
-        if ($request->file('attachment')->isValid()) {  
+        if ($request->file('attachment')->isValid()) {
             $path = $request->file('attachment')->store('uploads');
             // $validatedData = $request->validate($this->rules());
             $validatedData = Validator::make($request->all(), $this->rules());
-            if ($validatedData->fails()) { 
+            if ($validatedData->fails()) {
                 $arr = array();
                 $arr['success'] = false;
                 $arr['error'] = $validatedData->errors();
-                echo json_encode($arr);exit;
+                echo json_encode($arr);
+                exit;
                 // return redirect()->back()->withInput()->withErrors($validatedData);
-            } else { 
+            } else {
                 $data = $request->only(['order_id', 'website_id', 'u_id', 'price', 'quantity', 'type', 'order_date', 'delivery_time', 'status', 'payment_method', 'article_title', 'special_instructions',]);
                 $data['order_id'] = 'order-' . md5(time() . 'DS');
                 $data['order_date'] = date('Y-m-d');
@@ -103,59 +105,64 @@ class OrdersController extends Controller
                 $order = lslbOrder::create($data);
                 $arr = array();
                 $arr['order_id'] = $data['order_id'];
+                $arr['price'] = $data['price'];
                 $arr['id'] = $order->id;
                 $arr['success'] = true;
                 $arr['website_id'] = $request->post('website_id');
-               
-                
+
+
                 $order = lslbOrder::where('order_id', $data['order_id'])->with('website.user')->get();
                 // echo 'hello';
                 // print_r($order);
                 // exit('data');
                 $customData['from_name'] = "Local SEO Link Builder";
-                $customData['mailaddress'] = "no-reply@localseolinkbuilding.com";
+                $customData['mailaddress'] = "no-reply@linksfarmer.com";
                 $customData['subject'] = 'Notification: Local SEO Link Builder - Order Place Successfully';
                 $customData['msg'] = "<p>Thank you for your order!</p>
                 <p>Your order has been successfully placed with the following details:</p>
                 <ul>
-                    <li><strong>Order ID:</strong> ".$arr['order_id']."</li>
-                    <li><strong>Product Name:</strong> ".$order[0]->website->website_url."</li>
-                    <li><strong>Total Amount:</strong> $".$order[0]->price."</li>
+                    <li><strong>Order ID:</strong> " . $arr['order_id'] . "</li>
+                    <li><strong>Product Name:</strong> " . $order[0]->website->website_url . "</li>
+                    <li><strong>Total Amount:</strong> $" . $order[0]->price . "</li>
                 </ul>
-                <a href='".base_url('/advertiser/orders')."'>View Orders</a>
+                <a href='" . base_url('/advertiser/orders') . "'>View Orders</a>
                 <p>We will process your order and notify you once it's publish. If you have any questions, feel free to contact us.</p>
                 <p>Thank you for shopping with us!</p>";
-                Mail::to(Auth::user()->email)->send(new MyMail($customData));
-                
+                // Mail::to(Auth::user()->email)->send(new MyMail($customData));
+
                 $customData['subject'] = 'Notification: Local SEO Link Builder - New website added';
                 $customData['msg'] = "<p>Congratulations! You have a new order to fulfill:</p>
                     <ul>
-                        <li><strong>Order ID:</strong> ".$arr['order_id']."</li>
-                        <li><strong>Website:</strong> ".$order[0]->website->website_url."</li>
-                        <li><strong>Total Amount:</strong> $".$order[0]->price."</li>
+                        <li><strong>Order ID:</strong> " . $arr['order_id'] . "</li>
+                        <li><strong>Website:</strong> " . $order[0]->website->website_url . "</li>
+                        <li><strong>Total Amount:</strong> $" . $order[0]->price . "</li>
                     </ul>
-                    <a href='".base_url('/publisher/orders')."'>View Orders</a>
+                    <a href='" . base_url('/publisher/orders') . "'>View Orders</a>
                     <p>Publish the advertiser provided detail. If you have any questions, please contact the customer directly.</p>
-                    <p>Thank you for being a seller on our platform!</p>";
-                        // <li><strong>Customer Name:</strong> ".Auth::user()->name."</li>
-                        // <li><strong>Customer Email:</strong> ".Auth::user()->email."</li>
+                    <p>Thank you for being a seller on our platform!</p>
+                <li><strong>Customer Name:</strong> " . Auth::user()->name . "</li>
+                <li><strong>Customer Email:</strong> " . Auth::user()->email . "</li>";
                 // echo 'hello';
                 // print_r($order[0]->website->user);
                 // exit('data');
-                Mail::to($order[0]->website->user->email)->send(new MyMail($customData));
+                // Mail::to($order[0]->website->user->email)->send(new MyMail($customData));
 
-                echo json_encode($arr);exit;
-                // return redirect()->route('advertiser.cart')->with($arr);
-                // return redirect()->route('advertiser.cart')->with($arr);
+                // echo json_encode($arr);
+                // exit;
+                return redirect()->route('paypal.create', ['price' => $data['price']]);
             }
-        } else { 
+        } else {
             $arr = array();
             $arr['success'] = false;
             $arr['error'] = 'File upload failed.';
-            echo json_encode($arr);exit;
+            echo json_encode($arr);
+            exit;
             // return redirect()->back()->withInput()->withErrors('File upload failed.');
         }
     }
+
+
+
 
     /**
      * Display the specified resource.
@@ -188,14 +195,14 @@ class OrdersController extends Controller
     {
         //
     }
-    
+
     /**
      * Order Detail
      */
     public function orderInfo(string $id)
     {
         $data = array();
-        $data['order'] = lslbOrder::where('order_id', $id)->with(['website.user','payments'])->get();
+        $data['order'] = lslbOrder::where('order_id', $id)->with(['website.user', 'payments'])->get();
         // echo '<pre>'; print_r( $data['order'] ); echo '</pre>';exit;
         if (!$data['order']) {
             abort(404); // Handle not found gracefully
@@ -208,7 +215,7 @@ class OrdersController extends Controller
     public function checkArticle(string $id)
     {
         $orders = lslbOrder::find($id);
-        $docxFilePath = storage_path('app/'.$orders->attachment);
+        $docxFilePath = storage_path('app/' . $orders->attachment);
         // echo $docxFilePath;exit;
         try {
             $phpWord = IOFactory::load($docxFilePath);
@@ -259,7 +266,7 @@ class OrdersController extends Controller
      */
     public function updateStatus(Request $request, string $id)
     {
-        if(!empty($request->post('status'))){
+        if (!empty($request->post('status'))) {
             $order = lslbOrder::find($id);
             if (!$order) {
                 abort(404); // Handle not found gracefully
@@ -270,31 +277,33 @@ class OrdersController extends Controller
             $website = lslbWebsite::find($order->website_id);
             $data = ['success' => 'Status updated successfully', 'error' => ''];
             $status = ucwords($validatedData['status']);
-            $note = !empty($request->post('note')) ? "<p><strong>Note:</strong>".ucwords($request->post('note'))."</p>" : '';
+            $note = !empty($request->post('note')) ? "<p><strong>Note:</strong>" . ucwords($request->post('note')) . "</p>" : '';
             $customData['from_name'] = "Local SEO Link Builder";
-            $customData['mailaddress'] = "no-reply@localseolinkbuilding.com";
+            $customData['mailaddress'] = "no-reply@linksfarmer.com";
             $customData['subject'] = 'Notification: Local SEO Link Builder - Order Status Update';
             $customData['msg'] = "<p>Your order status has been updated:</p>
                 <ul>
-                    <li><strong>Order ID:</strong> ". $order->order_id ."</li>
-                    <li><strong>Website:</strong> ".$website->website_url."</li>
-                    <li><strong>New Status:</strong> ".$status."</li>
+                    <li><strong>Order ID:</strong> " . $order->order_id . "</li>
+                    <li><strong>Website:</strong> " . $website->website_url . "</li>
+                    <li><strong>New Status:</strong> " . $status . "</li>
                 </ul>
-                <a href='".base_url('/advertiser/orders')."'>View Orders</a>
-                ".$note."
+                <a href='" . base_url('/advertiser/orders') . "'>View Orders</a>
+                " . $note . "
                 <p>If you have any questions or concerns, please contact our customer support.</p>
                 <p>Thank you for choosing our platform!</p>";
-            
+
             Mail::to($user->email)->send(new MyMail($customData));
 
             $data = ['success' => 'Order status updated successfully', 'error' => ''];
-        }else{
+        } else {
             $data = ['error' => 'Oops! Order status update failed', 'success' => ''];
         }
-        echo json_encode($data, true);exit;
+        echo json_encode($data, true);
+        exit;
     }
 
-    public function payment(Request $request){
+    public function payment(Request $request)
+    {
         Stripe::setApiKey(config('services.stripe.secret'));
 
         try {

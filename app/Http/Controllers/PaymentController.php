@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\lslbOrder;
 use App\Models\lslbUser;
 use App\Models\lslbPayment;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -21,12 +22,13 @@ class PaymentController extends Controller
         $this->middleware('auth');
     }
 
-    public function chekRole(Request $request){
+    public function chekRole(Request $request)
+    {
         $url = $request->url();
-        if(!Auth::user()){
+        if (!Auth::user()) {
             return 'lslb-admin/login';
         }
-        if(Str::contains($url, 'publisher') && Auth::user()->role->name == 'Advertiser') {
+        if (Str::contains($url, 'publisher') && Auth::user()->role->name == 'Advertiser') {
             $newUrl = str_replace('publisher', 'advertiser', $url);
             return $newUrl;
         }
@@ -42,7 +44,9 @@ class PaymentController extends Controller
     public function index(Request $request)
     {
         $url = $this->chekRole($request);
-        if(!empty($url)){ return redirect($url); }
+        if (!empty($url)) {
+            return redirect($url);
+        }
         $data = array();
         $data['slug'] = 'payment';
         $data['userDetail'] = Auth::user();
@@ -55,7 +59,9 @@ class PaymentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
     public function create()
+
     {
         //
     }
@@ -63,7 +69,9 @@ class PaymentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
+
     {
         //
     }
@@ -71,7 +79,9 @@ class PaymentController extends Controller
     /**
      * Display the specified resource.
      */
+
     public function show(string $id)
+
     {
         //
     }
@@ -79,7 +89,9 @@ class PaymentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
     public function edit(string $id)
+
     {
         //
     }
@@ -87,7 +99,9 @@ class PaymentController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(Request $request, string $id)
+
     {
         //
     }
@@ -95,8 +109,6 @@ class PaymentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+
+    public function destroy(string $id) {}
 }
