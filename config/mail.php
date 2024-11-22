@@ -99,7 +99,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'no-reply@localseolinkbuilding.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'no-reply@linksfarmer.com'),
         'name' => env('MAIL_FROM_NAME', 'Local SEO Link Building'),
     ],
 

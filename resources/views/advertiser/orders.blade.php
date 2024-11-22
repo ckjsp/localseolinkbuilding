@@ -3,11 +3,9 @@
 @push('css')
 <link rel="stylesheet" href="{{ asset_url('libs/select2/select2.css') }}" />
 <link rel="stylesheet" href="{{ asset_url('libs/bootstrap-select/bootstrap-select.css') }}" />
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 @endpush
 
 @section('sidebar-content')
-<!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">
         <div class="col-md-12">
@@ -35,11 +33,9 @@
                                 <th scope="col">Article Title</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Type</th>
-                                <!-- <th scope="col">Time Left</th> -->
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Payment Status</th>
                                 <th scope="col">Status</th>
-                                <!-- <th scope="col">Payment Type</th> -->
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -51,7 +47,7 @@
                             <tr aria-expanded="false">
                                 <td>{{ date('d M, Y',strtotime($v->order_date)) }}</td>
                                 <td><a href="{{ route('order.info', $v->order_id) }}" title="{{ $v->order_id }}">{{($v->order_id) }}</a></td>
-                                <td><a href="{{ $v->website->website_url }}" target="_blank" title="Web Site Link ({{ $v->website->website_url }})" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="{{ $v->website->website_url }}">Link <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                                <td><a href="{{ $v->website->website_url }}" target="_blank" title="Web Site Link ({{ $v->website->website_url }})" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="{{ $v->website->website_url }}">{{ $v->website->website_url }}</a></td>
                                 <td>
                                     @if($v->attachment != '')
                                     <a href="{{ url('/storage/app/'.$v->attachment) }}" target="_blank" title="Attachment Link">{{ $v->article_title }}</a>
@@ -61,11 +57,9 @@
                                 </td>
                                 <td>${{ $v->price }}</td>
                                 <td>{{ $v->type }}</td>
-                                <!-- <td>{{ date('Y-m-d h:i:s A', (strtotime($v->delivery_time) - strtotime(date('Y-m-d h:i:s A')))) }}</td> -->
                                 <td>{{ $v->quantity }}</td>
                                 <td>{{ ucwords($v->payment_status) }}</td>
                                 <td>{{ ucwords($v->status) }}</td>
-                                <!-- <td>{{ ucwords($v->payment_method) }}</td> -->
                             </tr>
                             @endforeach
                         </tbody>

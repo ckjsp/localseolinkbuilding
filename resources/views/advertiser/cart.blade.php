@@ -26,7 +26,7 @@
                     <div class="row">
                         <!-- Cart left -->
                         <div class="col-xl-12 mb-3 mb-xl-0 pt-3">
-                        
+
                             @if(isset($websites) && !empty($websites))
                             <!-- Shopping bag -->
                             @if($errors->any())
@@ -53,6 +53,13 @@
                                                 <input type="hidden" id="payment_method" name="payment_method" value="paypal">
                                                 <input type="hidden" id="price{{$v->id}}" name="price" value="{{ ($v->guest_post_price*$arrCookie[$k]->quantity) }}">
                                                 <input type="hidden" id="type" name="type" value="guest post">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Payment Method</label><br>
+                                                    <input type="radio" name="payment_method" value="paypal" id="paypal-${item.web_id}" class="payment-method-radio" checked>
+                                                    <label for="paypal-${item.web_id}" class="form-check-label">PayPal</label>
+                                                    <input type="radio" name="payment_method" value="razorpay" id="razorpay-${item.web_id}" class="payment-method-radio">
+                                                    <label for="razorpay-${item.web_id}" class="form-check-label">Razorpay</label>
+                                                </div>
                                                 <div class="d-flex mt-4">
                                                     <button type="button" class="btn-close btn-pinned" data-web_id="{{ $v->id }}" onclick="removeFromCart($(this))" aria-label="Close"></button>
                                                 </div>
@@ -79,7 +86,7 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                               
+
                                                 <div class="post-title-main d-flex mb-3 justify-content-between">
                                                     <div class="col-md-6 pe-2 ">
                                                         <label class="form-label" for="inputArticleTitle{{$v->id}}">Post Title</label>
@@ -87,14 +94,14 @@
                                                         <div class="valid-feedback"></div>
                                                         <div class="invalid-feedback">Invalid Post Title or Empty Post Title Please Insert Title Without Link.</div>
                                                     </div>
-                                                 
+
                                                     <div class="col-md-6">
                                                         <label class="form-label" for="inputDocFile{{$v->id}}">Attachments <small>Note: Support only doc, docx</small></label>
                                                         <input type="file" class="form-control attachments-control inputDocFile" name="attachment" id="inputDocFile{{$v->id}}" required="">
                                                         <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                                         <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
                                                     </div>
-                                             
+
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label class="form-label" for="inputSpecialInstructions{{$v->id}}">Special Instructions</label>
@@ -102,10 +109,11 @@
                                                 </div>
                                                 <div class="d-flex justify-content-end">
                                                     <div class="text-center mx-2">
-                                                        <button type="button" class="btn btn-primary checkout-btn" data-formid="cartform-{{ $v->id }}" data-webid="{{ $v->id }}" data-web_userid="{{ $v->user_id }}" onclick="orderPlace($(this))">
+                                                        <button type="submit" class="btn btn-primary checkout-btn">
                                                             <span class="loader-box spinner-border me-1" role="status" aria-hidden="true" style="display: none;"></span>
                                                             Check Out
                                                         </button>
+
                                                     </div>
                                                     <div class="text-center mx-2">
                                                         <button type="button" class="btn btn-danger btn-label-danger" data-web_id="{{ $v->id }}" onclick="removeFromCart($(this))">Remove</button>
@@ -129,6 +137,7 @@
 </div>
 
 <!-- resources/views/advertiser/cart.blade.php -->
+
 <div class="container-xxl flex-grow-1 container-p-y mt-5">
     <h5 class="shadow-lg p-3 bg-white rounded">Similar Website</h5>
     <div class="table-responsive">
@@ -145,29 +154,29 @@
             </thead>
             <tbody>
                 @foreach($allWebsites as $k => $website)
-                    @php
-                        $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
-                      
-                    @endphp
-                    <tr>
-                        <td>{{ $website->id }}</td>
-                        <td><a href="{{ $website->website_url }}" target="_blank">{{ $website->website_url }}</a></td>
-                        <td>{{ $website->categories }}</td>
-                        <td>{{ $website->domain_authority }}</td>
-                        <td>${{ $website->guest_post_price }}</td>
-                        <td>
-                        <button type="button" class="btn btn-primary waves-effect waves-light" 
+                @php
+                $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
+
+                @endphp
+                <tr>
+                    <td>{{ $website->id }}</td>
+                    <td><a href="{{ $website->website_url }}" target="_blank">{{ $website->website_url }}</a></td>
+                    <td>{{ $website->categories }}</td>
+                    <td>{{ $website->domain_authority }}</td>
+                    <td>${{ $website->guest_post_price }}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary waves-effect waves-light"
                             data-web_id="{{ $website->id }}"
-                            data-price="{{ $website->guest_post_price }}" 
-                            data-website_url="{{ $website->website_url }}" 
-                            data-categories="{{ $website->categories }}" 
-                            data-forbidden_categories="{{ $website->forbidden_categories }}" 
+                            data-price="{{ $website->guest_post_price }}"
+                            data-website_url="{{ $website->website_url }}"
+                            data-categories="{{ $website->categories }}"
+                            data-forbidden_categories="{{ $website->forbidden_categories }}"
                             onclick="addToCart($(this))">
                             Add
-                    </button>
+                        </button>
 
-                        </td>
-                    </tr>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
@@ -206,11 +215,11 @@
 </div>
 
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-  <div id="liveToast" class="toast bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-body">
-      <!-- Toast message will be dynamically inserted here -->
+    <div id="liveToast" class="toast bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body">
+            <!-- Toast message will be dynamically inserted here -->
+        </div>
     </div>
-  </div>
 </div>
 
 
@@ -220,7 +229,6 @@
 @push('script')
 
 <script>
-    
     $('.inputDocFile').change(function() {
         const selectedFile = this.files[0]; // Get the selected file
 
@@ -241,80 +249,80 @@
     });
 
     function addToCart($this) {
-    var $web_id = $this.data('web_id');
-    var $user_id = $('#user_id').val();
-    var $price = $this.data('price') || 0;
-    var $website_url = $this.data('website_url') || '';
-    var $categories = $this.data('categories') || '';
-    var $forbidden_categories = $this.data('forbidden_categories') || '';
+        var $web_id = $this.data('web_id');
+        var $user_id = $('#user_id').val();
+        var $price = $this.data('price') || 0;
+        var $website_url = $this.data('website_url') || '';
+        var $categories = $this.data('categories') || '';
+        var $forbidden_categories = $this.data('forbidden_categories') || '';
 
-    if ($web_id === undefined || $user_id === undefined) {
-        console.error('Missing web_id or user_id:', $web_id, $user_id);
-        return;
+        if ($web_id === undefined || $user_id === undefined) {
+            console.error('Missing web_id or user_id:', $web_id, $user_id);
+            return;
+        }
+
+        var $data = {
+            'user_id': $user_id,
+            'web_id': $web_id,
+            'quantity': 1, // You can allow users to specify quantity
+            'price': $price,
+            'website_url': $website_url,
+            'categories': $categories,
+            'forbidden_categories': $forbidden_categories
+        };
+
+        // Get existing cart from the cookie
+        var $cartCookie = getCookie('cart');
+        var $newCartArr = [];
+
+        if ($cartCookie) {
+            // Parse the existing cart data into an array
+            $newCartArr = JSON.parse($cartCookie);
+        }
+
+        // Check if the item is already in the cart
+        var itemExists = $newCartArr.find(item => item.web_id === $web_id);
+
+        if (itemExists) {
+            // If the item is already in the cart, update the quantity
+            itemExists.quantity += 1;
+        } else {
+            // Otherwise, add the new item to the cart
+            $newCartArr.push($data);
+        }
+
+        // Update the cart count in the UI
+        $('.nav-cart-icon').attr('data-item-count', $newCartArr.length);
+
+        // Save the updated cart back to the cookie
+        setCookie('cart', JSON.stringify($newCartArr), 2);
+
+        // Update the cart UI dynamically
+        updateCartUI($newCartArr);
+
+        // Show success message
+        showSuccessMessage("Website successfully added to the cart!");
     }
 
-    var $data = {
-        'user_id': $user_id,
-        'web_id': $web_id,
-        'quantity': 1,  // You can allow users to specify quantity
-        'price': $price,
-        'website_url': $website_url,
-        'categories': $categories,
-        'forbidden_categories': $forbidden_categories
-    };
+    // Function to show success message
+    function showSuccessMessage(message) {
+        // Select the toast element
+        var toastEl = document.getElementById('liveToast');
+        var toastBody = toastEl.querySelector('.toast-body');
 
-    // Get existing cart from the cookie
-    var $cartCookie = getCookie('cart');
-    var $newCartArr = [];
+        // Set the message in the toast body
+        toastBody.textContent = message;
 
-    if ($cartCookie) {
-        // Parse the existing cart data into an array
-        $newCartArr = JSON.parse($cartCookie);
+        // Create a new Toast instance and show it
+        var toast = new bootstrap.Toast(toastEl, {
+            autohide: true,
+            delay: 3000 // Show toast for 3 seconds
+        });
+        toast.show();
     }
 
-    // Check if the item is already in the cart
-    var itemExists = $newCartArr.find(item => item.web_id === $web_id);
-
-    if (itemExists) {
-        // If the item is already in the cart, update the quantity
-        itemExists.quantity += 1;
-    } else {
-        // Otherwise, add the new item to the cart
-        $newCartArr.push($data);
-    }
-
-    // Update the cart count in the UI
-    $('.nav-cart-icon').attr('data-item-count', $newCartArr.length);
-
-    // Save the updated cart back to the cookie
-    setCookie('cart', JSON.stringify($newCartArr), 2);
-
-    // Update the cart UI dynamically
-    updateCartUI($newCartArr);
-
-    // Show success message
-    showSuccessMessage("Website successfully added to the cart!");
-}
-
-// Function to show success message
-function showSuccessMessage(message) {
-    // Select the toast element
-    var toastEl = document.getElementById('liveToast');
-    var toastBody = toastEl.querySelector('.toast-body');
-
-    // Set the message in the toast body
-    toastBody.textContent = message;
-
-    // Create a new Toast instance and show it
-    var toast = new bootstrap.Toast(toastEl, {
-        autohide: true,
-        delay: 3000 // Show toast for 3 seconds
-    });
-    toast.show();
-}
 
 
-    
     function updateCartUI(cartItems) {
         var $cartContainer = $('.container');
 
@@ -326,8 +334,8 @@ function showSuccessMessage(message) {
             if ($existingItem.length) {
                 // Update the existing item
                 $existingItem.find('.quantity').val(item.quantity);
-              
-                
+
+
             } else {
                 // Append the new item
                 var $cartItem = `
@@ -341,6 +349,13 @@ function showSuccessMessage(message) {
                                 <input type="hidden" name="payment_method" value="paypal">
                                 <input type="hidden" name="price" value="${item.price}">
                                 <input type="hidden" name="type" value="guest post">
+                                  <div class="mb-3">
+                                    <label class="form-label">Payment Method</label><br>
+                                    <input type="radio" name="payment_method" value="paypal" id="paypal-${item.web_id}" class="payment-method-radio" checked> 
+                                    <label for="paypal-${item.web_id}" class="form-check-label">PayPal</label>
+                                    <input type="radio" name="payment_method" value="razorpay" id="razorpay-${item.web_id}" class="payment-method-radio">
+                                    <label for="razorpay-${item.web_id}" class="form-check-label">Razorpay</label>
+                                </div>
                                 <div class="d-flex mt-4">
                                     <button type="button" class="btn-close btn-pinned" data-web_id="${item.web_id}" onclick="removeFromCart($(this))" aria-label="Close"></button>
                                 </div>
@@ -384,10 +399,11 @@ function showSuccessMessage(message) {
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <div class="text-center mx-2">
-                                        <button type="button" class="btn btn-primary checkout-btn" data-formid="cartform-${item.web_id}" data-webid="${item.web_id}" data-web_userid="${item.user_id}" onclick="orderPlace($(this))">
-                                            <span class="loader-box spinner-border me-1" role="status" aria-hidden="true" style="display: none;"></span>
-                                            Check Out
-                                        </button>
+                                        <button type="button" class="btn btn-primary checkout-btn" data-formid="cartform-{{ $v->id }}" data-webid="{{ $v->id }}" data-web_userid="{{ $v->user_id }}" onclick="orderPlace($(this))">
+                                                            <span class="loader-box spinner-border me-1" role="status" aria-hidden="true" style="display: none;"></span>
+                                                            Check Out
+                                                        </button>
+
                                     </div>
                                     <div class="text-center mx-2">
                                         <button type="button" class="btn btn-danger btn-label-danger" data-web_id="${item.web_id}" onclick="removeFromCart($(this))">Remove</button>
@@ -401,7 +417,8 @@ function showSuccessMessage(message) {
             }
         });
     }
-        function getCookie(name) {
+
+    function getCookie(name) {
         let value = "; " + document.cookie;
         let parts = value.split("; " + name + "=");
         if (parts.length === 2) return parts.pop().split(";").shift();
@@ -435,7 +452,7 @@ function showSuccessMessage(message) {
                     (v != null) ? $newCartArr[$newCartArr.length] = v: '';
                 }
             });
-            $('.nav-cart-icon').attr('data-item-count',$newCartArr.length);
+            $('.nav-cart-icon').attr('data-item-count', $newCartArr.length);
             setCookie('cart', JSON.stringify($newCartArr), 2);
         }
         updateCartUI($newCartArr);
@@ -465,7 +482,7 @@ function showSuccessMessage(message) {
                 }
                 (v != null) ? $newCartArr[$newCartArr.length] = v: '';
             });
-            $('.nav-cart-icon').attr('data-item-count',$newCartArr.length);
+            $('.nav-cart-icon').attr('data-item-count', $newCartArr.length);
             setCookie('cart', JSON.stringify($newCartArr), 2);
         }
     }
@@ -475,88 +492,92 @@ function showSuccessMessage(message) {
         return urlPattern.test(inputString);
     }
 
-    function orderPlace($this) { 
-        var $website_id = $this.data('webid');
-        var $web_userid = $this.data('web_userid');
-        var $user_id = $('#user_id').val();
-        var $payment_method = 'stripe';
-        var $price = $('#price' + $web_userid).val();
-        var $type = 'guest post';
-        var $inputDocFile = $('#inputDocFile' + $website_id).val();
-        var $inputArticleTitle = $('#inputArticleTitle' + $website_id).val();
-        var $inputSpecialInstructions = $('#inputSpecialInstructions' + $website_id).val();
-        $flag = 0;
+    // function orderPlace($this) {
+    //     var $website_id = $this.data('webid');
+    //     var $web_userid = $this.data('web_userid');
+    //     var $user_id = $('#user_id').val();
+    //     var $payment_method = 'stripe';
+    //     var $price = $('#price' + $web_userid).val();
+    //     var $type = 'guest post';
+    //     var $inputDocFile = $('#inputDocFile' + $website_id).val();
+    //     var $inputArticleTitle = $('#inputArticleTitle' + $website_id).val();
+    //     var $inputSpecialInstructions = $('#inputSpecialInstructions' + $website_id).val();
+    //     $flag = 0;
 
-        if ($inputDocFile != '') {
-            $('#inputDocFile' + $website_id).removeClass('is-invalid').addClass('is-valid');
-        } else {
-            $flag++;
-            $('#inputDocFile' + $website_id).addClass('is-invalid').removeClass('is-valid');
-        }
-        if ($inputArticleTitle != '' && !hasURL($inputArticleTitle)) {
-            $('#inputArticleTitle' + $website_id).removeClass('is-invalid').addClass('is-valid');
-        } else {
-            $flag++;
-            $('#inputArticleTitle' + $website_id).addClass('is-invalid').removeClass('is-valid');
-        }
-        if ($inputSpecialInstructions != '') {
-            $('#inputSpecialInstructions' + $website_id).removeClass('is-invalid').addClass('is-valid');
-        } else {
-            $flag++;
-            $('#inputSpecialInstructions' + $website_id).addClass('is-invalid').removeClass('is-valid');
-        }
+    //     if ($inputDocFile != '') {
+    //         $('#inputDocFile' + $website_id).removeClass('is-invalid').addClass('is-valid');
+    //     } else {
+    //         $flag++;
+    //         $('#inputDocFile' + $website_id).addClass('is-invalid').removeClass('is-valid');
+    //     }
+    //     if ($inputArticleTitle != '' && !hasURL($inputArticleTitle)) {
+    //         $('#inputArticleTitle' + $website_id).removeClass('is-invalid').addClass('is-valid');
+    //     } else {
+    //         $flag++;
+    //         $('#inputArticleTitle' + $website_id).addClass('is-invalid').removeClass('is-valid');
+    //     }
+    //     if ($inputSpecialInstructions != '') {
+    //         $('#inputSpecialInstructions' + $website_id).removeClass('is-invalid').addClass('is-valid');
+    //     } else {
+    //         $flag++;
+    //         $('#inputSpecialInstructions' + $website_id).addClass('is-invalid').removeClass('is-valid');
+    //     }
 
-        if ($flag == 0) { 
-            $('#page-loader').show();
-            $('.checkout-btn').attr('disabled','');
-            $('.checkout-btn .loader-box').show();
-            formid = $this.data('formid');
-            // $('#' + formid).submit();
-            var url = $('#' + formid).attr("action"); 
-            let formData = new FormData($('#' + formid)[0]);
-            $.ajax({
-                type: 'POST',
-                url: url,
-                data: formData,
-                cache: false,
-                processData: false,
-                contentType: false,
-                success: function(response) { console.log('hello'+ response);
-                    var $obj = JSON.parse(response);
-                    if ($obj.success == false) {
-                        $('#alert').attr('class', '').addClass('alert alert-danger').html(
-                            '<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
-                    } else {
-                        $('#order_id').val($obj.order_id);
-                        $('#id').val($obj.id);
-                        $price = $('#price' + $obj.website_id).val();
-                        $('#price').val($price);
+    //     if ($flag == 0) {
+    //         $('#billing-pop').modal('show');
+    //         $('.checkout-btn').attr('disabled', '');
+    //         $('.checkout-btn .loader-box').show();
+    //         formid = $this.data('formid');
+    //         // $('#' + formid).submit();
+    //         var url = $('#' + formid).attr("action");
+    //         let formData = new FormData($('#' + formid)[0]);
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: url,
+    //             data: formData,
+    //             cache: false,
+    //             processData: false,
+    //             contentType: false,
+    //             success: function(response) {
+    //                 console.log('hello' + response);
+    //                 var $obj = JSON.parse(response);
+    //                 if ($obj.success == false) {
+    //                     $('#alert').attr('class', '').addClass('alert alert-danger').html(
+    //                         '<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
+    //                 } else {
+    //                     $('#order_id').val($obj.order_id);
+    //                     $('#id').val($obj.id);
+    //                     $price = $('#price' + $obj.website_id).val();
+    //                     $('#price').val($price);
 
-                        $('#stripe-btn script').attr('data-key', '{{ config("services.stripe.key") }}');
-                        $('#stripe-btn script').attr('data-amount', ($price * 100));
-                        $('#stripe-btn script').attr('data-name', 'Local SEO Link Building');
-                        $('#stripe-btn script').attr('data-description', 'Payment Description');
-                        $('#stripe-btn script').attr('data-image', 'https://stripe.com/img/documentation/checkout/marketplace.png');
-                        $('#stripe-btn script').attr('data-locale', 'auto');
-                        $('#stripe-btn script').attr('data-currency', 'usd');
-                        $('#stripe-btn script').attr('class', 'stripe-button');
-                        $('#stripe-btn script').attr('src', 'https://checkout.stripe.com/checkout.js');
-                        $('#billing-pop').modal('show');
-                    }
-                    $('#page-loader').hide();
-                    $('.checkout-btn').removeAttr('disabled');
-                    $('.checkout-btn .loader-box').hide();
-                },
-                error: function(error) {
-                    // Handle errors
-                    console.log(error);
-                    $('#page-loader').hide();
-                    $('.checkout-btn').removeAttr('disabled');
-                    $('.checkout-btn .loader-box').hide();
-                }
-            });
-        }
-    }
+    //                     $('#stripe-btn script').attr('data-key', '{{ config("services.stripe.key") }}');
+    //                     $('#stripe-btn script').attr('data-amount', ($price * 100));
+    //                     $('#stripe-btn script').attr('data-name', 'Local SEO Link Building');
+    //                     $('#stripe-btn script').attr('data-description', 'Payment Description');
+    //                     $('#stripe-btn script').attr('data-image', 'https://stripe.com/img/documentation/checkout/marketplace.png');
+    //                     $('#stripe-btn script').attr('data-locale', 'auto');
+    //                     $('#stripe-btn script').attr('data-currency', 'usd');
+    //                     $('#stripe-btn script').attr('class', 'stripe-button');
+    //                     $('#stripe-btn script').attr('src', 'https://checkout.stripe.com/checkout.js');
+    //                     $('#billing-pop').modal('show');
+    //                 }
+    //                 $('#page-loader').hide();
+    //                 $('.checkout-btn').removeAttr('disabled');
+    //                 $('.checkout-btn .loader-box').hide();
+    //             },
+    //             error: function(error) {
+    //                 // Handle errors
+    //                 console.log(error);
+    //                 $('#page-loader').hide();
+    //                 $('.checkout-btn').removeAttr('disabled');
+    //                 $('.checkout-btn .loader-box').hide();
+    //             }
+    //         });
+    //     }
+    // }
+
+
+
 
     fetch('<?= url('public/json/country.json') ?>').then(response => response.json()).then(data => {
         $inputBillingCountry = $('#inputBillingCountry').data('val');

@@ -35,7 +35,7 @@ class StripePaymentController extends Controller
                 'amount' => $amount_in_cents, // Amount in cents
                 'currency' => 'usd',
                 'source' => $request->stripeToken,
-                'description' => 'Payment By '.$user->name,
+                'description' => 'Payment By ' . $user->name,
                 'receipt_email' => $user->email, // Assuming you have an email field
                 // 'name' => $user->business_name,
                 // 'address' => [
@@ -45,19 +45,19 @@ class StripePaymentController extends Controller
                 //     'country' => $user->billing_country,
                 // ],
             ]);
-            if($charge->status == 'succeeded'){
+            if ($charge->status == 'succeeded') {
                 $arr = array();
                 $arr['user_id'] = $user->id;
                 $arr['order_id'] = $orders->id;
-                $arr['payment_amount'] = ($charge->amount/100);
+                $arr['payment_amount'] = ($charge->amount / 100);
                 $arr['payment_id'] = $charge->source->id;
                 $arr['payment_method'] = 'stripe';
                 $arr['payment_type'] = $charge->payment_method_details->type;
                 $arr['payment_responce'] = serialize(json_encode($charge));
                 lslbPayment::create($arr);
                 $orders->update(['payment_status' => 'success', 'payment_method' => 'stripe']);
-                return redirect()->route('advertiser.cart')->with(['success' => 'Order placed successfully order id is:- ' . $orders->order_id,'website_id' => $orders->website_id]);
-            }else{
+                return redirect()->route('advertiser.cart')->with(['success' => 'Order placed successfully order id is:- ' . $orders->order_id, 'website_id' => $orders->website_id]);
+            } else {
                 return redirect()->route('advertiser.cart')->with(['error' => 'Payment was failed.']);
             }
             // Handle successful payment
@@ -66,10 +66,6 @@ class StripePaymentController extends Controller
             return redirect('/')->with('error', $e->getMessage());
         }
     }
-
-
-
-
 
     /**
      * success response method.

@@ -124,7 +124,7 @@ class WebsiteController extends Controller
             lslbWebsite::create($data);
 
             $customData['from_name'] = "Local SEO Link Builder";
-            $customData['mailaddress'] = "no-reply@localseolinkbuilding.com";
+            $customData['mailaddress'] = "no-reply@linksfarmer.com";
             $customData['subject'] = 'Notification: Local SEO Link Builder - Website added Successfully';
             $customData['msg'] = "<p>Your website added successfully.</p>
                 <p>Wait for admin approval; after admin approval, your website will be ready to be visible in the marketplace.</p>
