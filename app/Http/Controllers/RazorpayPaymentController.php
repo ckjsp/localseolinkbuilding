@@ -16,9 +16,11 @@ class RazorpayPaymentController extends Controller
         $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
 
         $order = $api->order->create([
+
             'receipt'         => uniqid(),
             'amount'          => $price * 100,
             'currency'        => 'INR',
+
         ]);
 
         Session::put('razorpay_order_id', $order['id']);
