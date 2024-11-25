@@ -153,7 +153,7 @@ class OrdersController extends Controller
                 if ($data['payment_method'] == 'paypal') {
                     return redirect()->route('paypal.create', ['price' => $data['price'], 'orderId' => $data['order_id']]);
                 } elseif ($data['payment_method'] == 'razorpay') {
-                    return redirect()->route('razorpay.create', ['price' => $data['price']]);
+                    return redirect()->route('razorpay.create', ['price' => $data['price'], 'orderId' => $data['order_id']]);
                 }
             }
         } else {
