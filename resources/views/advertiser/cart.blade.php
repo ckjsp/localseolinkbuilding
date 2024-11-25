@@ -50,7 +50,7 @@
                                                 <input type="hidden" id="quantity{{$v->id}}" name="quantity" value="{{$arrCookie[$k]->quantity}}" />
                                                 <input type="hidden" id="user_id" name="user_id" value="{{ $userDetail->id }}">
                                                 <input type="hidden" id="website_id" name="website_id" value="{{ $v->id }}">
-                                                <input type="hidden" id="payment_method" name="payment_method" value="paypal">
+                                                <!-- <input type="hidden" id="payment_method" name="payment_method" value="paypal"> -->
                                                 <input type="hidden" id="price{{$v->id}}" name="price" value="{{ ($v->guest_post_price*$arrCookie[$k]->quantity) }}">
                                                 <input type="hidden" id="type" name="type" value="guest post">
                                                 <div class="mb-3">
@@ -575,8 +575,6 @@
     //         });
     //     }
     // }
-
-
 
 
     fetch('<?= url('public/json/country.json') ?>').then(response => response.json()).then(data => {

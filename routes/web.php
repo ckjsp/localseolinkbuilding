@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PaypalPaymentController;
+use App\Http\Controllers\RazorpayPaymentController;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\GoogleController;
@@ -71,13 +72,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/advertiser/orders/add', 'store')->name('advertiser.orders.store');
         });
 
+        Route::get('/paypal/create/{price}/{orderId}', [PaypalPaymentController::class, 'createPayment'])->name('paypal.create');
+        Route::get('/paypal/payment-success', [PaypalPaymentController::class, 'paymentSuccess'])->name('payment.success');
+        Route::get('/paypal/payment-cancel/{orderId}', [PaypalPaymentController::class, 'paymentCancel'])->name('payment.cancel');
 
-
-        Route::get('/paypal/create/{price}', [PaypalPaymentController::class, 'createPayment'])->name('paypal.create');
-        Route::get('/paypal/execute', [PaypalPaymentController::class, 'executePayment'])->name('paypal.executePayment');
-        Route::get('/paypal/cancel', [PaypalPaymentController::class, 'cancelPayment'])->name('paypal.cancelPayment');
-
-
+        // Route::get('/payment', [RazorpayPaymentController::class, 'index'])->name('payment.page');
+        Route::get('/payment/{price}', [RazorpayPaymentController::class, 'makePayment'])->name('razorpay.create');
+        // Route::post('/payment/callback', [RazorpayPaymentController::class, 'callback'])->name('payment.callback');
 
         Route::controller(PaymentController::class)->group(function () {
             Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
