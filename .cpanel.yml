@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/localseolinkbuil/public_html
-    - /bin/cp -r * $DEPLOYPATH/ 
+    - export DEPLOYPATH=/home/linksfarmer/public_html
+    - /bin/cp -r * $DEPLOYPATH/

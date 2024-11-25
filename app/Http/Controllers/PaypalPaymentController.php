@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
+
 use Illuminate\Http\Request;
+
 use App\Models\lslbOrder;
+
 use App\Models\lslbPayment;
 
 class PaypalPaymentController extends Controller
+
 {
     public function createPayment($price, $orderId)
+
     {
+
         $provider = new PayPalClient;
 
         $provider = \PayPal::setProvider();
@@ -67,6 +73,7 @@ class PaypalPaymentController extends Controller
 
                 if ($customId) {
                     $paymentdata = [
+
                         'user_id' => $order->u_id,
                         'order_id' => $order->id,
                         'payment_amount' => $captures['amount']['value'],
@@ -74,6 +81,7 @@ class PaypalPaymentController extends Controller
                         'payment_method' => 'PayPal',
                         'payment_type' => 'capture',
                         'payment_responce' => serialize(json_encode($response)),
+
                     ];
 
                     $payment = lslbPayment::create($paymentdata);
@@ -103,7 +111,9 @@ class PaypalPaymentController extends Controller
         $order = lslbOrder::where('order_id', $orderId)->first();
 
         $order->update([
+
             'payment_status' => 'canceled',
+
         ]);
 
         return redirect()->route('advertiser.orders')->with('success', 'Payment was canceled.');

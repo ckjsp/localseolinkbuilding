@@ -76,9 +76,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/paypal/payment-success', [PaypalPaymentController::class, 'paymentSuccess'])->name('payment.success');
         Route::get('/paypal/payment-cancel/{orderId}', [PaypalPaymentController::class, 'paymentCancel'])->name('payment.cancel');
 
-        // Route::get('/payment', [RazorpayPaymentController::class, 'index'])->name('payment.page');
-        Route::get('/payment/{price}', [RazorpayPaymentController::class, 'makePayment'])->name('razorpay.create');
-        // Route::post('/payment/callback', [RazorpayPaymentController::class, 'callback'])->name('payment.callback');
+        Route::get('/razorpay/create/{price}/{orderId}', [RazorpayPaymentController::class, 'makePayment'])->name('razorpay.create');
+        Route::post('/razorpay/callback', [RazorpayPaymentController::class, 'callback'])->name('razorpay.callback');
+
 
         Route::controller(PaymentController::class)->group(function () {
             Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
