@@ -106,6 +106,7 @@ class OrdersController extends Controller
                 $arr = array();
                 $arr['order_id'] = $data['order_id'];
                 $arr['price'] = $data['price'];
+                $arr['payment_method'] = $data['payment_method'];
                 $arr['id'] = $order->id;
                 $arr['success'] = true;
                 $arr['website_id'] = $request->post('website_id');
@@ -149,7 +150,11 @@ class OrdersController extends Controller
 
                 // echo json_encode($arr);
                 // exit;
-                return redirect()->route('paypal.create', ['price' => $data['price']]);
+                if ($data['payment_method'] == 'paypal') {
+                    return redirect()->route('paypal.create', ['price' => $data['price'], 'orderId' => $data['order_id']]);
+                } elseif ($data['payment_method'] == 'razorpay') {
+                    return redirect()->route('razorpay.create', ['price' => $data['price']]);
+                }
             }
         } else {
             $arr = array();
@@ -160,9 +165,6 @@ class OrdersController extends Controller
             // return redirect()->back()->withInput()->withErrors('File upload failed.');
         }
     }
-
-
-
 
     /**
      * Display the specified resource.
