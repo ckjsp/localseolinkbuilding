@@ -14,22 +14,27 @@ class RazorpayPaymentController extends Controller
     public function makePayment($price, $orderId)
 
     {
+
         $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
 
         $order = $api->order->create([
+
             'receipt'         => $orderId,
             'amount'          => $price * 100,
             'currency'        => 'INR',
+
         ]);
 
         Session::put('razorpay_order_id', $order['id']);
         Session::put('custom_order_id', $orderId);
 
         return view('payment', [
+
             'order_id' => $order['id'],
             'custom_order_id' => $orderId,
             'amount' => $price * 100,
             'key' => env('RAZORPAY_KEY'),
+
         ]);
     }
 

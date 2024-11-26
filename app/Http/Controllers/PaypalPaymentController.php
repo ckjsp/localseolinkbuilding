@@ -19,7 +19,7 @@ class PaypalPaymentController extends Controller
 
         $provider = new PayPalClient;
 
-        $provider = \PayPal::setProvider();
+        // $provider = \PayPal::setProvider();
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
 
@@ -56,7 +56,7 @@ class PaypalPaymentController extends Controller
     {
 
         $provider = new PayPalClient;
-        $provider = \PayPal::setProvider();
+        // $provider = \PayPal::setProvider();
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
 

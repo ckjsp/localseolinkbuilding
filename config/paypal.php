@@ -4,8 +4,8 @@
 return [
     'mode'    => env('PAYPAL_MODE', 'sandbox'),
     'sandbox' => [
-        'client_id'         => env('PAYPAL_SANDBOX_CLIENT_IFD', 'AZYzxQS5DGG-2Nk15neSEftc2iIlH3RfAfpYVR6EIMLbnIQJAkWmxGH0NXJaK25rIvNlwmdiwfoCySqR'),
-        'client_secret'     => env('PAYPAL_SANDBOX_CLIENT_SECRVET', ' EN1jmNlw7wt2qBjES-aAXaFrrMdoKaXvixUhPkgWcuj-DjHKJr-Nr3YMYQbOBhj7Cuf1f_ky0rdVVu1p'),
+        'client_id'         => env('PAYPAL_CLIENT_ID', 'AZYzxQS5DGG-2Nk15neSEftc2iIlH3RfAfpYVR6EIMLbnIQJAkWmxGH0NXJaK25rIvNlwmdiwfoCySqR'),
+        'client_secret'     => env('PAYPAL_SECRET', ' EN1jmNlw7wt2qBjES-aAXaFrrMdoKaXvixUhPkgWcuj-DjHKJr-Nr3YMYQbOBhj7Cuf1f_ky0rdVVu1p'),
         'app_id'            => 'APP-80W284485P519543T',
     ],
     'live' => [

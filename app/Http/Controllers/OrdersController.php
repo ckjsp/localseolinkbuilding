@@ -53,7 +53,9 @@ class OrdersController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
     public function create()
+
     {
         //
     }
@@ -75,7 +77,9 @@ class OrdersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
+
     {
         $request->validate([
             'attachment' => 'required|file|mimes:doc,docx|max:2048',
@@ -111,11 +115,12 @@ class OrdersController extends Controller
                 $arr['success'] = true;
                 $arr['website_id'] = $request->post('website_id');
 
-
                 $order = lslbOrder::where('order_id', $data['order_id'])->with('website.user')->get();
+
                 // echo 'hello';
                 // print_r($order);
                 // exit('data');
+
                 $customData['from_name'] = "Local SEO Link Builder";
                 $customData['mailaddress'] = "no-reply@linksfarmer.com";
                 $customData['subject'] = 'Notification: Local SEO Link Builder - Order Place Successfully';
@@ -266,12 +271,13 @@ class OrdersController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function updateStatus(Request $request, string $id)
     {
         if (!empty($request->post('status'))) {
             $order = lslbOrder::find($id);
             if (!$order) {
-                abort(404); // Handle not found gracefully
+                abort(404);
             }
             $validatedData = $request->validate(['status' => 'required',]);
             $order->update($validatedData);
@@ -310,17 +316,14 @@ class OrdersController extends Controller
 
         try {
             $charge = Charge::create([
-                'amount' => 10, // amount in cents
+                'amount' => 10,
                 'currency' => 'usd',
                 'source' => $request->stripeToken,
                 'description' => 'Example Charge',
             ]);
         } catch (\Exception $e) {
-            // Handle payment failure
             return redirect()->route('payment.failure');
         }
-
-        // Payment was successful
         return redirect()->route('payment.success');
     }
 }
