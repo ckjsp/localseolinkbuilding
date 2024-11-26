@@ -43,14 +43,14 @@
                         <label for="website_url" class="form-label">Website URL
                             <small>(https://example.com)</small></label>
                         <input type="text" class="form-control @error('website_url') is-invalid @enderror" id="inputWebUrl" name="website_url" required placeholder="https://example.com" value="{{ old('website_url') }}" autofocus>
-                           <div class="invalid-feedback"></div>
+                        <div class="invalid-feedback"></div>
                     </div>
                     @else
                     @method('PUT')
                     <input type="hidden" id="id" name="id" value="{{ $website->id }}">
                     <input type="hidden" id="inputWebUrl" name="website_url" value="{{ $website->website_url }}">
-                    @endif 
-                    <div class="col-md-4">    
+                    @endif
+                    <div class="col-md-4">
                         <?php
                         if (old('domain_authority')) {
                             $domain_authority = old('domain_authority');
@@ -60,10 +60,10 @@
                         ?>
                         <label for="inputDomainAuthority" class="form-label">DA <small>Domain Authority</small></label>
                         <input type="number" class="form-control" id="inputDomainAuthority" name="domain_authority" mix="1" max="100" value="{{ (isset($domain_authority) && !empty($domain_authority)) ? $domain_authority : 1 }}" placeholder="DA (domain Authority)">
-                   
+
                     </div>
-                    <div class="col-md-4">    
-                        <?php  
+                    <div class="col-md-4">
+                        <?php
                         if (old('domain_rating')) {
                             $domain_rating = old('domain_rating');
                         } else {
@@ -72,7 +72,7 @@
                         ?>
                         <label for="inputDomainRating" class="form-label">Domain Rating</small></label>
                         <input type="number" class="form-control" id="inputDomainRating" name="domain_rating" mix="1" max="100" value="{{ (isset($domain_rating) && !empty($domain_rating)) ? $domain_rating : 1 }}" placeholder="DA (Domain Rating)">
-                   
+
                     </div>
                     <div class="col-md-4">
                         <?php
@@ -212,15 +212,15 @@
                             value="{{ (isset($traffic_by_country) && !empty($traffic_by_country)) ? $traffic_by_country : '' }}">
                         <label for="traffic_by_country" class="form-label">Traffic By Country</label>
                         <div class="select2-info">
-                            <select id="traffic_by_countrys" name="traffic_by_country"
+                            <select id="traffic_by_countrys" name="traffic_by_country[]"
                                 class="select2 form-select" multiple>
                                 <option value="Australia" {{ (in_array("Australia",$FCarr)) ? 'selected' : '' }}>Australia
                                 </option>
                                 <option value="India" {{ (in_array("India",$FCarr)) ? 'selected' : ''
                                     }}>India</option>
-                                    <option value="United States" {{ (in_array("United States",$FCarr)) ? 'selected' : ''
+                                <option value="United States" {{ (in_array("United States",$FCarr)) ? 'selected' : ''
                                     }}>United States</option>
-                             
+
                             </select>
                         </div>
                     </div>
@@ -280,10 +280,10 @@
                         $Carr = explode(',', $categories);
                         @endphp
                         <input type="hidden" id="inputCategories" name="categories"
-                            value="{{ (isset($categories) && !empty($categories)) ? $categories : '' }}">
+                            value="{{ (isset($categories) && !empty($categories)) ? $categories : '' }}" multiple>
                         <label for="inputCategories1" class="form-label">Categories</label>
                         <div class="select2-primary">
-                            <select id="inputCategories1" name="categories" class="form-select select2" multiple>
+                            <select id="inputCategories1" name="categories[]" class="form-select select2" multiple>
                                 <option value="Agriculture" {{ (in_array("Agriculture", $Carr)) ? 'selected' : '' }}>
                                     Agriculture</option>
                                 <option value="Animals & Pets" {{ (in_array("Animals & Pets", $Carr)) ? 'selected' : ''
@@ -394,7 +394,7 @@
                         <label for="inputForbiddenCategories1" class="form-label">Select the forbidden categories you
                             accept</label>
                         <div class="select2-info">
-                            <select id="inputForbiddenCategories1" name="forbidden_categories"
+                            <select id="inputForbiddenCategories1" name="forbidden_categories[]"
                                 class="select2 form-select" multiple>
                                 <option value="Casino" {{ (in_array("Casino",$FCarr)) ? 'selected' : '' }}>Casino
                                 </option>
@@ -432,7 +432,7 @@
                             value="{{ (isset($link_insertion_price) && !empty($link_insertion_price)) ? $link_insertion_price : 1 }}"
                             name="link_insertion_price" placeholder="$">
                     </div>
-                  
+
                     <div class="col-md-12 W-100 m-3">
                         <div class="row border border-primary p-3 rounded">
                             <div class="col-md-6">
@@ -465,7 +465,7 @@
                             $site_verification_file = old('site_verification_file');
                         } else {
                             isset($website->site_verification_file) ? $site_verification_file = $website->site_verification_file : '';
-                        }   
+                        }
                         ?>
                         <label for="site_verification_file" class="form-label">Upload Your Website Analytics
                             Report</label>
@@ -509,6 +509,4 @@
 <script src="{{ asset_url('js/forms-selects.js') }}"></script>
 <script src="{{ asset_url('.../public\script/addweb_form.js') }}"></script>
 
-@endpush 
-
-
+@endpush

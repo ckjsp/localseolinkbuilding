@@ -29,6 +29,7 @@ return [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+
     ],
     'stripe' => [
         'key' => env('STRIPE_KEY'),
@@ -46,6 +47,12 @@ return [
         'secret' => env('PAYPAL_SECRET'),
         'mode' => env('PAYPAL_MODE', 'sandbox'),
     ],
+
+    'razorpay' => [
+        'key' => env('RAZORPAY_KEY'),
+        'secret' => env('RAZORPAY_SECRET'),
+    ],
+
 
 
 ];
