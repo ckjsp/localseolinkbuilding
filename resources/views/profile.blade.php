@@ -13,7 +13,7 @@
     }
 
     .firstlogin-popup {
-        background-image: url('{{ asset(' public/img/pages/firstloginbg.png') }}');
+        background-image: url('{{ asset("public/img/pages/firstloginbg.png") }}');
         background-repeat: no-repeat;
         background-size: cover;
         border-top-right-radius: 12px;
