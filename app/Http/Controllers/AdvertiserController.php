@@ -17,12 +17,14 @@ Validator::extend('url', function ($attribute, $value, $parameters, $validator) 
 });
 
 class AdvertiserController extends Controller
+
 {
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -33,6 +35,7 @@ class AdvertiserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     private function getCommonData()
     {
         $data = [];
@@ -166,33 +169,28 @@ class AdvertiserController extends Controller
     public function checkUrl(Request $request)
     {
         $url = $request->query('url');
-        $exists = lslbProject::where('project_url', $url)->exists(); // Check if URL exists
+        $exists = lslbProject::where('project_url', $url)->exists();
 
         return response()->json(['exists' => $exists]);
     }
 
     public function addCompetitor(Request $request)
     {
-        // Validate the request data
         $validated = $request->validate([
-            'project_id' => 'required', // Ensure project exists
-            'add_competitor' => 'required', // Validate URL
+            'project_id' => 'required',
+            'add_competitor' => 'required',
         ]);
 
-        // Find the project by the given ID
         $project = lslbProject::find($validated['project_id']);
 
         if ($project) {
-            // If project exists, update the add_competitor field
             $currentCompetitors = $project->add_competitor ? explode(',', $project->add_competitor) : [];
             $newCompetitor = $validated['add_competitor'];
 
-            // Check if we already have three competitors
             if (count($currentCompetitors) >= 3) {
                 return redirect()->back()->with('error', 'Cannot add more than 3 competitors.');
             }
 
-            // Avoid duplicate entries
             if (!in_array($newCompetitor, $currentCompetitors)) {
                 $currentCompetitors[] = $newCompetitor;
                 $updatedCompetitors = implode(',', $currentCompetitors);
@@ -201,20 +199,16 @@ class AdvertiserController extends Controller
                     'add_competitor' => $updatedCompetitors,
                 ]);
 
-                // Return success message
                 return redirect()->back()->with('success', 'Competitor added successfully!');
             } else {
-                // Return message if competitor already exists
                 return redirect()->back()->with('success', 'Competitor already exists!');
             }
         } else {
-            // If project doesn't exist, create a new one
             lslbProject::create([
                 'id' => $validated['project_id'],
                 'add_competitor' => $validated['add_competitor'],
             ]);
 
-            // Return success message
             return redirect()->back()->with('success', 'Competitor added successfully to a new project!');
         }
     }
@@ -222,17 +216,14 @@ class AdvertiserController extends Controller
 
     public function getCompetitorsByProjectId($projectId)
     {
-        // Fetch the record for the given project ID
         $project = DB::table('lslb_project')
             ->where('id', $projectId)
-            ->first(['add_competitor']); // Get only the 'add_competitor' field
+            ->first(['add_competitor']);
 
         if ($project) {
-            // Explode the comma-separated string into an array
             $competitorUrls = explode(',', $project->add_competitor);
 
-            // Prepare the array for response
-            $competitors = array_map('trim', $competitorUrls); // Optional: Remove extra spaces
+            $competitors = array_map('trim', $competitorUrls);
 
             return response()->json(['competitors' => $competitors]);
         } else {
@@ -246,22 +237,17 @@ class AdvertiserController extends Controller
     {
         $urlToRemove = $request->input('url');
 
-        // Fetch the project
         $project = DB::table('lslb_project')->where('id', $projectId)->first(['add_competitor']);
 
         if ($project) {
-            // Explode the comma-separated string into an array
             $competitorUrls = explode(',', $project->add_competitor);
 
-            // Remove the URL
             $competitorUrls = array_filter($competitorUrls, function ($url) use ($urlToRemove) {
                 return trim($url) !== trim($urlToRemove);
             });
 
-            // Rebuild the comma-separated string
             $updatedCompetitors = implode(',', $competitorUrls);
 
-            // Update the record
             DB::table('lslb_project')->where('id', $projectId)->update(['add_competitor' => $updatedCompetitors]);
 
             return response()->json(['success' => true]);

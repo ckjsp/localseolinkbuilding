@@ -3,7 +3,7 @@
     <div class="container-xxl">
         <div class="footer-container d-flex align-items-center justify-content-around">
             <div>
-                © {{ Date('Y') }}, made with ❤️ by <a href="{{ url('/') }}" target="_blank" class="fw-medium">Local SEO Link Building</a>
+                © {{ Date('Y') }}, made with ❤️ by <a href="{{ url('/') }}" target="_blank" class="fw-medium">links farmer</a>
             </div>
             <!-- <div class="d-none d-lg-inline-block">
                 <a href="https://themeforest.net/licenses/standard" class="footer-link me-4" target="_blank">License</a>

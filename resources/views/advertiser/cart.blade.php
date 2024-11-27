@@ -398,13 +398,13 @@
                                     <textarea type="text" class="form-control" rows="5" name="special_instructions" id="inputSpecialInstructions${item.web_id}" required></textarea>
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <div class="text-center mx-2">
-                                        <button type="button" class="btn btn-primary checkout-btn" data-formid="cartform-{{ $v->id }}" data-webid="{{ $v->id }}" data-web_userid="{{ $v->user_id }}" onclick="orderPlace($(this))">
+                                  <div class="text-center mx-2">
+                                                        <button type="submit" class="btn btn-primary checkout-btn">
                                                             <span class="loader-box spinner-border me-1" role="status" aria-hidden="true" style="display: none;"></span>
                                                             Check Out
                                                         </button>
 
-                                    </div>
+                                                    </div>
                                     <div class="text-center mx-2">
                                         <button type="button" class="btn btn-danger btn-label-danger" data-web_id="${item.web_id}" onclick="removeFromCart($(this))">Remove</button>
                                     </div>
@@ -492,91 +492,6 @@
         return urlPattern.test(inputString);
     }
 
-    // function orderPlace($this) {
-    //     var $website_id = $this.data('webid');
-    //     var $web_userid = $this.data('web_userid');
-    //     var $user_id = $('#user_id').val();
-    //     var $payment_method = 'stripe';
-    //     var $price = $('#price' + $web_userid).val();
-    //     var $type = 'guest post';
-    //     var $inputDocFile = $('#inputDocFile' + $website_id).val();
-    //     var $inputArticleTitle = $('#inputArticleTitle' + $website_id).val();
-    //     var $inputSpecialInstructions = $('#inputSpecialInstructions' + $website_id).val();
-    //     $flag = 0;
-
-    //     if ($inputDocFile != '') {
-    //         $('#inputDocFile' + $website_id).removeClass('is-invalid').addClass('is-valid');
-    //     } else {
-    //         $flag++;
-    //         $('#inputDocFile' + $website_id).addClass('is-invalid').removeClass('is-valid');
-    //     }
-    //     if ($inputArticleTitle != '' && !hasURL($inputArticleTitle)) {
-    //         $('#inputArticleTitle' + $website_id).removeClass('is-invalid').addClass('is-valid');
-    //     } else {
-    //         $flag++;
-    //         $('#inputArticleTitle' + $website_id).addClass('is-invalid').removeClass('is-valid');
-    //     }
-    //     if ($inputSpecialInstructions != '') {
-    //         $('#inputSpecialInstructions' + $website_id).removeClass('is-invalid').addClass('is-valid');
-    //     } else {
-    //         $flag++;
-    //         $('#inputSpecialInstructions' + $website_id).addClass('is-invalid').removeClass('is-valid');
-    //     }
-
-    //     if ($flag == 0) {
-    //         $('#billing-pop').modal('show');
-    //         $('.checkout-btn').attr('disabled', '');
-    //         $('.checkout-btn .loader-box').show();
-    //         formid = $this.data('formid');
-    //         // $('#' + formid).submit();
-    //         var url = $('#' + formid).attr("action");
-    //         let formData = new FormData($('#' + formid)[0]);
-    //         $.ajax({
-    //             type: 'POST',
-    //             url: url,
-    //             data: formData,
-    //             cache: false,
-    //             processData: false,
-    //             contentType: false,
-    //             success: function(response) {
-    //                 console.log('hello' + response);
-    //                 var $obj = JSON.parse(response);
-    //                 if ($obj.success == false) {
-    //                     $('#alert').attr('class', '').addClass('alert alert-danger').html(
-    //                         '<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
-    //                 } else {
-    //                     $('#order_id').val($obj.order_id);
-    //                     $('#id').val($obj.id);
-    //                     $price = $('#price' + $obj.website_id).val();
-    //                     $('#price').val($price);
-
-    //                     $('#stripe-btn script').attr('data-key', '{{ config("services.stripe.key") }}');
-    //                     $('#stripe-btn script').attr('data-amount', ($price * 100));
-    //                     $('#stripe-btn script').attr('data-name', 'Local SEO Link Building');
-    //                     $('#stripe-btn script').attr('data-description', 'Payment Description');
-    //                     $('#stripe-btn script').attr('data-image', 'https://stripe.com/img/documentation/checkout/marketplace.png');
-    //                     $('#stripe-btn script').attr('data-locale', 'auto');
-    //                     $('#stripe-btn script').attr('data-currency', 'usd');
-    //                     $('#stripe-btn script').attr('class', 'stripe-button');
-    //                     $('#stripe-btn script').attr('src', 'https://checkout.stripe.com/checkout.js');
-    //                     $('#billing-pop').modal('show');
-    //                 }
-    //                 $('#page-loader').hide();
-    //                 $('.checkout-btn').removeAttr('disabled');
-    //                 $('.checkout-btn .loader-box').hide();
-    //             },
-    //             error: function(error) {
-    //                 // Handle errors
-    //                 console.log(error);
-    //                 $('#page-loader').hide();
-    //                 $('.checkout-btn').removeAttr('disabled');
-    //                 $('.checkout-btn .loader-box').hide();
-    //             }
-    //         });
-    //     }
-    // }
-
-
     fetch('<?= url('public/json/country.json') ?>').then(response => response.json()).then(data => {
         $inputBillingCountry = $('#inputBillingCountry').data('val');
         $inputBillingCountry = ($inputBillingCountry != '') ? $inputBillingCountry : 'india';
@@ -593,8 +508,5 @@
 <script>
     removeFromCart($('#tempWebId'));
 </script>
-
 @endif
-
-
 @endpush
