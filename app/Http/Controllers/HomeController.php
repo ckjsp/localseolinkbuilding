@@ -40,6 +40,8 @@ class HomeController extends Controller
         }
     }
 
+
+
     public function userProfile()
     {
         $data = array();
