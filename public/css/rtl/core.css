@@ -11895,6 +11895,9 @@ html:not([dir=rtl]) .form-check-inline .form-check-input~.valid-feedback {
     font-size: 0.8125rem;
     color: #ea5455;
 }
+.is-invalid{
+    color: red;
+}
 
 .invalid-tooltip {
     position: absolute;

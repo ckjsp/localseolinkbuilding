@@ -502,6 +502,151 @@
 @endsection
 
 @push('script')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.19.3/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#addWebsiteForm").validate({
+            rules: {
+                website_url: {
+                    required: true,
+                    url: true
+                },
+                sample_post_url: {
+                    required: true,
+                    url: true
+                },
+
+                domain_authority: {
+                    required: true,
+                    min: 1,
+                    max: 100
+
+                },
+                domain_rating: {
+                    required: true,
+                    min: 1,
+                    max: 100
+                },
+                page_authority: {
+                    required: true,
+                    min: 1,
+                    max: 100
+                },
+                spam_score: {
+                    required: true,
+                    min: 1,
+                    max: 100
+                },
+                maximum_no_of_backlinks_allowed: {
+                    required: true,
+                },
+                minimum_word_count_required: {
+                    required: true,
+
+                },
+                traffic_by_country: {
+                    required: true,
+                    minlength: 1
+                },
+                categories: {
+                    required: true,
+                    minlength: 1
+                },
+                forbidden_categories: {
+                    required: true,
+                    minlength: 1
+                },
+                guest_post_price: {
+                    required: true,
+                    min: 1,
+                    max: 100
+
+                },
+                link_insertion_price: {
+                    required: true,
+                    min: 1,
+                    max: 100
+
+                }
+            },
+            messages: {
+                website_url: {
+                    required: "Please enter a website URL.",
+                    url: "Please enter a valid URL starting with https:// or http://."
+                },
+                sample_post_url: {
+                    required: "Please enter a website URL.",
+                    url: "Please enter a valid URL starting with https:// or http://."
+                },
+                domain_authority: {
+                    required: "Please enter the domain authority.",
+                    min: "Domain authority must be at least 1.",
+                    max: "Domain authority cannot exceed 100."
+                },
+                domain_rating: {
+                    required: "Please enter the domain rating.",
+                    min: "Domain rating must be at least 1.",
+                    max: "Domain rating cannot exceed 100."
+                },
+                page_authority: {
+                    required: "Please enter the page authority.",
+                    min: "Page authority must be at least 1.",
+                    max: "Page authority cannot exceed 100."
+                },
+                spam_score: {
+                    required: "Please enter the spam score.",
+                    min: "Spam score must be at least 1.",
+                    max: "Spam score cannot exceed 100."
+                },
+                maximum_no_of_backlinks_allowed: {
+                    required: "Please select the maximum number of backlinks allowed."
+                },
+                minimum_word_count_required: {
+                    required: "Please select the maximum number of minimum word count."
+
+                },
+                traffic_by_country: {
+                    required: "Please select at least one country for traffic.",
+                    minlength: "Please select at least one country."
+                },
+                categories: {
+                    required: "Please select at least one categories.",
+                    minlength: "Please select at least categories."
+
+                },
+                forbidden_categories: {
+                    required: "Please select at least one forbidden categories.",
+                    minlength: "Please select at least forbidden categories."
+                },
+
+                guest_post_price: {
+                    required: "Please enter the  post price.",
+                    min: "post price must be at least 1.",
+                    max: "post price cannot exceed 100."
+
+                },
+
+                link_insertion_price: {
+                    required: "Please enter the link insertion price.",
+                    min: "post price must be at least 1.",
+                    max: "post price cannot exceed 100."
+
+                }
+
+            },
+            errorClass: "is-invalid", // Add Bootstrap invalid class to the input field
+            validClass: "is-valid", // Add Bootstrap valid class to the input field
+            highlight: function(element) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
+            }
+        });
+    });
+</script>
+
 
 <script src="{{ asset_url('libs/bootstrap-select/bootstrap-select.js') }}"></script>
 <script src="{{ asset_url('js/form-validation/jquery.validate.min.js') }}"></script>
