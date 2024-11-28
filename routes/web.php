@@ -8,12 +8,17 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\AdvertiserController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PagesController;
+
+use App\Http\Controllers\TermandconditionsController;
+
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PaypalPaymentController;
 use App\Http\Controllers\RazorpayPaymentController;
 
 use App\Http\Controllers\Auth\LoginController;
+
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +42,12 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['verify' => true]);
 
+Route::get('/termandconditions', [PagesController::class, 'termandconditions'])->name('termandconditions');
+Route::get('/privacypolicy', [PagesController::class, 'privacypolicy'])->name('privacypolicy');
+Route::get('/CancellationandRefundPolicy', [PagesController::class, 'CancellationandRefundPolicy'])->name('CancellationandRefundPolicy');
+Route::get('/ShippingandDeliveryPolicy', [PagesController::class, 'ShippingandDeliveryPolicy'])->name('ShippingandDeliveryPolicy');
+Route::get('/ContactUs', [PagesController::class, 'ContactUs'])->name('ContactUs');
+
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
 
@@ -44,6 +55,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/logout', [LoginController::class, 'logout']);
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'index')->name('home');
+
         Route::post('/change-password', 'changePassword')->name('password.change.update');
         Route::get('/user/profile', 'userProfile')->name('user.profile');
         Route::post('/user/update/{id}', 'userUpdate')->name('user.update');

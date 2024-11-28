@@ -520,9 +520,9 @@
                 domain_authority: {
                     required: true,
                     min: 1,
-                    max: 100
-
+                    max: 100,
                 },
+
                 domain_rating: {
                     required: true,
                     min: 1,
@@ -582,7 +582,7 @@
                 domain_authority: {
                     required: "Please enter the domain authority.",
                     min: "Domain authority must be at least 1.",
-                    max: "Domain authority cannot exceed 100."
+                    max: "Domain authority cannot exceed 100.",
                 },
                 domain_rating: {
                     required: "Please enter the domain rating.",
@@ -635,8 +635,8 @@
                 }
 
             },
-            errorClass: "is-invalid", // Add Bootstrap invalid class to the input field
-            validClass: "is-valid", // Add Bootstrap valid class to the input field
+            errorClass: "is-invalid",
+            validClass: "is-valid",
             highlight: function(element) {
                 $(element).addClass("is-invalid").removeClass("is-valid");
             },
@@ -646,7 +646,6 @@
         });
     });
 </script>
-
 
 <script src="{{ asset_url('libs/bootstrap-select/bootstrap-select.js') }}"></script>
 <script src="{{ asset_url('js/form-validation/jquery.validate.min.js') }}"></script>
