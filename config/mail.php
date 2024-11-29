@@ -37,7 +37,7 @@ return [
         'smtp' => [
             'transport' => 'smtp',
             'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', 'mail.localseolinkbuilding.com'),
+            'host' => env('MAIL_HOST', 'mail.linksfarmer.com'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
@@ -100,7 +100,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'no-reply@linksfarmer.com'),
-        'name' => env('MAIL_FROM_NAME', 'Local SEO Link Building'),
+        'name' => env('MAIL_FROM_NAME', 'Links Farmer'),
     ],
 
     /*

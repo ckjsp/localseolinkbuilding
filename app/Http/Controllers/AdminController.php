@@ -116,7 +116,7 @@ class AdminController extends Controller
             $status = ucwords($validatedData['status']);
             $customData['from_name'] = env('MAIL_FROM_NAME');
             $customData['mailaddress'] = env('MAIL_FROM_ADDRESS');
-            $customData['subject'] = 'Notification: Local SEO Link Builder - Website Status Update';
+            $customData['subject'] = 'Notification: Links Farmer - Website Status Update';
             $customData['msg'] = "<p>Your website status has been updated:</p>
                 <ul>
                     <li><strong>Website:</strong> " . $order->website_url . "</li>
@@ -126,7 +126,6 @@ class AdminController extends Controller
                 <p>Thank you for choosing our platform!</p>";
 
             Mail::to($user->email)->send(new MyMail($customData));
-
         } else {
             $data = ['error' => 'Oops! Status update failed', 'success' => ''];
         }
@@ -313,5 +312,4 @@ class AdminController extends Controller
         $user->delete();
         return redirect()->route('lslbadmin.users')->with('success', 'Record deleted successfully');
     }
-
 }
