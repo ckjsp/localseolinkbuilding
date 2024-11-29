@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-body">
                     @if (session('verified'))
-                        <div class="alert alert-success" role="alert">{{ session('verified') }}</div>
+                    <div class="alert alert-success" role="alert">{{ session('verified') }}</div>
                     @endif
 
                     <!-- Logo -->
@@ -26,10 +26,10 @@
                             <img src="{{ asset_url('img/logo.svg') }}" alt="Logo" class="w-100">
                         </a>
                     </div>
-                    
+
                     <!-- /Logo -->
 
-                    <h4 class="mb-1 pt-2">Welcome to Local SEO Link Building! 👋</h4>
+                    <h4 class="mb-1 pt-2">Welcome to Links Farmer! 👋</h4>
                     <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
                     <form class="mb-3" method="POST" action="{{ route('login') }}" id="user-login-form">
@@ -88,11 +88,10 @@
 <script src="{{ asset_url('js/pages-auth.js') }}"></script>
 
 <script>
-
     $(document).ready(function() {
 
         // Initialize validation
-        
+
         var validator = $('#user-login-form').validate({
             rules: {
                 email: {
@@ -130,9 +129,8 @@
 
         // Trigger validation on keyup for the password field
         $('#password').on('keyup', function() {
-            validator.element('#password');  // Validate the password field on keyup
+            validator.element('#password'); // Validate the password field on keyup
         });
     });
-
 </script>
 @endpush

@@ -79,7 +79,6 @@ class RegisterController extends Controller
 
         event(new Registered($user));
 
-        // Send the verification email
         $user->sendEmailVerificationNotification();
 
         return $user;
