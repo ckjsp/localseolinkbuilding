@@ -245,7 +245,7 @@
                     <div class="col-md-12 W-100 m-3">
                         <div class="row border border-primary p-3 rounded">
                             <div class="col-md-6">
-                                <p><strong>Why should I Share my Analytics Detail with Local SEO Link Building?</strong></p>
+                                <p><strong>Why should I Share my Analytics Detail with Links Farmer?</strong></p>
                                 <ol>
                                     <li>Owner's websites are shown on top of the Marketplace.</li>
                                     <li>Your website will not be added by any other contributor.</li>

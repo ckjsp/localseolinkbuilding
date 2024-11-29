@@ -435,7 +435,7 @@
                     <div class="col-md-12 W-100 m-3">
                         <div class="row border border-primary p-3 rounded">
                             <div class="col-md-6">
-                                <p><strong>Why should I Share my Analytics Detail with Local SEO Link Building?</strong>
+                                <p><strong>Why should I Share my Analytics Detail with Links Farmer?</strong>
                                 </p>
                                 <ol>
                                     <li>Owner's websites are shown on top of the Marketplace.</li>
@@ -495,6 +495,10 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.3/jquery.validate.min.js"></script>
 <script>
     $(document).ready(function() {
+        $.validator.addMethod("minSelected", function(value, element, min) {
+            return $(element).val() && $(element).val().length >= min;
+        }, "Please select at least one option.");
+
         $("#addWebsiteForm").validate({
             rules: {
                 website_url: {
@@ -534,11 +538,15 @@
                 domain_life_validity: {
                     required: true
                 },
-                categories: {
-                    required: true
+                "categories[]": {
+                    minSelected: 1
                 },
-                forbidden_categories: {
-                    required: true
+                "forbidden_categories[]": {
+                    minSelected: 1
+                },
+
+                "traffic_by_country[]": {
+                    minSelected: 1
                 },
                 guest_post_price: {
                     required: true,
@@ -552,7 +560,6 @@
                 },
                 site_verification_file: {
                     required: function(element) {
-                        // Check if the hidden field has a value
                         return !$("input[name='old_site_verification_file']").val();
                     },
                     extension: "pdf"
@@ -593,11 +600,18 @@
                 minimum_word_count_required: {
                     required: "Please select the minimum word count."
                 },
-                categories: {
-                    required: "Please select at least one category."
+                "categories[]": {
+                    minSelected: "Please select at least one category."
                 },
-                forbidden_categories: {
-                    required: "Please select at least one forbidden category."
+                "forbidden_categories[]": {
+
+                    minSelected: "Please select at least one forbidden category."
+                },
+                "traffic_by_country[]": {
+
+                    minSelected: "Please select at least one traffic by country."
+
+
                 },
                 guest_post_price: {
                     required: "Please enter the guest post price.",
@@ -621,13 +635,18 @@
             },
             unhighlight: function(element) {
                 $(element).addClass("is-valid").removeClass("is-invalid");
+            },
+            errorPlacement: function(error, element) {
+                if (element.hasClass('select2-hidden-accessible')) {
+                    error.insertAfter(element.next('.select2-container'));
+                } else {
+                    error.insertAfter(element);
+                }
             }
         });
     });
 
-
     document.getElementById('submit').addEventListener('click', function(event) {
-        // Validate file input
         var fileInput = document.getElementById('site_verification_file');
         var filePath = fileInput.value;
         var fileErrorMessage = document.getElementById('file-error');
@@ -638,21 +657,9 @@
             var allowedExtensions = /(\.pdf)$/i;
             if (!allowedExtensions.exec(filePath)) {
                 fileErrorMessage.style.display = 'block';
-                fileInput.value = '';
-                event.preventDefault();
+                fileInput.value = ''; // Clear invalid file input
+                event.preventDefault(); // Prevent form submission
             }
-        }
-
-        // Validate country selection
-        var countrySelect = document.getElementById('traffic_by_countrys');
-        var selectedOptions = Array.from(countrySelect.selectedOptions);
-        var countryErrorMessage = document.getElementById('country-error');
-
-        countryErrorMessage.style.display = 'none';
-
-        if (selectedOptions.length === 0) {
-            countryErrorMessage.style.display = 'block';
-            event.preventDefault(); // Prevent form submission
         }
     });
 </script>

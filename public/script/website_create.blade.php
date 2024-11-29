@@ -391,30 +391,11 @@
                             value="{{ (isset($link_insertion_price) && !empty($link_insertion_price)) ? $link_insertion_price : 1 }}"
                             name="link_insertion_price" placeholder="$">
                     </div>
-                    <!-- <div class="col-md-3">
-                            // if(old('fc_guest_post_price')){
-                            //     $fc_guest_post_price = old('fc_guest_post_price');
-                            // } else {
-                            //     isset($website->fc_guest_post_price) ? $fc_guest_post_price = $website->fc_guest_post_price : '';
-                            // }
-                        ?>
-                        <label for="inputFCGuestPostPrice" class="form-label">FC Guest Post price ($)</label>
-                        <input type="number" class="form-control" id="inputFCGuestPostPrice" value="{{ (isset($fc_guest_post_price) && !empty($fc_guest_post_price)) ? $fc_guest_post_price : 1 }}" name="fc_guest_post_price" placeholder="$">
-                    </div> -->
-                    <!-- <div class="col-md-3">
-                            // if(old('fc_link_insertion_price')){
-                            //     $fc_link_insertion_price = old('fc_link_insertion_price');
-                            // } else {
-                            //     isset($website->fc_link_insertion_price) ? $fc_link_insertion_price = $website->fc_link_insertion_price : '';
-                            // }
-                        ?>
-                        <label for="inputFCLinkInsertionPrice" class="form-label">FC Link Insertion price ($)</label>
-                        <input type="number" class="form-control" id="inputFCLinkInsertionPrice" value="{{ (isset($fc_link_insertion_price) && !empty($fc_link_insertion_price)) ? $fc_link_insertion_price : 1 }}" name="fc_link_insertion_price" placeholder="$">
-                    </div> -->
+
                     <div class="col-md-12 W-100 m-3">
                         <div class="row border border-primary p-3 rounded">
                             <div class="col-md-6">
-                                <p><strong>Why should I Share my Analytics Detail with Local SEO Link Building?</strong>
+                                <p><strong>Why should I Share my Analytics Detail with Links Farmer?</strong>
                                 </p>
                                 <ol>
                                     <li>Owner's websites are shown on top of the Marketplace.</li>
@@ -479,8 +460,10 @@
 @endsection
 
 @push('script')
+
 <script src="{{ asset_url('libs/bootstrap-select/bootstrap-select.js') }}"></script>
 <script src="{{ asset_url('libs/select2/select2.js') }}"></script>
 <script src="{{ asset_url('js/forms-selects.js') }}"></script>
 <script src="{{ asset_url('script/addweb_form.js') }}"></script>
+
 @endpush

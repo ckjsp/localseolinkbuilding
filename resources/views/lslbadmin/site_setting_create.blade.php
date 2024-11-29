@@ -135,9 +135,9 @@
                     </div>
                     <div class="col-md-6 mb-4">
                         @php
-$Carr = array();
-if (isset($website->categories) && !empty($website->categories))
-    $Carr = explode(',', $website->categories);
+                        $Carr = array();
+                        if (isset($website->categories) && !empty($website->categories))
+                        $Carr = explode(',', $website->categories);
                         @endphp
                         <input type="hidden" id="inputCategories" name="categories" value="{{ (isset($website->categories) && !empty($website->categories)) ? $website->categories : '' }}">
                         <label for="inputCategories1" class="form-label">Categories</label>
@@ -195,9 +195,9 @@ if (isset($website->categories) && !empty($website->categories))
                     </div>
                     <div class="col-md-6 mb-4">
                         @php
-$FCarr = array();
-if (isset($website->forbidden_categories) && !empty($website->forbidden_categories))
-    $FCarr = explode(',', $website->forbidden_categories);
+                        $FCarr = array();
+                        if (isset($website->forbidden_categories) && !empty($website->forbidden_categories))
+                        $FCarr = explode(',', $website->forbidden_categories);
                         @endphp
                         <input type="hidden" id="inputForbiddenCategories" name="forbidden_categories" value="{{ (isset($website->forbidden_categories) && !empty($website->forbidden_categories)) ? $website->forbidden_categories : '' }}">
                         <label for="inputForbiddenCategories1" class="form-label">Select the forbidden categories you accept</label>
@@ -246,7 +246,7 @@ if (isset($website->forbidden_categories) && !empty($website->forbidden_categori
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <p><strong>Why should I Share my Analytics Detail with Local SEO Link Building?</strong></p>
+                                <p><strong>Why should I Share my Analytics Detail with Links Farmer?</strong></p>
                                 <ol>
                                     <li>Owner's websites are shown on top of the Marketplace.</li>
                                     <li>Your website will not be added by any other contributor.</li>

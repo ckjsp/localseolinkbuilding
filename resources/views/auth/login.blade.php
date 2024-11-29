@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @push('css')
-    <link rel="stylesheet" href="{{ asset_url('css/pages/page-auth.css') }}" />
+<link rel="stylesheet" href="{{ asset_url('css/pages/page-auth.css') }}" />
 @endpush
 @section('auth-content')
 
@@ -24,7 +24,7 @@
         <div class="d-flex col-12 col-lg-5 align-items-center p-sm-5 p-4">
             <div class="w-px-400 mx-auto">
                 @if (session('verified'))
-                    <div class="alert alert-success" role="alert">{{ session('verified') }}</div>
+                <div class="alert alert-success" role="alert">{{ session('verified') }}</div>
                 @endif
                 <!-- Logo -->
                 <div class="app-brand mb-4">
@@ -33,7 +33,7 @@
                     </a>
                 </div>
                 <!-- /Logo -->
-                <h3 class="mb-1 fw-bold">Welcome to Local SEO Link Building! 👋</h3>
+                <h3 class="mb-1 fw-bold">Welcome to Links Farmer! 👋</h3>
                 <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
                 <form class="mb-3" method="POST" action="{{ route('login') }}" id="user-login-form">
@@ -42,9 +42,9 @@
                         <label for="email" class="form-label">{{ __('Email') }}</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required placeholder="Enter your email or username" autocomplete="email" autofocus>
                         @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </div>
                     <div class="mb-3 form-password-toggle">
@@ -55,16 +55,16 @@
                             <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                             <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                             @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                         <div class="d-flex flex-row-reverse">
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}">
-                                    <small>{{ __('Forgot Your Password?') }}</small>
-                                </a>
+                            <a href="{{ route('password.request') }}">
+                                <small>{{ __('Forgot Your Password?') }}</small>
+                            </a>
                             @endif
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 </div>
 
 <!-- / Content -->
- 
+
 @endsection
 
 @push('script')
@@ -100,7 +100,6 @@
 <script src="{{ asset_url('js/pages-auth.js') }}"></script>
 
 <script>
-
     $(document).ready(function() {
         // Initialize validation
         var validator = $('#user-login-form').validate({
@@ -140,10 +139,9 @@
 
         // Trigger validation on keyup for the password field
         $('#password').on('keyup', function() {
-            validator.element('#password');  // Validate the password field on keyup
+            validator.element('#password'); // Validate the password field on keyup
         });
     });
-
 </script>
 
 @endpush
