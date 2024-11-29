@@ -94,7 +94,7 @@
                         }
                         ?>
                         <label for="inputSpamScore" class="form-label">Spam Score</label>
-                        <input type="number" class="form-control" id="inputSpamScore" name="spam_score" mix="1" max="100" value="{{ (isset($spam_score) && !empty($spam_score)) ? $spam_score : 1 }}" placeholder="Spam Score">
+                        <input type="number" class="form-control" id="inputSpamScore" name="spam_score" mix="0" max="100" value="{{ (isset($spam_score) && !empty($spam_score)) ? $spam_score : 1 }}" placeholder="Spam Score">
                     </div>
                     <div class="col-md-4">
                         <?php
@@ -201,12 +201,12 @@
                         if(old('traffic_by_country')){
                         $traffic_by_country = old('traffic_by_country');
                         } else {
-                        isset($website->traffic_by_country) ? $traffic_by_country = $website->traffic_by_country :
-                        '';
+                        isset($website->traffic_by_country) ? $traffic_by_country = $website->traffic_by_country : '';
                         }
                         $FCarr = array();
-                        if(isset($traffic_by_country) && !empty($traffic_by_country)) $FCarr =
-                        explode(',',$traffic_by_country);
+                        if(isset($traffic_by_country) && !empty($traffic_by_country)) {
+                        $FCarr = explode(',', $traffic_by_country);
+                        }
                         @endphp
                         <input type="hidden" id="traffic_by_countrys" name="traffic_by_country"
                             value="{{ (isset($traffic_by_country) && !empty($traffic_by_country)) ? $traffic_by_country : '' }}">
@@ -214,16 +214,14 @@
                         <div class="select2-info">
                             <select id="traffic_by_countrys" name="traffic_by_country[]"
                                 class="select2 form-select" multiple>
-                                <option value="Australia" {{ (in_array("Australia",$FCarr)) ? 'selected' : '' }}>Australia
-                                </option>
-                                <option value="India" {{ (in_array("India",$FCarr)) ? 'selected' : ''
-                                    }}>India</option>
-                                <option value="United States" {{ (in_array("United States",$FCarr)) ? 'selected' : ''
-                                    }}>United States</option>
-
+                                <option value="Australia" {{ (in_array("Australia", $FCarr)) ? 'selected' : '' }}>Australia</option>
+                                <option value="India" {{ (in_array("India", $FCarr)) ? 'selected' : '' }}>India</option>
+                                <option value="United States" {{ (in_array("United States", $FCarr)) ? 'selected' : '' }}>United States</option>
                             </select>
                         </div>
+                        <div id="country-error" class="text-danger" style="display: none;">Please select at least one country.</div>
                     </div>
+
                     <div class="col-md-12">
                         <?php
                         if (old('sample_post_url')) {
@@ -374,6 +372,7 @@
                                     }}>Web development</option>
                                 <option value="Wedding" {{ (in_array("Wedding",$Carr)) ? 'selected' : '' }}>Wedding
                                 </option>
+
                             </select>
                         </div>
                     </div>
@@ -467,27 +466,17 @@
                             isset($website->site_verification_file) ? $site_verification_file = $website->site_verification_file : '';
                         }
                         ?>
-                        <label for="site_verification_file" class="form-label">Upload Your Website Analytics
-                            Report</label>
-                        <input type="file" name="site_verification_file" id="site_verification_file"
-                            class="form-control" {{ (isset($site_verification_file) && !empty($site_verification_file))
-                            ? '' : 'required=""' }}>
+                        <label for="site_verification_file" class="form-label">Upload Your Website Analytics Report</label>
+                        <input type="file" name="site_verification_file" id="site_verification_file" class="form-control"
+                            {{ (isset($site_verification_file) && !empty($site_verification_file)) ? '' : 'required' }} accept=".pdf">
                         <input type="hidden" name="old_site_verification_file" class="form-control"
                             value="{{ (isset($site_verification_file) && !empty($site_verification_file)) ? $site_verification_file : '' }}">
+                        <div id="file-error" class="text-danger" style="display: none;">Only PDF files are allowed.</div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <?php
-                        if (old('site_verification_file')) {
-                            $site_verification_file = old('site_verification_file');
-                        } else {
-                            isset($website->site_verification_file) ? $site_verification_file = $website->site_verification_file : '';
-                        }
-                        ?>
                         <div class="form-check">
-                            <label class="form-check-label" for="inputReadedGuide">Please confirm that you have read and
-                                followed the guide. </label>
-                            <input class="form-check-input" type="checkbox" name="readedguide" id="inputReadedGuide"
-                                value="yes">
+                            <label class="form-check-label" for="inputReadedGuide">Please confirm that you have read and followed the guide. </label>
+                            <input class="form-check-input" type="checkbox" name="readedguide" id="inputReadedGuide" value="yes">
                         </div>
                     </div>
                     <div class="col-md-12 text-center">
@@ -516,13 +505,11 @@
                     required: true,
                     url: true
                 },
-
                 domain_authority: {
                     required: true,
                     min: 1,
-                    max: 100,
+                    max: 100
                 },
-
                 domain_rating: {
                     required: true,
                     min: 1,
@@ -535,39 +522,40 @@
                 },
                 spam_score: {
                     required: true,
-                    min: 1,
+                    min: 0,
                     max: 100
                 },
                 maximum_no_of_backlinks_allowed: {
-                    required: true,
+                    required: true
                 },
                 minimum_word_count_required: {
-                    required: true,
-
+                    required: true
                 },
-                traffic_by_country: {
-                    required: true,
-                    minlength: 1
+                domain_life_validity: {
+                    required: true
                 },
                 categories: {
-                    required: true,
-                    minlength: 1
+                    required: true
                 },
                 forbidden_categories: {
-                    required: true,
-                    minlength: 1
+                    required: true
                 },
                 guest_post_price: {
                     required: true,
                     min: 1,
-                    max: 100
-
+                    max: 1000
                 },
                 link_insertion_price: {
                     required: true,
                     min: 1,
-                    max: 100
-
+                    max: 1000
+                },
+                site_verification_file: {
+                    required: function(element) {
+                        // Check if the hidden field has a value
+                        return !$("input[name='old_site_verification_file']").val();
+                    },
+                    extension: "pdf"
                 }
             },
             messages: {
@@ -576,13 +564,13 @@
                     url: "Please enter a valid URL starting with https:// or http://."
                 },
                 sample_post_url: {
-                    required: "Please enter a website URL.",
+                    required: "Please enter a sample post URL.",
                     url: "Please enter a valid URL starting with https:// or http://."
                 },
                 domain_authority: {
                     required: "Please enter the domain authority.",
                     min: "Domain authority must be at least 1.",
-                    max: "Domain authority cannot exceed 100.",
+                    max: "Domain authority cannot exceed 100."
                 },
                 domain_rating: {
                     required: "Please enter the domain rating.",
@@ -596,44 +584,35 @@
                 },
                 spam_score: {
                     required: "Please enter the spam score.",
-                    min: "Spam score must be at least 1.",
+                    min: "Spam score must be at least 0.",
                     max: "Spam score cannot exceed 100."
                 },
                 maximum_no_of_backlinks_allowed: {
                     required: "Please select the maximum number of backlinks allowed."
                 },
                 minimum_word_count_required: {
-                    required: "Please select the maximum number of minimum word count."
-
-                },
-                traffic_by_country: {
-                    required: "Please select at least one country for traffic.",
-                    minlength: "Please select at least one country."
+                    required: "Please select the minimum word count."
                 },
                 categories: {
-                    required: "Please select at least one categories.",
-                    minlength: "Please select at least categories."
-
+                    required: "Please select at least one category."
                 },
                 forbidden_categories: {
-                    required: "Please select at least one forbidden categories.",
-                    minlength: "Please select at least forbidden categories."
+                    required: "Please select at least one forbidden category."
                 },
-
                 guest_post_price: {
-                    required: "Please enter the  post price.",
-                    min: "post price must be at least 1.",
-                    max: "post price cannot exceed 100."
-
+                    required: "Please enter the guest post price.",
+                    min: "Guest post price must be at least 1.",
+                    max: "Guest post price cannot exceed 1000."
                 },
-
                 link_insertion_price: {
                     required: "Please enter the link insertion price.",
-                    min: "post price must be at least 1.",
-                    max: "post price cannot exceed 100."
-
+                    min: "Link insertion price must be at least 1.",
+                    max: "Link insertion price cannot exceed 1000."
+                },
+                site_verification_file: {
+                    required: "Please upload your website analytics report.",
+                    extension: "Only PDF files are allowed."
                 }
-
             },
             errorClass: "is-invalid",
             validClass: "is-valid",
@@ -644,6 +623,37 @@
                 $(element).addClass("is-valid").removeClass("is-invalid");
             }
         });
+    });
+
+
+    document.getElementById('submit').addEventListener('click', function(event) {
+        // Validate file input
+        var fileInput = document.getElementById('site_verification_file');
+        var filePath = fileInput.value;
+        var fileErrorMessage = document.getElementById('file-error');
+
+        fileErrorMessage.style.display = 'none';
+
+        if (filePath) {
+            var allowedExtensions = /(\.pdf)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                fileErrorMessage.style.display = 'block';
+                fileInput.value = '';
+                event.preventDefault();
+            }
+        }
+
+        // Validate country selection
+        var countrySelect = document.getElementById('traffic_by_countrys');
+        var selectedOptions = Array.from(countrySelect.selectedOptions);
+        var countryErrorMessage = document.getElementById('country-error');
+
+        countryErrorMessage.style.display = 'none';
+
+        if (selectedOptions.length === 0) {
+            countryErrorMessage.style.display = 'block';
+            event.preventDefault(); // Prevent form submission
+        }
     });
 </script>
 

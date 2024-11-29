@@ -149,15 +149,15 @@ class WebsiteController extends Controller
 
         lslbWebsite::create($data);
 
-        $customData['from_name'] = "Local SEO Link Builder";
+        $customData['from_name'] = "Links Farmer";
         $customData['mailaddress'] = "no-reply@linksfarmer.com";
-        $customData['subject'] = 'Notification: Local SEO Link Builder - Website added Successfully';
+        $customData['subject'] = 'Notification: Links Farmer - Website added Successfully';
         $customData['msg'] = "<p>Your website added successfully.</p>
             <p>Wait for admin approval; after admin approval, your website will be ready to be visible in the marketplace.</p>
             <p>Thank you</p>";
         Mail::to(Auth::user()->email)->send(new MyMail($customData));
 
-        $customData['subject'] = 'Notification: Local SEO Link Builder - New website added';
+        $customData['subject'] = 'Notification: Links Farmer - New website added';
         $customData['msg'] = "<p>New website added and awaiting approval:</p>
             <ul>
                 <li><strong>Website Name:</strong> " . $request->post('website_url') . "</li>

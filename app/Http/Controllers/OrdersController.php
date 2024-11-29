@@ -121,9 +121,9 @@ class OrdersController extends Controller
                 // print_r($order);
                 // exit('data');
 
-                $customData['from_name'] = "Local SEO Link Builder";
+                $customData['from_name'] = "Links Farmer";
                 $customData['mailaddress'] = "no-reply@linksfarmer.com";
-                $customData['subject'] = 'Notification: Local SEO Link Builder - Order Place Successfully';
+                $customData['subject'] = 'Notification: Links Farmer - Order Place Successfully';
                 $customData['msg'] = "<p>Thank you for your order!</p>
                 <p>Your order has been successfully placed with the following details:</p>
                 <ul>
@@ -136,7 +136,7 @@ class OrdersController extends Controller
                 <p>Thank you for shopping with us!</p>";
                 // Mail::to(Auth::user()->email)->send(new MyMail($customData));
 
-                $customData['subject'] = 'Notification: Local SEO Link Builder - New website added';
+                $customData['subject'] = 'Notification: Links Farmer - New website added';
                 $customData['msg'] = "<p>Congratulations! You have a new order to fulfill:</p>
                     <ul>
                         <li><strong>Order ID:</strong> " . $arr['order_id'] . "</li>
@@ -286,9 +286,9 @@ class OrdersController extends Controller
             $data = ['success' => 'Status updated successfully', 'error' => ''];
             $status = ucwords($validatedData['status']);
             $note = !empty($request->post('note')) ? "<p><strong>Note:</strong>" . ucwords($request->post('note')) . "</p>" : '';
-            $customData['from_name'] = "Local SEO Link Builder";
+            $customData['from_name'] = "Links Farmer";
             $customData['mailaddress'] = "no-reply@linksfarmer.com";
-            $customData['subject'] = 'Notification: Local SEO Link Builder - Order Status Update';
+            $customData['subject'] = 'Notification: Links Farmer - Order Status Update';
             $customData['msg'] = "<p>Your order status has been updated:</p>
                 <ul>
                     <li><strong>Order ID:</strong> " . $order->order_id . "</li>

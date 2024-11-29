@@ -151,9 +151,9 @@
                     </div>
                     <div class="col-md-6 mb-4">
                         @php
-                            $Carr = array();
-                            if (isset($website->categories) && !empty($website->categories))
-                                $Carr = explode(',', $website->categories);
+                        $Carr = array();
+                        if (isset($website->categories) && !empty($website->categories))
+                        $Carr = explode(',', $website->categories);
                         @endphp
                         <input type="hidden" id="inputCategories" name="categories" value="{{ (isset($website->categories) && !empty($website->categories)) ? $website->categories : '' }}">
                         <label for="inputCategories1" class="form-label">Categories</label>
@@ -211,9 +211,9 @@
                     </div>
                     <div class="col-md-6 mb-4">
                         @php
-$FCarr = array();
-if (isset($website->forbidden_categories) && !empty($website->forbidden_categories))
-    $FCarr = explode(',', $website->forbidden_categories);
+                        $FCarr = array();
+                        if (isset($website->forbidden_categories) && !empty($website->forbidden_categories))
+                        $FCarr = explode(',', $website->forbidden_categories);
                         @endphp
                         <input type="hidden" id="inputForbiddenCategories" name="forbidden_categories" value="{{ (isset($website->forbidden_categories) && !empty($website->forbidden_categories)) ? $website->forbidden_categories : '' }}">
                         <label for="inputForbiddenCategories1" class="form-label">Select the forbidden categories you accept</label>
@@ -266,27 +266,27 @@ if (isset($website->forbidden_categories) && !empty($website->forbidden_categori
                         </div>
                     </div>
                     <div class="col-md-12 mb-2">
-                        <?php 
-                            if (old('site_verification_file')) {
-    $site_verification_file = old('site_verification_file');
-} else {
-    isset($website->site_verification_file) ? $site_verification_file = $website->site_verification_file : '';
-}
+                        <?php
+                        if (old('site_verification_file')) {
+                            $site_verification_file = old('site_verification_file');
+                        } else {
+                            isset($website->site_verification_file) ? $site_verification_file = $website->site_verification_file : '';
+                        }
                         ?>
                         <label for="site_verification_file" class="form-label">Upload Your Website Analytics Report</label>
                         <input type="file" name="site_verification_file" id="site_verification_file" class="form-control" {{ (isset($site_verification_file) && !empty($site_verification_file)) ? '' : 'required=""' }}>
                         <input type="hidden" name="old_site_verification_file" class="form-control" value="{{ (isset($site_verification_file) && !empty($site_verification_file)) ? $site_verification_file : '' }}">
                     </div>
                     <div class="col-md-6 mb-2">
-                        <?php 
-                            if (old('site_verification_file')) {
-    $site_verification_file = old('site_verification_file');
-} else {
-    isset($website->site_verification_file) ? $site_verification_file = $website->site_verification_file : '';
-}
+                        <?php
+                        if (old('site_verification_file')) {
+                            $site_verification_file = old('site_verification_file');
+                        } else {
+                            isset($website->site_verification_file) ? $site_verification_file = $website->site_verification_file : '';
+                        }
                         ?>
                         <div class="form-check">
-                            <label class="form-check-label" for="inputReadedGuide">Please confirm that you have read and followed the guide.    </label>
+                            <label class="form-check-label" for="inputReadedGuide">Please confirm that you have read and followed the guide. </label>
                             <input class="form-check-input" type="checkbox" name="readedguide" id="inputReadedGuide" value="yes">
                         </div>
                     </div>
@@ -311,7 +311,7 @@ if (isset($website->forbidden_categories) && !empty($website->forbidden_categori
         const selectedFile = this.files[0]; // Get the selected file
 
         if (selectedFile) {
-            const allowedFileTypes = ['application/pdf','image/jpg','image/jpeg','image/png'];
+            const allowedFileTypes = ['application/pdf', 'image/jpg', 'image/jpeg', 'image/png'];
 
             if (allowedFileTypes.includes(selectedFile.type)) {
                 $(this).removeClass('is-invalid').addClass('is-valid');
@@ -324,165 +324,165 @@ if (isset($website->forbidden_categories) && !empty($website->forbidden_categori
         }
     });
 
-    $(window).ready(function () {
-    $('#inputForbiddenCategories1').change(function(){
-        inputval = $(this).val();
-        if(inputval != ''){
-            $('#inputForbiddenCategories').val(inputval.join(','));
-        }
-    });
-    $('#inputCategories1').change(function(){
-        inputval = $(this).val();
-        if(inputval != ''){
-            $('#inputCategories').val(inputval.join(','));
-        }
-    });
-    $('#inputGuidelines').on('input', function(){
-        inputval = ($(this).val());
-        if(inputval.length > 1000){
-            $('#inputGuidelinesTextCount').text(0);
-            $(this).addClass('error');
-        }else{
-            $(this).removeClass('error');
-            $('#inputGuidelinesTextCount').text((1000-inputval.length));
-        }
-    });
+    $(window).ready(function() {
+        $('#inputForbiddenCategories1').change(function() {
+            inputval = $(this).val();
+            if (inputval != '') {
+                $('#inputForbiddenCategories').val(inputval.join(','));
+            }
+        });
+        $('#inputCategories1').change(function() {
+            inputval = $(this).val();
+            if (inputval != '') {
+                $('#inputCategories').val(inputval.join(','));
+            }
+        });
+        $('#inputGuidelines').on('input', function() {
+            inputval = ($(this).val());
+            if (inputval.length > 1000) {
+                $('#inputGuidelinesTextCount').text(0);
+                $(this).addClass('error');
+            } else {
+                $(this).removeClass('error');
+                $('#inputGuidelinesTextCount').text((1000 - inputval.length));
+            }
+        });
 
-    $.validator.addMethod("domainMatch", function(value, element) {
-        // Replace "example.com" with your sample post URL domain
-        var url1 = new URL($('#inputWebUrl').val());
-        var urlDomain = url1.hostname;
-        var url = new URL(value);
-        var sampleDomain = url.hostname;
-        return sampleDomain === urlDomain;
-      }, "Domain should match with the website URL domain.");
+        $.validator.addMethod("domainMatch", function(value, element) {
+            // Replace "example.com" with your sample post URL domain
+            var url1 = new URL($('#inputWebUrl').val());
+            var urlDomain = url1.hostname;
+            var url = new URL(value);
+            var sampleDomain = url.hostname;
+            return sampleDomain === urlDomain;
+        }, "Domain should match with the website URL domain.");
 
-    $("#addWebsiteForm").validate({
-        rules: {
-            website_url: {
-                required: true,
-                url: true
+        $("#addWebsiteForm").validate({
+            rules: {
+                website_url: {
+                    required: true,
+                    url: true
+                },
+                domain_authority: {
+                    required: true,
+                    integer: true,
+                    range: [1, 100]
+                },
+                page_authority: {
+                    required: true,
+                    integer: true,
+                    range: [1, 100]
+                },
+                spam_score: {
+                    required: true,
+                    integer: true,
+                    range: [0, 100]
+                },
+                publishing_time: "required",
+                minimum_word_count_required: {
+                    required: true,
+                    integer: true,
+                    range: [1, 1000]
+                },
+                backlink_type: "required",
+                maximum_no_of_backlinks_allowed: "required",
+                domain_life_validity: "required",
+                sample_post_url: {
+                    required: true,
+                    url: true,
+                    domainMatch: true
+                },
+                inputCategories1: "required",
+                inputForbiddenCategories1: "required",
+                guest_post_price: {
+                    required: true,
+                    number: true,
+                    min: 1
+                },
+                link_insertion_price: {
+                    required: true,
+                    number: true,
+                    min: 1
+                },
+                // fc_guest_post_price: {
+                //     required: true,
+                //     number: true,
+                //     min: 1
+                // },
+                // fc_link_insertion_price: {
+                //     required: true,
+                //     number: true,
+                //     min: 1
+                // },
+                site_verification_file: {
+                    required: false,
+                    accept: "application/pdf,image/jpg,image/jpeg,image/png"
+                },
+                readedguide: "required",
             },
-            domain_authority: {
-                required: true,
-                integer: true,
-                range: [1, 100]
-            },
-            page_authority: {
-                required: true,
-                integer: true,
-                range: [1, 100]
-            },
-            spam_score: {
-                required: true,
-                integer: true,
-                range: [0, 100]
-            },
-            publishing_time: "required",
-            minimum_word_count_required: {
-                required: true,
-                integer: true,
-                range: [1, 1000]
-            },
-            backlink_type: "required",
-            maximum_no_of_backlinks_allowed: "required",
-            domain_life_validity: "required",
-            sample_post_url: {
-                required: true,
-                url: true,
-                domainMatch: true
-            },
-            inputCategories1: "required",
-            inputForbiddenCategories1: "required",
-            guest_post_price: {
-                required: true,
-                number: true,
-                min: 1
-            },
-            link_insertion_price: {
-                required: true,
-                number: true,
-                min: 1
-            },
-            // fc_guest_post_price: {
-            //     required: true,
-            //     number: true,
-            //     min: 1
-            // },
-            // fc_link_insertion_price: {
-            //     required: true,
-            //     number: true,
-            //     min: 1
-            // },
-            site_verification_file: {
-                required: false,
-                accept: "application/pdf,image/jpg,image/jpeg,image/png"
-            },
-            readedguide: "required",
-        },
-        messages: {
-            website_url: {
-                required: " Please enter your website url",
-                url: " Please Enter valid website url ex.(https://example.com)"
-            },
-            domain_authority: {
-                required: " Please enter a domain authority",
-                integer:" Your domain authority must be numbers only",
-                range: " domain authority should be 1 to 100"
-            },
-            page_authority: {
-                required: " Please enter a page authority",
-                integer:" Your page authority must be numbers only",
-                range: " page authority should be 1 to 100"
-            },
-            spam_score: {
-                required: " Please enter a Spam Score",
-                integer:" Your Spam Score must be numbers only",
-                range: " Spam Score should be 0 to 100"
-            },
-            name: " Please select publishing time",
-            minimum_word_count_required: {
-                required: " Please enter required minimum word count",
-                integer:" Your minimum word count must be numbers only",
-                range: " Required minimum word count should be 1 to 500"
-            },
-            backlink_type: " Please select backlink type",
-            maximum_no_of_backlinks_allowed: " Please select maximum no of backlinks allowed",
-            domain_life_validity: " Please select domain life validity",
-            sample_post_url: {
-                required: " Please enter your sample post url",
-                url: " Please Enter valid sample post url ex.(https://example.com/post)"
-            },
-            inputCategories1: " Please select categories",
-            inputForbiddenCategories1: " Please select forbidden categories",
-            guest_post_price: {
-                required: "Please enter a guest post price.",
-                number: "Please enter a valid guest post price.",
-                min: "Please enter a guest post price greater than or equal to 1."
-            },
-            link_insertion_price: {
-                required: "Please enter a link insertion price.",
-                number: "Please enter a valid link insertion price.",
-                min: "Please enter a link insertion price greater than or equal to 1."
-            },
-            // fc_guest_post_price: {
-            //     required: "Please enter a fc guest post price.",
-            //     number: "Please enter a valid fc guest post price.",
-            //     min: "Please enter a fc guest post price greater than or equal to 1."
-            // },
-            // fc_link_insertion_price: {
-            //     required: "Please enter a fc link insertion price.",
-            //     number: "Please enter a valid fc link insertion price.",
-            //     min: "Please enter a fc link insertion price greater than or equal to 1."
-            // },
-            site_verification_file: {
-                required: " Please upload a site verification file",
-                accept: " Please upload valid site verification file ex. PDF, JPEG, JPG, and PNG"
-            },
-            readedguide: " Please make sure to thoroughly read the guide before checking the 'I have read' button.",
-        }
+            messages: {
+                website_url: {
+                    required: " Please enter your website url",
+                    url: " Please Enter valid website url ex.(https://example.com)"
+                },
+                domain_authority: {
+                    required: " Please enter a domain authority",
+                    integer: " Your domain authority must be numbers only",
+                    range: " domain authority should be 1 to 100"
+                },
+                page_authority: {
+                    required: " Please enter a page authority",
+                    integer: " Your page authority must be numbers only",
+                    range: " page authority should be 1 to 100"
+                },
+                spam_score: {
+                    required: " Please enter a Spam Score",
+                    integer: " Your Spam Score must be numbers only",
+                    range: " Spam Score should be 0 to 100"
+                },
+                name: " Please select publishing time",
+                minimum_word_count_required: {
+                    required: " Please enter required minimum word count",
+                    integer: " Your minimum word count must be numbers only",
+                    range: " Required minimum word count should be 1 to 500"
+                },
+                backlink_type: " Please select backlink type",
+                maximum_no_of_backlinks_allowed: " Please select maximum no of backlinks allowed",
+                domain_life_validity: " Please select domain life validity",
+                sample_post_url: {
+                    required: " Please enter your sample post url",
+                    url: " Please Enter valid sample post url ex.(https://example.com/post)"
+                },
+                inputCategories1: " Please select categories",
+                inputForbiddenCategories1: " Please select forbidden categories",
+                guest_post_price: {
+                    required: "Please enter a guest post price.",
+                    number: "Please enter a valid guest post price.",
+                    min: "Please enter a guest post price greater than or equal to 1."
+                },
+                link_insertion_price: {
+                    required: "Please enter a link insertion price.",
+                    number: "Please enter a valid link insertion price.",
+                    min: "Please enter a link insertion price greater than or equal to 1."
+                },
+                // fc_guest_post_price: {
+                //     required: "Please enter a fc guest post price.",
+                //     number: "Please enter a valid fc guest post price.",
+                //     min: "Please enter a fc guest post price greater than or equal to 1."
+                // },
+                // fc_link_insertion_price: {
+                //     required: "Please enter a fc link insertion price.",
+                //     number: "Please enter a valid fc link insertion price.",
+                //     min: "Please enter a fc link insertion price greater than or equal to 1."
+                // },
+                site_verification_file: {
+                    required: " Please upload a site verification file",
+                    accept: " Please upload valid site verification file ex. PDF, JPEG, JPG, and PNG"
+                },
+                readedguide: " Please make sure to thoroughly read the guide before checking the 'I have read' button.",
+            }
+        });
     });
-});
 
     /* $('#addWebsiteForm').submit(function() {
         var $inputWebUrl = $('#inputWebUrl').val();
