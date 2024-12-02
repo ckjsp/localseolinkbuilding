@@ -538,9 +538,11 @@
                 domain_life_validity: {
                     required: true
                 },
+
                 "categories[]": {
                     minSelected: 1
                 },
+
                 "forbidden_categories[]": {
                     minSelected: 1
                 },

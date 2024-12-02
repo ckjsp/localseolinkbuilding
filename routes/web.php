@@ -52,16 +52,19 @@ Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'r
 Route::get('callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    // Route::get('/logout', [LoginController::class, 'logout']);
-    Route::controller(HomeController::class)->group(function () {
-        Route::get('/', 'index')->name('home');
 
+    // Route::get('/logout', [LoginController::class, 'logout']);
+
+    Route::controller(HomeController::class)->group(function () {
+
+        Route::get('/', 'index')->name('home');
         Route::post('/change-password', 'changePassword')->name('password.change.update');
         Route::get('/user/profile', 'userProfile')->name('user.profile');
         Route::post('/user/update/{id}', 'userUpdate')->name('user.update');
     });
 
     Route::middleware(['firstLogin', 'redirectMiddleware'])->group(function () {
+
         Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
         Route::get('/publisher', [PublisherController::class, 'index'])->name('publisher');
 
