@@ -105,31 +105,16 @@
                         <li class="nav-item">
                             <a class="nav-link fw-medium" aria-current="page" href="#">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-medium" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-medium" href="#">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-medium" href="#">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-medium" href="#">Contact us</a>
-                        </li>
-                        <li class="nav-item mega-dropdown active">
-                            <a
-                                href="#"
-                                class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
-                                aria-expanded="false"
-                                data-bs-toggle="mega-dropdown"
-                                data-trigger="hover">
-                                <span data-i18n="Pages">Pages</span>
-                            </a>
 
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="{{ route('termandconditions') }}">Team</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-medium" href="#">Admin</a>
+                            <a class="nav-link fw-medium" href="{{ route('privacypolicy') }}">Privacy policy</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="{{ route('ContactUs') }}">Contact us</a>
                         </li>
                     </ul>
                 </div>
@@ -140,29 +125,35 @@
                         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                             <i class="ti ti-sm"></i>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-styles">
-                            <li>
-                                <a class="dropdown-item" href="javascript:void(0);" data-theme="light">
-                                    <span class="align-middle"><i class="ti ti-sun me-2"></i>Light</span>
+
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">
+                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                    <i class="ti ti-sm"></i>
                                 </a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-styles">
+                                    <li>
+                                        <a class="dropdown-item" href="javascript:void(0);" data-theme="light">
+                                            <span class="align-middle"><i class="ti ti-sun me-2"></i>Light</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="javascript:void(0);" data-theme="dark">
+                                            <span class="align-middle"><i class="ti ti-moon me-2"></i>Dark</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="javascript:void(0);" data-theme="system">
+                                            <span class="align-middle"><i class="ti ti-device-desktop me-2"></i>System</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
+
                             <li>
-                                <a class="dropdown-item" href="javascript:void(0);" data-theme="dark">
-                                    <span class="align-middle"><i class="ti ti-moon me-2"></i>Dark</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="javascript:void(0);" data-theme="system">
-                                    <span class="align-middle"><i class="ti ti-device-desktop me-2"></i>System</span>
-                                </a>
+                                <a href="#" class="btn btn-primary" target="_blank"><span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span><span class="d-none d-md-block">Login/Register</span></a>
                             </li>
                         </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" class="btn btn-primary" target="_blank"><span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span><span class="d-none d-md-block">Login/Register</span></a>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>

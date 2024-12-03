@@ -18,7 +18,6 @@
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1 fw-bold">Customer Support</h5>
                 <hr class="my-lg-4" />
-
                 <p class="pt-lg-2">
                     Our friendly customer support is ready to assist with all service, order, or general queries. Providing speedy but helpful replies is what we strive to achieve.
 
@@ -137,21 +136,15 @@
                 <p class="pt-lg-2"> Thank you for choosing Links Farmer! We're happy to help you!
                 </p>
             </div>
-
-
         </div>
     </div>
 </section>
 
-
 @include('pages.footer')
-
-
 
 <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
 <script src="{{ asset_url('js/bootstrap.js') }}"></script>
 <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
-
 <script src="{{ asset_url('js/front-main.js') }}"></script>
 
 </body>

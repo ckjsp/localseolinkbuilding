@@ -25,7 +25,6 @@
                 </ul>
                 <ul>
                     <li>For fairness, no exception will be made to these rules.
-
                     </li>
                 </ul>
                 <p class="pt-lg-2">Customers who feel that the services provided do not align with the description on the website may file complaints with the Links Farmer Support Department. To proceed with the complaint, customers must provide clear evidence demonstrating that the purchased service or product fails to meet the stated description. Complaints based solely on personal expectations or desires will not be honoured. Links Farmer reviews complaints on a case-by-case basis and retains the right to approve or deny complaints at its discretion.
