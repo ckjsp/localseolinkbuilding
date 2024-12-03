@@ -103,7 +103,9 @@
                     </button>
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
+
                             <a class="nav-link fw-medium" aria-current="page" href="#">Home</a>
+
                         </li>
 
                         <li class="nav-item">
