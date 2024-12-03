@@ -9,16 +9,12 @@ use App\Http\Controllers\AdvertiserController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
-
 use App\Http\Controllers\TermandconditionsController;
-
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PaypalPaymentController;
 use App\Http\Controllers\RazorpayPaymentController;
-
 use App\Http\Controllers\Auth\LoginController;
-
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Auth;
