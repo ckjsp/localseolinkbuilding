@@ -20,8 +20,7 @@
 
     <meta name="description" content="" />
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon/favicon.ico')}}" />
-
+    <link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon.svg')}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -101,7 +100,9 @@
                         aria-label="Toggle navigation">
                         <i class="ti ti-x ti-sm"></i>
                     </button>
+
                     <ul class="navbar-nav me-auto">
+
                         <li class="nav-item">
 
                             <a class="nav-link fw-medium" aria-current="page" href="#">Home</a>
@@ -111,6 +112,7 @@
                         <li class="nav-item">
                             <a class="nav-link fw-medium" href="{{ route('termandconditions') }}">Team</a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link fw-medium" href="{{ route('privacypolicy') }}">Privacy policy</a>
                         </li>
@@ -118,6 +120,7 @@
                         <li class="nav-item">
                             <a class="nav-link fw-medium" href="{{ route('ContactUs') }}">Contact us</a>
                         </li>
+
                     </ul>
                 </div>
                 <div class="landing-menu-overlay d-lg-none"></div>

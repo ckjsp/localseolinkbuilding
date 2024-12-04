@@ -42,18 +42,12 @@
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1 fw-bold">Call Us</h5>
                 <hr class="my-lg-4" />
-
-
-
                 <p class="pt-lg-2">
                     (1234567890)
-
                 </p>
                 <p class="pt-lg-2">
                     We'd love to assist you with all your queries or concerns.
-
                 </p>
-
             </div>
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1 fw-bold">Live Chat</h5>
@@ -62,7 +56,6 @@
                 <p class="pt-lg-2">
                     If you need a response right away, use the chat icon in the bottom right corner of our website to speak with an associate of our team at the moment.
                 </p>
-
             </div>
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1 fw-bold">Office Address</h5>
@@ -70,11 +63,9 @@
 
                 <p class="pt-lg-2">
                     Should you want to visit us personally, we are located at:
-
                 </p>
                 <p class="pt-lg-2">
                     City, Country, Zip Code
-
                 </p>
                 <p class="pt-lg-2">
                     Note that our office is strict in accepting appointments only. Please call one of our numbers above to set up an appointment before you come to visit us here.
@@ -84,16 +75,11 @@
                 <h5 class="mb-2 pb-1 fw-bold">Social Media
                 </h5>
                 <hr class="my-lg-4" />
-
-
                 <p class="pt-lg-2">
                     You can also connect to us through social media. Subscribe to get updated, news, and promotions:
-
                 </p>
-
                 <ul>
                     <li>Facebook:
-
                     </li>
                 </ul>
                 <ul>
@@ -104,8 +90,7 @@
                     <li>LinkedIn:
 
                     </li>
-                </ul>
-
+                </ul>s
                 <p class="pt-lg-2">
                     Support Hours
                 </p>
