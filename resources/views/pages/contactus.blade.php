@@ -8,6 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
+
                 <h1 class="mb-2 pb-1">Contact Us</h1>
                 <hr class="my-lg-4" />
                 <p class="pt-lg-2">
