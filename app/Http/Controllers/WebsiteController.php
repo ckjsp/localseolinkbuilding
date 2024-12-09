@@ -34,9 +34,6 @@ class WebsiteController extends Controller
         }
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $this->chekRole();
@@ -46,9 +43,7 @@ class WebsiteController extends Controller
         return view('publisher/website')->with($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         $this->chekRole();
@@ -56,8 +51,6 @@ class WebsiteController extends Controller
         $data['slug'] = 'websites';
         return view('publisher/website_create')->with($data);
     }
-
-
 
     protected function rules()
     {
@@ -73,9 +66,9 @@ class WebsiteController extends Controller
             'maximum_no_of_backlinks_allowed' => 'required',
             'domain_life_validity' => 'required',
             'sample_post_url' => 'required|url',
-            'guidelines' => '|string',
+            'guidelines' => 'nullable|string',
             'categories' => 'required',
-            'forbidden_categories' => 'required',
+            'forbidden_categories' => 'nullable',
             'guest_post_price' => 'required',
             'link_insertion_price' => 'required',
 
@@ -85,6 +78,7 @@ class WebsiteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
         $this->chekRole();
@@ -104,7 +98,6 @@ class WebsiteController extends Controller
             'backlink_type',
             'maximum_no_of_backlinks_allowed',
             'domain_life_validity',
-            'traffic_by_country',
             'sample_post_url',
             'guidelines',
             'forbidden_categories',
@@ -114,10 +107,10 @@ class WebsiteController extends Controller
 
         $categories = $request->input('categories', []);
         $forbiddenCategories = $request->input('forbidden_categories', []);
-        $traffic_by_country = $request->input('traffic_by_country', []);
+        $data['forbidden_categories'] = !empty($forbiddenCategories)
+            ? implode(',', $forbiddenCategories)
+            : null;
 
-        $data['forbidden_categories'] = implode(',', $forbiddenCategories);
-        $data['traffic_by_country'] = implode(',', $traffic_by_country);
         $data['categories'] = implode(',', $categories);
 
         $data['user_id'] = Auth::user()->id;
@@ -201,13 +194,12 @@ class WebsiteController extends Controller
             'backlink_type' => 'required',
             'maximum_no_of_backlinks_allowed' => 'required',
             'domain_life_validity' => 'required',
-            'traffic_by_country' => 'required',
             'sample_post_url' => 'required|url',
-            'guidelines' => 'string',
+            'guidelines' => 'nullable|string',
             'categories' => 'required|array',
             'categories.*' => 'string',
-            'forbidden_categories' => 'required|array',
-            'forbidden_categories.*' => 'string',
+            'forbidden_categories' => 'nullable|array',
+            'forbidden_categories.*' => 'nullable|string',
             'guest_post_price' => 'required',
             'link_insertion_price' => 'required',
         ]);
@@ -226,11 +218,13 @@ class WebsiteController extends Controller
         }
 
         $categories = implode(',', $request->input('categories', []));
-        $traffic_by_country = implode(',', $request->input('traffic_by_country', []));
-        $forbiddenCategories = implode(',', $request->input('forbidden_categories', []));
+        $forbiddenCategories = $request->input('forbidden_categories', []);
+        $data['forbidden_categories'] = !empty($forbiddenCategories)
+            ? implode(',', $forbiddenCategories)
+            : null;
+
 
         $validatedData['categories'] = $categories;
-        $validatedData['traffic_by_country'] = $traffic_by_country;
         $validatedData['forbidden_categories'] = $forbiddenCategories;
         $validatedData['site_verification_file'] = $path;
 
@@ -275,15 +269,7 @@ class WebsiteController extends Controller
                 });
             }
 
-            if (!empty($request->post('selectcontry'))) {
-                $ContryArr = $request->post('selectcontry');
 
-                $query->where(function ($query) use ($ContryArr) {
-                    foreach ($ContryArr as $Contry) {
-                        $query->orWhere('traffic_by_country', 'LIKE', "%$Contry%");
-                    }
-                });
-            }
 
 
             if ($request->has('price_filters')) {

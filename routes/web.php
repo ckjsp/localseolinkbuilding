@@ -43,9 +43,7 @@ Route::get('/privacy-policy', [PagesController::class, 'privacypolicy'])->name('
 Route::get('/cancellation-and-refund-policy', [PagesController::class, 'CancellationandRefundPolicy'])->name('cancellation-and-refund-policy');
 Route::get('/shipping-and-delivery-policy', [PagesController::class, 'ShippingandDeliveryPolicy'])->name('shipping-and-delivery-policy');
 Route::get('/contact-us', [PagesController::class, 'ContactUs'])->name('contact-us');
-Route::get('/home', [PagesController::class, 'home'])->name('home');
-
-
+Route::get('/home', [PagesController::class, 'Home'])->name('home');
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
 
@@ -55,6 +53,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(HomeController::class)->group(function () {
 
+        Route::get('/', 'index')->name('home');
         Route::post('/change-password', 'changePassword')->name('password.change.update');
         Route::get('/user/profile', 'userProfile')->name('user.profile');
         Route::post('/user/update/{id}', 'userUpdate')->name('user.update');
@@ -108,6 +107,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/competitors/{project_id}', 'getCompetitorsByProjectId')->name('competitors.get');
         Route::post('/add-competitor', 'addCompetitor')->name('addcompetitor');
         Route::post('/competitors/{projectId}/remove', 'removeCompetitor')->name('removeCompetitor');
+
         //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
         //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
 
@@ -125,10 +125,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::controller(OrdersController::class)->group(function () {
         Route::get('/order/info/{id}', 'orderInfo')->name('order.info');
         Route::post('/order/update-status/{id}', 'updateStatus')->name('order.update.status');
+
         // Route::post('/publisher/orders/add', 'store')->name('publisher.orders.store');
         // Route::get('/publisher/orders/{id}/edit', 'edit')->name('publisher.orders.edit');
         // Route::put('/publisher/orders/{id}', 'update')->name('publisher.orders.update');
         // Route::get('/publisher/orders/{id}/delete', 'destroy')->name('publisher.orders.delete');
+
     });
 
     Route::post('charge', [StripePaymentController::class, 'charge'])->name('stripe.charge');

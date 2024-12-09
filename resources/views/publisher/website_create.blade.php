@@ -185,7 +185,7 @@
                             <option value="Atleast for 2 years" {{ (!empty($domain_life_validity) && $domain_life_validity=='Atleast for 2 years' ) ? 'selected' : '' }}>Atleast for 2 years</option>
                         </select>
                     </div>
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                         @php
                         if(old('traffic_by_country')){
                         $traffic_by_country = old('traffic_by_country');
@@ -209,7 +209,7 @@
                             </select>
                         </div>
                         <div id="country-error" class="text-danger" style="display: none;">Please select at least one country.</div>
-                    </div>
+                    </div> -->
 
                     <div class="col-md-12">
                         <?php
@@ -481,6 +481,7 @@
 @endsection
 
 @push('script')
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.3/jquery.validate.min.js"></script>
 
@@ -538,12 +539,8 @@
                     minSelected: 1,
                     maxSelected: 5
                 },
-                "forbidden_categories[]": {
-                    minSelected: 1
-                },
-                "traffic_by_country[]": {
-                    minSelected: 1
-                },
+
+
                 guest_post_price: {
                     required: true,
                     min: 1,
@@ -596,12 +593,7 @@
                     minSelected: "Please select at least 1 category.",
                     maxSelected: "You can select up to 5 categories only."
                 },
-                "forbidden_categories[]": {
-                    minSelected: "Please select at least one forbidden category."
-                },
-                "traffic_by_country[]": {
-                    minSelected: "Please select at least one traffic by country."
-                },
+
                 guest_post_price: {
                     required: "Please enter the guest post price.",
                     min: "Guest post price must be at least 1.",

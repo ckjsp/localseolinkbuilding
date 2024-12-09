@@ -15,7 +15,7 @@ class RazorpayPaymentController extends Controller
 
     {
 
-        $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+        $api = new Api(env('RAZORPAY_KEY_ID'), env('RAZORPAY_KEY_SECRET'));
 
         $order = $api->order->create([
 
