@@ -159,6 +159,8 @@
                         <label for="inputCategories1" class="form-label">Categories</label>
                         <div class="select2-primary">
                             <select id="inputCategories1" class="form-select select2" multiple>
+                                <option value="General" {{ (in_array("General", $Carr)) ? 'selected' : '' }}>General</option>
+
                                 <option value="Agriculture" {{ (in_array("Agriculture", $Carr)) ? 'selected' : '' }}>Agriculture</option>
                                 <option value="Animals & Pets" {{ (in_array("Animals & Pets", $Carr)) ? 'selected' : '' }}>Animals & Pets</option>
                                 <option value="Arms and ammunition" {{ (in_array("Arms and ammunition", $Carr)) ? 'selected' : '' }}>Arms and ammunition</option>
@@ -178,7 +180,6 @@
                                 <option value="Finance" {{ (in_array("Finance", $Carr)) ? 'selected' : '' }}>Finance</option>
                                 <option value="Food & Drink" {{ (in_array("Food & Drink", $Carr)) ? 'selected' : '' }}>Food & Drink</option>
                                 <option value="Games" {{ (in_array("Games", $Carr)) ? 'selected' : '' }}>Games</option>
-                                <option value="General" {{ (in_array("General", $Carr)) ? 'selected' : '' }}>General</option>
                                 <option value="Gift" {{ (in_array("Gift", $Carr)) ? 'selected' : '' }}>Gift</option>
                                 <option value="Health & Fitness" {{ (in_array("Health & Fitness", $Carr)) ? 'selected' : '' }}>Health & Fitness</option>
                                 <option value="Home & Garden" {{ (in_array("Home & Garden", $Carr)) ? 'selected' : '' }}>Home & Garden</option>
