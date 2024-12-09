@@ -34,4 +34,10 @@ class PagesController extends Controller
 
         return view('pages.contactus');
     }
+
+    public function Home()
+    {
+
+        return view('pages.home');
+    }
 }

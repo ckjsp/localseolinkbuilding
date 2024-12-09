@@ -135,7 +135,6 @@
 <script src="{{ asset_url('js/bootstrap.js') }}"></script>
 <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
 <script src="{{ asset_url('js/front-main.js') }}"></script>
-
 </body>
 
 </html>

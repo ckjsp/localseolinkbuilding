@@ -77,14 +77,11 @@ class HomeController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function userUpdate(Request $request, string $id)
     {
-        $user = lslbUser::find($id); // Assuming 'user' is the model for your data
+        $user = lslbUser::find($id);
         if (!$user) {
-            abort(404); // Handle not found gracefully
+            abort(404);
         }
 
         $commonRules = [
