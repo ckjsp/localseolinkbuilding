@@ -631,20 +631,9 @@
             },
             onfocusout: function(element) {
                 this.element(element);
-            }
-        });
-
-        $("#submit").click(function(e) {
-            e.preventDefault();
-
-            if ($("#addWebsiteForm").valid()) {
-                if ($("#addWebsiteForm input").eq(4).valid()) {
-                    $("#addWebsiteForm").submit();
-                } else {
-                    alert("The 5th field must be valid to submit the form.");
-                }
-            } else {
-                alert("Please fix all errors before submitting.");
+            },
+            submitHandler: function(form) {
+                form.submit();
             }
         });
     });
