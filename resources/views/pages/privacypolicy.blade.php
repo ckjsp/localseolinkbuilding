@@ -1,4 +1,7 @@
 @include('pages.header')
+<title>Privacy policy
+
+</title>
 
 <!-- Navbar: End -->
 

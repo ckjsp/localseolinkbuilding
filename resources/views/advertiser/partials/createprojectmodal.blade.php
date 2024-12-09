@@ -24,6 +24,8 @@
                             <div class="select2-primary">
                                 <select id="projectCategories" name="projectCategories[]" class="select2" multiple=""
                                     data-select2-id="select2Multiple" tabindex="-1" aria-hidden="true">
+                                    <option value="General">General</option>
+
                                     <option value="Agriculture">Agriculture</option>
                                     <option value="Animals & Pets">Animals & Pets</option>
                                     <option value="Arms and ammunition">Arms and ammunition</option>
@@ -43,7 +45,6 @@
                                     <option value="Finance">Finance</option>
                                     <option value="Food & Drink">Food & Drink</option>
                                     <option value="Games">Games</option>
-                                    <option value="General">General</option>
                                     <option value="Gift">Gift</option>
                                     <option value="Health & Fitness">Health & Fitness</option>
                                     <option value="Home & Garden">Home & Garden</option>

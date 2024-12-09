@@ -1,23 +1,17 @@
 @extends('layouts.app')
 
 @push('css')
-    <link rel="stylesheet" href="{{ asset_url('css/pages/page-auth.css') }}" />
+<link rel="stylesheet" href="{{ asset_url('css/pages/page-auth.css') }}" />
 @endpush
 
 @section('auth-content')
-<!-- Content -->
-<!-- $data['identity'] = ($data['role'] == 3) ? 'in-house team' : 'individual link builder';
-        return lslbUser::create([
-            'name' => $data['name'],
-            'role_id' => $data['role'],
-            'email' => $data['email'],
-            'identity' => $data['identity'],
-            'password' => Hash::make($data['password']),
-        ]); -->
+
 
 <div class="authentication-wrapper authentication-cover authentication-bg">
     <div class="authentication-inner row">
+
         <!-- /Left Text -->
+
         <div class="d-none d-lg-flex col-lg-7 p-0">
             <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
                 <img src="{{ asset_url('img/illustrations/auth-register-illustration.png') }}" alt="auth-register-cover"
@@ -29,18 +23,16 @@
                     data-app-dark-img="illustrations/bg-shape-image-dark.png" />
             </div>
         </div>
-        <!-- /Left Text -->
 
-        <!-- Register -->
         <div class="d-flex col-12 col-lg-5 align-items-center p-sm-5 p-4">
             <div class="w-px-400 mx-auto">
-                <!-- Logo -->
+
                 <div class="app-brand mb-4">
                     <a href="index.html" class="app-brand-link gap-2">
                         <img src="{{ asset_url('img/logo.svg') }}" alt="Logo" class="w-100">
                     </a>
                 </div>
-                <!-- /Logo -->
+
                 <h3 class="mb-1 fw-bold">Adventure starts here 🚀</h3>
                 <p class="mb-4">Make your app management easy and fun!</p>
 
@@ -52,9 +44,9 @@
                             name="name" placeholder="Enter your username" value="{{ old('name') }}" required
                             autocomplete="name" autofocus>
                         @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </div>
                     <div class="mb-3">
@@ -63,9 +55,9 @@
                             placeholder="Enter your email" name="email" value="{{ old('email') }}" required
                             autocomplete="email">
                         @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </div>
                     <div class="mb-3 form-password-toggle">
@@ -78,9 +70,9 @@
                             <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                             <span class="invalid-feedback"><strong class="pass-msg"></strong></span>
                             @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                     </div>
@@ -94,9 +86,9 @@
                                 aria-describedby="password" required autocomplete="new-password">
                             <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                             @error('password_confirmation')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                     </div>
@@ -198,117 +190,117 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset_url('js/pages-auth.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script src="{{ asset_url('js/pages-auth.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            var validator = $('#user-register-form').validate({
-                rules: {
-                    name: {
-                        required: true,
-                        minlength: 2
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true,
-                        minlength: 8
-                    },
-                    password_confirmation: {
-                        required: true,
-                        equalTo: "#password"
-                    },
-                    role: {
-                        required: true
-                    }
+<script>
+    $(document).ready(function() {
+        var validator = $('#user-register-form').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
                 },
-                messages: {
-                    name: {
-                        required: "Please enter your username",
-                        minlength: "Your username must be at least 2 characters long"
-                    },
-                    email: {
-                        required: "Please enter your email",
-                        email: "Please enter a valid email address"
-                    },
-                    password: {
-                        required: "Your password must be at least 8 characters long",
-                        minlength: "Your password must be at least 8 characters long"
-                    },
-                    password_confirmation: {
-                        required: "Please confirm your password",
-                        equalTo: "Passwords do not match"
-                    },
-                    role: {
-                        required: "Please select a role"
-                    }
+                email: {
+                    required: true,
+                    email: true
                 },
-                errorClass: "is-invalid",
-                validClass: "is-valid",
-                errorElement: "div",
-                errorPlacement: function (error, element) {
-                    if (element.attr("name") == "role") {
-                        error.insertAfter(element.closest(".row"));
-                    } else {
-                        error.addClass("invalid-feedback");
-                        element.closest(".mb-3").append(error);
-                    }
+                password: {
+                    required: true,
+                    minlength: 8
                 },
-                highlight: function (element) {
-                    $(element).addClass("is-invalid").removeClass("is-valid");
+                password_confirmation: {
+                    required: true,
+                    equalTo: "#password"
                 },
-                unhighlight: function (element) {
-                    $(element).addClass("is-valid").removeClass("is-invalid");
+                role: {
+                    required: true
                 }
-            });
-
-            $('#password').on('keyup', function () {
-                validator.element('#password');  // Validate the password field on keyup
-            });
-
-
-            var gvalidator = $('#google-form').validate({
-                rules: {
-                    role: {
-                        required: true
-                    }
+            },
+            messages: {
+                name: {
+                    required: "Please enter your username",
+                    minlength: "Your username must be at least 2 characters long"
                 },
-                messages: {
-                    role: {
-                        required: "Please select a role before signing in with Google."
-                    }
+                email: {
+                    required: "Please enter your email",
+                    email: "Please enter a valid email address"
                 },
-                errorClass: "is-invalid",
-                validClass: "is-valid",
-                errorElement: "div",
-                errorPlacement: function (error, element) {
-                    if (element.attr("name") == "role") {
-                        error.insertAfter(element.closest(".row"));
-                    } else {
-                        error.addClass("invalid-feedback");
-                        element.closest(".mb-3").append(error);
-                    }
+                password: {
+                    required: "Your password must be at least 8 characters long",
+                    minlength: "Your password must be at least 8 characters long"
                 },
-                highlight: function (element) {
-                    $(element).addClass("is-invalid").removeClass("is-valid");
+                password_confirmation: {
+                    required: "Please confirm your password",
+                    equalTo: "Passwords do not match"
                 },
-                unhighlight: function (element) {
-                    $(element).addClass("is-valid").removeClass("is-invalid");
+                role: {
+                    required: "Please select a role"
                 }
-            });
-
-            $('#google-form').on('submit', function (event) {
-                var selectedRole = $('input[name="g-role"]:checked').val();
-                if (!selectedRole) {
-                    event.preventDefault();
+            },
+            errorClass: "is-invalid",
+            validClass: "is-valid",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                if (element.attr("name") == "role") {
+                    error.insertAfter(element.closest(".row"));
                 } else {
-                    $('#selected_role').val(selectedRole);
+                    error.addClass("invalid-feedback");
+                    element.closest(".mb-3").append(error);
                 }
-            });
-
+            },
+            highlight: function(element) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
+            }
         });
-    </script>
+
+        $('#password').on('keyup', function() {
+            validator.element('#password'); // Validate the password field on keyup
+        });
+
+
+        var gvalidator = $('#google-form').validate({
+            rules: {
+                role: {
+                    required: true
+                }
+            },
+            messages: {
+                role: {
+                    required: "Please select a role before signing in with Google."
+                }
+            },
+            errorClass: "is-invalid",
+            validClass: "is-valid",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                if (element.attr("name") == "role") {
+                    error.insertAfter(element.closest(".row"));
+                } else {
+                    error.addClass("invalid-feedback");
+                    element.closest(".mb-3").append(error);
+                }
+            },
+            highlight: function(element) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
+            }
+        });
+
+        $('#google-form').on('submit', function(event) {
+            var selectedRole = $('input[name="g-role"]:checked').val();
+            if (!selectedRole) {
+                event.preventDefault();
+            } else {
+                $('#selected_role').val(selectedRole);
+            }
+        });
+
+    });
+</script>
 @endpush

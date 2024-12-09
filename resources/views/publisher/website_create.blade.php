@@ -62,18 +62,7 @@
                         <input type="number" class="form-control" id="inputDomainAuthority" name="domain_authority" mix="1" max="100" value="{{ (isset($domain_authority) && !empty($domain_authority)) ? $domain_authority : 1 }}" placeholder="DA (domain Authority)">
 
                     </div>
-                    <div class="col-md-4">
-                        <?php
-                        if (old('domain_rating')) {
-                            $domain_rating = old('domain_rating');
-                        } else {
-                            isset($website->domain_rating) ? $domain_rating = $website->domain_rating : '';
-                        }
-                        ?>
-                        <label for="inputDomainRating" class="form-label">Domain Rating</small></label>
-                        <input type="number" class="form-control" id="inputDomainRating" name="domain_rating" mix="1" max="100" value="{{ (isset($domain_rating) && !empty($domain_rating)) ? $domain_rating : 1 }}" placeholder="DA (Domain Rating)">
 
-                    </div>
                     <div class="col-md-4">
                         <?php
                         if (old('page_authority')) {
@@ -135,7 +124,7 @@
                         }
                         ?>
                         <label for="inputWordCount" class="form-label">Minimum Word Count Required</label>
-                        <input type="number" class="form-control" id="inputWordCount" mix="1" max="1000" value="{{ (isset($minimum_word_count_required) && !empty($minimum_word_count_required)) ? $minimum_word_count_required : 1 }}" name="minimum_word_count_required">
+                        <input type="number" class="form-control" id="inputWordCount" value="{{ (isset($minimum_word_count_required) && !empty($minimum_word_count_required)) ? $minimum_word_count_required : 1 }}" name="minimum_word_count_required">
                     </div>
                     <div class="col-md-4">
                         <?php
@@ -282,6 +271,8 @@
                         <label for="inputCategories1" class="form-label">Categories</label>
                         <div class="select2-primary">
                             <select id="inputCategories1" name="categories[]" class="form-select select2" multiple>
+                                <option value="General" {{ (in_array("General", $Carr)) ? 'selected' : '' }}>General
+                                </option>
                                 <option value="Agriculture" {{ (in_array("Agriculture", $Carr)) ? 'selected' : '' }}>
                                     Agriculture</option>
                                 <option value="Animals & Pets" {{ (in_array("Animals & Pets", $Carr)) ? 'selected' : ''
@@ -319,8 +310,7 @@
                                 <option value="Food & Drink" {{ (in_array("Food & Drink", $Carr)) ? 'selected' : '' }}>
                                     Food & Drink</option>
                                 <option value="Games" {{ (in_array("Games", $Carr)) ? 'selected' : '' }}>Games</option>
-                                <option value="General" {{ (in_array("General", $Carr)) ? 'selected' : '' }}>General
-                                </option>
+
                                 <option value="Gift" {{ (in_array("Gift", $Carr)) ? 'selected' : '' }}>Gift</option>
                                 <option value="Health & Fitness" {{ (in_array("Health & Fitness", $Carr)) ? 'selected'
                                     : '' }}>Health & Fitness</option>
@@ -476,7 +466,7 @@
                     <div class="col-md-6 mb-2">
                         <div class="form-check">
                             <label class="form-check-label" for="inputReadedGuide">Please confirm that you have read and followed the guide. </label>
-                            <input class="form-check-input" type="checkbox" name="readedguide" id="inputReadedGuide" value="yes">
+                            <input class="form-check-input" type="checkbox" name="readedguide" id="inputReadedGuide" value="yes" required>
                         </div>
                     </div>
                     <div class="col-md-12 text-center">
@@ -493,11 +483,16 @@
 @push('script')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.3/jquery.validate.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $.validator.addMethod("minSelected", function(value, element, min) {
             return $(element).val() && $(element).val().length >= min;
         }, "Please select at least one option.");
+
+        $.validator.addMethod("maxSelected", function(value, element, max) {
+            return $(element).val() && $(element).val().length <= max;
+        }, "You can select up to {0} options only.");
 
         $("#addWebsiteForm").validate({
             rules: {
@@ -533,20 +528,19 @@
                     required: true
                 },
                 minimum_word_count_required: {
-                    required: true
+                    required: true,
+                    min: 500
                 },
                 domain_life_validity: {
                     required: true
                 },
-
                 "categories[]": {
-                    minSelected: 1
+                    minSelected: 1,
+                    maxSelected: 5
                 },
-
                 "forbidden_categories[]": {
                     minSelected: 1
                 },
-
                 "traffic_by_country[]": {
                     minSelected: 1
                 },
@@ -560,12 +554,7 @@
                     min: 1,
                     max: 1000
                 },
-                site_verification_file: {
-                    required: function(element) {
-                        return !$("input[name='old_site_verification_file']").val();
-                    },
-                    extension: "pdf"
-                }
+
             },
             messages: {
                 website_url: {
@@ -600,20 +589,18 @@
                     required: "Please select the maximum number of backlinks allowed."
                 },
                 minimum_word_count_required: {
-                    required: "Please select the minimum word count."
+                    required: "Please select the minimum word count.",
+                    min: "Minimum word count must be greater than 500."
                 },
                 "categories[]": {
-                    minSelected: "Please select at least one category."
+                    minSelected: "Please select at least 1 category.",
+                    maxSelected: "You can select up to 5 categories only."
                 },
                 "forbidden_categories[]": {
-
                     minSelected: "Please select at least one forbidden category."
                 },
                 "traffic_by_country[]": {
-
                     minSelected: "Please select at least one traffic by country."
-
-
                 },
                 guest_post_price: {
                     required: "Please enter the guest post price.",
@@ -625,10 +612,7 @@
                     min: "Link insertion price must be at least 1.",
                     max: "Link insertion price cannot exceed 1000."
                 },
-                site_verification_file: {
-                    required: "Please upload your website analytics report.",
-                    extension: "Only PDF files are allowed."
-                }
+
             },
             errorClass: "is-invalid",
             validClass: "is-valid",
@@ -644,9 +628,27 @@
                 } else {
                     error.insertAfter(element);
                 }
+            },
+            onfocusout: function(element) {
+                this.element(element);
+            }
+        });
+
+        $("#submit").click(function(e) {
+            e.preventDefault();
+
+            if ($("#addWebsiteForm").valid()) {
+                if ($("#addWebsiteForm input").eq(4).valid()) {
+                    $("#addWebsiteForm").submit();
+                } else {
+                    alert("The 5th field must be valid to submit the form.");
+                }
+            } else {
+                alert("Please fix all errors before submitting.");
             }
         });
     });
+
 
     document.getElementById('submit').addEventListener('click', function(event) {
         var fileInput = document.getElementById('site_verification_file');

@@ -1,5 +1,7 @@
 @include('pages.header')
+<title>Terms and Conditions
 
+</title>
 <section class="section-py first-section-pt">
     <div class="container">
         <div class="row">

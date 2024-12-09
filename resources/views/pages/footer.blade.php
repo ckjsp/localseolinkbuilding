@@ -33,10 +33,10 @@
                             <a href="#" class="footer-link">Home</a>
                         </li>
                         <li class="mb-3">
-                            <a href="{{ route('privacypolicy') }}" class="footer-link">Privacy policy</a>
+                            <a href="{{ route('privacy-policy') }}" class="footer-link">Privacy policy</a>
                         </li>
                         <li class="mb-3">
-                            <a href="{{ route('CancellationandRefundPolicy') }}" class="footer-link">Cancellation and refund policy</a>
+                            <a href="{{ route('cancellation-and-refund-policy') }}" class="footer-link">Cancellation and refund policy</a>
                         </li>
                     </ul>
                 </div>
@@ -44,13 +44,13 @@
                     <h6 class="footer-title mb-4">Pages</h6>
                     <ul class="list-unstyled">
                         <li class="mb-3">
-                            <a href="{{ route('termandconditions') }}" class="footer-link">Terms and conditions</a>
+                            <a href="{{ route('terms-condition') }}" class="footer-link">Terms and conditions</a>
                         </li>
                         <li class="mb-3">
-                            <a href="{{ route('ShippingandDeliveryPolicy') }}" class="footer-link">Shipping and delivery policy</a>
+                            <a href="{{ route('shipping-and-delivery-policy') }}" class="footer-link">Shipping and delivery policy</a>
                         </li>
                         <li class="mb-3">
-                            <a href="{{ route('ContactUs') }}" class="footer-link">Contact us</a>
+                            <a href="{{ route('contact-us') }}" class="footer-link">Contact us</a>
                         </li>
                     </ul>
                 </div>

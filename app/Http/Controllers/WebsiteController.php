@@ -68,12 +68,12 @@ class WebsiteController extends Controller
             'page_authority' => 'required',
             'spam_score' => 'required',
             'publishing_time' => 'required',
-            'minimum_word_count_required' => 'required|max:1000',
+            'minimum_word_count_required' => 'required',
             'backlink_type' => 'required',
             'maximum_no_of_backlinks_allowed' => 'required',
             'domain_life_validity' => 'required',
             'sample_post_url' => 'required|url',
-            'guidelines' => 'required|string|max:1000',
+            'guidelines' => '|string',
             'categories' => 'required',
             'forbidden_categories' => 'required',
             'guest_post_price' => 'required',
@@ -89,21 +89,6 @@ class WebsiteController extends Controller
     {
         $this->chekRole();
 
-        $validatedData = Validator::make($request->all(), array_merge($this->rules(), [
-            'categories' => 'required|array', // Ensure 'categories' is an array
-            'categories.*' => 'string', // Ensure each category is a string
-            'forbidden_categories' => 'nullable|array', // Ensure 'forbidden_categories' is an array
-            'forbidden_categories.*' => 'string', // Each forbidden category must be a string
-            'traffic_by_country' => 'nullable|array', // Ensure 'forbidden_categories' is an array
-            'traffic_by_country.*' => 'string', // Each forbidden category must be a string
-
-        ]));
-
-        if ($validatedData->fails()) {
-            $errors = $validatedData->errors()->all();
-            return redirect()->back()->withInput()->withErrors($errors);
-        }
-
         $path = $request->hasFile('site_verification_file')
             ? $request->file('site_verification_file')->store('verification')
             : null;
@@ -112,7 +97,6 @@ class WebsiteController extends Controller
             'user_id',
             'website_url',
             'domain_authority',
-            'domain_rating',
             'page_authority',
             'spam_score',
             'publishing_time',
@@ -131,8 +115,6 @@ class WebsiteController extends Controller
         $categories = $request->input('categories', []);
         $forbiddenCategories = $request->input('forbidden_categories', []);
         $traffic_by_country = $request->input('traffic_by_country', []);
-
-
 
         $data['forbidden_categories'] = implode(',', $forbiddenCategories);
         $data['traffic_by_country'] = implode(',', $traffic_by_country);
@@ -212,17 +194,16 @@ class WebsiteController extends Controller
 
         $validatedData = $request->validate([
             'domain_authority' => 'required',
-            'domain_rating' => 'required',
             'page_authority' => 'required',
             'spam_score' => 'required',
             'publishing_time' => 'required',
-            'minimum_word_count_required' => 'required|max:1000',
+            'minimum_word_count_required' => 'required',
             'backlink_type' => 'required',
             'maximum_no_of_backlinks_allowed' => 'required',
             'domain_life_validity' => 'required',
             'traffic_by_country' => 'required',
             'sample_post_url' => 'required|url',
-            'guidelines' => 'required|string|max:1000',
+            'guidelines' => 'string',
             'categories' => 'required|array',
             'categories.*' => 'string',
             'forbidden_categories' => 'required|array',
@@ -393,25 +374,6 @@ class WebsiteController extends Controller
                 }
             }
 
-            if (!empty($request->post('domain_rating'))) {
-                $ratingsFilters = $request->post('domain_rating');
-
-                if (is_array($ratingsFilters)) {
-                    $query->where(function ($query) use ($ratingsFilters) {
-                        foreach ($ratingsFilters as $ratingRange) {
-                            list($min, $max) = explode('-', $ratingRange);
-                            if (is_numeric($min) && is_numeric($max)) {
-                                $query->orWhereBetween('domain_rating', [(int)$min, (int)$max]);
-                            }
-                        }
-                    });
-                } else {
-                    list($min, $max) = explode('-', $ratingsFilters);
-                    if (is_numeric($min) && is_numeric($max)) {
-                        $query->whereBetween('domain_rating', [(int)$min, (int)$max]);
-                    }
-                }
-            }
 
             if (!empty($request->post('selectday'))) {
                 $days = $request->post('selectday');

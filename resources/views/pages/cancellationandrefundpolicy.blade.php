@@ -1,10 +1,13 @@
 @include('pages.header')
+<title>Cancellation And Refund Policy
+
+</title>
 
 <section class="section-py first-section-pt">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <h1 class="mb-2 pb-1">Cancellation and Refund Policy
+                <h1 class="mb-2 pb-1">Cancellation And Refund Policy
                 </h1>
                 <hr class="my-lg-4" />
                 <p class="pt-lg-2">

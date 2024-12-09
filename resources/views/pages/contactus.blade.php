@@ -1,4 +1,7 @@
 @include('pages.header')
+<title>Contact Us
+
+</title>
 
 <!-- Navbar: End -->
 
