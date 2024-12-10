@@ -107,7 +107,7 @@
                 </div>
             </li>
 
-            <li class="menu-item py-2">
+            <!-- <li class="menu-item py-2">
                 <div class="px-3">
                     @csrf
                     <label for="inputCountry1" class="form-label">Country</label>
@@ -119,7 +119,7 @@
                         </select>
                     </div>
                 </div>
-            </li>
+            </li> -->
             <li class="menu-item py-2">
                 <div class="px-3">
                     <label class="form-label">Link Type</label>
@@ -324,7 +324,7 @@
                 </div>
             </li>
 
-            <li class="menu-item py-2">
+            <!-- <li class="menu-item py-2">
                 <div class="px-3">
                     <label class="form-label">Domain Rating</label>
                     <div class="row rounded py-2 ms-1">
@@ -360,7 +360,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </form>
 </aside>

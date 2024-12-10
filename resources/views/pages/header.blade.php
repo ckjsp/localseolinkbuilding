@@ -39,7 +39,6 @@
 <style>
     .navbar {
         height: 90px;
-        /* Or any height you prefer */
     }
 </style>
 

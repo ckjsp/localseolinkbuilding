@@ -9,6 +9,7 @@ use App\Models\lslbWebsite;
 use App\Models\lslbUser;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
+
 use Illuminate\Support\Facades\DB;
 
 Validator::extend('url', function ($attribute, $value, $parameters, $validator) {
@@ -80,6 +81,7 @@ class WebsiteController extends Controller
      */
 
     public function store(Request $request)
+
     {
         $this->chekRole();
 
@@ -124,24 +126,16 @@ class WebsiteController extends Controller
 
         lslbWebsite::create($data);
 
-        $customData['from_name'] = "Links Farmer";
-        $customData['mailaddress'] = "no-reply@linksfarmer.com";
-        $customData['subject'] = 'Notification: Links Farmer - Website added Successfully';
-        $customData['msg'] = "<p>Your website added successfully.</p>
-            <p>Wait for admin approval; after admin approval, your website will be ready to be visible in the marketplace.</p>
-            <p>Thank you</p>";
-        Mail::to(Auth::user()->email)->send(new MyMail($customData));
+        $customData = [
+            'userName' => Auth::user()->name,
+            'websiteUrl' => $request->post('website_url'),
+        ];
 
-        $customData['subject'] = 'Notification: Links Farmer - New website added';
-        $customData['msg'] = "<p>New website added and awaiting approval:</p>
-            <ul>
-                <li><strong>Website Name:</strong> " . $request->post('website_url') . "</li>
-                <li><strong>Submitted by:</strong> " . Auth::user()->name . " (" . Auth::user()->email . ")</li>
-            </ul>
-            <p>Please review and approve the website in the admin panel.</p>
-            <p>Thank you</p>";
-        $user = lslbUser::where('role_id', '1')->get();
-        Mail::to($user[0]->email)->send(new MyMail($customData));
+        Mail::send('email.website_added', $customData, function ($message) {
+            $message->to('miteshdalsaniya@jspinfotech.com')
+                ->subject('Notification: Links Farmer - New Website Added');
+        });
+
 
         return redirect()->route('publisher.website')->with('success', 'Record added successfully');
     }

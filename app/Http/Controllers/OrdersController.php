@@ -117,9 +117,6 @@ class OrdersController extends Controller
 
                 $order = lslbOrder::where('order_id', $data['order_id'])->with('website.user')->get();
 
-                // echo 'hello';
-                // print_r($order);
-                // exit('data');
 
                 $customData['from_name'] = "Links Farmer";
                 $customData['mailaddress'] = "no-reply@linksfarmer.com";
@@ -156,8 +153,10 @@ class OrdersController extends Controller
                 // echo json_encode($arr);
                 // exit;
                 if ($data['payment_method'] == 'paypal') {
+
                     return redirect()->route('paypal.create', ['price' => $data['price'], 'orderId' => $data['order_id']]);
                 } elseif ($data['payment_method'] == 'razorpay') {
+
                     return redirect()->route('razorpay.create', ['price' => $data['price'], 'orderId' => $data['order_id']]);
                 }
             }

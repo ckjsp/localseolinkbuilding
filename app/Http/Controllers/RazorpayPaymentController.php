@@ -14,6 +14,8 @@ class RazorpayPaymentController extends Controller
     public function makePayment($price, $orderId)
 
     {
+        print_r($price, $orderId);
+        die;
 
         $api = new Api(env('RAZORPAY_KEY_ID'), env('RAZORPAY_KEY_SECRET'));
 
