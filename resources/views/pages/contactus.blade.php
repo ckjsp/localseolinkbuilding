@@ -46,6 +46,8 @@
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1 fw-bold">Call Us</h5>
                 <hr class="my-lg-4" />
+                <p class="pt-lg-2">Do you prefer to talk to someone? Our hours of customer support are Monday to Friday, from 9 AM to 6 PM. Call us at:
+                </p>
                 <p class="pt-lg-2">
                     (1234567890)
                 </p>
@@ -94,7 +96,7 @@
                     <li>LinkedIn:
 
                     </li>
-                </ul>s
+                </ul>
                 <p class="pt-lg-2">
                     Support Hours
                 </p>

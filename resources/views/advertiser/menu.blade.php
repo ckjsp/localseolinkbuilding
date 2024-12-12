@@ -141,7 +141,9 @@
                             },
                             success: function(res) {
                                 console.log('Selected project ID stored in session');
-                                // location.reload(); // Reload the page to show the selected project
+
+                                window.location.reload();
+
                             },
                             error: function(xhr) {
                                 console.error('Error storing selected project ID:', xhr);

@@ -87,8 +87,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/paypal/payment-success', [PaypalPaymentController::class, 'paymentSuccess'])->name('payment.success');
         Route::get('/paypal/payment-cancel/{orderId}', [PaypalPaymentController::class, 'paymentCancel'])->name('payment.cancel');
 
-        Route::get('/razorpay/create/{price}/{orderId}', [RazorpayPaymentController::class, 'makePayment'])->name('razorpay.create');
+        Route::post('/razorpay/create/', [RazorpayPaymentController::class, 'makePayment'])->name('razorpay.create');
         Route::post('/razorpay/callback', [RazorpayPaymentController::class, 'callback'])->name('razorpay.callback');
+        Route::get('/razorpay/cancel', [RazorpayPaymentController::class, 'cancel'])->name('razorpay.cancel');
+
 
 
         Route::controller(PaymentController::class)->group(function () {
@@ -123,6 +125,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     Route::controller(OrdersController::class)->group(function () {
+
         Route::get('/order/info/{id}', 'orderInfo')->name('order.info');
         Route::post('/order/update-status/{id}', 'updateStatus')->name('order.update.status');
 

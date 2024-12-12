@@ -1,6 +1,10 @@
 @extends('advertiser.menu')
 
 @push('css')
+<link rel="stylesheet" href="{{ asset_url('libs/select2/select2.css') }}" />
+<link rel="stylesheet" href="{{ asset_url('libs/bootstrap-select/bootstrap-select.css') }}" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="{{ asset_url('libs/toastr/toastr.css') }}">
 @endpush
 
 @section('sidebar-content')
@@ -53,6 +57,8 @@
                                                 <!-- <input type="hidden" id="payment_method" name="payment_method" value="paypal"> -->
                                                 <input type="hidden" id="price{{$v->id}}" name="price" value="{{ ($v->guest_post_price*$arrCookie[$k]->quantity) }}">
                                                 <input type="hidden" id="type" name="type" value="guest post">
+                                                <input type="hidden" name="selected_project_id" value="{{ session('selected_project_id') }}">
+
                                                 <div class="mb-3">
                                                     <label class="form-label">Payment Method</label><br>
                                                     <input type="radio" name="payment_method" value="paypal" id="paypal-${item.web_id}" class="payment-method-radio" checked>
@@ -109,10 +115,20 @@
                                                 </div>
                                                 <div class="d-flex justify-content-end">
                                                     <div class="text-center mx-2">
+
+                                                        @if(session('selected_project_id'))
+                                                        <!-- Show the Check Out button if session('selected_project_id') exists -->
                                                         <button type="submit" class="btn btn-primary checkout-btn">
                                                             <span class="loader-box spinner-border me-1" role="status" aria-hidden="true" style="display: none;"></span>
                                                             Check Out
                                                         </button>
+                                                        @else
+                                                        <!-- Show a message if session('selected_project_id') is not set -->
+                                                        <div class="alert alert-warning">
+                                                            Please select a project before proceeding.
+                                                        </div>
+                                                        @endif
+
 
                                                     </div>
                                                     <div class="text-center mx-2">
@@ -129,14 +145,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- </form> -->
             </div>
         </div>
     </div>
-    <!--/ Checkout Wizard -->
 </div>
-
-<!-- resources/views/advertiser/cart.blade.php -->
 
 <div class="container-xxl flex-grow-1 container-p-y mt-5">
     <h5 class="shadow-lg p-3 bg-white rounded">Similar Website</h5>
@@ -149,7 +161,7 @@
                     <th>Categories</th>
                     <th>Da</th>
                     <th>Guest Post</th>
-                    <th>Actions</th> <!-- Added for buttons -->
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -221,8 +233,6 @@
         </div>
     </div>
 </div>
-
-
 
 @endsection
 
@@ -302,31 +312,28 @@
 
         // Show success message
         showSuccessMessage("Website successfully added to the cart!");
+
     }
 
-    // Function to show success message
     function showSuccessMessage(message) {
-        // Select the toast element
         var toastEl = document.getElementById('liveToast');
         var toastBody = toastEl.querySelector('.toast-body');
 
-        // Set the message in the toast body
         toastBody.textContent = message;
 
-        // Create a new Toast instance and show it
         var toast = new bootstrap.Toast(toastEl, {
             autohide: true,
-            delay: 3000 // Show toast for 3 seconds
+            delay: 3000
         });
         toast.show();
+
+        window.location.reload();
+
     }
-
-
 
     function updateCartUI(cartItems) {
         var $cartContainer = $('.container');
 
-        // Iterate through each item and update the cart UI
         $.each(cartItems, function(i, item) {
             // Check if the item already exists in the cart
             var $existingItem = $cartContainer.find('.card.web_id_' + item.web_id);
@@ -349,6 +356,8 @@
                                 <input type="hidden" name="payment_method" value="paypal">
                                 <input type="hidden" name="price" value="${item.price}">
                                 <input type="hidden" name="type" value="guest post">
+                                <input type="hidden" name="selected_project_id" value="{{ session('selected_project_id') }}">
+
                                   <div class="mb-3">
                                     <label class="form-label">Payment Method</label><br>
                                     <input type="radio" name="payment_method" value="paypal" id="paypal-${item.web_id}" class="payment-method-radio" checked> 
@@ -399,11 +408,18 @@
                                 </div>
                                 <div class="d-flex justify-content-end">
                                   <div class="text-center mx-2">
+                                                      @if(session('selected_project_id'))
+                                                        <!-- Show the Check Out button if session('selected_project_id') exists -->
                                                         <button type="submit" class="btn btn-primary checkout-btn">
                                                             <span class="loader-box spinner-border me-1" role="status" aria-hidden="true" style="display: none;"></span>
                                                             Check Out
                                                         </button>
-
+                                                        @else
+                                                        <!-- Show a message if session('selected_project_id') is not set -->
+                                                        <div class="alert alert-warning">
+                                                            Please select a project before proceeding.
+                                                        </div>
+                                                        @endif
                                                     </div>
                                     <div class="text-center mx-2">
                                         <button type="button" class="btn btn-danger btn-label-danger" data-web_id="${item.web_id}" onclick="removeFromCart($(this))">Remove</button>
@@ -456,6 +472,8 @@
             setCookie('cart', JSON.stringify($newCartArr), 2);
         }
         updateCartUI($newCartArr);
+        window.location.reload();
+
 
     }
 
@@ -508,5 +526,11 @@
 <script>
     removeFromCart($('#tempWebId'));
 </script>
+
 @endif
+<script src="{{
+        asset_url('libs/bootstrap-select/bootstrap-select.js')
+        }}"></script>
+<script src="{{ asset_url('libs/select2/select2.js') }}"></script>
+<script src="{{ asset_url('js/forms-selects.js') }}"></script>
 @endpush
