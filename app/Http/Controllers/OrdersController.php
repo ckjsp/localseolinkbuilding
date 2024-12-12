@@ -39,7 +39,12 @@ class OrdersController extends Controller
         $data['slug'] = 'orders';
         $data['userDetail'] = Auth::user();
         if (Auth::user()->role->name == 'Advertiser') {
-            $data['orders'] = lslbOrder::where('u_id', Auth::user()->id)->with('website')->get();
+            $selectedProjectId = session('selected_project_id');
+
+            $data['orders'] = lslbOrder::where('u_id', Auth::user()->id)
+                ->where('selected_project_id', $selectedProjectId)
+                ->with('website')
+                ->get();
             return view('advertiser/orders')->with($data);
         } else {
             $lslbOrder = new lslbOrder;
@@ -71,6 +76,7 @@ class OrdersController extends Controller
             'payment_method' => 'required',
             'article_title' => 'required',
             'special_instructions' => 'required',
+            'selected_project_id' => 'required',
         ];
     }
 
@@ -87,7 +93,6 @@ class OrdersController extends Controller
 
         if ($request->file('attachment')->isValid()) {
             $path = $request->file('attachment')->store('uploads');
-            // $validatedData = $request->validate($this->rules());
             $validatedData = Validator::make($request->all(), $this->rules());
             if ($validatedData->fails()) {
                 $arr = array();
@@ -95,9 +100,9 @@ class OrdersController extends Controller
                 $arr['error'] = $validatedData->errors();
                 echo json_encode($arr);
                 exit;
-                // return redirect()->back()->withInput()->withErrors($validatedData);
             } else {
-                $data = $request->only(['order_id', 'website_id', 'u_id', 'price', 'quantity', 'type', 'order_date', 'delivery_time', 'status', 'payment_method', 'article_title', 'special_instructions',]);
+                $data = $request->only(['order_id', 'website_id', 'u_id', 'price', 'quantity', 'type', 'order_date', 'delivery_time', 'status', 'payment_method', 'article_title', 'special_instructions', 'selected_project_id',]);
+                $data['selected_project_id'] = $request->post('selected_project_id');
                 $data['order_id'] = 'order-' . md5(time() . 'DS');
                 $data['order_date'] = date('Y-m-d');
                 $data['attachment'] = $path;
@@ -111,12 +116,16 @@ class OrdersController extends Controller
                 $arr['order_id'] = $data['order_id'];
                 $arr['price'] = $data['price'];
                 $arr['payment_method'] = $data['payment_method'];
+
                 $arr['id'] = $order->id;
                 $arr['success'] = true;
                 $arr['website_id'] = $request->post('website_id');
 
                 $order = lslbOrder::where('order_id', $data['order_id'])->with('website.user')->get();
 
+                // echo 'hello';
+                // print_r($order);
+                // exit('data');
 
                 $customData['from_name'] = "Links Farmer";
                 $customData['mailaddress'] = "no-reply@linksfarmer.com";
@@ -153,11 +162,12 @@ class OrdersController extends Controller
                 // echo json_encode($arr);
                 // exit;
                 if ($data['payment_method'] == 'paypal') {
-
                     return redirect()->route('paypal.create', ['price' => $data['price'], 'orderId' => $data['order_id']]);
                 } elseif ($data['payment_method'] == 'razorpay') {
-
-                    return redirect()->route('razorpay.create', ['price' => $data['price'], 'orderId' => $data['order_id']]);
+                    return view('razorpaypayment', [
+                        'price' => $data['price'],
+                        'orderId' => $data['order_id']
+                    ]);
                 }
             }
         } else {
@@ -166,7 +176,6 @@ class OrdersController extends Controller
             $arr['error'] = 'File upload failed.';
             echo json_encode($arr);
             exit;
-            // return redirect()->back()->withInput()->withErrors('File upload failed.');
         }
     }
 

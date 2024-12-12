@@ -28,11 +28,12 @@
                 </h5>
                 <hr class="my-lg-4" />
                 <p class="pt-lg-2">
-                    By accepting this Privacy Policy, you accept our collection, storage, use, and sharing of your data as defined herein. If you disagree with any item herein, do not use this site or platform.
-                </p>
-                <p class="pt-lg-2">
                     You agree with the terms and conditions outlined in this Privacy Policy when entering, connecting, accessing or using services from Links Farmer. This includes collecting and processing your personal information as outlined herein. If you do not agree with any of the stated terms, do not use the Site and/or Platform.
                 </p>
+                <p class="pt-lg-2">
+                    By accepting this Privacy Policy, you accept our collection, storage, use, and sharing of your data as defined herein. If you disagree with any item herein, do not use this site or platform.
+                </p>
+
             </div>
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1 fw-bold">Information We Collect from Users:
@@ -53,6 +54,8 @@
                 <p class="pt-lg-2">
                     Non-personal data is data that cannot identify you. But when data is considered anonymized, it cannot identify the individual directly, however, it becomes possible to identify indirectly it with the help of some specific knowledge or methods. This type of information is gathered automatically through how you use the Site or Platform. Non-personal data includes all technical and behavioural information that does not have reference to your identity.
 
+                </p>
+                <p class="pt-lg-2">Examples of Non-personal Information include:
                 </p>
                 <ul>
                     <li>Your IP address
@@ -286,14 +289,14 @@
 
                 </p>
             </div>
-            <div class="col-lg-8">
+            <!-- <div class="col-lg-8">
                 <h5 class="mb-2 pb-1  fw-bold">Termination of Services
                 </h5>
                 <hr class="my-lg-4" />
                 <p class="pt-lg-2">
                     Links Farmer reserves the right to terminate your access to the website for violating these Terms, or if we suspect you have violated them, or when requested by law enforcement officials or other government agencies.
                 </p>
-            </div>
+            </div> -->
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1  fw-bold">We are allowed to share your information with other parties, including.
 
@@ -350,9 +353,7 @@
                     We may transfer your data across borders to other jurisdictions to provide our services effectively. Such transfer may be to countries having a different standard of data protection than that in your jurisdiction. You consent to the transfer of your data to such countries by using the Site.
 
                 </p>
-                <p class="pt-lg-2">
-                    These Terms and States make up the entire and complete agreement between you and Links Farmer and supersede any prior communications, representations or agreements of any kind about your use of this website or services.
-                </p>
+
             </div>
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1 fw-bold">Direct Marketing:

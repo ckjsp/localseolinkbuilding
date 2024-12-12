@@ -29,6 +29,8 @@ class lslbOrder extends Authenticatable
         'attachment',
         'article_title',
         'special_instructions',
+        'selected_project_id',
+
     ];
 
     public function website()

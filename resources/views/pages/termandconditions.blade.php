@@ -128,6 +128,11 @@
                     </li>
                 </ul>
                 <ul>
+                    <li>Deliver spam or unsolicited promotional materials.
+
+                    </li>
+                </ul>
+                <ul>
                     <li>Introduce harmful or malicious code or attempt to disrupt the functioning of Links Farmer.
 
                     </li>

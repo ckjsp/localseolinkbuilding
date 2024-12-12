@@ -2,7 +2,7 @@
 
 <html
     lang="en"
-    class="light-style layout-navbar-fixed layout-wide"
+    class="dark-style layout-navbar-fixed layout-wide"
     dir="ltr"
     data-theme="theme-default"
     data-assets-path="../../assets/"
@@ -30,108 +30,99 @@
     <link rel="stylesheet" href="{{ asset_url('css/rtl/theme-default.css') }}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset_url('css/demo.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('css/pages/front-page.css') }}" />
+    <!-- <link rel="stylesheet" href="{{ asset_url('css/pages/front-page-landing.css') }}" /> -->
+
     <link rel="stylesheet" href="{{ asset_url('libs/node-waves/node-waves.css') }}" />
     <script src="{{ asset_url('js/helpers.js') }}"></script>
     <script src="{{ asset_url('js/template-customizer.js') }}"></script>
     <script src="{{ asset_url('js/front-config.js') }}"></script>
 
 </head>
-<style>
-    .navbar {
-        height: 90px;
-    }
-</style>
+
 
 <body>
 
     <script src=" {{ asset_url('js/dropdown-hover.js') }}"></script>
     <script src="{{ asset_url('js/mega-dropdown.js') }}"></script>
-
-    <nav class="layout-navbar shadow-none py-0 navbar-active">
+    <nav class="layout-navbar custom-navbar shadow-none py-0">
         <div class="container">
-            <div class="navbar navbar-expand-lg landing-navbar px-3 px-md-4 ">
-
-                <a href="#" class="app-brand-link">
-                    <span class="app-brand-logo demo">
-                        <a href="#" class="app-brand-link">
-                            <a href="https://linksfarmer.com" class="app-brand-link gap-2">
-                                <img src="https://linksfarmer.com//public/img/logo.svg" alt="Logo" class="w-75">
-                            </a>
-                        </a>
-                    </span>
-                </a>
-
+            <div class="navbar navbar-expand-xl landing-navbar">
+                <!-- Menu logo wrapper: Start -->
+                <div class="navbar-brand app-brand demo d-flex  me-4">
+                    <!-- Mobile menu toggle: Start-->
+                    <button
+                        class="navbar-toggler text-light border-0 px-0 me-2"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="ti ti-menu-2 ti-sm align-middle"></i>
+                    </button>
+                    <!-- Mobile menu toggle: End-->
+                    <a href="landing-page.html" class="app-brand-link">
+                        <div class="logo-wrap">
+                            <img src="{{ asset_url('img/header-logo.png') }}" alt="logo">
+                        </div>
+                    </a>
+                </div>
+                <!-- Menu logo wrapper: End -->
+                <!-- Menu wrapper: Start -->
                 <div class="collapse navbar-collapse landing-nav-menu" id="navbarSupportedContent">
-
-
-                    <ul class="navbar-nav me-auto">
-
+                    <button
+                        class="navbar-toggler border-0 text-light position-absolute end-0 top-0 scaleX-n1-rtl"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="true"
+                        aria-label="Toggle navigation">
+                        <i class="ti ti-x ti-sm"></i>
+                    </button>
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-
-                            <a class="nav-link fw-medium" aria-current="page" href="#">Home</a>
-
+                            <a class="nav-link fw-medium" aria-current="page" href="landing-page.html#landingHero">Service</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link fw-medium" href="{{ route('terms-condition') }}">Terms</a>
+                            <a class="nav-link fw-medium" href="landing-page.html#landingFeatures">Tools</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link fw-medium" href="{{ route('privacy-policy') }}">Privacy policy</a>
+                            <a class="nav-link fw-medium" href="landing-page.html#landingTeam">Company</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link fw-medium" href="{{ route('contact-us') }}">Contact us</a>
+                            <a class="nav-link fw-medium" href="landing-page.html#landingFAQ">Resources</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="landing-page.html#landingContact">Contact us</a>
+                        </li>
+                        <li class="nav-item d-xl-none">
+                            <a class="nav-link fw-medium" href="#">Login</a>
+                        </li>
+                        <li class="nav-item d-xl-none">
+                            <a class="nav-link fw-medium" href="#">Sign Up for free</a>
                         </li>
 
                     </ul>
                 </div>
-                <div class="landing-menu-overlay d-lg-none"></div>
-
-                <ul class="navbar-nav flex-row align-items-center ms-auto">
-                    <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">
-                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                            <i class="ti ti-sm"></i>
+                <div class="landing-menu-overlay d-xl-none"></div>
+                <!-- Menu wrapper: End -->
+                <!-- Toolbar: Start -->
+                <ul class="navbar-nav flex-row gap-2 align-items-center ms-auto d-none d-xl-flex">
+                    <!-- navbar button: Start -->
+                    <li>
+                        <a href="#" class="outlined-btn">
+                            Login
                         </a>
-
-                        <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">
-                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                                    <i class="ti ti-sm"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-styles">
-                                    <li>
-                                        <a class="dropdown-item" href="javascript:void(0);" data-theme="light">
-                                            <span class="align-middle"><i class="ti ti-sun me-2"></i>Light</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="javascript:void(0);" data-theme="dark">
-                                            <span class="align-middle"><i class="ti ti-moon me-2"></i>Dark</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="javascript:void(0);" data-theme="system">
-                                            <span class="align-middle"><i class="ti ti-device-desktop me-2"></i>System</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="btn btn-primary me-2" target="_blank">
-                                    <span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span>
-                                    <span class="d-none d-md-block">Login</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-primary" target="_blank">
-                                    <span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span>
-                                    <span class="d-none d-md-block">Register</span>
-                                </a>
-                            </li>
-
-                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="filled-btn">
+                            Sign Up for free
+                        </a>
+                    </li>
+                    <!-- navbar button: End -->
+                </ul>
+                <!-- Toolbar: End -->
             </div>
         </div>
     </nav>
