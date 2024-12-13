@@ -111,21 +111,19 @@ class RazorpayPaymentController extends Controller
                 ]);
 
 
-                // Add email functionality here
-                $customData['from_name'] = "Links Farmer";
-                $customData['mailaddress'] = "no-reply@linksfarmer.com";
-                $customData['subject'] = 'Order Payment Successful';
-                $customData['msg'] = "<p>Your payment for Order ID: <strong>{$customOrderId}</strong> has been successfully processed.</p>
-                                  <p><strong>Order Details:</strong></p>
-                                  <ul>
-                                      <li>Order ID: {$customOrderId}</li>
-                                      <li>Amount Paid: {$order->price}</li>
-                                      <li>Payment Method: Razorpay</li>
-                                  </ul>
-                                  <p>Thank you for your payment. You can view your orders in your dashboard.</p>";
+                $customData = [
+                    'from_name' => 'Links Farmer',
+                    'mailaddress' => 'no-reply@linksfarmer.com',
+                    'subject' => 'Order Payment Successful',
+                    'customOrderId' => $customOrderId,
+                    'orderPrice' => $order->price,
+                ];
 
-                Mail::to($order->email)->send(new MyMail($customData));
-
+                Mail::send('email.order_payment_successful_razorpay', $customData, function ($message) use ($customData, $order) {
+                    $message->from($customData['mailaddress'], $customData['from_name']);
+                    $message->to($order->email);
+                    $message->subject($customData['subject']);
+                });
 
                 return redirect()->route('advertiser.orders')->with('success', 'Payment completed successfully!');
             } else {

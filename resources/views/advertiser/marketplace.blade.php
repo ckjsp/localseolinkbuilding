@@ -18,10 +18,14 @@
     @endif
     <div class="row justify-content-center mt-5">
         <div class="col-md-12">
+
             <div class="card mt-2">
+
                 @if (count($websites) > 0)
+
                 <input type="hidden" id="user_id" value="{{ $userDetail->id }}" />
                 <input type="hidden" id="user_role" value="{{ $userDetail->role->name }}" />
+
                 <div class="table-responsive text-nowrap m-3">
                     @php $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart']) : array(); @endphp
                     <table class="table" id="websitesTable">
@@ -186,6 +190,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 @push('script')
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
@@ -371,6 +376,22 @@
             },
         });
     }
+
+    $("#clearFilters").on('click', function() {
+        $("#websitefilter")[0].reset();
+
+        $('#selectcategory').val(null).trigger('change');
+        $('#selectday').val(null).trigger('change');
+
+        $("input[type=radio]").prop('checked', false);
+
+        $("#priceMin").val('');
+        $("#priceMax").val('');
+
+        $("#price_traffic_msg").addClass('d-none');
+
+        tblFilter();
+    });
 </script>
 <script src="{{
         asset_url('libs/bootstrap-select/bootstrap-select.js')

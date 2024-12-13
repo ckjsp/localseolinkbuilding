@@ -101,25 +101,12 @@
                             <option value="15">Last 15 days</option>
                             <option value="30">Last 30 days</option>
                             <option value="60">Last 60 days</option>
-                            <!-- Add more options if needed -->
                         </select>
                     </div>
                 </div>
             </li>
 
-            <!-- <li class="menu-item py-2">
-                <div class="px-3">
-                    @csrf
-                    <label for="inputCountry1" class="form-label">Country</label>
-                    <div class="select2-primary">
-                        <select id="selectcontry" name="selectcontry[]" class="form-select select2" multiple>
-                            <option value="Australia">Australia</option>
-                            <option value="India">India</option>
-                            <option value="United States">United States</option>
-                        </select>
-                    </div>
-                </div>
-            </li> -->
+
             <li class="menu-item py-2">
                 <div class="px-3">
                     <label class="form-label">Link Type</label>
@@ -322,46 +309,13 @@
                         </div>
                     </div>
                 </div>
-            </li>
 
-            <!-- <li class="menu-item py-2">
+            </li>
+            <li class="menu-item py-2">
                 <div class="px-3">
-                    <label class="form-label">Domain Rating</label>
-                    <div class="row rounded py-2 ms-1">
-                        <div class="col-md-12">
-                            <div class="form-check">
-                                <input class="form-check-input rounded-circle inputDR1 " type="radio" name="domain_rating" id="inputDR1" value="1-20">
-                                <label class="form-check-label" for="inputDR1">1 - 20</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-check">
-                                <input class="form-check-input rounded-circle inputDR1 domain_rating" type="radio" name="domain_rating" id="inputDR1" value="21-40">
-                                <label class="form-check-label" for="inputDR1">21 - 40</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-check">
-                                <input class="form-check-input rounded-circle inputDR1 domain_rating" type="radio" name="domain_rating" id="inputDR1" value="41-60">
-                                <label class="form-check-label" for="inputDR1">41 - 60</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-check">
-                                <input class="form-check-input rounded-circle inputDR1 domain_rating" type="radio" name="domain_rating" id="inputDR1" value="61-80">
-                                <label class="form-check-label" for="inputDR1">61 - 80</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-check">
-                                <input class="form-check-input rounded-circle inputDR1 domain_rating" type="radio" name="domain_rating" id="inputDR1" value="81-100">
-                                <label class="form-check-label" for="inputDR1">81 - 100</label>
-                            </div>
-                        </div>
-                    </div>
+                    <button type="button" id="clearFilters" class="btn button btn-primary  waves-effect waves-light">Clear Filters</button>
                 </div>
-            </li> -->
+            </li>
         </ul>
     </form>
 </aside>
-<!-- / Menu -->

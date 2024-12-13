@@ -88,24 +88,21 @@ class PaypalPaymentController extends Controller
                         'payment_status' => 'success',
                     ]);
 
-                    // Add email functionality here
-                    $customData['from_name'] = "Links Farmer";
-                    $customData['mailaddress'] = "no-reply@linksfarmer.com";
-                    $customData['subject'] = 'Order Payment Successful';
-                    $customData['msg'] = "
-                        <p>Your payment for Order ID: <strong>{$order->order_id}</strong> has been successfully processed.</p>
-                        <p><strong>Order Details:</strong></p>
-                        <ul>
-                            <li><strong>Order ID:</strong> {$order->order_id}</li>
-                            <li><strong>Amount Paid:</strong> {$captures['amount']['value']}</li>
-                            <li><strong>Payment Method:</strong> PayPal</li>
-                            <li><strong>Payment ID:</strong> {$captures['id']}</li>
-                        </ul>
-                        <p>Thank you for your payment. You can view your orders in your dashboard.</p>
-                    ";
+                    $customData = [
+                        'from_name' => 'Links Farmer',
+                        'mailaddress' => 'no-reply@linksfarmer.com',
+                        'subject' => 'Order Payment Successful',
+                        'order_id' => $order->order_id,
+                        'amount_paid' => $captures['amount']['value'],
+                        'payment_id' => $captures['id'],
+                    ];
 
-                    // Sending the email
-                    Mail::to($order->email)->send(new MyMail($customData));
+                    // Send the email using the Blade view
+                    Mail::send('email.order_payment_successful_paypal', $customData, function ($message) use ($customData, $order) {
+                        $message->from($customData['mailaddress'], $customData['from_name']);
+                        $message->to($order->email);
+                        $message->subject($customData['subject']);
+                    });
 
                     return redirect()->route('advertiser.orders')->with('success', 'Payment completed successfully!');
                 }

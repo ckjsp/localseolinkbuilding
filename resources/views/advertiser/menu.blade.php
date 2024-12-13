@@ -179,7 +179,6 @@
                 url: editUrl,
                 type: 'GET',
                 success: function(data) {
-                    // Set form fields
                     $('#project_id').val(data.id);
                     $('#project_name').val(data.project_name);
                     $('#project_url').val(data.project_url);
@@ -189,15 +188,12 @@
                     $('#project-form').attr('action', `{{ route('advertiser.projects.update', ':id') }}`.replace(':id', projectId));
 
 
-                    // Set fields to readonly if they have values
                     $('#project_name').attr('readonly', !!data.project_name);
                     $('#project_url').attr('readonly', !!data.project_url);
 
-                    // Add hidden input for PUT method
                     $('#project-form').find('input[name="_method"]').remove();
                     $('#project-form').append('<input type="hidden" name="_method" value="PUT">');
 
-                    // Show the modal
                     $('#add-projects-pop').modal('show');
                 },
                 error: function(error) {
@@ -206,27 +202,19 @@
             });
         });
 
-        // Reset form when the modal is closed
         $(document).on('hidden.bs.modal', '#add-projects-pop', function() {
             resetProjectForm();
         });
 
         function resetProjectForm() {
-            // Clear form fields explicitly
             $('#project_id').val('');
             $('#project_name').val('').removeAttr('readonly');
             $('#project_url').val('').removeAttr('readonly');
-            $('#projectCategories').val('').trigger('change'); // Adjust as necessary for your select
-            $('#projectForbiddenCategories').val('').trigger('change'); // Adjust as necessary for your select
+            $('#projectCategories').val('').trigger('change');
+            $('#projectForbiddenCategories').val('').trigger('change');
             $('#additional_note').val('');
-
-            // Remove any hidden input for PUT method
             $('#project-form').find('input[name="_method"]').remove();
-
-            // Reset the form action
-            $('#project-form').attr('action', ''); // or set to the default action if necessary
-
-            // Reset the modal title to "Add Project Details"
+            $('#project-form').attr('action', '');
             $('#add-projects-pop .modal-title').text('{{ __("Add Project Details") }}');
         }
 
