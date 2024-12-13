@@ -192,8 +192,7 @@ class WebsiteController extends Controller
             'guidelines' => 'nullable|string',
             'categories' => 'required|array',
             'categories.*' => 'string',
-            'forbidden_categories' => 'nullable|array',
-            'forbidden_categories.*' => 'nullable|string',
+            'forbidden_categories' => 'nullable',
             'guest_post_price' => 'required',
             'link_insertion_price' => 'required',
         ]);
@@ -202,6 +201,7 @@ class WebsiteController extends Controller
             $request->validate([
                 'site_verification_file' => 'required|file|mimes:pdf,png,jpg|max:5120',
             ]);
+
             if ($request->file('site_verification_file')->isValid()) {
                 $path = $request->file('site_verification_file')->store('verification');
             } else {
@@ -211,12 +211,11 @@ class WebsiteController extends Controller
             $path = $request->post('old_site_verification_file');
         }
 
-        $categories = implode(',', $request->input('categories', []));
-        $forbiddenCategories = $request->input('forbidden_categories', []);
-        $data['forbidden_categories'] = !empty($forbiddenCategories)
-            ? implode(',', $forbiddenCategories)
-            : null;
+        $categories = is_array($request->input('categories', [])) ? implode(',', $request->input('categories', [])) : '';
 
+        $forbiddenCategories = is_array($request->input('forbidden_categories', []))
+            ? implode(',', $request->input('forbidden_categories', []))
+            : null;
 
         $validatedData['categories'] = $categories;
         $validatedData['forbidden_categories'] = $forbiddenCategories;
@@ -228,8 +227,8 @@ class WebsiteController extends Controller
     }
 
 
-
     public function destroy(string $id)
+
     {
         $this->chekRole();
         $website = lslbWebsite::find($id);

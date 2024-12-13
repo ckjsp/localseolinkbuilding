@@ -85,7 +85,6 @@ class OrdersController extends Controller
      */
 
     public function store(Request $request)
-
     {
         $request->validate([
             'attachment' => 'required|file|mimes:doc,docx|max:2048',
@@ -94,14 +93,14 @@ class OrdersController extends Controller
         if ($request->file('attachment')->isValid()) {
             $path = $request->file('attachment')->store('uploads');
             $validatedData = Validator::make($request->all(), $this->rules());
+
             if ($validatedData->fails()) {
-                $arr = array();
-                $arr['success'] = false;
-                $arr['error'] = $validatedData->errors();
-                echo json_encode($arr);
-                exit;
+                return response()->json([
+                    'success' => false,
+                    'error' => $validatedData->errors(),
+                ]);
             } else {
-                $data = $request->only(['order_id', 'website_id', 'u_id', 'price', 'quantity', 'type', 'order_date', 'delivery_time', 'status', 'payment_method', 'article_title', 'special_instructions', 'selected_project_id',]);
+                $data = $request->only(['order_id', 'website_id', 'u_id', 'price', 'quantity', 'type', 'order_date', 'delivery_time', 'status', 'payment_method', 'article_title', 'special_instructions', 'selected_project_id']);
                 $data['selected_project_id'] = $request->post('selected_project_id');
                 $data['order_id'] = 'order-' . md5(time() . 'DS');
                 $data['order_date'] = date('Y-m-d');
@@ -111,56 +110,29 @@ class OrdersController extends Controller
                 $t = time() + 4 * 24 * 60 * 60;
                 $data['delivery_time'] = date("Y-m-d H:i:s", $t);
                 $data['status'] = 'new';
+
+                $user = lslbUser::find($data['u_id']);
+                if ($user) {
+                    $data['email'] = $user->email;
+                } else {
+                    return response()->json([
+                        'success' => false,
+                        'error' => 'User not found.',
+                    ]);
+                }
+
+                // Create the order with email
                 $order = lslbOrder::create($data);
-                $arr = array();
-                $arr['order_id'] = $data['order_id'];
-                $arr['price'] = $data['price'];
-                $arr['payment_method'] = $data['payment_method'];
 
-                $arr['id'] = $order->id;
-                $arr['success'] = true;
-                $arr['website_id'] = $request->post('website_id');
+                $arr = [
+                    'order_id' => $data['order_id'],
+                    'price' => $data['price'],
+                    'payment_method' => $data['payment_method'],
+                    'id' => $order->id,
+                    'success' => true,
+                    'website_id' => $request->post('website_id'),
+                ];
 
-                $order = lslbOrder::where('order_id', $data['order_id'])->with('website.user')->get();
-
-                // echo 'hello';
-                // print_r($order);
-                // exit('data');
-
-                $customData['from_name'] = "Links Farmer";
-                $customData['mailaddress'] = "no-reply@linksfarmer.com";
-                $customData['subject'] = 'Notification: Links Farmer - Order Place Successfully';
-                $customData['msg'] = "<p>Thank you for your order!</p>
-                <p>Your order has been successfully placed with the following details:</p>
-                <ul>
-                    <li><strong>Order ID:</strong> " . $arr['order_id'] . "</li>
-                    <li><strong>Product Name:</strong> " . $order[0]->website->website_url . "</li>
-                    <li><strong>Total Amount:</strong> $" . $order[0]->price . "</li>
-                </ul>
-                <a href='" . base_url('/advertiser/orders') . "'>View Orders</a>
-                <p>We will process your order and notify you once it's publish. If you have any questions, feel free to contact us.</p>
-                <p>Thank you for shopping with us!</p>";
-                // Mail::to(Auth::user()->email)->send(new MyMail($customData));
-
-                $customData['subject'] = 'Notification: Links Farmer - New website added';
-                $customData['msg'] = "<p>Congratulations! You have a new order to fulfill:</p>
-                    <ul>
-                        <li><strong>Order ID:</strong> " . $arr['order_id'] . "</li>
-                        <li><strong>Website:</strong> " . $order[0]->website->website_url . "</li>
-                        <li><strong>Total Amount:</strong> $" . $order[0]->price . "</li>
-                    </ul>
-                    <a href='" . base_url('/publisher/orders') . "'>View Orders</a>
-                    <p>Publish the advertiser provided detail. If you have any questions, please contact the customer directly.</p>
-                    <p>Thank you for being a seller on our platform!</p>
-                <li><strong>Customer Name:</strong> " . Auth::user()->name . "</li>
-                <li><strong>Customer Email:</strong> " . Auth::user()->email . "</li>";
-                // echo 'hello';
-                // print_r($order[0]->website->user);
-                // exit('data');
-                // Mail::to($order[0]->website->user->email)->send(new MyMail($customData));
-
-                // echo json_encode($arr);
-                // exit;
                 if ($data['payment_method'] == 'paypal') {
                     return redirect()->route('paypal.create', ['price' => $data['price'], 'orderId' => $data['order_id']]);
                 } elseif ($data['payment_method'] == 'razorpay') {
@@ -171,11 +143,10 @@ class OrdersController extends Controller
                 }
             }
         } else {
-            $arr = array();
-            $arr['success'] = false;
-            $arr['error'] = 'File upload failed.';
-            echo json_encode($arr);
-            exit;
+            return response()->json([
+                'success' => false,
+                'error' => 'File upload failed.',
+            ]);
         }
     }
 

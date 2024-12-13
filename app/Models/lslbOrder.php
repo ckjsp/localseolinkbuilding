@@ -18,6 +18,7 @@ class lslbOrder extends Authenticatable
         'order_id',
         'website_id',
         'u_id',
+        'email',
         'price',
         'quantity',
         'type',

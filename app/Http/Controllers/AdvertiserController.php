@@ -59,24 +59,17 @@ class AdvertiserController extends Controller
             $data['failedOrderCount'] = lslbOrder::where('u_id', Auth::user()->id)->where('payment_status', 'failed')->count();
 
             $userId = Auth::user()->id;
-            //$projects = lslbProject::all();
-            $projects = lslbProject::where('user_id', $userId)->get();
-            $selectedProjectId = session('selected_project_id', $projects->first()->id ?? null);
-            $selectedProject = $projects->where('id', $selectedProjectId)->first();
-            if ($selectedProject) {
-                $projects = $projects->filter(function ($project) use ($selectedProjectId) {
-                    return $project->id !== $selectedProjectId;
-                })->prepend($selectedProject);
-            }
+
+            $projects = lslbProject::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
 
             $data['projects'] = $projects;
-            $data['selectedProject'] = $selectedProject;
 
             return view('advertiser/home')->with($data);
         } else {
             return redirect('/login');
         }
     }
+
 
     public function projects()
     {
@@ -329,21 +322,29 @@ class AdvertiserController extends Controller
     }
 
     public function projectDestroy($id)
-
     {
-        $project = lslbProject::findOrFail($id);
+        $selectedProjectId = session('selected_project_id');
 
-        if ($project->delete()) {
-            $remainingProjects = lslbProject::count();
+        if ($id == $selectedProjectId) {
+            $project = lslbProject::findOrFail($id);
 
-            if ($remainingProjects === 0) {
-                return response()->json(['success' => 'Project deleted successfully.', 'clearLocalStorage' => true]);
+            if ($project->delete()) {
+                session()->forget('selected_project_id');
+
+                $remainingProjects = lslbProject::count();
+
+                if ($remainingProjects === 0) {
+                    return response()->json(['success' => 'Project deleted successfully.', 'clearLocalStorage' => true]);
+                }
+                return response()->json(['success' => 'Project deleted successfully.']);
+            } else {
+                return response()->json(['error' => 'Failed to delete the project.'], 500);
             }
-            return response()->json(['success' => 'Project deleted successfully.']);
         } else {
-            return response()->json(['error' => 'Failed to delete the project.'], 500);
+            return response()->json(['error' => 'The selected project ID does not match the project to be deleted.'], 400);
         }
     }
+
 
     public function showMenu()
     {
