@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="{{ asset_url('css/rtl/core.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('css/rtl/theme-default.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('css/demo.css') }}" />
-    <!-- <link rel="stylesheet" href="{{ asset_url('/css/pages/front-page.css') }}" /> -->
     <link rel="stylesheet" href="{{ asset_url('libs/node-waves/node-waves.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('libs/nouislider/nouislider.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('libs/swiper/swiper.css') }}" />
@@ -32,7 +31,6 @@
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">
-        <!-- Hero: Start -->
         <section id="hero-animation" class="hero-section">
             <div id="landingHero" class="section-py landing-hero position-relative">
 

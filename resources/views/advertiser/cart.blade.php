@@ -335,16 +335,13 @@
         var $cartContainer = $('.container');
 
         $.each(cartItems, function(i, item) {
-            // Check if the item already exists in the cart
             var $existingItem = $cartContainer.find('.card.web_id_' + item.web_id);
 
             if ($existingItem.length) {
-                // Update the existing item
                 $existingItem.find('.quantity').val(item.quantity);
 
 
             } else {
-                // Append the new item
                 var $cartItem = `
                     <div class="card mb-4 web_id_${item.web_id}">
                         <div class="card-body">
@@ -452,7 +449,9 @@
 
 
     function removeFromCart($this) {
+
         var $web_id = $this.data('web_id');
+
         var $user_id = $('#user_id').val();
         $newCartArr = [];
         $cartCookie = getCookie('cart')
@@ -471,9 +470,10 @@
             $('.nav-cart-icon').attr('data-item-count', $newCartArr.length);
             setCookie('cart', JSON.stringify($newCartArr), 2);
         }
-        updateCartUI($newCartArr);
-        window.location.reload();
 
+        updateCartUI($newCartArr);
+
+        window.location.reload();
 
     }
 
