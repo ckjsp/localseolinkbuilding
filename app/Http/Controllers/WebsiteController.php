@@ -76,9 +76,6 @@ class WebsiteController extends Controller
         ];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
 
     public function store(Request $request)
 
@@ -141,18 +138,8 @@ class WebsiteController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     */
+    public function show(string $id) {}
 
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
 
     public function edit(string $id)
     {

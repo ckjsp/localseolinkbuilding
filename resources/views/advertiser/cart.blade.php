@@ -117,13 +117,11 @@
                                                     <div class="text-center mx-2">
 
                                                         @if(session('selected_project_id'))
-                                                        <!-- Show the Check Out button if session('selected_project_id') exists -->
                                                         <button type="submit" class="btn btn-primary checkout-btn">
                                                             <span class="loader-box spinner-border me-1" role="status" aria-hidden="true" style="display: none;"></span>
                                                             Check Out
                                                         </button>
                                                         @else
-                                                        <!-- Show a message if session('selected_project_id') is not set -->
                                                         <div class="alert alert-warning">
                                                             Please select a project before proceeding.
                                                         </div>
