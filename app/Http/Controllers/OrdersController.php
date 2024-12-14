@@ -74,7 +74,6 @@ class OrdersController extends Controller
             'quantity' => 'required',
             'type' => 'required',
             'payment_method' => 'required',
-            'article_title' => 'required',
             'special_instructions' => 'required',
             'selected_project_id' => 'required',
         ];
@@ -86,73 +85,115 @@ class OrdersController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'attachment' => 'required|file|mimes:doc,docx|max:2048',
-        ]);
+        $validatedData = Validator::make($request->all(), array_merge($this->rules(), [
+            'attachment.*' => 'nullable|file|mimes:doc,docx,pdf|max:10240',
+            'article_title.*' => 'nullable|string',
+        ]));
 
-        if ($request->file('attachment')->isValid()) {
-            $path = $request->file('attachment')->store('uploads');
-            $validatedData = Validator::make($request->all(), $this->rules());
+        if ($validatedData->fails()) {
+            return response()->json([
+                'success' => false,
+                'error' => $validatedData->errors(),
+            ]);
+        }
 
-            if ($validatedData->fails()) {
-                return response()->json([
-                    'success' => false,
-                    'error' => $validatedData->errors(),
-                ]);
-            } else {
-                $data = $request->only(['order_id', 'website_id', 'u_id', 'price', 'quantity', 'type', 'order_date', 'delivery_time', 'status', 'payment_method', 'article_title', 'special_instructions', 'selected_project_id']);
-                $data['selected_project_id'] = $request->post('selected_project_id');
-                $data['order_id'] = 'order-' . md5(time() . 'DS');
-                $data['order_date'] = date('Y-m-d');
-                $data['attachment'] = $path;
-                $data['payment_status'] = 'pending';
-                $data['u_id'] = $request->post('user_id');
-                $t = time() + 4 * 24 * 60 * 60;
-                $data['delivery_time'] = date("Y-m-d H:i:s", $t);
-                $data['status'] = 'new';
+        $attachmentPaths = [];
 
-                $user = lslbUser::find($data['u_id']);
-                if ($user) {
-                    $data['email'] = $user->email;
-                } else {
-                    return response()->json([
-                        'success' => false,
-                        'error' => 'User not found.',
-                    ]);
-                }
+        if ($request->hasFile('attachment')) {
+            $files = $request->file('attachment');
 
-                // Create the order with email
-                $order = lslbOrder::create($data);
-
-                $arr = [
-                    'order_id' => $data['order_id'],
-                    'price' => $data['price'],
-                    'payment_method' => $data['payment_method'],
-                    'id' => $order->id,
-                    'success' => true,
-                    'website_id' => $request->post('website_id'),
-                ];
-
-                if ($data['payment_method'] == 'paypal') {
-                    return redirect()->route('paypal.create', ['price' => $data['price'], 'orderId' => $data['order_id']]);
-                } elseif ($data['payment_method'] == 'razorpay') {
-                    return view('razorpaypayment', [
-                        'price' => $data['price'],
-                        'orderId' => $data['order_id']
-                    ]);
+            foreach ($files as $file) {
+                if ($file->isValid()) {
+                    $path = $file->store('uploads', 'public');
+                    $attachmentPaths[] = $path;
                 }
             }
+        }
+
+        $data = $request->only([
+            'website_id',
+            'user_id',
+            'price',
+            'quantity',
+            'type',
+            'order_date',
+            'delivery_time',
+            'status',
+            'payment_method',
+            'special_instructions',
+            'selected_project_id',
+            'existing_post_url',
+            'landing_page_url',
+            'anchor_text',
+        ]);
+
+        $articleTitles = $request->input('article_title');
+
+        $storedArticleTitles = [];
+
+
+        if ($articleTitles && is_array($articleTitles)) {
+            foreach ($articleTitles as $title) {
+                $storedArticleTitles[] = ArticleTitle::create([
+                    'order_id' => $data['order_id'],
+                    'title' => $title
+                ]);
+            }
+        }
+
+        $data['order_id'] = 'order-' . md5(time() . 'DS');
+        $data['order_date'] = date('Y-m-d');
+        $data['payment_status'] = 'pending';
+        $data['u_id'] = $request->post('user_id');
+        $t = time() + 4 * 24 * 60 * 60;
+        $data['delivery_time'] = date("Y-m-d H:i:s", $t);
+        $data['status'] = 'new';
+
+        if (!empty($attachmentPaths)) {
+            $data['attachment'] = json_encode($attachmentPaths);
+        } else {
+            $data['attachment'] = null;
+        }
+
+        $user = lslbUser::find($data['user_id']);
+        if ($user) {
+            $data['email'] = $user->email;
         } else {
             return response()->json([
                 'success' => false,
-                'error' => 'File upload failed.',
+                'error' => 'User not found.',
             ]);
         }
+
+        $order = lslbOrder::create($data);
+
+        $arr = [
+            'order_id' => $data['order_id'],
+            'price' => $data['price'],
+            'payment_method' => $data['payment_method'],
+            'id' => $order->id,
+            'success' => true,
+            'website_id' => $request->post('website_id'),
+        ];
+
+        if ($data['payment_method'] == 'paypal') {
+            return redirect()->route('paypal.create', ['price' => $data['price'], 'orderId' => $data['order_id']]);
+        } elseif ($data['payment_method'] == 'razorpay') {
+            return view('razorpaypayment', [
+                'price' => $data['price'],
+                'orderId' => $data['order_id']
+            ]);
+        }
+
+        // Return the response as JSON if no redirection
+        return response()->json($arr);
     }
+
 
     /**
      * Display the specified resource.
      */
+
     public function show(string $id)
     {
         //
@@ -161,6 +202,7 @@ class OrdersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
     public function edit(string $id)
     {
         //
@@ -169,6 +211,7 @@ class OrdersController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(Request $request, string $id)
     {
         //
@@ -177,6 +220,7 @@ class OrdersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy(string $id)
     {
         //
@@ -185,6 +229,7 @@ class OrdersController extends Controller
     /**
      * Order Detail
      */
+
     public function orderInfo(string $id)
     {
         $data = array();
@@ -198,18 +243,18 @@ class OrdersController extends Controller
     }
 
     /** read docx fil */
+
     public function checkArticle(string $id)
+
     {
         $orders = lslbOrder::find($id);
         $docxFilePath = storage_path('app/' . $orders->attachment);
-        // echo $docxFilePath;exit;
         try {
             $phpWord = IOFactory::load($docxFilePath);
             $content  = '';
             foreach ($phpWord->getSections() as $section) {
                 foreach ($section->getElements() as $element) {
                     if (method_exists($element, 'getText')) {
-                        // Capture text content
                         $text = $element->getText();
                         $content .= $text;
                     } elseif ($element instanceof \PhpOffice\PhpWord\Element\Text) {
