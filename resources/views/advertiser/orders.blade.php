@@ -50,13 +50,20 @@
                                 <td><a href="{{ $v->website->website_url }}" target="_blank" title="Web Site Link ({{ $v->website->website_url }})" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="{{ $v->website->website_url }}">{{ $v->website->website_url }}</a></td>
                                 <td>
                                     @if($v->attachment != '')
-                                    <a href="{{ url('/storage/app/'.$v->attachment) }}" target="_blank" title="Attachment Link">{{ $v->article_title }}</a>
+                                    @php
+                                    // Assuming $v->article_title is an array or a comma-separated string
+                                    $titles = is_array($v->article_title) ? implode(", ", $v->article_title) : $v->article_title;
+                                    @endphp
+
+                                    <a href="{{ url('/storage/app/'.$v->attachment) }}" target="_blank" title="Attachment Link">{{ $titles }}</a>
                                     @else
                                     Data Not Found
                                     @endif
                                 </td>
+
+
                                 <td>${{ $v->price }}</td>
-                                <td>{{ $v->type }}</td>
+                                <td>{{ $v->attachment_type }}</td>
                                 <td>{{ $v->quantity }}</td>
                                 <td>{{ ucwords($v->payment_status) }}</td>
                                 <td>{{ ucwords($v->status) }}</td>
