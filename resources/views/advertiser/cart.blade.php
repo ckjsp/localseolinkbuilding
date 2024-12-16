@@ -24,15 +24,12 @@
         <!-- Checkout Wizard -->
         <div class="wizard-icons wizard-icons-example mb-5">
             <div class="bs-stepper-content">
-                <!-- <form id="wizard-checkout-form" onSubmit="return false"> -->
-                <!-- Cart -->
+
                 <div id="checkout-cart" class="content">
                     <div class="row">
-                        <!-- Cart left -->
                         <div class="col-xl-12 mb-3 mb-xl-0 pt-3">
 
                             @if(isset($websites) && !empty($websites))
-                            <!-- Shopping bag -->
                             @if($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -42,7 +39,6 @@
                                 </ul>
                             </div>
                             @endif
-                            <!-- Container for displaying success messages -->
 
                             <div class="container">
                                 <div class="mb-3">
@@ -56,7 +52,6 @@
                                                 <input type="hidden" id="website_id" name="website_id" value="{{ $v->id }}">
                                                 <!-- <input type="hidden" id="payment_method" name="payment_method" value="paypal"> -->
                                                 <input type="hidden" id="price{{$v->id}}" name="price" value="{{ ($v->guest_post_price*$arrCookie[$k]->quantity) }}">
-                                                <input type="hidden" id="type" name="type" value="guest post">
                                                 <input type="hidden" name="selected_project_id" value="{{ session('selected_project_id') }}">
 
                                                 <div class="mb-3">
@@ -67,10 +62,9 @@
                                                     <label for="razorpay-${item.web_id}" class="form-check-label">Razorpay</label>
                                                 </div>
                                                 <div>
-                                                    <!-- Radio buttons -->
-                                                    <input type="radio" name="attachment_type_{{ $v->id }}" value="file" id="attachmentFile{{ $v->id }}" class="form-check-input attachment-type-radio" checked onchange="toggleAttachmentType({{ $v->id }})">
+                                                    <input type="radio" name="attachment_type" value="Guest Post" id="attachmentFile{{ $v->id }}" class="form-check-input attachment-type-radio" checked onchange="toggleAttachmentType({{ $v->id }})">
                                                     <label for="attachmentFile{{ $v->id }}" class="form-check-label">Upload File</label>
-                                                    <input type="radio" name="attachment_type_{{ $v->id }}" value="link" id="attachmentLink{{ $v->id }}" class="form-check-input attachment-type-radio" onchange="toggleAttachmentType({{ $v->id }})">
+                                                    <input type="radio" name="attachment_type" value="Link Insertion" id="attachmentLink{{ $v->id }}" class="form-check-input attachment-type-radio" onchange="toggleAttachmentType({{ $v->id }})">
                                                     <label for="attachmentLink{{ $v->id }}" class="form-check-label">Add Link</label>
                                                 </div>
 
@@ -92,6 +86,8 @@
                                                         <div class="col-md-4 text-md" id="inputQuantitydiv{{ $v->id }}">
                                                             <label class="form-label">Quantity</label>
                                                             <input type="number" id="inputQuantity{{ $v->id }}" data-price="{{$v->guest_post_price}}" data-web_id="{{$v->id}}" onchange="changeQuantity($(this))" class="form-control" value="{{$arrCookie[$k]->quantity}}" min="1" max="5" />
+                                                            <div id="quantityError{{ $v->id }}" class="text-danger" style="display:none;">Quantity cannot exceed 5.</div>
+
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3 text-center d-flex align-items-end justify-content-center">
@@ -133,7 +129,6 @@
                                                             <input type="file" class="form-control attachments-control inputDocFile" name="attachment" id="inputDocFile{{$v->id}}" required="">
                                                             <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                                             <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -324,7 +319,6 @@
 
         updateCartUI($newCartArr);
 
-        // Show success message
         showSuccessMessage("Website successfully added to the cart!");
 
     }
@@ -341,75 +335,94 @@
         });
         toast.show();
 
-        window.location.reload();
-
+        refreshPageContent();
     }
 
+    function refreshPageContent() {
+        fetch(window.location.href, {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.text())
+            .then(html => {
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(html, 'text/html');
+
+                var newContent = doc.body.innerHTML;
+
+                document.body.innerHTML = newContent;
+
+            })
+            .catch(error => console.error('Error refreshing content:', error));
+    }
+
+
     function toggleAttachmentType(webId) {
-        const attachmentTypeRadio = document.querySelectorAll(`input[name="attachment_type_${webId}"]`);
+        const fileRadio = document.getElementById(`attachmentFile${webId}`);
+        const linkRadio = document.getElementById(`attachmentLink${webId}`);
+
         const fileInput = document.getElementById(`inputDocFile${webId}`);
         const titleInput = document.getElementById(`inputArticleTitle${webId}`);
         const inputQuantitydiv = document.getElementById(`inputQuantitydiv${webId}`);
 
-
         const linkInputSection = document.getElementById(`linkInputSection${webId}`);
         const uplodefileInputSection = document.getElementById(`uplodefileInputSection${webId}`);
-
 
         const existingPostUrl = document.getElementById(`existingPostUrl${webId}`);
         const landingPageUrl = document.getElementById(`landingPageUrl${webId}`);
         const anchorText = document.getElementById(`anchorText${webId}`);
 
-        attachmentTypeRadio.forEach(radio => {
-            if (radio.checked) {
-                if (radio.value === 'file') {
-                    fileInput.style.display = 'block';
-                    titleInput.style.display = 'block';
-                    inputQuantitydiv.style.display = 'block';
+        if (fileRadio.checked) {
+            // File radio button selected
+            fileInput.style.display = 'block';
+            titleInput.style.display = 'block';
+            inputQuantitydiv.style.display = 'block';
 
+            linkInputSection.style.display = 'none';
+            uplodefileInputSection.style.display = 'block';
 
+            fileInput.setAttribute('required', true);
+            titleInput.setAttribute('required', true);
 
-                    linkInputSection.style.display = 'none';
-                    uplodefileInputSection.style.display = 'block';
+            existingPostUrl.removeAttribute('required');
+            landingPageUrl.removeAttribute('required');
+            anchorText.removeAttribute('required');
+        } else if (linkRadio.checked) {
+            // Link radio button selected
+            fileInput.style.display = 'none';
+            titleInput.style.display = 'none';
+            inputQuantitydiv.style.display = 'none';
 
+            uplodefileInputSection.style.display = 'none';
+            linkInputSection.style.display = 'block';
 
-                    fileInput.setAttribute('required', true);
-                    titleInput.setAttribute('required', true);
+            fileInput.removeAttribute('required');
+            titleInput.removeAttribute('required');
 
-                    existingPostUrl.removeAttribute('required');
-                    landingPageUrl.removeAttribute('required');
-                    anchorText.removeAttribute('required');
-                } else if (radio.value === 'link') {
-                    fileInput.style.display = 'none';
-                    titleInput.style.display = 'none';
-                    inputQuantitydiv.style.display = 'none';
-
-                    uplodefileInputSection.style.display = 'none'
-
-
-                    linkInputSection.style.display = 'block';
-                    fileInput.removeAttribute('required');
-                    titleInput.removeAttribute('required');
-
-                    existingPostUrl.setAttribute('required', true);
-                    landingPageUrl.setAttribute('required', true);
-                    anchorText.setAttribute('required', true);
-                }
-            }
-        });
+            existingPostUrl.setAttribute('required', true);
+            landingPageUrl.setAttribute('required', true);
+            anchorText.setAttribute('required', true);
+        }
     }
 
     function updateCartUI(cartItems) {
+
         var $cartContainer = $('.container');
+
     }
 
     function getCookie(name) {
+
         let value = "; " + document.cookie;
         let parts = value.split("; " + name + "=");
         if (parts.length === 2) return parts.pop().split(";").shift();
+
     }
 
     function setCookie(name, value, days) {
+
         let expires = "";
         if (days) {
             let date = new Date();
@@ -417,8 +430,8 @@
             expires = "; expires=" + date.toUTCString();
         }
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    }
 
+    }
 
     function removeFromCart($this) {
 
@@ -445,8 +458,7 @@
 
         updateCartUI($newCartArr);
 
-        window.location.reload();
-
+        refreshPageContent();
     }
 
     function changeQuantity($this) {
@@ -457,50 +469,55 @@
         var $newCartArr = [];
         var $cartCookie = getCookie('cart');
 
+        if ($quantity > 5) {
+            $('#quantityError' + $web_id).show();
+            $this.val(1);
+            return;
+        } else {
+            $('#quantityError' + $web_id).hide();
+        }
+
         if ($cartCookie != '') {
             var $cartArr = JSON.parse($cartCookie);
 
             $.each($cartArr, function(i, v) {
                 if (v.user_id == $user_id && v.web_id == $web_id) {
                     if ($quantity == 0 || $quantity == '' || $quantity == '0') {
-                        // Remove the item if the quantity is 0 or empty
                         $cartArr.splice(i, 1);
                     } else {
                         v.quantity = $quantity;
 
-                        // Update the quantity value in the UI
                         $('#quantity' + v.web_id).val($quantity);
                         $('.quantityPrice' + v.web_id).text('$' + $price * $quantity);
                         $('#price' + v.web_id).val($price * $quantity);
 
-                        // Clear and update the file upload section dynamically
                         let $fileUploadSection = $('#uplodefileInputSection' + v.web_id);
                         $fileUploadSection.empty();
 
                         for (let i = 1; i <= $quantity; i++) {
                             $fileUploadSection.append(`
-                            <div class="col-md-12 pe-2">
-                                <label class="form-label" for="inputArticleTitle${v.id}_${i}">Post Title</label>
-                                <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle${v.id}_${i}" required placeholder="Enter post title">
-                                <div class="valid-feedback"></div>
-                                <div class="invalid-feedback">Invalid Post Title or Empty Post Title. Please insert a title without a link.</div>
-                            </div>
-                            <div class="col-md-12 pe-2">
-                                <label for="inputDocFile${v.web_id}_${i}" class="form-label">Attachment ${i} <small>(doc, docx only)</small></label>
-                                <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile${v.web_id}_${i}" required>
-                                <div class="valid-feedback">File type is allowed. You can upload it.</div>
-                                <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
-                            </div>
-                        `);
+                                <div class="col-md-12 pe-2">
+                                    <label class="form-label" for="inputArticleTitle${v.id}_${i}">Post Title</label>
+                                    <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle${v.id}_${i}" required placeholder="Enter post title">
+                                    <div class="valid-feedback"></div>
+                                    <div class="invalid-feedback">Invalid Post Title or Empty Post Title. Please insert a title without a link.</div>
+                                </div>
+                                <div class="col-md-12 pe-2">
+                                    <label for="inputDocFile${v.web_id}_${i}" class="form-label">Attachment ${i} <small>(doc, docx only)</small></label>
+                                    <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile${v.web_id}_${i}" required>
+                                    <div class="valid-feedback">File type is allowed. You can upload it.</div>
+                                    <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
+                                </div>
+                            `);
                         }
                     }
                 }
             });
 
-            // Call a function to toggle attachment type
             toggleAttachmentType($web_id);
         }
     }
+
 
     function hasURL(inputString) {
         var urlPattern = /(https?:\/\/[^\s]+)/g;

@@ -21,7 +21,7 @@ class lslbOrder extends Authenticatable
         'email',
         'price',
         'quantity',
-        'type',
+        'attachment_type',
         'order_date',
         'delivery_time',
         'status',

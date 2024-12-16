@@ -1,17 +1,17 @@
 @push('css')
 
 @endpush
-<?php 
-    $page ='publisher.sidebar'; 
-    if(Auth::user()->role->name === 'Advertiser') $page ='advertiser.menu';
-    if(Auth::user()->role->name === 'Admin') $page ='lslbadmin.sidebar';
+<?php
+$page = 'publisher.sidebar';
+if (Auth::user()->role->name === 'Advertiser') $page = 'advertiser.menu';
+if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
 ?>
 @extends($page)
 @section('sidebar-content')
 <!-- Content -->
 
 <div class="container-xxl flex-grow-1 container-p-y">
-   
+
     <div class="card overflow-hidden">
         <!-- Map Menu Wrapper -->
         <div class="row app-logistics-fleet-wrapper mb-5">
@@ -53,7 +53,7 @@
                             </div>
                             <div id="fleet1" class="accordion-collapse collapse show" data-bs-parent="#fleet">
                                 <div class="accordion-body pt-3 pb-0">
-                                
+
                                     <ul class="timeline ps-3 mt-4 mb-0">
                                         <li class="timeline-item ms-1 ps-4 border-left-dashed">
                                             <span class="timeline-indicator-advanced timeline-indicator-success border-0 shadow-none">
@@ -174,44 +174,59 @@
                             @endif
                         </div>
                         <div class="row mb-3">
-                            <div class="col-md-6"><strong class="m-2 font-bold">Article Doc: </strong> <?= !empty($order[0]->attachment) ? '<a href="' . url('/storage/app/' . $order[0]->attachment) . '" target="_blank" class="btn btn-primary">Download Docx </a>' : 'Data Not Found' ?></div>
-                            <div class="col-md-6"><strong class="m-2 font-bold">Type: </strong> {{ $order[0]->type }}</div>
+                            <div class="col-md-6">
+                                <strong class="m-2 font-bold">Article Doc: </strong>
+                                @if (!empty($order[0]->attachment))
+                                @php
+                                $attachments = explode(',', $order[0]->attachment); // Split the comma-separated file paths
+                                @endphp
+                                @foreach ($attachments as $attachment)
+                                <a href="{{ url('/storage/app/' . trim($attachment)) }}" target="_blank" class="btn btn-primary mb-1">Download Docx</a>
+                                @endforeach
+                                @else
+                                Data Not Found
+                                @endif
+                            </div>
+                            <div class="col-md-6">
+                                <strong class="m-2 font-bold">Type: </strong> {{ $order[0]->type }}
+                            </div>
                         </div>
+
                         <div class="row mb-3">
                             <div class="col-md-6"><strong class="m-2 font-bold">Quantity: </strong> {{ $order[0]->quantity }}</div>
                             <div class="col-md-6"><strong class="m-2 font-bold">Total Amount: </strong> ${{ $order[0]->price }}</div>
                         </div>
                         @if($userDetail->role->name == 'Admin')
-                            <div class="row mb-3">
-                                <div class="col-md-6"><strong class="m-2 font-bold">Payment Method: </strong> {{ $order[0]->payment_method }}</div>
-                                <div class="col-md-6"><strong class="m-2 font-bold">Payment Status: </strong> {!! $order[0]->payment_status !!}</div>
-                            </div>
-                            @if(isset($order[0]->payments[0]->payment_type))
-                                <div class="row mb-3">
-                                    <div class="col-md-6"><strong class="m-2 font-bold">Payment Type: </strong> {{ $order[0]->payments[0]->payment_type }}</div>
-                                </div>
-                            @endif
+                        <div class="row mb-3">
+                            <div class="col-md-6"><strong class="m-2 font-bold">Payment Method: </strong> {{ $order[0]->payment_method }}</div>
+                            <div class="col-md-6"><strong class="m-2 font-bold">Payment Status: </strong> {!! $order[0]->payment_status !!}</div>
+                        </div>
+                        @if(isset($order[0]->payments[0]->payment_type))
+                        <div class="row mb-3">
+                            <div class="col-md-6"><strong class="m-2 font-bold">Payment Type: </strong> {{ $order[0]->payments[0]->payment_type }}</div>
+                        </div>
+                        @endif
                         @endif
                         <div class="row mb-3">
                             <div class="col-md-12"><strong class="m-2 font-bold">Special Instructions: </strong> {!! $order[0]->special_instructions !!}</div>
                         </div>
                         @if($userDetail->role->name != 'Advertiser')
-                            <div class="row mb-3 justify-content-center noteBox-div d-none">
-                                <div class="col-md-10">
-                                    <label for="noteBox" class="form-label"> Status Notes: </label>
-                                    <textarea class="form-control" id="noteBox" rows="7" name="note" value="" placeholder="If you have any specific note regarding status. mention them below."></textarea>
-                                </div>
+                        <div class="row mb-3 justify-content-center noteBox-div d-none">
+                            <div class="col-md-10">
+                                <label for="noteBox" class="form-label"> Status Notes: </label>
+                                <textarea class="form-control" id="noteBox" rows="7" name="note" value="" placeholder="If you have any specific note regarding status. mention them below."></textarea>
                             </div>
+                        </div>
                         @endif
                     </div>
                 </div>
             </div>
             @if($userDetail->role->name != 'Advertiser')
-                <div class="map-container d-flex justify-content-end mr-5">
-                    <div class="btn-group mx-5">
-                        <button type="button" class="btn btn-outline-primary mx-5 orderStatus disabled" data-item="{{ $order[0]->status }}">Save Status</button>
-                    </div>
+            <div class="map-container d-flex justify-content-end mr-5">
+                <div class="btn-group mx-5">
+                    <button type="button" class="btn btn-outline-primary mx-5 orderStatus disabled" data-item="{{ $order[0]->status }}">Save Status</button>
                 </div>
+            </div>
             @endif
             <!-- Overlay Hidden -->
             <div class="app-overlay d-none"></div>
@@ -224,13 +239,13 @@
 @push('script')
 <script>
     $('.order-status').click(function() {
-        if(!$(this).hasClass('active')){
+        if (!$(this).hasClass('active')) {
             $this = $(this);
             $statusText = $this.text();
             $('.statusBtnTitle').text($statusText);
-            $('.order-status').removeClass('active'); 
+            $('.order-status').removeClass('active');
             $this.addClass('active');
-            $('.orderStatus').removeClass('disabled'); 
+            $('.orderStatus').removeClass('disabled');
             $('.orderStatus').data('item', $this.data('item'));
             $('.noteBox-div').removeClass('d-none');
         }
@@ -242,24 +257,24 @@
         $note = $('#noteBox').val();
         $id = $('#id').val();
         $_token = $('input[name="_token"]').val();
-        if($note != ''){
+        if ($note != '') {
             $('#noteBox').removeClass('is-invalid');
             if ($status != '') {
                 $.ajax({
                     type: 'POST',
-                    url: '<?= route('order.update.status',$order[0]->id) ?>',
+                    url: '<?= route('order.update.status', $order[0]->id) ?>',
                     data: {
-                        '_token' : $_token,
-                        'status' : $status,
-                        'note' : $note,
+                        '_token': $_token,
+                        'status': $status,
+                        'note': $note,
                     },
                     success: function(response) {
                         var $obj = JSON.parse(response);
-                        if($obj.error != ''){
-                            $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>'+$obj.error+'</li></ul>');
-                        }else{
-                            $('#alert').attr('class', '').addClass('alert alert-success').html('<ul class="m-auto"><li>'+$obj.success+'</li></ul>');
-                            setTimeout(location.reload(true) ,1000);
+                        if ($obj.error != '') {
+                            $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
+                        } else {
+                            $('#alert').attr('class', '').addClass('alert alert-success').html('<ul class="m-auto"><li>' + $obj.success + '</li></ul>');
+                            setTimeout(location.reload(true), 1000);
                         }
                         $('#noteBox-div').addClass('d-none');
                     },
@@ -269,7 +284,7 @@
                     }
                 });
             }
-        }else{
+        } else {
             $('#noteBox').addClass('is-invalid');
         }
     });

@@ -51,7 +51,8 @@ class OrdersController extends Controller
         } else {
             $lslbOrder = new lslbOrder;
             $data['orders'] = $lslbOrder->orderList(Auth::user()->id);
-
+            // $data['orders'] = lslbOrder::with('website.user')->get();
+            // echo '<pre>'; print_r( $data['orders'] ); echo '</pre>';exit;
             return view('publisher/orders')->with($data);
         }
     }
@@ -73,7 +74,7 @@ class OrdersController extends Controller
             'user_id' => 'required',
             'price' => 'required',
             'quantity' => 'required',
-            'type' => 'required',
+            'attachment_type' => 'required',
             'payment_method' => 'required',
             'special_instructions' => 'required',
             'selected_project_id' => 'required',
@@ -112,13 +113,16 @@ class OrdersController extends Controller
             }
         }
 
+        // Convert attachments to a comma-separated string
+        $attachmentsString = implode(", ", $attachmentPaths);
+
         // Prepare data for order
         $data = $request->only([
             'website_id',
             'user_id',
             'price',
             'quantity',
-            'type',
+            'attachment_type',
             'order_date',
             'delivery_time',
             'status',
@@ -130,6 +134,7 @@ class OrdersController extends Controller
             'anchor_text',
         ]);
 
+        // Handle article titles
         $articleTitles = $request->input('article_title');
         $storedArticleTitles = [];
         if ($articleTitles && is_array($articleTitles)) {
@@ -140,6 +145,9 @@ class OrdersController extends Controller
             }
         }
 
+        // Convert article titles to a comma-separated string
+        $articleTitlesString = implode(", ", $storedArticleTitles);
+
         $data['order_id'] = 'order-' . md5(time() . 'DS');
         $data['order_date'] = date('Y-m-d');
         $data['payment_status'] = 'pending';
@@ -147,7 +155,8 @@ class OrdersController extends Controller
         $data['delivery_time'] = date("Y-m-d H:i:s", time() + 4 * 24 * 60 * 60);
         $data['status'] = 'new';
 
-        $data['attachment'] = !empty($attachmentPaths) ? json_encode($attachmentPaths) : null;
+        // Store attachments as a comma-separated string
+        $data['attachment'] = !empty($attachmentPaths) ? $attachmentsString : null;
 
         $user = lslbUser::find($data['user_id']);
         if ($user) {
@@ -162,7 +171,7 @@ class OrdersController extends Controller
         $order = lslbOrder::create($data);
 
         $order->update([
-            'article_title' => json_encode($storedArticleTitles),
+            'article_title' => $articleTitlesString,
         ]);
 
         $arr = [
@@ -185,6 +194,7 @@ class OrdersController extends Controller
 
         return response()->json($arr);
     }
+
 
 
     public function show(string $id)

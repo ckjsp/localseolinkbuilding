@@ -13,9 +13,6 @@
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-
-
     <meta name="description" content="" />
 
     <link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon.svg')}}" />
@@ -54,9 +51,7 @@
     <script src="{{ asset_url('js/helpers.js') }}"></script>
     <script src="{{ asset_url('js/template-customizer.js') }}"></script>
     <script src="{{ asset_url('js/front-config.js') }}"></script>
-
 </head>
-
 
 <body>
 
@@ -65,9 +60,7 @@
     <nav class="layout-navbar custom-navbar shadow-none py-0">
         <div class="container">
             <div class="navbar navbar-expand-xl landing-navbar">
-                <!-- Menu logo wrapper: Start -->
                 <div class="navbar-brand app-brand demo d-flex  me-4">
-                    <!-- Mobile menu toggle: Start-->
                     <button
                         class="navbar-toggler text-light border-0 px-0 me-2"
                         type="button"
@@ -78,15 +71,13 @@
                         aria-label="Toggle navigation">
                         <i class="ti ti-menu-2 ti-sm align-middle"></i>
                     </button>
-                    <!-- Mobile menu toggle: End-->
                     <a href="landing-page.html" class="app-brand-link">
                         <div class="logo-wrap">
                             <img src="{{ asset_url('img/header-logo.png') }}" alt="logo">
                         </div>
                     </a>
                 </div>
-                <!-- Menu logo wrapper: End -->
-                <!-- Menu wrapper: Start -->
+
                 <div class="collapse navbar-collapse landing-nav-menu" id="navbarSupportedContent">
                     <button
                         class="navbar-toggler border-0 text-light position-absolute end-0 top-0 scaleX-n1-rtl"
@@ -124,10 +115,8 @@
                     </ul>
                 </div>
                 <div class="landing-menu-overlay d-xl-none"></div>
-                <!-- Menu wrapper: End -->
-                <!-- Toolbar: Start -->
+
                 <ul class="navbar-nav flex-row gap-2 align-items-center ms-auto d-none d-xl-flex">
-                    <!-- navbar button: Start -->
                     <li>
                         <a href="#" class="outlined-btn">
                             Login
@@ -138,9 +127,7 @@
                             Sign Up for free
                         </a>
                     </li>
-                    <!-- navbar button: End -->
                 </ul>
-                <!-- Toolbar: End -->
             </div>
         </div>
     </nav>
