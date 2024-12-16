@@ -12,6 +12,8 @@ use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\Shared\Html;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyMail;
+use App\Http\Controllers\ArticleTitle;
+
 
 use DOMDocument;
 use Illuminate\Support\Facades\DB;
@@ -49,8 +51,7 @@ class OrdersController extends Controller
         } else {
             $lslbOrder = new lslbOrder;
             $data['orders'] = $lslbOrder->orderList(Auth::user()->id);
-            // $data['orders'] = lslbOrder::with('website.user')->get();
-            // echo '<pre>'; print_r( $data['orders'] ); echo '</pre>';exit;
+
             return view('publisher/orders')->with($data);
         }
     }
@@ -85,6 +86,7 @@ class OrdersController extends Controller
 
     public function store(Request $request)
     {
+        // Validate input fields
         $validatedData = Validator::make($request->all(), array_merge($this->rules(), [
             'attachment.*' => 'nullable|file|mimes:doc,docx,pdf|max:10240',
             'article_title.*' => 'nullable|string',
@@ -97,8 +99,8 @@ class OrdersController extends Controller
             ]);
         }
 
+        // Handle attachments
         $attachmentPaths = [];
-
         if ($request->hasFile('attachment')) {
             $files = $request->file('attachment');
 
@@ -110,6 +112,7 @@ class OrdersController extends Controller
             }
         }
 
+        // Prepare data for order
         $data = $request->only([
             'website_id',
             'user_id',
@@ -128,16 +131,12 @@ class OrdersController extends Controller
         ]);
 
         $articleTitles = $request->input('article_title');
-
         $storedArticleTitles = [];
-
-
         if ($articleTitles && is_array($articleTitles)) {
             foreach ($articleTitles as $title) {
-                $storedArticleTitles[] = ArticleTitle::create([
-                    'order_id' => $data['order_id'],
-                    'title' => $title
-                ]);
+                if (!empty($title)) {
+                    $storedArticleTitles[] = $title;
+                }
             }
         }
 
@@ -145,15 +144,10 @@ class OrdersController extends Controller
         $data['order_date'] = date('Y-m-d');
         $data['payment_status'] = 'pending';
         $data['u_id'] = $request->post('user_id');
-        $t = time() + 4 * 24 * 60 * 60;
-        $data['delivery_time'] = date("Y-m-d H:i:s", $t);
+        $data['delivery_time'] = date("Y-m-d H:i:s", time() + 4 * 24 * 60 * 60);
         $data['status'] = 'new';
 
-        if (!empty($attachmentPaths)) {
-            $data['attachment'] = json_encode($attachmentPaths);
-        } else {
-            $data['attachment'] = null;
-        }
+        $data['attachment'] = !empty($attachmentPaths) ? json_encode($attachmentPaths) : null;
 
         $user = lslbUser::find($data['user_id']);
         if ($user) {
@@ -166,6 +160,10 @@ class OrdersController extends Controller
         }
 
         $order = lslbOrder::create($data);
+
+        $order->update([
+            'article_title' => json_encode($storedArticleTitles),
+        ]);
 
         $arr = [
             'order_id' => $data['order_id'],
@@ -181,18 +179,13 @@ class OrdersController extends Controller
         } elseif ($data['payment_method'] == 'razorpay') {
             return view('razorpaypayment', [
                 'price' => $data['price'],
-                'orderId' => $data['order_id']
+                'orderId' => $data['order_id'],
             ]);
         }
 
-        // Return the response as JSON if no redirection
         return response()->json($arr);
     }
 
-
-    /**
-     * Display the specified resource.
-     */
 
     public function show(string $id)
     {

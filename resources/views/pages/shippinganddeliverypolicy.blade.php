@@ -7,7 +7,7 @@
 <!-- Sections:Start -->
 
 <section class="section-py first-section-pt">
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-lg-8">
                 <h1 class="mb-2 pb-1">Shipping And Delivery Policy

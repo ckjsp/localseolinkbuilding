@@ -4,7 +4,7 @@
 </title>
 
 <section class="section-py first-section-pt">
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-lg-8">
                 <h1 class="mb-2 pb-1">Cancellation And Refund Policy
@@ -17,17 +17,20 @@
                     Links Farmer is not accepting refund requests on the following grounds:
                 </p>
                 <ul>
-                    <li>Technical issues related to partner news websites, or press release aggregation sites and any related platform performance. This includes the unavailability of web pages, website loading speed, hyperlinks, search engine indexing, third-party comments, content layout, and style.
-
+                    <li>
+                        <p> issues related to partner news websites, or press release aggregation sites and any related platform performance. This includes the unavailability of web pages, website loading speed, hyperlinks, search engine indexing, third-party comments, content layout, and style.
+                        </p>
                     </li>
                 </ul>
                 <ul>
-                    <li>Refund requests for partial months or years of service, requests due to upgrade or downgrade, and refund requests for unused service limits.
-
+                    <li>
+                        <p>Refund requests for partial months or years of service, requests due to upgrade or downgrade, and refund requests for unused service limits.
+                        </p>
                     </li>
                 </ul>
                 <ul>
-                    <li>For fairness, no exception will be made to these rules.
+                    <li>
+                        <p>For fairness, no exception will be made to these rules.</p>
                     </li>
                 </ul>
                 <p class="pt-lg-2">Customers who feel that the services provided do not align with the description on the website may file complaints with the Links Farmer Support Department. To proceed with the complaint, customers must provide clear evidence demonstrating that the purchased service or product fails to meet the stated description. Complaints based solely on personal expectations or desires will not be honoured. Links Farmer reviews complaints on a case-by-case basis and retains the right to approve or deny complaints at its discretion.
@@ -40,15 +43,18 @@
                 <p class="pt-lg-2">There are many instances under which an advertiser may qualify for a refund.
                 </p>
                 <ul>
-                    <li>The last shipment is not accepted. Important to note that, once advertisers fail to approve the links within the due time frame, the system automatically approves them. No refund is made available in such cases.
+                    <li>
+                        <P>The last shipment is not accepted. Important to note that, once advertisers fail to approve the links within the due time frame, the system automatically approves them. No refund is made available in such cases.</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>In cases where the publisher repeatedly fails to meet the advertiser's criteria despite efforts to rectify it.
+                    <li>
+                        <p>In cases where the publisher repeatedly fails to meet the advertiser's criteria despite efforts to rectify it.</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>In case there are two orders placed due to a mistake.
+                    <li>
+                        <p>In case there are two orders placed due to a mistake.</p>
 
                     </li>
                 </ul>

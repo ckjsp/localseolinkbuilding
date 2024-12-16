@@ -30,9 +30,27 @@
     <link rel="stylesheet" href="{{ asset_url('css/rtl/theme-default.css') }}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset_url('css/demo.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('css/pages/front-page.css') }}" />
-    <!-- <link rel="stylesheet" href="{{ asset_url('css/pages/front-page-landing.css') }}" /> -->
-
+    <link rel="stylesheet" href="{{ asset_url('css/pages/front-page-landing.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('libs/node-waves/node-waves.css') }}" />
+
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.svg')}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset_url('fonts/tabler-icons.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset_url('css/rtl/core.css') }}" />
+    <link rel="stylesheet" href="{{ asset_url('css/rtl/theme-default.css') }}" />
+    <link rel="stylesheet" href="{{ asset_url('css/demo.css') }}" />
+    <link rel="stylesheet" href="{{ asset_url('libs/node-waves/node-waves.css') }}" />
+    <link rel="stylesheet" href="{{ asset_url('libs/nouislider/nouislider.css') }}" />
+    <link rel="stylesheet" href="{{ asset_url('libs/swiper/swiper.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset_url('css/pages/front-page-landing.css') }}" />
+
     <script src="{{ asset_url('js/helpers.js') }}"></script>
     <script src="{{ asset_url('js/template-customizer.js') }}"></script>
     <script src="{{ asset_url('js/front-config.js') }}"></script>
@@ -85,7 +103,7 @@
                             <a class="nav-link fw-medium" aria-current="page" href="landing-page.html#landingHero">Service</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-medium" href="landing-page.html#landingFeatures">Tools</a>
+                            <a class="nav-link fw-medium" href="https://freebestseotools.com/" target="_blank">Tools</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-medium" href="landing-page.html#landingTeam">Company</a>

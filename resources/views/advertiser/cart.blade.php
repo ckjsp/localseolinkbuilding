@@ -450,7 +450,6 @@
     }
 
     function changeQuantity($this) {
-
         var $quantity = $this.val();
         var $web_id = $this.data('web_id');
         var $price = $this.data('price');
@@ -464,35 +463,42 @@
             $.each($cartArr, function(i, v) {
                 if (v.user_id == $user_id && v.web_id == $web_id) {
                     if ($quantity == 0 || $quantity == '' || $quantity == '0') {
+                        // Remove the item if the quantity is 0 or empty
                         $cartArr.splice(i, 1);
                     } else {
                         v.quantity = $quantity;
-                        $('#quantity' + $web_id).val($quantity);
-                        $('.quantityPrice' + $web_id).text('$' + $price * $quantity);
-                        $('#price' + $web_id).val($price * $quantity);
 
-                        let $fileUploadSection = $('#uplodefileInputSection' + $web_id);
+                        // Update the quantity value in the UI
+                        $('#quantity' + v.web_id).val($quantity);
+                        $('.quantityPrice' + v.web_id).text('$' + $price * $quantity);
+                        $('#price' + v.web_id).val($price * $quantity);
+
+                        // Clear and update the file upload section dynamically
+                        let $fileUploadSection = $('#uplodefileInputSection' + v.web_id);
                         $fileUploadSection.empty();
+
                         for (let i = 1; i <= $quantity; i++) {
                             $fileUploadSection.append(`
-                            <div class="col-md-12 pe-2 ">
-                <label class="form-label" for="inputArticleTitle{{$v->id}}">Post Title</label>
-                <input type="text" class="form-control inputArticleTitle" name="article_title" id="inputArticleTitle{{$v->id}}" required placeholder="Enter post title">
-
-                <div class="valid-feedback"></div>
-                <div class="invalid-feedback">Invalid Post Title or Empty Post Title Please Insert Title Without Link.</div>
-            </div>
-                                <label for="inputDocFile${$web_id}_${i}" class="form-label">Attachment ${i} <small>(doc, docx only)</small></label>
-                                <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile${$web_id}_${i}" required>
+                            <div class="col-md-12 pe-2">
+                                <label class="form-label" for="inputArticleTitle${v.id}_${i}">Post Title</label>
+                                <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle${v.id}_${i}" required placeholder="Enter post title">
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback">Invalid Post Title or Empty Post Title. Please insert a title without a link.</div>
+                            </div>
+                            <div class="col-md-12 pe-2">
+                                <label for="inputDocFile${v.web_id}_${i}" class="form-label">Attachment ${i} <small>(doc, docx only)</small></label>
+                                <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile${v.web_id}_${i}" required>
                                 <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                 <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
+                            </div>
                         `);
                         }
                     }
                 }
             });
-            toggleAttachmentType($web_id);
 
+            // Call a function to toggle attachment type
+            toggleAttachmentType($web_id);
         }
     }
 

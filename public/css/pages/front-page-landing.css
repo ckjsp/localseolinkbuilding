@@ -398,7 +398,7 @@ input:focus-visible {
   margin-bottom: 10px;
 }
 
-.whyus-card p {
+.whyus-card p li {
   font-size: 18px;
   font-weight: 400;
   color: #D3D3D3;
