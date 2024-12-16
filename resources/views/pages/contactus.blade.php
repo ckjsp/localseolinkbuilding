@@ -8,7 +8,7 @@
 <!-- Sections:Start -->
 
 <section class="section-py first-section-pt">
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-lg-8">
 
@@ -85,15 +85,18 @@
                     You can also connect to us through social media. Subscribe to get updated, news, and promotions:
                 </p>
                 <ul>
-                    <li>Facebook:
+                    <li>
+                        <p>Facebook:</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>Twitter:
+                    <li>
+                        <p>Twitter:</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>LinkedIn:
+                    <li>
+                        <p>LinkedIn:</p>
 
                     </li>
                 </ul>
@@ -108,11 +111,13 @@
                 </p>
                 <p class="pt-lg-2">
                 <h5 class="mb-2 pb-1 fw-bold"> Saturday:
-                </h5> Closed
+                </h5>
+                <p>Closed</p>
                 </p>
                 <p class="pt-lg-2">
                 <h5 class="mb-2 pb-1 fw-bold"> Sunday:
-                </h5> Closed
+                </h5>
+                <p> Closed</p>
                 </p>
             </div>
             <div class="col-lg-8">
@@ -137,6 +142,7 @@
 <script src="{{ asset_url('js/bootstrap.js') }}"></script>
 <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
 <script src="{{ asset_url('js/front-main.js') }}"></script>
+
 </body>
 
 </html>
