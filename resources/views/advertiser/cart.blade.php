@@ -120,13 +120,13 @@
 
                                                             <div class="col-md-12 pe-2 ">
                                                                 <label class="form-label" for="inputArticleTitle{{$v->id}}">Post Title</label>
-                                                                <input type="text" class="form-control inputArticleTitle" name="article_title" id="inputArticleTitle{{$v->id}}" required placeholder="Enter post title">
+                                                                <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle{{$v->id}}" required placeholder="Enter post title">
 
                                                                 <div class="valid-feedback"></div>
                                                                 <div class="invalid-feedback">Invalid Post Title or Empty Post Title Please Insert Title Without Link.</div>
                                                             </div>
                                                             <label class="form-label" for="inputDocFile{{$v->id}}">Attachments <small>Note: Support only doc, docx</small></label>
-                                                            <input type="file" class="form-control attachments-control inputDocFile" name="attachment" id="inputDocFile{{$v->id}}" required="">
+                                                            <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile{{$v->id}}" required="">
                                                             <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                                             <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
                                                         </div>
@@ -474,6 +474,7 @@
             $this.val(1);
             return;
         } else {
+            // Hide error message if quantity is valid
             $('#quantityError' + $web_id).hide();
         }
 
