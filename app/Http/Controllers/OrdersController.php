@@ -87,7 +87,6 @@ class OrdersController extends Controller
 
     public function store(Request $request)
     {
-        // Validate input fields
         $validatedData = Validator::make($request->all(), array_merge($this->rules(), [
             'attachment.*' => 'nullable|file|mimes:doc,docx,pdf|max:10240',
             'article_title.*' => 'nullable|string',
@@ -100,23 +99,20 @@ class OrdersController extends Controller
             ]);
         }
 
-        // Handle attachments
         $attachmentPaths = [];
         if ($request->hasFile('attachment')) {
             $files = $request->file('attachment');
 
             foreach ($files as $file) {
                 if ($file->isValid()) {
-                    $path = $file->store('uploads', 'public');
+                    $path = $file->store('uploads');
                     $attachmentPaths[] = $path;
                 }
             }
         }
 
-        // Convert attachments to a comma-separated string
         $attachmentsString = implode(", ", $attachmentPaths);
 
-        // Prepare data for order
         $data = $request->only([
             'website_id',
             'user_id',

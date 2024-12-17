@@ -145,7 +145,7 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
             <div class="col h-100 map-container mb-5">
                 <!-- Map -->
                 <div id="map" class="h-100 w-100">
-                    <h3 class="mt-5 text-center text-primary">{{ $order[0]->article_title }}</h3>
+                    <h3 class="mt-5 text-center text-primary">{{ $order[0]->attachment_type }}</h3>
                     <div class="border w-75 m-auto mb-3"> </div>
                     <div class="order-detail-section">
                         <div class="row mb-3">
@@ -173,7 +173,16 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                             </div>
                             @endif
                         </div>
+
+                        <!-- <div class="col-md-6">
+                                <strong class="m-2 font-bold">Type: </strong> {{ $order[0]->attachment_type }}
+                            </div> -->
+
+
+                        @if ($order[0]->attachment_type == 'Guest Post')
+                        <!-- Guest Post Section -->
                         <div class="row mb-3">
+                            <div class="col-md-6"><strong class="m-2 font-bold">Article Doc: </strong> <?= !empty($order[0]->attachment) ? '<a href="' . url('/storage/app/' . $order[0]->attachment) . '" target="_blank" class="btn btn-primary">Download Docx </a>' : 'Data Not Found' ?></div>
                             <div class="col-md-6">
                                 <strong class="m-2 font-bold">Article Doc: </strong>
                                 @if (!empty($order[0]->attachment))
@@ -187,10 +196,37 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                                 Data Not Found
                                 @endif
                             </div>
+                        </div>
+                        @elseif ($order[0]->attachment_type == 'Link Insertion')
+                        <!-- Link Insertion Section -->
+                        <div class="row mb-3">
                             <div class="col-md-6">
-                                <strong class="m-2 font-bold">Type: </strong> {{ $order[0]->type }}
+                                <strong class="m-2 font-bold">Existing Post URL: </strong>
+                                {{ $order[0]->existing_post_url }}
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <strong class="m-2 font-bold">Landing Page URL: </strong>
+                                {{ $order[0]->landing_page_url }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <strong class="m-2 font-bold">Anchor Text: </strong>
+                                {{ $order[0]->anchor_text }}
+                            </div>
+                        </div>
+                        @else
+                        <!-- Default Section -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <strong class="m-2 font-bold">Attachment Type: </strong>
+                                Not Available
+                            </div>
+                        </div>
+                        @endif
+
 
                         <div class="row mb-3">
                             <div class="col-md-6"><strong class="m-2 font-bold">Quantity: </strong> {{ $order[0]->quantity }}</div>
