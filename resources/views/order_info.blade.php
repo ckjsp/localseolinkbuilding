@@ -178,6 +178,7 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                                 <strong class="m-2 font-bold">Type: </strong> {{ $order[0]->attachment_type }}
                             </div> -->
 
+
                         @if ($order[0]->attachment_type == 'Guest Post')
                         <!-- Guest Post Section -->
                         <div class="row mb-3">
