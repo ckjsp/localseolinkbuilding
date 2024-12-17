@@ -172,6 +172,7 @@
                                                     href="https://freebestseotools.com/free-word-counter-tool"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
+
                                                     Word Counter </a>
                                             </li>
                                             <li class="nav-item">
