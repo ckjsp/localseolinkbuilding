@@ -114,6 +114,12 @@ input:focus-visible {
 
 }
 
+.custom-menu {
+
+  background-color: #000;
+
+}
+
 .hero-text-box h1 {
   font-size: 46px;
   font-weight: 600;
