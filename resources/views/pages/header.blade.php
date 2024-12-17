@@ -93,8 +93,108 @@
                         <li class="nav-item">
                             <a class="nav-link fw-medium" aria-current="page" href="landing-page.html#landingHero">Service</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-medium" href="https://freebestseotools.com/" target="_blank">Tools</a>
+
+                        <li class="nav-item mega-dropdown">
+                            <a
+                                href="https://freebestseotools.com/"
+                                class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
+                                aria-expanded="false"
+                                data-bs-toggle="mega-dropdown"
+                                data-trigger="hover">
+                                Tools
+                            </a>
+                            <div class="dropdown-menu custom-menu p-4">
+                                <div class="row gy-4">
+
+                                    <div class="col-12 col-lg">
+
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a
+                                                    class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-broken-links-checker"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Broken Links Finder </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/google-index-checker"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Google Index Checker </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-robots-txt-generator"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Robots.txt Generator
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-xml-sitemap-generator-tool"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    XML Sitemap Generator
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/google-malware-checker-tool"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Google Malware Checker
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-lg">
+
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a
+                                                    class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-seo-plagiarism-checker-tool"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Free Plagiarism Checker </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-word-counter-tool"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Word Counter </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/domain-whois-checker-too"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Whois Checker </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button
+                                                    class="outlined-btn w-50 mega-dropdown-link"
+                                                    onclick="window.open('https://freebestseotools.com/domain-whois-checker-too', '_blank')">
+                                                    View
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-medium" href="landing-page.html#landingTeam">Company</a>
