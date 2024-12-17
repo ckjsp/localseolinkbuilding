@@ -184,7 +184,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <button
-                                                    class="outlined-btn w-50 mega-dropdown-link"
+                                                    class="py-1 px-2 outlined-btn w-50 fs-6 mt-3"
                                                     onclick="window.open('https://freebestseotools.com/domain-whois-checker-too', '_blank')">
                                                     View
                                                 </button>
