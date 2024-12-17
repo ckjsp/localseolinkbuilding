@@ -80,8 +80,7 @@
         </div>
         @else
         <div class="d-flex justify-content-between my-3 step-3">
-            <h5 class="card-title" id="selected-project-name">
-                Select a project
+            <h5 class="card-title">
             </h5>
             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
                 class="btn btn-primary w-auto">+Add Projects

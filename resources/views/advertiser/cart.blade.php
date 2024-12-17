@@ -505,7 +505,7 @@
                                 </div>
                                 <div class="col-md-12 pe-2">
                                     <label for="inputDocFile${v.web_id}_${i}" class="form-label">Attachment ${i} <small>(doc, docx only)</small></label>
-                                    <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile${v.web_id}_${i}" required>
+                                  <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile${v.web_id}_${i}" required onchange="validateFileType(this)">
                                     <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                     <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
                                 </div>
@@ -516,6 +516,21 @@
             });
 
             toggleAttachmentType($web_id);
+        }
+    }
+
+
+    function validateFileType(input) {
+        var file = input.files[0];
+        var fileName = file.name;
+        var fileExtension = fileName.split('.').pop().toLowerCase();
+
+        // Check if the file extension is either .doc or .docx
+        if (fileExtension !== 'doc' && fileExtension !== 'docx') {
+            $(input).siblings('.invalid-feedback').show(); // Show the error message
+            $(input).val(''); // Clear the invalid file
+        } else {
+            $(input).siblings('.invalid-feedback').hide(); // Hide the error message
         }
     }
 

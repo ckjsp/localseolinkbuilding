@@ -179,33 +179,41 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                             </div> -->
 
                         @if ($order[0]->attachment_type == 'Guest Post')
+
                         <!-- Guest Post Section -->
+
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <strong class="m-2 font-bold">Article Doc: </strong>
                                 @if (!empty($order[0]->attachment))
                                 @php
                                 $attachments = explode(',', $order[0]->attachment); // Split the comma-separated file paths
                                 @endphp
-                                @foreach ($attachments as $attachment)
-                                <a href="{{ url('/storage/app/' . trim($attachment)) }}" target="_blank" class="btn btn-primary mb-1">Download Docx</a>
+                                @foreach ($attachments as $index => $attachment)
+                                <div class="mb-2">
+                                    <strong>Article Doc {{ $index + 1 }}: </strong>
+                                    <a href="{{ url('/storage/app/' . trim($attachment)) }}" target="_blank" class="btn btn-primary">Download Docx</a>
+                                </div>
                                 @endforeach
                                 @else
-                                Data Not Found
+                                <p>Data Not Found</p>
                                 @endif
                             </div>
                         </div>
+
+
                         @elseif ($order[0]->attachment_type == 'Link Insertion')
+
                         <!-- Link Insertion Section -->
+
                         <div class="row mb-3">
-                            <div class="col-md-6">
-                                <strong class="m-2 font-bold">Existing Post URL: </strong>
+                            <div class="col-md-9">
+                                <strong class="m-2 font-bold">Existing Post URL : </strong>
                                 {{ $order[0]->existing_post_url }}
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-md-6">
-                                <strong class="m-2 font-bold">Landing Page URL: </strong>
+                            <div class="col-md-9">
+                                <strong class="m-2 font-bold">Landing Page URL : </strong>
                                 {{ $order[0]->landing_page_url }}
                             </div>
                         </div>
@@ -216,13 +224,16 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                             </div>
                         </div>
                         @else
+
                         <!-- Default Section -->
+
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <strong class="m-2 font-bold">Attachment Type: </strong>
                                 Not Available
                             </div>
                         </div>
+
                         @endif
 
 
