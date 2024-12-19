@@ -2,8 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta
-        name="viewport"
+    <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 
@@ -21,13 +20,17 @@
 
                 <div class="container">
                     <div class="hero-text-box text-center">
-                        <h1>First <span class="animated-text">AI-Driven</span>   Guest Post& Link Building Platform</h1>
+                        <!-- <h1>First <span class="animated-text">AI-Driven</span>   Guest Post& Link Building Platform</h1> -->
+                        <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1>
                         <h3>
-                            The future of link Building is here. Say goodbye to manual outreach. Reach a Wider Audience and build Authority with AI-suggested guest blogging on high-DA websites.
-                        </h3>
-                        <h2 class="hero-sub-title h6 mb-4 pb-1">
+                            We, LINKSFARMER, specialize in delivering premium quality link-building services. Our
+                            services are designed to elevate your online presence. Whether you are a business owner, SEO
+                            agency, or content marketer, improve the website’s authority, visibility, and search engine
+                            rankings. Cultivate your online success by exploring our services. We help your brand thrive
+                            in the competitive digital world. Your success is our mission! </h3>
+                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
                             Looking for the best link building platform? Join Links farmer today!
-                        </h2>
+                        </h2> -->
                         <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
 
                             <a href="#landingPricing" class="filled-btn">Buy Guest Post</a>
@@ -38,15 +41,11 @@
                     <div id="heroDashboardAnimation" class="hero-animation-img">
                         <a href="../vertical-menu-template/app-ecommerce-dashboard.html" target="_blank">
                             <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
-                                <img
-                                    src="{{ asset_url('img/hero-element-img.png') }}"
-                                    alt="hero dashboard"
+                                <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero dashboard"
                                     class="animation-img"
                                     data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
                                     data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
-                                <img
-                                    src="{{ asset_url('img/hero-element-img.png') }}"
-                                    alt="hero elements"
+                                <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero elements"
                                     class="position-absolute hero-elements-img animation-img top-0 start-0"
                                     data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
                                     data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
@@ -59,7 +58,7 @@
         </section>
         <!-- Hero: End -->
 
-        <section id="getFeaturedOn" class="section-py  getFeaturedOn-section">
+        <section id="getFeaturedOn" class="section-py  light-bg">
             <div class="text-center mb-3">
                 <span class="title-section animated-text">Get Featured On</span>
             </div>
@@ -69,49 +68,37 @@
                         <div class="swiper-slide">
                             <div class="client-logo-wrap">
 
-                                <img
-                                    src="{{ asset_url('img/featured/chicago.png') }}"
-                                    alt="client logo" />
+                                <img src="{{ asset_url('img/featured/chicago.png') }}" alt="client logo" />
 
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="client-logo-wrap">
 
-                                <img
-                                    src="{{ asset_url('img/featured/digital-gernal.png') }}"
-                                    alt="client logo" />
+                                <img src="{{ asset_url('img/featured/digital-gernal.png') }}" alt="client logo" />
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="client-logo-wrap">
 
-                                <img
-                                    src="{{ asset_url('img/featured/forbes.png') }}"
-                                    alt="client logo" />
+                                <img src="{{ asset_url('img/featured/forbes.png') }}" alt="client logo" />
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="client-logo-wrap">
 
-                                <img
-                                    src="{{ asset_url('img/featured/hubspot.png') }}"
-                                    alt="client logo" />
+                                <img src="{{ asset_url('img/featured/hubspot.png') }}" alt="client logo" />
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="client-logo-wrap">
 
-                                <img
-                                    src="{{ asset_url('img/featured/mercury-news.png') }}"
-                                    alt="client logo" />
+                                <img src="{{ asset_url('img/featured/mercury-news.png') }}" alt="client logo" />
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="client-logo-wrap">
-                                <img
-                                    src="{{ asset_url('img/featured/yahoo.png') }}"
-                                    alt="client logo" />
+                                <img src="{{ asset_url('img/featured/yahoo.png') }}" alt="client logo" />
                             </div>
 
                         </div>
@@ -168,10 +155,7 @@
                             say about their experience.
                         </p>
                         <div class="landing-reviews-btns">
-                            <button
-                                id="reviews-previous-btn"
-                                class="btn  swiper-btn me-3 scaleX-n1-rtl"
-                                type="button">
+                            <button id="reviews-previous-btn" class="btn  swiper-btn me-3 scaleX-n1-rtl" type="button">
                                 <i class="ti ti-chevron-left ti-sm"></i>
                             </button>
                             <button id="reviews-next-btn" class="btn  swiper-btn scaleX-n1-rtl" type="button">
@@ -202,7 +186,9 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley...
                                             </p>
                                         </div>
 
@@ -226,7 +212,9 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley...
                                             </p>
                                         </div>
 
@@ -250,7 +238,9 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley...
                                             </p>
                                         </div>
 
@@ -274,7 +264,9 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley...
                                             </p>
                                         </div>
 
@@ -298,7 +290,9 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley...
                                             </p>
                                         </div>
 
@@ -314,6 +308,27 @@
 
         </section>
         <!-- Real customers reviews: End -->
+
+        <section id="whyToReach" class="section-py light-bg">
+            <div class="container">
+                <h1 class="subtitle-section text-center"> Why To
+                    <span class="animated-text">Reach LINKSFARMER?</span>
+                </h1>
+                <div class="row justify-content-center ">
+                    <div class="col-lg-10">
+                        <div class="whytoreact-wrap">
+                            <p>We have experienced professionals who provide trusted care to your website. Many clients
+                                across industries boost their digital footprint by approaching us.</p>
+                            <p>Embrace comprehensive solutions from guest posting to niche edits. Seekers can grab a
+                                wide
+                                range of link-building strategies to meet the unique needs of a website.</p>
+                            <p>Our focused strategies are built on thorough research, and every link will add value and
+                                strengthen online presence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="topFeatured" class="section-py topFeatured-section">
             <div class="container">
                 <div class="text-center mb-3">
@@ -328,7 +343,7 @@
             </div>
         </section>
 
-        <section id="whyUs" class="section-py whyUs-section">
+        <section id="whyUs" class="section-py light-bg">
             <div class="container">
                 <div class="text-center mb-3">
                     <span class="title-section animated-text">Why us?</span>
@@ -336,70 +351,121 @@
                 <h1 class="subtitle-section text-center">
                     Why to choose Links farmer?
                 </h1>
-                <div class="container">
-                    <div class="d-flex align-items-center">
-                        <button
-                            id="whyus-previous-btn"
-                            class="btn  swiper-btn me-3 scaleX-n1-rtl"
-                            type="button">
-                            <i class="ti ti-chevron-left ti-sm"></i>
-                        </button>
 
-                        <div class="swiper-whyus-carousel overflow-hidden mb-5 pb-md-2 pb-md-3">
-                            <div class="swiper" id="swiper-whyus">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="card h-100 whyus-card">
-                                            <div class="h-100">
-                                                <div class="img-wrap">
-                                                    <img src="{{ asset_url('img/whyus/transparency.png') }}" alt="whyus-img">
-                                                </div>
-                                                <h6>100% Transparency</h6>
-                                                <p>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...
-                                                </p>
+                <div class="d-flex align-items-center">
+                    <button id="whyus-previous-btn" class="btn  swiper-btn me-3 scaleX-n1-rtl" type="button">
+                        <i class="ti ti-chevron-left ti-sm"></i>
+                    </button>
+
+                    <div class="swiper-whyus-carousel overflow-hidden ">
+                        <div class="swiper" id="swiper-whyus">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/transparency.png') }}"
+                                                    alt="whyus-img">
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card h-100 whyus-card">
-                                            <div class="h-100">
-                                                <div class="img-wrap">
-                                                    <img src="{{ asset_url('img/whyus/content.png') }}" alt="whyus-img">
-                                                </div>
-                                                <h6>High Quality Content</h6>
-                                                <p>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card h-100 whyus-card">
-                                            <div class="h-100">
-                                                <div class="img-wrap">
-                                                    <img src="{{ asset_url('img/whyus/backlinks.png') }}" alt="whyus-img">
-                                                </div>
-                                                <h6>Earn High-Quality Backlinks</h6>
-                                                <p>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...
-                                                </p>
-                                            </div>
+                                            <h6>100% Transparency</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="whyus-button-next"></div>
-                                <div class="whyus-button-prev"></div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/content.png') }}" alt="whyus-img">
+                                            </div>
+                                            <h6>High Quality Content</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/backlinks.png') }}" alt="whyus-img">
+                                            </div>
+                                            <h6>Earn High-Quality Backlinks</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/transparency.png') }}"
+                                                    alt="whyus-img">
+                                            </div>
+                                            <h6>100% Transparency</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/backlinks.png') }}" alt="whyus-img">
+                                            </div>
+                                            <h6>Earn High-Quality Backlinks</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/content.png') }}" alt="whyus-img">
+                                            </div>
+                                            <h6>High Quality Content</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
+                            <div class="whyus-button-next"></div>
+                            <div class="whyus-button-prev"></div>
                         </div>
-
-                        <button id="whyus-next-btn" class="btn swiper-btn scaleX-n1-rtl" type="button">
-                            <i class="ti ti-chevron-right ti-sm"></i>
-                        </button>
-
                     </div>
 
+                    <button id="whyus-next-btn" class="btn swiper-btn ms-3 scaleX-n1-rtl" type="button">
+                        <i class="ti ti-chevron-right ti-sm"></i>
+                    </button>
+
                 </div>
+
+
             </div>
         </section>
 
@@ -409,9 +475,11 @@
                     <span class="title-section animated-text">Our Services</span>
                 </div>
                 <h1 class="subtitle-section text-center">
-                    Are you in search of a <span class="animated-text"> complete solution </span> for your digital product?
+                    Are you in search of a <span class="animated-text"> complete solution </span> for your digital
+                    product?
                 </h1>
-                <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded strategy to boost your online presence.</h5>
+                <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded
+                    strategy to boost your online presence.</h5>
                 <div class="row gy-3">
                     <div class="col-lg-3 col-sm-6">
                         <div class="services-card">
@@ -459,30 +527,31 @@
                     </div>
                 </div>
             </div>
-    </div>
-    </section>
+        </section>
 
-    <section id="getRegistered" class="section-py getRegistered-section">
-        <div class="container">
+        <section id="getRegistered" class="section-py getRegistered-section">
+            <div class="container">
 
-            <div class="registered-wrap">
-                <div class="row  align-items-center flex-column-reverse flex-md-row">
-                    <div class="col-md-6">
-                        <h1>First AI-Driven Guest Post& Link Building Platform</h1>
-                        <p>The future of link Building is here. Say goodbye to manual outreach. Reach a Wider Audience and build Authority with AI-suggested guest blogging on high-DA websites.</p>
-                        <button type="button" class="btn-white">Get Registered</button>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="img-wrap">
-                            <img src="{{ asset_url('img/registered-img.png') }}" alt="registered-img">
+                <div class="registered-wrap">
+                    <div class="row  align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-md-6">
+                            <h1>First AI-Driven Guest Post& Link Building Platform</h1>
+                            <p>The future of link Building is here. Say goodbye to manual outreach. Reach a Wider
+                                Audience
+                                and build Authority with AI-suggested guest blogging on high-DA websites.</p>
+                            <button type="button" class="btn-white">Get Registered</button>
                         </div>
+                        <div class="col-md-6">
+                            <div class="img-wrap">
+                                <img src="{{ asset_url('img/registered-img.png') }}" alt="registered-img">
+                            </div>
+                        </div>
+
                     </div>
-
                 </div>
-            </div>
 
-        </div>
-        </div>
+            </div>
+    </div>
     </section>
 
     </div>
