@@ -7,7 +7,8 @@ use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Illuminate\Http\Request;
 
 use App\Models\lslbOrder;
-
+use App\Models\lslbUser;
+use App\Models\lslbWebsite;
 use App\Models\lslbPayment;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyMail;
@@ -88,20 +89,36 @@ class PaypalPaymentController extends Controller
                         'payment_status' => 'success',
                     ]);
 
+                    $website = lslbWebsite::where('id', $order->website_id)->first();
+
+                    $websitename = $website->website_url;
+
+                    $user = lslbUser::where('id', $website->user_id)->first();
+
+
                     $customData = [
                         'from_name' => 'Links Farmer',
                         'mailaddress' => 'no-reply@linksfarmer.com',
                         'subject' => 'Order Payment Successful',
                         'order_id' => $order->order_id,
+                        'attachment_type' => $order->attachment_type,
+                        'websitename' => $websitename,
                         'amount_paid' => $captures['amount']['value'],
                         'payment_id' => $captures['id'],
                     ];
 
                     // Send the email using the Blade view
+
                     Mail::send('email.order_payment_successful_paypal', $customData, function ($message) use ($customData, $order) {
                         $message->from($customData['mailaddress'], $customData['from_name']);
                         $message->to($order->email);
                         $message->subject($customData['subject']);
+                    });
+
+                    Mail::send('email.order_payment_successful_paypal_publisher', $customData, function ($message) use ($customData, $user) {
+                        $message->from($customData['mailaddress'], $customData['from_name']);
+                        $message->to($user->email);
+                        $message->subject('New orders have been successfully placed on your website');
                     });
 
                     return redirect()->route('advertiser.orders')->with('success', 'Payment completed successfully!');
