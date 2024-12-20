@@ -37,6 +37,8 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/admin', 'AdminController@index')->middleware('checkUserRole:admin');
 
 Auth::routes(['verify' => true]);
+
+
 Route::get('/home', [PagesController::class, 'Home'])->name('home');
 Route::get('/terms-condition', [PagesController::class, 'termandconditions'])->name('terms-condition');
 Route::get('/privacy-policy', [PagesController::class, 'privacypolicy'])->name('privacy-policy');
