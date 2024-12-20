@@ -1,17 +1,11 @@
 <!doctype html>
 
-<html
-    lang="en"
-    class="dark-style layout-navbar-fixed layout-wide"
-    dir="ltr"
-    data-theme="theme-default"
-    data-assets-path="../../assets/"
-    data-template="front-pages">
+<html lang="en" class="dark-style layout-navbar-fixed layout-wide" dir="ltr" data-theme="theme-default"
+    data-assets-path="../../assets/" data-template="front-pages">
 
 <head>
     <meta charset="utf-8" />
-    <meta
-        name="viewport"
+    <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="description" content="" />
 
@@ -61,14 +55,9 @@
         <div class="container">
             <div class="navbar navbar-expand-xl landing-navbar">
                 <div class="navbar-brand app-brand demo d-flex  me-4">
-                    <button
-                        class="navbar-toggler text-light border-0 px-0 me-2"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    <button class="navbar-toggler text-light border-0 px-0 me-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti ti-menu-2 ti-sm align-middle"></i>
                     </button>
                     <a href="landing-page.html" class="app-brand-link">
@@ -79,28 +68,21 @@
                 </div>
 
                 <div class="collapse navbar-collapse landing-nav-menu" id="navbarSupportedContent">
-                    <button
-                        class="navbar-toggler border-0 text-light position-absolute end-0 top-0 scaleX-n1-rtl"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="true"
-                        aria-label="Toggle navigation">
+                    <button class="navbar-toggler border-0 text-light position-absolute end-0 top-0 scaleX-n1-rtl"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                         <i class="ti ti-x ti-sm"></i>
                     </button>
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link fw-medium" aria-current="page" href="landing-page.html#landingHero">Service</a>
+                            <a class="nav-link fw-medium" aria-current="page"
+                                href="landing-page.html#landingHero">Service</a>
                         </li>
 
                         <li class="nav-item mega-dropdown">
-                            <a
-                                href="https://freebestseotools.com/"
+                            <a href="https://freebestseotools.com/"
                                 class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
-                                aria-expanded="false"
-                                data-bs-toggle="mega-dropdown"
-                                data-trigger="hover">
+                                aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
                                 Tools
                             </a>
                             <div class="dropdown-menu custom-menu p-4">
@@ -110,24 +92,21 @@
 
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
-                                                <a
-                                                    class="nav-link mega-dropdown-link"
+                                                <a class="nav-link mega-dropdown-link"
                                                     href="https://freebestseotools.com/free-broken-links-checker"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Broken Links Finder </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a
-                                                    class="nav-link mega-dropdown-link"
+                                                <a class="nav-link mega-dropdown-link"
                                                     href="https://freebestseotools.com/google-index-checker"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Google Index Checker </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a
-                                                    class="nav-link mega-dropdown-link"
+                                                <a class="nav-link mega-dropdown-link"
                                                     href="https://freebestseotools.com/free-robots-txt-generator"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
@@ -135,8 +114,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a
-                                                    class="nav-link mega-dropdown-link"
+                                                <a class="nav-link mega-dropdown-link"
                                                     href="https://freebestseotools.com/free-xml-sitemap-generator-tool"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
@@ -144,8 +122,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a
-                                                    class="nav-link mega-dropdown-link"
+                                                <a class="nav-link mega-dropdown-link"
                                                     href="https://freebestseotools.com/google-malware-checker-tool"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
@@ -159,16 +136,14 @@
 
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
-                                                <a
-                                                    class="nav-link mega-dropdown-link"
+                                                <a class="nav-link mega-dropdown-link"
                                                     href="https://freebestseotools.com/free-seo-plagiarism-checker-tool"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Free Plagiarism Checker </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a
-                                                    class="nav-link mega-dropdown-link"
+                                                <a class="nav-link mega-dropdown-link"
                                                     href="https://freebestseotools.com/free-word-counter-tool"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
@@ -176,16 +151,14 @@
                                                     Word Counter </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a
-                                                    class="nav-link mega-dropdown-link"
+                                                <a class="nav-link mega-dropdown-link"
                                                     href="https://freebestseotools.com/domain-whois-checker-too"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Whois Checker </a>
                                             </li>
                                             <li class="nav-item">
-                                                <button
-                                                    class="py-1 px-2 outlined-btn w-50 fs-6 mt-3"
+                                                <button class="py-1 px-2 outlined-btn w-50 fs-6 mt-3"
                                                     onclick="window.open('https://freebestseotools.com/domain-whois-checker-too', '_blank')">
                                                     View
                                                 </button>
@@ -216,18 +189,19 @@
                     </ul>
                 </div>
                 <div class="landing-menu-overlay d-xl-none"></div>
-                <ul class="navbar-nav flex-row gap-2 align-items-center ms-auto d-none d-xl-flex">
-                    <li>
-                        <a href="#" class="outlined-btn">
-                            Login
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="filled-btn">
-                            Sign Up for free
-                        </a>
-                    </li>
-                </ul>
+
+                <div class="navbar-nav flex-row gap-2 align-items-center ms-auto d-none d-xl-flex">
+                    <!-- <li> -->
+                    <a href="#" class="outlined-btn">
+                        Login
+                    </a>
+                    <!-- </li> -->
+                    <!-- <li>/ -->
+                    <a href="#" class="filled-btn">
+                        Sign Up for free
+                    </a>
+                    <!-- </li> -->
+                </div>
             </div>
         </div>
     </nav>

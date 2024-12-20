@@ -39,16 +39,7 @@ input:focus-visible {
 }
 
 
-.filled-btn {
-  background: linear-gradient(92.07deg, #84F9A6 -0.22%, #0ACCF7 101.16%);
-  padding: 14.5px 24px;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 28px;
-  color: #000;
-  cursor: pointer;
-}
+
 
 .outlined-btn {
   background: transparent;
@@ -64,6 +55,8 @@ input:focus-visible {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   cursor: pointer;
+  transition: all 0.3s ease-in;
+
 }
 
 .outlined-btn:before {
@@ -83,14 +76,82 @@ input:focus-visible {
   top: 0;
 }
 
+.outlined-btn:hover,
+.outlined-btn:focus,
+.outlined-btn:active {
+  /* background: linear-gradient(92.07deg, #84F9A6 -0.22%, #0ACCF7 101.16%);
+  color: #FFF; */
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background: linear-gradient(180deg,
+      rgba(43, 255, 255, 0.32) 0%,
+      rgba(43, 255, 255, 0.1) 50%,
+      rgba(43, 255, 255, 0.16) 100%) border-box;
+  color: #fff;
+  transition: all 0.3s ease-out;
+}
+
+.filled-btn {
+  background: linear-gradient(92.07deg, #84F9A6 -0.22%, #0ACCF7 101.16%);
+  padding: 13.5px 24px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  border: 1.5px solid transparent;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
 .filled-btn:hover,
 .filled-btn:focus,
 .filled-btn:active {
-  background-color: #FFF;
+  /* background-color: red;
   background: linear-gradient(92.07deg, #84F9A6 -0.22%, #0ACCF7 101.16%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in; */
+  border: 1.5px solid #2bffff96;
+  color: #45e2d0;
 
+}
+
+
+
+
+.filled-btn::after {
+  transition: all 0.3s ease;
+}
+
+.filled-btn:hover::after {
+  transition: all 0.3s ease-out;
+}
+
+.filled-btn::after {
+  content: "";
+  background: #000;
+  position: absolute;
+  z-index: -1;
+  padding: 0.85em 0.75em;
+  display: block;
+}
+
+.filled-btn::after {
+  border-radius: 50%;
+  left: -50%;
+  right: -50%;
+  top: -150%;
+  bottom: -150%;
+  line-height: 8.34em;
+  transform: scale(0, 0);
+}
+
+.filled-btn:hover::after {
+  transform: scale(1, 1);
 }
 
 .custom-navbar .navbar-nav .nav-link {
@@ -116,7 +177,7 @@ input:focus-visible {
 
 .custom-menu {
 
-  background-color: #000;
+  background-color: #101010;
 
 }
 
@@ -125,12 +186,14 @@ input:focus-visible {
   font-weight: 600;
   color: #fff;
   line-height: 56px;
+  margin-bottom: 20px;
 }
 
 .hero-text-box h3 {
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 20px;
+  color: #D3D3D3;
 }
 
 .hero-text-box h2 {
@@ -176,8 +239,12 @@ input:focus-visible {
   padding-bottom: 110px;
 }
 
-.getFeaturedOn-section,
+/* .getFeaturedOn-section,
 .whyUs-section {
+  background: rgba(255, 255, 255, 0.05);
+} */
+
+.light-bg {
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -372,6 +439,8 @@ input:focus-visible {
   margin-bottom: 20px;
   background: rgbA(255, 255, 255, 0.05);
   text-align: center;
+  margin: 0px auto;
+  margin-bottom: 20px;
 }
 
 /* .whyus-card .img-wrap img {
@@ -543,6 +612,13 @@ input:focus-visible {
   top: 2px;
 } */
 
+.whytoreact-wrap p {
+  font-size: 20px;
+  color: #D3D3D3;
+  text-align: center;
+  font-weight: 500;
+}
+
 
 footer .footer-list h5 {
   color: #fff;
@@ -569,7 +645,7 @@ footer .footer-list li a {
   font-weight: 400;
   line-height: 28px;
   text-decoration: none;
-  transition: all ease-in-out 0.15s;
+  transition: all 0.3s ease-in;
 }
 
 footer .footer-list li a:hover {
@@ -648,8 +724,8 @@ footer .footer-list li .icon-div-wrap svg {
 
 @media (min-width: 992px) {
   .landing-hero .hero-text-box {
-    max-width: 905px;
-    margin: 0 auto;
+    /* max-width: 905px;
+    margin: 0 auto; */
     margin-bottom: 100px;
   }
 }

@@ -279,7 +279,7 @@ nav.layout-navbar.navbar-active::after {
 }
 
 .landing-footer .footer-link:hover {
-  opacity: 0.8;
+  color: #45e2d0;
 }
 
 .landing-footer .footer-top {
