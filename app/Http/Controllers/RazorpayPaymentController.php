@@ -113,7 +113,6 @@ class RazorpayPaymentController extends Controller
 
                 $user = lslbUser::where('id', $order->u_id)->first();
 
-                $user->email;
 
 
                 $customData = [
