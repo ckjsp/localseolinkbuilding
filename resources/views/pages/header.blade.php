@@ -197,6 +197,7 @@
                             </div>
 
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link fw-medium" href="landing-page.html#landingTeam">Company</a>
                         </li>
@@ -212,11 +213,9 @@
                         <li class="nav-item d-xl-none">
                             <a class="nav-link fw-medium" href="#">Sign Up for free</a>
                         </li>
-
                     </ul>
                 </div>
                 <div class="landing-menu-overlay d-xl-none"></div>
-
                 <ul class="navbar-nav flex-row gap-2 align-items-center ms-auto d-none d-xl-flex">
                     <li>
                         <a href="#" class="outlined-btn">

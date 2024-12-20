@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+
+
+    public function Home()
+    {
+
+        return view('pages.home');
+    }
+
     public function termandconditions()
     {
         return view('pages.termandconditions');
@@ -35,9 +43,34 @@ class PagesController extends Controller
         return view('pages.contactus');
     }
 
-    public function Home()
+    public function Guestpostingservices()
+
     {
 
-        return view('pages.home');
+        return view('pages.guestpostingservices');
+    }
+
+    public function linkbuildingservices()
+    {
+
+        return view('pages.linkbuildingservices');
+    }
+
+    public function seoresellerservices()
+    {
+
+        return view('pages.seoresellerservices');
+    }
+
+    public function contentwritingservices()
+    {
+
+        return view('pages.contentwritingservices');
+    }
+
+    public function contentmarketingservices()
+    {
+
+        return view('pages.contentmarketingservices');
     }
 }

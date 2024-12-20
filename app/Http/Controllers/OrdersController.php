@@ -302,26 +302,43 @@ class OrdersController extends Controller
             if (!$order) {
                 abort(404);
             }
-            $validatedData = $request->validate(['status' => 'required',]);
-            $order->update($validatedData);
+
+            $validatedData = $request->validate([
+                'status' => 'required',
+            ]);
+
+            $status = $validatedData['status'];
+            $note = $request->post('note', null);
+
+            $updateData = ['status' => $status];
+            if ($status === 'rejected' && $note) {
+                $updateData['rejection_reason'] = $note;
+            }
+
+            $order->update($updateData);
+
             $user = lslbUser::find($order->u_id);
             $website = lslbWebsite::find($order->website_id);
-            $data = ['success' => 'Status updated successfully', 'error' => ''];
-            $status = ucwords($validatedData['status']);
-            $note = !empty($request->post('note')) ? "<p><strong>Note:</strong>" . ucwords($request->post('note')) . "</p>" : '';
-            $customData['from_name'] = "Links Farmer";
-            $customData['mailaddress'] = "no-reply@linksfarmer.com";
-            $customData['subject'] = 'Notification: Links Farmer - Order Status Update';
-            $customData['msg'] = "<p>Your order status has been updated:</p>
-                <ul>
-                    <li><strong>Order ID:</strong> " . $order->order_id . "</li>
-                    <li><strong>Website:</strong> " . $website->website_url . "</li>
-                    <li><strong>New Status:</strong> " . $status . "</li>
-                </ul>
-                <a href='" . base_url('/advertiser/orders') . "'>View Orders</a>
-                " . $note . "
-                <p>If you have any questions or concerns, please contact our customer support.</p>
-                <p>Thank you for choosing our platform!</p>";
+
+            $statusText = ucwords($status);
+            $noteText = ($status === 'rejected' && !empty($note))
+                ? "<p><strong>Reason for Rejection:</strong> " . ucfirst($note) . "</p>"
+                : '';
+            $customData = [
+                'from_name' => "Links Farmer",
+                'mailaddress' => "no-reply@linksfarmer.com",
+                'subject' => 'Notification: Links Farmer - Order Status Update',
+                'msg' => "<p>Your order status has been updated:</p>
+                     <ul>
+                         <li><strong>Order ID:</strong> " . $order->order_id . "</li>
+                         <li><strong>Website:</strong> " . $website->website_url . "</li>
+                         <li><strong>New Status:</strong> " . $statusText . "</li>
+                     </ul>
+                     " . $noteText . "
+                     <a href='" . base_url('/advertiser/orders') . "'>View Orders</a>
+                     <p>If you have any questions or concerns, please contact our customer support.</p>
+                     <p>Thank you for choosing our platform!</p>",
+            ];
 
             Mail::to($user->email)->send(new MyMail($customData));
 
@@ -329,9 +346,11 @@ class OrdersController extends Controller
         } else {
             $data = ['error' => 'Oops! Order status update failed', 'success' => ''];
         }
+
         echo json_encode($data, true);
         exit;
     }
+
 
     public function payment(Request $request)
     {

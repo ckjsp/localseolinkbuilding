@@ -7,6 +7,7 @@ use Razorpay\Api\Api;
 use Illuminate\Support\Facades\Log;
 use App\Models\lslbOrder;
 use App\Models\lslbPayment;
+use App\Models\lslbUser;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyMail;
 
@@ -110,6 +111,10 @@ class RazorpayPaymentController extends Controller
                     'payment_status' => 'success',
                 ]);
 
+                $user = lslbUser::where('id', $order->u_id)->first();
+
+                $user->email;
+
 
                 $customData = [
                     'from_name' => 'Links Farmer',
@@ -122,6 +127,12 @@ class RazorpayPaymentController extends Controller
                 Mail::send('email.order_payment_successful_razorpay', $customData, function ($message) use ($customData, $order) {
                     $message->from($customData['mailaddress'], $customData['from_name']);
                     $message->to($order->email);
+                    $message->subject($customData['subject']);
+                });
+
+                Mail::send('email.order_payment_successful_razorpay', $customData, function ($message) use ($customData, $user) {
+                    $message->from($customData['mailaddress'], $customData['from_name']);
+                    $message->to($user->email);
                     $message->subject($customData['subject']);
                 });
 

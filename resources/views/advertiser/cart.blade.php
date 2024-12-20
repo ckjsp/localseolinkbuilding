@@ -466,13 +466,13 @@
         var $web_id = $this.data('web_id');
         var $price = $this.data('price');
         var $user_id = $('#user_id').val();
-        var $newCartArr = [];
         var $cartCookie = getCookie('cart');
 
         if ($quantity > 5) {
-            $('#quantityError' + $web_id).show();
-            $this.val(1);
-            return;
+            // Show error and reset quantity to 5
+            $('#quantityError' + $web_id).text('Maximum quantity is 5.').show();
+            $this.val(5);
+            $quantity = 5; // Reset to 5 for further processing
         } else {
             // Hide error message if quantity is valid
             $('#quantityError' + $web_id).hide();
@@ -493,23 +493,26 @@
                         $('#price' + v.web_id).val($price * $quantity);
 
                         let $fileUploadSection = $('#uplodefileInputSection' + v.web_id);
+
+                        // Clear existing inputs before appending new ones
                         $fileUploadSection.empty();
 
+                        // Append input fields dynamically based on the quantity
                         for (let i = 1; i <= $quantity; i++) {
                             $fileUploadSection.append(`
-                                <div class="col-md-12 pe-2">
-                                    <label class="form-label" for="inputArticleTitle${v.id}_${i}">Post Title</label>
-                                    <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle${v.id}_${i}" required placeholder="Enter post title">
-                                    <div class="valid-feedback"></div>
-                                    <div class="invalid-feedback">Invalid Post Title or Empty Post Title. Please insert a title without a link.</div>
-                                </div>
-                                <div class="col-md-12 pe-2">
-                                    <label for="inputDocFile${v.web_id}_${i}" class="form-label">Attachment ${i} <small>(doc, docx only)</small></label>
-                                  <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile${v.web_id}_${i}" required onchange="validateFileType(this)">
-                                    <div class="valid-feedback">File type is allowed. You can upload it.</div>
-                                    <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
-                                </div>
-                            `);
+                            <div class="col-md-12 pe-2">
+                                <label class="form-label" for="inputArticleTitle${v.id}_${i}">Post Title</label>
+                                <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle${v.id}_${i}" required placeholder="Enter post title">
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback">Invalid Post Title or Empty Post Title. Please insert a title without a link.</div>
+                            </div>
+                            <div class="col-md-12 pe-2">
+                                <label for="inputDocFile${v.web_id}_${i}" class="form-label">Attachment ${i} <small>(doc, docx only)</small></label>
+                                <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile${v.web_id}_${i}" required onchange="validateFileType(this)">
+                                <div class="valid-feedback">File type is allowed. You can upload it.</div>
+                                <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
+                            </div>
+                        `);
                         }
                     }
                 }

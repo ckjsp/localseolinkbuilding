@@ -25,6 +25,7 @@ class lslbOrder extends Authenticatable
         'order_date',
         'delivery_time',
         'status',
+        'rejection_reason',
         'payment_method',
         'payment_status',
         'attachment',

@@ -255,6 +255,9 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                         <div class="row mb-3">
                             <div class="col-md-12"><strong class="m-2 font-bold">Special Instructions: </strong> {!! $order[0]->special_instructions !!}</div>
                         </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12"><strong class="m-2 font-bold">Rejection reason: </strong> {!! $order[0]->rejection_reason !!}</div>
+                        </div>
                         @if($userDetail->role->name != 'Advertiser')
                         <div class="row mb-3 justify-content-center noteBox-div d-none">
                             <div class="col-md-10">
