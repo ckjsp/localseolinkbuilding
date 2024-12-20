@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Log;
 use App\Models\lslbOrder;
 use App\Models\lslbPayment;
 use App\Models\lslbUser;
+use App\Models\lslbWebsite;
+
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyMail;
 
@@ -111,16 +113,21 @@ class RazorpayPaymentController extends Controller
                     'payment_status' => 'success',
                 ]);
 
-                $user = lslbUser::where('id', $order->u_id)->first();
+                $website = lslbWebsite::where('id', $order->website_id)->first();
 
+                $websitename = $website->website_url;
 
+                $user = lslbUser::where('id', $website->user_id)->first();
 
                 $customData = [
                     'from_name' => 'Links Farmer',
                     'mailaddress' => 'no-reply@linksfarmer.com',
                     'subject' => 'Order Payment Successful',
                     'customOrderId' => $customOrderId,
+                    'websitename' => $websitename,
                     'orderPrice' => $order->price,
+                    'attachment_type' => $order->attachment_type,
+
                 ];
 
                 Mail::send('email.order_payment_successful_razorpay', $customData, function ($message) use ($customData, $order) {
@@ -129,10 +136,10 @@ class RazorpayPaymentController extends Controller
                     $message->subject($customData['subject']);
                 });
 
-                Mail::send('email.order_payment_successful_razorpay', $customData, function ($message) use ($customData, $user) {
+                Mail::send('email.order_payment_successful_razorpay_publisher', $customData, function ($message) use ($customData, $user) {
                     $message->from($customData['mailaddress'], $customData['from_name']);
                     $message->to($user->email);
-                    $message->subject($customData['subject']);
+                    $message->subject('New orders have been successfully placed on your website');
                 });
 
                 return redirect()->route('advertiser.orders')->with('success', 'Payment completed successfully!');
