@@ -147,6 +147,7 @@
                                                     href="https://freebestseotools.com/free-word-counter-tool"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
+
                                                     Word Counter </a>
                                             </li>
                                             <li class="nav-item">
@@ -169,6 +170,7 @@
                             </div>
 
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link fw-medium" href="landing-page.html#landingTeam">Company</a>
                         </li>
@@ -184,7 +186,6 @@
                         <li class="nav-item d-xl-none">
                             <a class="nav-link fw-medium" href="#">Sign Up for free</a>
                         </li>
-
                     </ul>
                 </div>
                 <div class="landing-menu-overlay d-xl-none"></div>

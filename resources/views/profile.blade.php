@@ -475,8 +475,8 @@ if (Auth::user()->role->name === 'Admin')
                             <select name="preferred_method" id="inputPreferredMethod" class="form-select">
                                 <option value="paypal" {{ $user->preferred_method == 'paypal' ? 'selected' : '' }}>PayPal
                                 </option>
-                                <option value="stripe" {{ $user->preferred_method == 'stripe' ? 'selected' : '' }}>Stripe
-                                </option>
+                                <!-- <option value="stripe" {{ $user->preferred_method == 'stripe' ? 'selected' : '' }}>Stripe
+                                </option> -->
                                 <option value="razorpay" {{ $user->preferred_method == 'razorpay' ? 'selected' : '' }}>
                                     Razorpay</option>
                             </select>
