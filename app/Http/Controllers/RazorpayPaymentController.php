@@ -72,6 +72,7 @@ class RazorpayPaymentController extends Controller
 
     public function callback(Request $request)
     {
+
         $signature = $request->razorpay_signature;
         $orderId = $request->razorpay_order_id;
         $paymentId = $request->razorpay_payment_id;
@@ -119,6 +120,15 @@ class RazorpayPaymentController extends Controller
 
                 $user = lslbUser::where('id', $website->user_id)->first();
 
+                $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
+
+                $updatedCookie = array_filter($arrCookie, function ($item) use ($order) {
+                    return $item['web_id'] !== $order->website_id;
+                });
+
+                setcookie('cart', !empty($updatedCookie) ? json_encode(array_values($updatedCookie)) : '', time() + (86400 * 30), "/");
+
+
                 $customData = [
                     'from_name' => 'Links Farmer',
                     'mailaddress' => 'no-reply@linksfarmer.com',
@@ -152,7 +162,6 @@ class RazorpayPaymentController extends Controller
             return redirect()->route('advertiser.orders')->with('error', 'Payment verification failed. Please try again!');
         }
     }
-
 
     public function cancel($orderId)
 
