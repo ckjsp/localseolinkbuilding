@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 col-sm-6 mb-4">
+        <!-- <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card card-border-shadow-danger h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2 pb-1">
@@ -49,9 +49,9 @@
                     <p class="mb-1">Total Content Writing</p>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="col-lg-4 col-sm-6 mb-4">
+        <!-- <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card card-border-shadow-warning h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2 pb-1">
@@ -64,7 +64,7 @@
                     <p class="mb-1">Total Funds Added</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="project_details">
         @if($projects->isEmpty())

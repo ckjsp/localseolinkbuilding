@@ -56,6 +56,7 @@ class RazorpayPaymentController extends Controller
 
 
     private function fetchConversionRate($fromCurrency, $toCurrency)
+
     {
         $url = "https://api.exchangerate-api.com/v4/latest/$fromCurrency";
 
