@@ -42,8 +42,8 @@
                         <tbody class="table-border-bottom-0">
                             @foreach($websites as $k => $v)
                             @php
-                                $categories = explode(',', $v->categories);
-                                $forbidden_categories = explode(',', $v->forbidden_categories);
+                            $categories = explode(',', $v->categories);
+                            $forbidden_categories = explode(',', $v->forbidden_categories);
                             @endphp
                             <tr class="table-body" data-bs-toggle="collapse" data-bs-target="#website-{{$k}}" aria-controls="website-{{$k}}" aria-expanded="false">
                                 <td>{{ $v->website_url }}</td>
@@ -56,10 +56,10 @@
                                 <td>{{ ucwords($v->status) }}</td>
                                 <td class="p-0 text-center">
                                     @if($v->site_verification_file != '')
-                                        <a href="{{ url('/storage/app/' . $v->site_verification_file) }}" target="_blank"><i class="tf-icons ti ti-clock-cog"></i></a>
-                                    @else 
-                                        <i class="tf-icons ti ti-clock-x text-danger"></i>
-                                     @endif
+                                    <a href="{{ url('/storage/app/' . $v->site_verification_file) }}" target="_blank"><i class="tf-icons ti ti-clock-cog"></i></a>
+                                    @else
+                                    <i class="tf-icons ti ti-clock-x text-danger"></i>
+                                    @endif
                                 </td>
                                 <!-- <td class="p-0 text-center"><a href="{{ url('/publisher/website') }}/{{ $v->id }}/verify"><i class="tf-icons ti ti-clock-cog"></i></a></td> -->
                                 <td>
@@ -145,7 +145,7 @@
 </div>
 
 @if(count($websites) <= 0)
-<div class="modal fade" id="info-pop" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="info-pop" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-simple modal-enable-otp modal-dialog-centered modal-xl">
         <div class="modal-content p-3 p-md-5">
             <div class="modal-body">
@@ -158,13 +158,13 @@
                         <strong>Add Website metrics:</strong>
                         <ul>
                             <li>
-                                <p>{{ __('A minimum of 100 articles of a website should be indexed on Google. Link Publishers only considers websites with REAL high-quality traffic. PBN websites are immediately rejected from our list of accepted websites.') }}</p>
+                                <p>{{ __('A minimum of 50 articles of a website should be indexed on Google. Link Publishers only considers websites with REAL high-quality traffic. PBN websites are immediately rejected from our list of accepted websites.') }}</p>
                                 <p>{{ __('Note: Including PBN websites may result in an account ban.') }}</p>
                             </li>
                             <li>{{ __('A domain must have at least six months of age.') }}</li>
                             <li>{{ __('Domain Authority of a website must be no less than 15.') }}</li>
                             <li>{{ __('Website Ahrefs or Semrush Organic Traffic should be greater than 250.') }}</li>
-                            <li>{{ __('MOZ Spam Score of a website can be no more than 30%.') }}</li>
+                            <li>{{ __('MOZ Spam Score of a website can be no more than 15%.') }}</li>
                         </ul>
                     </li>
                     <li><strong>{{ __('Content on websites must be unique, readable and frequently updated.') }}</strong></li>
@@ -179,15 +179,15 @@
             </div>
         </div>
     </div>
-</div>
-<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
-<script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
-<script>
-    var table = $('#websiteTbl').DataTable();
-    $(window).ready(function(){
-        $('#info-pop').modal('show');
-    });
-</script>
-@endif
+    </div>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    <script>
+        var table = $('#websiteTbl').DataTable();
+        $(window).ready(function() {
+            $('#info-pop').modal('show');
+        });
+    </script>
+    @endif
 
-@endsection
+    @endsection

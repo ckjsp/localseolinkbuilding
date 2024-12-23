@@ -626,7 +626,7 @@ if (Auth::user()->role->name === 'Admin')
 </div>
 @if($user->role->name == 'Advertiser')
 @if(session('show_advertiser_modal'))
-<div id="advertiserModal" class="modal fade" tabindex="-1" aria-hidden="true">
+<!-- <div id="advertiserModal" class="modal fade" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-simple modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body firstlogin-popup text-center pt-0">
@@ -648,7 +648,7 @@ if (Auth::user()->role->name === 'Admin')
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="modal fade" id="change-password-pop" tabindex="-1" style="display: none;" aria-hidden="true">
 
