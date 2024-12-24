@@ -27,24 +27,24 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        if(Auth::user()){
+        if (Auth::user()) {
             $data = array();
             $data['slug'] = 'dashboard';
-            $data['websiteCount'] = lslbWebsite::where('user_id',Auth::user()->id)->count();
+            $data['websiteCount'] = lslbWebsite::where('user_id', Auth::user()->id)->count();
             // $data['orderCount'] = $this->countOrder(lslbOrder::with('website')->get());
             $lslbOrder = new lslbOrder;
             $data['orderCount'] = $lslbOrder->orderList(Auth::user()->id)->count();
             return view('publisher/home')->with($data);
-        }else{
+        } else {
             return redirect('/login');
         }
     }
-    public function countOrder($data){
+    public function countOrder($data)
+    {
         $num = 0;
-        foreach($data as $k=>$v){
+        foreach ($data as $k => $v) {
             ($v->website->user_id == Auth::user()->id) ? $num++ : '';
         }
         return $num;
     }
-
 }

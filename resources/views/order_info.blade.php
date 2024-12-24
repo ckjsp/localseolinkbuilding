@@ -255,16 +255,33 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                         <div class="row mb-3">
                             <div class="col-md-12"><strong class="m-2 font-bold">Special Instructions: </strong> {!! $order[0]->special_instructions !!}</div>
                         </div>
+                        @if($order[0]->status == 'complete')
                         <div class="row mb-3">
-                            <div class="col-md-12"><strong class="m-2 font-bold">Rejection reason: </strong> {!! $order[0]->rejection_reason !!}</div>
+                            <div class="col-md-12">
+                                <strong class="m-2 font-bold">Complete URL: </strong> {!! $order[0]->completion_url !!}
+                            </div>
                         </div>
+                        @elseif($order[0]->status == 'rejected')
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <strong class="m-2 font-bold">Rejection reason: </strong> {!! $order[0]->rejection_reason !!}
+                            </div>
+                        </div>
+                        @endif
+
                         @if($userDetail->role->name != 'Advertiser')
                         <div class="row mb-3 justify-content-center noteBox-div d-none">
                             <div class="col-md-10">
                                 <label for="noteBox" class="form-label"> Status Notes: </label>
                                 <textarea class="form-control" id="noteBox" rows="7" name="note" value="" placeholder="If you have any specific note regarding status. mention them below."></textarea>
                             </div>
+
                         </div>
+                        <div class="urlBox-div d-none">
+                            <label for="urlBox">Enter Complete Url:</label>
+                            <input type="url" id="urlBox" name="url" class="form-control" placeholder="Enter URL">
+                        </div>
+
                         @endif
                     </div>
                 </div>
@@ -295,7 +312,17 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
             $this.addClass('active');
             $('.orderStatus').removeClass('disabled');
             $('.orderStatus').data('item', $this.data('item'));
-            $('.noteBox-div').removeClass('d-none');
+
+            if ($statusText.toLowerCase() === 'rejected') {
+                $('.noteBox-div').removeClass('d-none');
+                $('.urlBox-div').addClass('d-none');
+            } else if ($statusText.toLowerCase() === 'complete') {
+                $('.noteBox-div').addClass('d-none');
+                $('.urlBox-div').removeClass('d-none');
+            } else {
+                $('.noteBox-div').addClass('d-none');
+                $('.urlBox-div').addClass('d-none');
+            }
         }
     });
 
@@ -303,11 +330,30 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
         $this = $(this);
         $status = $this.data('item');
         $note = $('#noteBox').val();
+        $url = $('#urlBox').val();
         $id = $('#id').val();
         $_token = $('input[name="_token"]').val();
-        if ($note != '') {
+
+        if ($status.toLowerCase() === 'complete' && $url === '') {
+            $('#urlBox').addClass('is-invalid');
+        } else {
+            $('#urlBox').removeClass('is-invalid');
+        }
+
+        if ($status.toLowerCase() === 'rejected' && $note === '') {
+            $('#noteBox').addClass('is-invalid');
+        } else {
             $('#noteBox').removeClass('is-invalid');
-            if ($status != '') {
+        }
+
+        if (($status.toLowerCase() === 'rejected' && $note != '') ||
+            ($status.toLowerCase() === 'complete' && $url != '') ||
+            ($status.toLowerCase() !== 'rejected' && $status.toLowerCase() !== 'complete')) {
+
+            $('#noteBox').removeClass('is-invalid');
+            $('#urlBox').removeClass('is-invalid');
+
+            if ($status !== '') {
                 $.ajax({
                     type: 'POST',
                     url: '<?= route('order.update.status', $order[0]->id) ?>',
@@ -315,26 +361,28 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                         '_token': $_token,
                         'status': $status,
                         'note': $note,
+                        'url': $url
                     },
                     success: function(response) {
                         var $obj = JSON.parse(response);
-                        if ($obj.error != '') {
+                        if ($obj.error !== '') {
                             $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
                         } else {
                             $('#alert').attr('class', '').addClass('alert alert-success').html('<ul class="m-auto"><li>' + $obj.success + '</li></ul>');
                             setTimeout(location.reload(true), 1000);
                         }
-                        $('#noteBox-div').addClass('d-none');
+
+                        $('.noteBox-div').addClass('d-none');
+                        $('.urlBox-div').addClass('d-none');
+
                     },
                     error: function(error) {
-                        // Handle errors
                         console.log(error);
                     }
                 });
             }
-        } else {
-            $('#noteBox').addClass('is-invalid');
         }
     });
 </script>
+
 @endpush

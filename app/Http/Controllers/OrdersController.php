@@ -13,8 +13,6 @@ use PhpOffice\PhpWord\Shared\Html;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyMail;
 use App\Http\Controllers\ArticleTitle;
-
-
 use DOMDocument;
 use Illuminate\Support\Facades\DB;
 use Stripe\Stripe;
@@ -309,38 +307,49 @@ class OrdersController extends Controller
 
             $status = $validatedData['status'];
             $note = $request->post('note', null);
+            $url = $request->post('url', null);
 
             $updateData = ['status' => $status];
+
             if ($status === 'rejected' && $note) {
                 $updateData['rejection_reason'] = $note;
             }
 
+            if ($status === 'complete' && $url) {
+                $updateData['completion_url'] = $url;
+            }
+
             $order->update($updateData);
 
-            $user = lslbUser::find($order->u_id);
-            $website = lslbWebsite::find($order->website_id);
+            $website = lslbWebsite::where('id', $order->website_id)->first();
+
+            $user = lslbUser::where('id', $website->user_id)->first();
+
+            $recipientEmail = ($user->role === 1) ? $user->email : $order->email;
+
 
             $statusText = ucwords($status);
-            $noteText = ($status === 'rejected' && !empty($note))
-                ? "<p><strong>Reason for Rejection:</strong> " . ucfirst($note) . "</p>"
-                : '';
+            $noteText = ($status === 'rejected' && !empty($note)) ? "<p><strong>Reason for Rejection:</strong> " . ucfirst($note) . "</p>" : '';
+            $urlText = ($status === 'complete' && !empty($url)) ? "<p><strong>Completion URL:</strong> <a href='" . $url . "'>" . $url . "</a></p>" : '';
+
             $customData = [
                 'from_name' => "Links Farmer",
                 'mailaddress' => "no-reply@linksfarmer.com",
                 'subject' => 'Notification: Links Farmer - Order Status Update',
                 'msg' => "<p>Your order status has been updated:</p>
-                     <ul>
-                         <li><strong>Order ID:</strong> " . $order->order_id . "</li>
-                         <li><strong>Website:</strong> " . $website->website_url . "</li>
-                         <li><strong>New Status:</strong> " . $statusText . "</li>
-                     </ul>
-                     " . $noteText . "
-                     <a href='" . base_url('/advertiser/orders') . "'>View Orders</a>
-                     <p>If you have any questions or concerns, please contact our customer support.</p>
-                     <p>Thank you for choosing our platform!</p>",
+                            <ul>
+                                <li><strong>Order ID:</strong> " . $order->order_id . "</li>
+                                <li><strong>Website:</strong> " . $website->website_url . "</li>
+                                <li><strong>New Status:</strong> " . $statusText . "</li>
+                            </ul>
+                            " . $noteText . "
+                            " . $urlText . "  <!-- Display URL if status is 'Complete' -->
+                            <a href='" . base_url('/advertiser/orders') . "'>View Orders</a>
+                            <p>If you have any questions or concerns, please contact our customer support.</p>
+                            <p>Thank you for choosing our platform!</p>",
             ];
 
-            Mail::to($user->email)->send(new MyMail($customData));
+            Mail::to($recipientEmail)->send(new MyMail($customData));
 
             $data = ['success' => 'Order status updated successfully', 'error' => ''];
         } else {

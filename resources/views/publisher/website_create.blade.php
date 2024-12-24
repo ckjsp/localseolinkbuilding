@@ -522,6 +522,10 @@
                     min: 1,
                     max: 100
                 },
+                publishing_time: {
+                    required: true,
+
+                },
                 spam_score: {
                     required: true,
                     min: 0,
@@ -578,6 +582,10 @@
                     required: "Please enter the page authority.",
                     min: "Page authority must be at least 1.",
                     max: "Page authority cannot exceed 100."
+                },
+                publishing_time: {
+                    required: "Please enter the publishing time.",
+
                 },
                 spam_score: {
                     required: "Please enter the spam score.",
@@ -644,8 +652,8 @@
             var allowedExtensions = /(\.pdf)$/i;
             if (!allowedExtensions.exec(filePath)) {
                 fileErrorMessage.style.display = 'block';
-                fileInput.value = ''; // Clear invalid file input
-                event.preventDefault(); // Prevent form submission
+                fileInput.value = '';
+                event.preventDefault();
             }
         }
     });
@@ -654,13 +662,51 @@
         $('#inputCategories1').on('change', function() {
             var selectedOptions = $(this).find('option:selected');
             if (selectedOptions.length > 5) {
-                $('#category-limit-message').removeClass('d-none'); // Show message
-                // Deselect the last selected option
+                $('#category-limit-message').removeClass('d-none');
                 selectedOptions.last().prop('selected', false);
             } else {
-                $('#category-limit-message').addClass('d-none'); // Hide message
+                $('#category-limit-message').addClass('d-none');
             }
         });
+    });
+
+    $('#inputWebUrl').blur(function() {
+        var websiteUrl = $(this).val();
+        var submitButton = $('#submit');
+
+        submitButton.prop('disabled', true);
+
+        if (websiteUrl) {
+            $.ajax({
+                url: '/check-website',
+                type: 'POST',
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    website_url: websiteUrl
+                },
+                success: function(response) {
+                    if (response.exists) {
+                        $('#inputWebUrl').addClass('is-invalid').next('.invalid-feedback').text(response.message).show();
+                        submitButton.prop('disabled', true);
+                    } else {
+                        $('#inputWebUrl').removeClass('is-invalid').next('.invalid-feedback').text('').hide();
+                        submitButton.prop('disabled', false);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX error:', error);
+                    submitButton.prop('disabled', false);
+                }
+            });
+        } else {
+            submitButton.prop('disabled', false);
+        }
+    });
+
+    $('#addWebsiteForm').submit(function(event) {
+        if ($('#inputWebUrl').next('.invalid-feedback').is(':visible')) {
+            event.preventDefault();
+        }
     });
 </script>
 

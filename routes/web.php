@@ -59,6 +59,7 @@ Route::get('/content-marketing-services', [PagesController::class, 'contentmarke
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
 
+
 Route::middleware(['auth', 'verified'])->group(function () {
 
     // Route::get('/logout', [LoginController::class, 'logout']);
@@ -85,6 +86,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/publisher/website/{id}/delete', 'destroy')->name('publisher.website.delete');
             Route::post('/website/filter', 'filterData')->name('website.filter');
             Route::get('/publisher/sales', 'index')->name('publisher.sales');
+            Route::post('/check-website', 'checkWebsite')->name('check.website');
         });
 
         Route::controller(OrdersController::class)->group(function () {
