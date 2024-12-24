@@ -21,7 +21,9 @@
                 <div class="container">
                     <div class="hero-text-box text-center">
                         <!-- <h1>First <span class="animated-text">AI-Driven</span>   Guest Post& Link Building Platform</h1> -->
-                        <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1>
+                        <h1 class="page-title">Welcome to <span class="animated-text"> LINKSFARMER </span> – Your
+                            Trusted <br /> Partner in
+                            Link Building!</h1>
                         <h3>
                             We, LINKSFARMER, specialize in delivering premium quality link-building services. Our
                             services are designed to elevate your online presence. Whether you are a business owner, SEO
@@ -406,53 +408,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="card h-100 whyus-card">
-                                        <div class="h-100">
-                                            <div class="img-wrap">
-                                                <img src="{{ asset_url('img/whyus/transparency.png') }}"
-                                                    alt="whyus-img">
-                                            </div>
-                                            <h6>100% Transparency</h6>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text
-                                                ever since the 1500s, when an unknown printer took a galley...
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card h-100 whyus-card">
-                                        <div class="h-100">
-                                            <div class="img-wrap">
-                                                <img src="{{ asset_url('img/whyus/backlinks.png') }}" alt="whyus-img">
-                                            </div>
-                                            <h6>Earn High-Quality Backlinks</h6>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text
-                                                ever since the 1500s, when an unknown printer took a galley...
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card h-100 whyus-card">
-                                        <div class="h-100">
-                                            <div class="img-wrap">
-                                                <img src="{{ asset_url('img/whyus/content.png') }}" alt="whyus-img">
-                                            </div>
-                                            <h6>High Quality Content</h6>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text
-                                                ever since the 1500s, when an unknown printer took a galley...
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
                             <div class="whyus-button-next"></div>
                             <div class="whyus-button-prev"></div>
@@ -475,57 +430,63 @@
                     <span class="title-section animated-text">Our Services</span>
                 </div>
                 <h1 class="subtitle-section text-center">
-                    Are you in search of a <span class="animated-text"> complete solution </span> for your digital
+                    Are you in search of a <span class="animated-text"> complete solution </span> <br /> for your
+                    digital
                     product?
                 </h1>
                 <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded
                     strategy to boost your online presence.</h5>
-                <div class="row gy-3">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="services-card">
-                            <div class="img-wrap">
-                                <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <h6>Guest Post</h6>
-                                <i class="ti ti-arrow-narrow-right "></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="services-card">
-                            <div class="img-wrap">
-                                <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <h6>Guest Post</h6>
-                                <i class="ti ti-arrow-narrow-right "></i>
+
+                <div class="data_wrap">
+                    <div class="row gy-3">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Content Writing</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="services-card">
-                            <div class="img-wrap">
-                                <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <h6>Guest Post</h6>
-                                <i class="ti ti-arrow-narrow-right "></i>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Link Building</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="services-card">
-                            <div class="img-wrap">
-                                <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Content Marketing</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <h6>Guest Post</h6>
-                                <i class="ti ti-arrow-narrow-right "></i>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>SEO Reseller</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </section>
 
