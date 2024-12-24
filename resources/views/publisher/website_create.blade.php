@@ -256,7 +256,6 @@
                     </div>
                     <div class="col-md-6 mb-4">
                         @php
-
                         if (old('categories')) {
                         $categories = old('categories');
                         } else {
@@ -270,18 +269,12 @@
                             value="{{ (isset($categories) && !empty($categories)) ? $categories : '' }}" multiple>
                         <label for="inputCategories1" class="form-label">Categories</label>
                         <div class="select2-primary">
-
                             <select id="inputCategories1" name="categories[]" class="form-select select2" multiple>
-                                <option value="General" {{ (in_array("General", $Carr)) ? 'selected' : '' }}>General
-                                </option>
-                                <option value="Agriculture" {{ (in_array("Agriculture", $Carr)) ? 'selected' : '' }}>
-                                    Agriculture</option>
-                                <option value="Animals & Pets" {{ (in_array("Animals & Pets", $Carr)) ? 'selected' : ''
-                                    }}>Animals & Pets</option>
-                                <option value="Arms and ammunition" {{ (in_array("Arms and ammunition", $Carr))
-                                    ? 'selected' : '' }}>Arms and ammunition</option>
-                                <option value="Arts & Entertainment" {{ (in_array("Arts & Entertainment", $Carr))
-                                    ? 'selected' : '' }}>Arts & Entertainment</option>
+                                <option value="General" {{ in_array("General", $Carr) ? 'selected' : '' }}>General</option>
+                                <option value="Agriculture" {{ in_array("Agriculture", $Carr) ? 'selected' : '' }}>Agriculture</option>
+                                <option value="Animals & Pets" {{ in_array("Animals & Pets", $Carr) ? 'selected' : '' }}>Animals & Pets</option>
+                                <option value="Arms and ammunition" {{ in_array("Arms and ammunition", $Carr) ? 'selected' : '' }}>Arms and ammunition</option>
+                                <option value="Arts & Entertainment" {{ in_array("Arts & Entertainment", $Carr) ? 'selected' : '' }}>Arts & Entertainment</option>
                                 <option value="Automobiles" {{ (in_array("Automobiles", $Carr)) ? 'selected' : '' }}>
                                     Automobiles</option>
                                 <option value="Beauty" {{ (in_array("Beauty", $Carr)) ? 'selected' : '' }}>Beauty
@@ -363,13 +356,17 @@
                                     }}>Web development</option>
                                 <option value="Wedding" {{ (in_array("Wedding",$Carr)) ? 'selected' : '' }}>Wedding
                                 </option>
-
+                                <!-- Add other options here -->
                             </select>
+                            <small id="category-limit-message" class="form-text text-danger d-none">
+                                You can only select up to 5 categories.
+                            </small>
                             <small class="form-text text-muted">
                                 Please select up to 5 categories only
                             </small>
                         </div>
                     </div>
+
                     <div class="col-md-6 mb-4">
                         @php
                         if(old('forbidden_categories')){
@@ -651,6 +648,19 @@
                 event.preventDefault(); // Prevent form submission
             }
         }
+    });
+
+    $(document).ready(function() {
+        $('#inputCategories1').on('change', function() {
+            var selectedOptions = $(this).find('option:selected');
+            if (selectedOptions.length > 5) {
+                $('#category-limit-message').removeClass('d-none'); // Show message
+                // Deselect the last selected option
+                selectedOptions.last().prop('selected', false);
+            } else {
+                $('#category-limit-message').addClass('d-none'); // Hide message
+            }
+        });
     });
 </script>
 

@@ -23,7 +23,7 @@
                 @csrf
                 <input type="hidden" id="url" value="{{ url('order/update-status') }}">
                 <div id="alert"></div>
-                <div class="card-datatable table-responsive pt-0">
+                <div class="card-datatable overflow-x-auto pt-0">
                     <table class="datatables-basic table bg-white" id="orderTbl">
                         <thead class="table-dark">
                             <tr>
@@ -109,6 +109,7 @@
     </div>
 </div>
 
+
 <div class="modal fade" id="rejectionModal" tabindex="-1" aria-labelledby="rejectionModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -134,9 +135,25 @@
     </div>
 </div>
 
+
 @endsection
 
 @push('script')
+
+<script>
+    document.getElementById('rejectionForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const rejectionModal = document.getElementById('rejectionModal');
+        const bootstrapModal = bootstrap.Modal.getInstance(rejectionModal);
+        bootstrapModal.hide();
+    });
+
+    document.getElementById('rejectionModal').addEventListener('hidden.bs.modal', function() {
+        document.getElementById('rejectionForm').reset();
+    });
+</script>
+
 <script>
     var table = $('#orderTbl').DataTable({
         "columns": [{
@@ -160,12 +177,10 @@
         var $url = $('#url').val();
 
         if ($status === 'rejected') {
-            // Open rejection modal
             $('#rejectionModal').modal('show');
             $('#rejectionModal #orderId').val($id);
             $('#rejectionModal #status').val($status);
         } else if ($status != '') {
-            // Handle other statuses
             $.ajax({
                 type: 'POST',
                 url: $url + '/' + $id,
@@ -206,7 +221,7 @@
             data: {
                 '_token': $_token,
                 'status': $status,
-                'note': $reason, // Send the rejection reason as 'note'
+                'note': $reason,
             },
             success: function(response) {
                 var $obj = JSON.parse(response);

@@ -322,26 +322,23 @@ class AdvertiserController extends Controller
     }
 
     public function projectDestroy($id)
+
     {
         $selectedProjectId = session('selected_project_id');
 
-        if ($id == $selectedProjectId) {
-            $project = lslbProject::findOrFail($id);
+        $project = lslbProject::findOrFail($id);
 
-            if ($project->delete()) {
-                session()->forget('selected_project_id');
+        if ($project->delete()) {
+            session()->forget('selected_project_id');
 
-                $remainingProjects = lslbProject::count();
+            $remainingProjects = lslbProject::count();
 
-                if ($remainingProjects === 0) {
-                    return response()->json(['success' => 'Project deleted successfully.', 'clearLocalStorage' => true]);
-                }
-                return response()->json(['success' => 'Project deleted successfully.']);
-            } else {
-                return response()->json(['error' => 'Failed to delete the project.'], 500);
+            if ($remainingProjects === 0) {
+                return response()->json(['success' => 'Project deleted successfully.', 'clearLocalStorage' => true]);
             }
+            return response()->json(['success' => 'Project deleted successfully.']);
         } else {
-            return response()->json(['error' => 'The selected project ID does not match the project to be deleted.'], 400);
+            return response()->json(['error' => 'Failed to delete the project.'], 500);
         }
     }
 

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Log;
 use App\Models\lslbOrder;
 use App\Models\lslbPayment;
 use App\Models\lslbUser;
+use App\Models\lslbWebsite;
+
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyMail;
 
@@ -54,6 +56,7 @@ class RazorpayPaymentController extends Controller
 
 
     private function fetchConversionRate($fromCurrency, $toCurrency)
+
     {
         $url = "https://api.exchangerate-api.com/v4/latest/$fromCurrency";
 
@@ -70,6 +73,7 @@ class RazorpayPaymentController extends Controller
 
     public function callback(Request $request)
     {
+
         $signature = $request->razorpay_signature;
         $orderId = $request->razorpay_order_id;
         $paymentId = $request->razorpay_payment_id;
@@ -111,9 +115,19 @@ class RazorpayPaymentController extends Controller
                     'payment_status' => 'success',
                 ]);
 
-                $user = lslbUser::where('id', $order->u_id)->first();
+                $website = lslbWebsite::where('id', $order->website_id)->first();
 
-                $user->email;
+                $websitename = $website->website_url;
+
+                $user = lslbUser::where('id', $website->user_id)->first();
+
+                $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
+
+                $updatedCookie = array_filter($arrCookie, function ($item) use ($order) {
+                    return $item['web_id'] !== $order->website_id;
+                });
+
+                setcookie('cart', !empty($updatedCookie) ? json_encode(array_values($updatedCookie)) : '', time() + (86400 * 30), "/");
 
 
                 $customData = [
@@ -121,7 +135,10 @@ class RazorpayPaymentController extends Controller
                     'mailaddress' => 'no-reply@linksfarmer.com',
                     'subject' => 'Order Payment Successful',
                     'customOrderId' => $customOrderId,
+                    'websitename' => $websitename,
                     'orderPrice' => $order->price,
+                    'attachment_type' => $order->attachment_type,
+
                 ];
 
                 Mail::send('email.order_payment_successful_razorpay', $customData, function ($message) use ($customData, $order) {
@@ -130,10 +147,10 @@ class RazorpayPaymentController extends Controller
                     $message->subject($customData['subject']);
                 });
 
-                Mail::send('email.order_payment_successful_razorpay', $customData, function ($message) use ($customData, $user) {
+                Mail::send('email.order_payment_successful_razorpay_publisher', $customData, function ($message) use ($customData, $user) {
                     $message->from($customData['mailaddress'], $customData['from_name']);
                     $message->to($user->email);
-                    $message->subject($customData['subject']);
+                    $message->subject('New orders have been successfully placed on your website');
                 });
 
                 return redirect()->route('advertiser.orders')->with('success', 'Payment completed successfully!');
@@ -146,7 +163,6 @@ class RazorpayPaymentController extends Controller
             return redirect()->route('advertiser.orders')->with('error', 'Payment verification failed. Please try again!');
         }
     }
-
 
     public function cancel($orderId)
 

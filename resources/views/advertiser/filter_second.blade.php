@@ -173,7 +173,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-4 p-1">
                                 <input type="text" name="priceMin" id="priceMin" class="form-control numeric" placeholder="min" autocomplete="off" maxlength="5">
                             </div>
@@ -186,7 +186,7 @@
                             <div class="col-md-12">
                                 <p id="price_traffic_msg" class="d-none text-danger"><b>Enter valid value</b></p>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
