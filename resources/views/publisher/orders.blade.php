@@ -110,6 +110,7 @@
 </div>
 
 
+<!-- Rejection Reason Modal -->
 <div class="modal fade" id="rejectionModal" tabindex="-1" aria-labelledby="rejectionModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -134,6 +135,33 @@
         </div>
     </div>
 </div>
+
+<!-- Completion URL Modal -->
+<div class="modal fade" id="completionModal" tabindex="-1" aria-labelledby="completionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="completionModalLabel">Complete Url</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="completionForm">
+                    <input type="hidden" id="orderIdComplete" name="orderIdComplete">
+                    <input type="hidden" id="statusComplete" name="statusComplete">
+                    <div class="mb-3">
+                        <label for="completionUrl" class="form-label">Complete URL</label>
+                        <input type="url" class="form-control" id="completionUrl" name="completionUrl" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 @endsection
@@ -180,7 +208,11 @@
             $('#rejectionModal').modal('show');
             $('#rejectionModal #orderId').val($id);
             $('#rejectionModal #status').val($status);
-        } else if ($status != '') {
+        } else if ($status === 'complete') {
+            $('#completionModal').modal('show');
+            $('#completionModal #orderIdComplete').val($id);
+            $('#completionModal #statusComplete').val($status);
+        } else if ($status !== '') {
             $.ajax({
                 type: 'POST',
                 url: $url + '/' + $id,
@@ -190,7 +222,7 @@
                 },
                 success: function(response) {
                     var $obj = JSON.parse(response);
-                    if ($obj.error != '') {
+                    if ($obj.error !== '') {
                         $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
                     } else {
                         $('#alert').attr('class', '').addClass('alert alert-success').html('<ul class="m-auto"><li>' + $obj.success + '</li></ul>');
@@ -206,9 +238,9 @@
         }
     }
 
+    // Handle Rejection Form Submission
     $('#rejectionForm').on('submit', function(e) {
         e.preventDefault();
-
         var $id = $('#orderId').val();
         var $status = $('#status').val();
         var $reason = $('#rejectionReason').val();
@@ -225,13 +257,47 @@
             },
             success: function(response) {
                 var $obj = JSON.parse(response);
-                if ($obj.error != '') {
+                if ($obj.error !== '') {
                     $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
                 } else {
                     $('#alert').attr('class', '').addClass('alert alert-success').html('<ul class="m-auto"><li>' + $obj.success + '</li></ul>');
                     $('#rejectionModal').modal('hide');
                     $('.orderStatus' + $id).removeClass('active');
                     $('.statusBtnTitle' + $id).text('Rejected');
+                }
+            },
+            error: function(error) {
+                $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + error.responseJSON.message + '</li></ul>');
+            }
+        });
+    });
+
+    // Handle Completion Form Submission
+    $('#completionForm').on('submit', function(e) {
+        e.preventDefault();
+        var $id = $('#orderIdComplete').val();
+        var $status = $('#statusComplete').val();
+        var $urlValue = $('#completionUrl').val();
+        var $_token = $('input[name="_token"]').val();
+        var $url = $('#url').val();
+
+        $.ajax({
+            type: 'POST',
+            url: $url + '/' + $id,
+            data: {
+                '_token': $_token,
+                'status': $status,
+                'url': $urlValue,
+            },
+            success: function(response) {
+                var $obj = JSON.parse(response);
+                if ($obj.error !== '') {
+                    $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
+                } else {
+                    $('#alert').attr('class', '').addClass('alert alert-success').html('<ul class="m-auto"><li>' + $obj.success + '</li></ul>');
+                    $('#completionModal').modal('hide');
+                    $('.orderStatus' + $id).removeClass('active');
+                    $('.statusBtnTitle' + $id).text('Complete');
                 }
             },
             error: function(error) {

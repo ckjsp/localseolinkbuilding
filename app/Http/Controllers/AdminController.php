@@ -107,20 +107,33 @@ class AdminController extends Controller
             $user = lslbUser::find($order->user_id);
 
             if (!$order) {
-                abort(404); // Handle not found gracefully
+                abort(404);
             }
-            $validatedData = $request->validate(['status' => 'required',]);
-            $order->update($validatedData);
+
+            $validatedData = $request->validate([
+                'status' => 'required',
+                'rejectionReason' => 'nullable|string',
+            ]);
+
+            $order->update(['status' => $validatedData['status']]);
 
             $data = ['success' => 'Status updated successfully', 'error' => ''];
             $status = ucwords($validatedData['status']);
+
             $customData['from_name'] = env('MAIL_FROM_NAME');
             $customData['mailaddress'] = env('MAIL_FROM_ADDRESS');
             $customData['subject'] = 'Notification: Links Farmer - Website Status Update';
+
+            $rejectionMessage = '';
+            if ($validatedData['status'] == 'rejected' && !empty($validatedData['rejectionReason'])) {
+                $rejectionMessage = "<li><strong>Reason for Rejection:</strong> " . $validatedData['rejectionReason'] . "</li>";
+            }
+
             $customData['msg'] = "<p>Your website status has been updated:</p>
                 <ul>
                     <li><strong>Website:</strong> " . $order->website_url . "</li>
                     <li><strong>New Status:</strong> " . $status . "</li>
+                    $rejectionMessage
                 </ul>
                 <p>If you have any questions or concerns, please contact our customer support.</p>
                 <p>Thank you for choosing our platform!</p>";
@@ -129,6 +142,7 @@ class AdminController extends Controller
         } else {
             $data = ['error' => 'Oops! Status update failed', 'success' => ''];
         }
+
         echo json_encode($data, true);
         exit;
     }

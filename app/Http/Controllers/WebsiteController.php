@@ -355,4 +355,17 @@ class WebsiteController extends Controller
         $website = $lslbWebsite->get();
         return response()->json($website);
     }
+
+    public function checkWebsite(Request $request)
+    {
+        \Log::info('Website URL check triggered: ' . $request->input('website_url'));
+
+        $exists = lslbWebsite::where('website_url', $request->input('website_url'))->exists();
+
+        if ($exists) {
+            return response()->json(['exists' => true, 'message' => 'This website URL already exists.']);
+        }
+
+        return response()->json(['exists' => false, 'message' => 'This website URL is available.']);
+    }
 }
