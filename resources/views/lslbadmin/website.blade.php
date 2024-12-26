@@ -219,6 +219,36 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="approvalModal" tabindex="-1" aria-labelledby="approvalModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="approvalForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="approvalModalLabel">Approve Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="orderId" name="orderId">
+                    <input type="hidden" id="status" name="status">
+                    <div class="mb-3">
+                        <label for="linkedinSession" class="form-label">Link Insertion Admin Price</label>
+                        <input type="text" class="form-control" id="linkedinSession" name="linkedinSession" placeholder="Enter price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="guestPostPrice" class="form-label">Guest Post Admin Price</label>
+                        <input type="number" class="form-control" id="guestPostPrice" name="guestPostPrice" placeholder="Enter price">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Approve</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @push('script')
@@ -226,71 +256,114 @@
     var table = $('#website-tbl').DataTable();
 
     function webStatus($this, $id) {
-        $status = $this.data('item');
-        $statusText = $this.text();
-        $_token = $('input[name="_token"]').val();
-        $url = $('#url').val();
+        const $status = $this.data('item');
+        const $_token = $('input[name="_token"]').val();
+
+        $('#orderId').val($id);
+        $('#status').val($status);
 
         if ($status === 'rejected') {
-            $('#orderId').val($id);
-            $('#status').val($status);
             $('#rejectionModal').modal('show');
+        } else if ($status === 'approve') {
+            $('#approvalModal').modal('show');
         } else {
-            updateStatus($id, $status, '');
+            updateStatus($id, $status, null);
         }
     }
 
+    function resetModalFields() {
+        $('#rejectionReason').val('');
+        $('#linkedinSession').val('');
+        $('#guestPostPrice').val('');
+    }
+
     $('#rejectionModal').on('hidden.bs.modal', function() {
-        $('#rejectionReason').val(''); // Clear the textarea
-        $('#rejectionForm')[0].reset(); // Reset the form
+        resetModalFields();
     });
+
+    $('#approvalModal').on('hidden.bs.modal', function() {
+        resetModalFields();
+    });
+
 
     $('#rejectionForm').submit(function(e) {
         e.preventDefault();
 
-        var $id = $('#orderId').val();
-        var $status = $('#status').val();
-        var $reason = $('#rejectionReason').val();
-        $_token = $('input[name="_token"]').val();
-        $url = $('#url').val();
+        const $id = $('#orderId').val();
+        const $status = $('#status').val();
+        const $reason = $('#rejectionReason').val();
+        const $_token = $('input[name="_token"]').val();
 
-        if ($reason === '') {
+        if (!$reason) {
             alert('Please provide a reason for rejection.');
             return;
         }
 
-        updateStatus($id, $status, $reason);
+        updateStatus($id, $status, {
+            rejectionReason: $reason
+        });
+        $('#rejectionModal').modal('hide');
     });
 
-    function updateStatus($id, $status, $reason) {
-        if ($status != '') {
-            $.ajax({
-                type: 'POST',
-                url: $url + '/' + $id,
-                data: {
-                    '_token': $_token,
-                    'status': $status,
-                    'rejectionReason': $reason
-                },
-                success: function(response) {
-                    var $obj = JSON.parse(response);
-                    if ($obj.error != '') {
-                        $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
-                    } else {
-                        $('#alert').attr('class', '').addClass('alert alert-success').html('<ul class="m-auto"><li>' + $obj.success + '</li></ul>');
-                        $('.webStatus' + $id).removeClass('active');
-                        $('li[data-item="' + $status + '"]').addClass('active');
-                        $('.statusBtnTitle' + $id).text($status);
-                        $('#rejectionModal').modal('hide');
-                    }
-                },
-                error: function(error) {
-                    // Handle errors
-                    $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + error + '</li></ul>');
-                }
-            });
+    $('#approvalForm').submit(function(e) {
+        e.preventDefault();
+
+        const $id = $('#orderId').val();
+        const $status = $('#status').val();
+        const linkedinSession = $('#linkedinSession').val();
+        const guestPostPrice = $('#guestPostPrice').val();
+
+        if (!linkedinSession || !guestPostPrice) {
+            alert('Please provide LinkedIn Session and Guest Post Admin Price.');
+            return;
         }
+
+        updateStatus($id, $status, {
+            linkedinSession,
+            guestPostPrice
+        });
+        $('#approvalModal').modal('hide');
+    });
+
+    function updateStatus($id, $status, additionalData = {}) {
+        const $_token = $('input[name="_token"]').val();
+        const $url = $('#url').val();
+
+        const data = {
+            _token: $_token,
+            status: $status,
+            ...additionalData
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: `${$url}/${$id}`,
+            data: data,
+            success: function(response) {
+                const $obj = JSON.parse(response);
+
+                if ($obj.error) {
+                    $('#alert')
+                        .attr('class', 'alert alert-danger')
+                        .html(`<ul class="m-auto"><li>${$obj.error}</li></ul>`);
+                } else {
+                    $('#alert')
+                        .attr('class', 'alert alert-success')
+                        .html(`<ul class="m-auto"><li>${$obj.success}</li></ul>`);
+
+                    $(`.webStatus${$id}`).removeClass('active');
+                    $(`li[data-item="${$status}"]`).addClass('active');
+                    $(`.statusBtnTitle${$id}`).text($status);
+                }
+            },
+            error: function(error) {
+                $('#alert')
+                    .attr('class', 'alert alert-danger')
+                    .html(`<ul class="m-auto"><li>${error.responseText || 'An error occurred.'}</li></ul>`);
+            }
+        });
     }
+
 
     function getSiteDetail($this) {
         var v = $this.data('i');

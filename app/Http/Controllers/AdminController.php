@@ -100,6 +100,7 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function updateStatus(Request $request, string $id)
     {
         if (!empty($request->post('status'))) {
@@ -113,9 +114,25 @@ class AdminController extends Controller
             $validatedData = $request->validate([
                 'status' => 'required',
                 'rejectionReason' => 'nullable|string',
+                'linkedinSession' => 'nullable|string',
+                'guestPostPrice' => 'nullable|string'
             ]);
 
             $order->update(['status' => $validatedData['status']]);
+
+            if (!empty($validatedData['linkedinSession'])) {
+                $order->linkedinSession_adminprice = $validatedData['linkedinSession'];
+            }
+
+            if (!empty($validatedData['guestPostPrice'])) {
+                $order->guestPostPrice_adminprice = $validatedData['guestPostPrice'];
+            }
+
+            if (!empty($validatedData['rejectionReason'])) {
+                $order->rejectionReason = $validatedData['rejectionReason'];
+            }
+
+            $order->save();
 
             $data = ['success' => 'Status updated successfully', 'error' => ''];
             $status = ucwords($validatedData['status']);
@@ -134,6 +151,7 @@ class AdminController extends Controller
                     <li><strong>Website:</strong> " . $order->website_url . "</li>
                     <li><strong>New Status:</strong> " . $status . "</li>
                     $rejectionMessage
+
                 </ul>
                 <p>If you have any questions or concerns, please contact our customer support.</p>
                 <p>Thank you for choosing our platform!</p>";

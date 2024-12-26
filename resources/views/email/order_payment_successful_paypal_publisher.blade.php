@@ -64,7 +64,6 @@
             </li>
 
             <li><strong>Order ID:</strong> {{ $order_id }}</li>
-            <li><strong>Amount Paid:</strong>${{ $amount_paid }}</li>
             <li><strong>Payment Method:</strong> Paypal</li>
             <li><strong>Type:</strong>{{ $attachment_type }}</li>
 

@@ -39,7 +39,6 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes(['verify' => true]);
 
 
-
 Route::get('/home', [PagesController::class, 'Home'])->name('home');
 Route::get('/terms-condition', [PagesController::class, 'termandconditions'])->name('terms-condition');
 Route::get('/privacy-policy', [PagesController::class, 'privacypolicy'])->name('privacy-policy');
@@ -53,12 +52,8 @@ Route::get('/content-writing-services', [PagesController::class, 'contentwriting
 Route::get('/content-marketing-services', [PagesController::class, 'contentmarketingservices'])->name('content-marketing-services');
 
 
-
-
-
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
-
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

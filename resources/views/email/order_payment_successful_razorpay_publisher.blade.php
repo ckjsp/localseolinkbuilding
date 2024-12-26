@@ -64,7 +64,6 @@
             </li>
 
             <li><strong>Order ID:</strong> {{ $customOrderId }}</li>
-            <li><strong>Amount Paid:</strong>${{ $orderPrice }}</li>
             <li><strong>Payment Method:</strong> Razorpay</li>
             <li><strong>Type:</strong>{{ $attachment_type }}</li>
 
