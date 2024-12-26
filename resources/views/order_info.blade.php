@@ -239,7 +239,7 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
 
                         <div class="row mb-3">
                             <div class="col-md-6"><strong class="m-2 font-bold">Quantity: </strong> {{ $order[0]->quantity }}</div>
-                            <div class="col-md-6"><strong class="m-2 font-bold">Total Amount: </strong> ${{ $order[0]->price }}</div>
+                            <!-- <div class="col-md-6"><strong class="m-2 font-bold">Total Amount: </strong> ${{ $order[0]->price }}</div> -->
                         </div>
                         @if($userDetail->role->name == 'Admin')
                         <div class="row mb-3">
@@ -277,7 +277,7 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                             </div>
 
                         </div>
-                        <div class="urlBox-div d-none">
+                        <div class="urlBox-div d-none col-md-10">
                             <label for="urlBox">Enter Complete Url:</label>
                             <input type="url" id="urlBox" name="url" class="form-control" placeholder="Enter URL">
                         </div>

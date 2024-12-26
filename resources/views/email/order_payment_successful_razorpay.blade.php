@@ -58,7 +58,6 @@
         <p><strong>Order Details:</strong></p>
         <ul>
             <li>Order ID: {{ $customOrderId }}</li>
-            <li>Amount Paid: {{ $orderPrice }}</li>
             <li>Payment Method: Razorpay</li>
         </ul>
         <p>Thank you for your payment. You can view your orders in your dashboard.</p>

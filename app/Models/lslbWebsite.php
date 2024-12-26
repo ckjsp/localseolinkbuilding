@@ -44,6 +44,10 @@ class lslbWebsite extends Authenticatable
         'fc_link_insertion_price',
         'status',
         'site_verification_file',
+        'rejectionReason',
+        'linkedinSession_adminprice',
+        'guestPostPrice_adminprice',
+
     ];
 
     protected $dispatchesEvents = [
@@ -55,7 +59,8 @@ class lslbWebsite extends Authenticatable
         return $this->belongsTo(lslbUser::class);
     }
 
-    public function orders() {
+    public function orders()
+    {
         return $this->hasMany(lslbOrder::class);
     }
 }

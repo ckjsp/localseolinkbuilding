@@ -86,8 +86,8 @@
                                     {{ $v->maximum_no_of_backlinks_allowed }}
                                     {{ ucwords($v->backlink_type) }}
                                 </td>
-                                <td>${{ $v->guest_post_price }}</td>
-                                <td>${{ $v->link_insertion_price }}</td>
+                                <td>${{ $v->guestpostprice_adminprice }}</td>
+                                <td>${{ $v->linkedinsession_adminprice }}</td>
                                 <td>
                                     <button type="button" class="btn {{
                                                 $cls

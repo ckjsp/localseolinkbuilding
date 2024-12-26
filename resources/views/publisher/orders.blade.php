@@ -59,10 +59,17 @@
                                     Data Not Found
                                     @endif
                                 </td>
-                                <td>${{ $v->price }}</td>
-                                <!-- <td>{{ $v->type }}</td> -->
-                                <!-- <td>{{ date('Y-m-d h:i:s A', (strtotime($v->delivery_time) - strtotime(date('Y-m-d h:i:s A')))) }}</td> -->
+                                <td>
+                                    @if($v->attachment_type == 'Guest Post')
+                                    ${{ number_format($v->guest_post_price * $v->quantity, 2) }}
+                                    @elseif($v->attachment_type == 'Link Insertion')
+                                    ${{ number_format($v->link_insertion_price * $v->quantity, 2) }}
+                                    @else
+                                    N/A
+                                    @endif
+                                </td>
                                 <td>{{ $v->quantity }}</td>
+
                                 <td>
                                     <button type="button" class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle{{ $v->id }}" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ ucwords($v->status) }}
