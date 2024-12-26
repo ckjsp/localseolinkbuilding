@@ -194,6 +194,31 @@
         </div>
     </div>
 </div>
+<!-- Rejection Modal -->
+<div class="modal fade" id="rejectionModal" tabindex="-1" aria-labelledby="rejectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="rejectionModalLabel">Rejection Reason</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="rejectionForm">
+                    <input type="hidden" id="orderId" name="orderId">
+                    <input type="hidden" id="status" name="status">
+                    <div class="mb-3">
+                        <label for="rejectionReason" class="form-label">Reason for Rejection</label>
+                        <textarea class="form-control" id="rejectionReason" name="rejectionReason" rows="3" required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @push('script')
@@ -205,6 +230,39 @@
         $statusText = $this.text();
         $_token = $('input[name="_token"]').val();
         $url = $('#url').val();
+
+        if ($status === 'rejected') {
+            $('#orderId').val($id);
+            $('#status').val($status);
+            $('#rejectionModal').modal('show');
+        } else {
+            updateStatus($id, $status, '');
+        }
+    }
+
+    $('#rejectionModal').on('hidden.bs.modal', function() {
+        $('#rejectionReason').val(''); // Clear the textarea
+        $('#rejectionForm')[0].reset(); // Reset the form
+    });
+
+    $('#rejectionForm').submit(function(e) {
+        e.preventDefault();
+
+        var $id = $('#orderId').val();
+        var $status = $('#status').val();
+        var $reason = $('#rejectionReason').val();
+        $_token = $('input[name="_token"]').val();
+        $url = $('#url').val();
+
+        if ($reason === '') {
+            alert('Please provide a reason for rejection.');
+            return;
+        }
+
+        updateStatus($id, $status, $reason);
+    });
+
+    function updateStatus($id, $status, $reason) {
         if ($status != '') {
             $.ajax({
                 type: 'POST',
@@ -212,22 +270,23 @@
                 data: {
                     '_token': $_token,
                     'status': $status,
+                    'rejectionReason': $reason
                 },
-                success: function (response) {
+                success: function(response) {
                     var $obj = JSON.parse(response);
                     if ($obj.error != '') {
                         $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
                     } else {
                         $('#alert').attr('class', '').addClass('alert alert-success').html('<ul class="m-auto"><li>' + $obj.success + '</li></ul>');
                         $('.webStatus' + $id).removeClass('active');
-                        $this.addClass('active');
-                        $('.statusBtnTitle' + $id).text($statusText);
+                        $('li[data-item="' + $status + '"]').addClass('active');
+                        $('.statusBtnTitle' + $id).text($status);
+                        $('#rejectionModal').modal('hide');
                     }
                 },
-                error: function (error) {
+                error: function(error) {
                     // Handle errors
                     $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + error + '</li></ul>');
-                    // console.log(error);
                 }
             });
         }

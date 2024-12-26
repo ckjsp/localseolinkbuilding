@@ -53,10 +53,10 @@
                                 <td><a href="{{ route('order.info', $v->order_id) }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="View Order Detail">Order <i class="fa-regular fa-eye"></i></a></td>
                                 <td><a href="{{ $v->website_url }}" target="_blank" title="Web Site Link ({{ $v->website_url }})" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="{{ $v->website_url }}">Link <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
                                 <td>
-                                    @if($v->attachment != '') 
-                                        <a href="{{ url('/storage/app/'.$v->attachment) }}">{{ $v->article_title }}</a>
-                                    @else 
-                                        Data Not Found 
+                                    @if($v->attachment != '')
+                                    <a href="{{ url('/storage/app/'.$v->attachment) }}">{{ $v->article_title }}</a>
+                                    @else
+                                    Data Not Found
                                     @endif
                                 </td>
                                 <td>${{ $v->price }}</td>
@@ -64,18 +64,7 @@
                                 <!-- <td>{{ date('Y-m-d h:i:s A', (strtotime($v->delivery_time) - strtotime(date('Y-m-d h:i:s A')))) }}</td> -->
                                 <td>{{ $v->quantity }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle{{ $v->id }}" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {{ ucwords($v->status) }}
-                                    </button>
-                                    <ul class="dropdown-menu" style="">
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'new' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="new">New</li>
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'in-progress' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="in-progress">In-Progress</li>
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'delayed' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="delayed">Delayed</li>
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'delivered' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="delivered">Delivered</li>
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'complete' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="complete">Complete</li>
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'rejected' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="rejected">Rejected</li>
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'approved' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="approved">Approved</li>
-                                    </ul>
+                                    {{ $v->status }}
                                 </td>
                                 <td>{{ ucwords($v->payment_method) }}</td>
                                 <td>{{ ucwords($v->payment_status) }}</td>
@@ -113,19 +102,23 @@
 @push('script')
 <script>
     var table = $('#order-tbl').DataTable({
-            "columns": [
-                { "width": "11%" },
-                { "width": "9%" },
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-            ]
-        });
+        "columns": [{
+                "width": "11%"
+            },
+            {
+                "width": "9%"
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+        ]
+    });
+
     function orderStatus($this, $id) {
         $status = $this.data('item');
         $statusText = $this.text();
