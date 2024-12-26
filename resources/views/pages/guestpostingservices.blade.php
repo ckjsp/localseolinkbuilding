@@ -24,7 +24,7 @@
                             Brand’s
                             Reach?</h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
-                        <h3>
+                        <h3 class="page_subtitle">
                             Grow your website’s authority and traffic and achieve more conversions with <br /> our
                             proven guest
                             posting tactics.! </h3>
@@ -865,7 +865,6 @@
         </section>
         <section class="section-py light-bg services-section">
             <div class="container">
-
                 <h1 class="subtitle-section text-center">
                     Are you in search of a <span class="animated-text"> complete solution </span> <br /> for your
                     digital
@@ -874,8 +873,8 @@
                 <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded
                     strategy to boost your online presence.</h5>
                 <div class="data_wrap">
-                    <div class="row gy-3">
-                        <div class="col-lg-3 col-sm-6">
+                    <div class="row g-2 g-lg-3">
+                        <div class="col-lg-3 col-sm-6 col-6 ">
                             <div class="services-card">
                                 <div class="img-wrap">
                                     <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
@@ -886,7 +885,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-3 col-sm-6 col-6 ">
                             <div class="services-card">
                                 <div class="img-wrap">
                                     <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
@@ -897,7 +896,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-3 col-sm-6 col-6 ">
                             <div class="services-card">
                                 <div class="img-wrap">
                                     <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
@@ -908,7 +907,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-3 col-sm-6 col-6 ">
                             <div class="services-card">
                                 <div class="img-wrap">
                                     <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">

@@ -15,25 +15,13 @@
                     <ul class="footer-list social-links-wrap  mt-3">
                         <li>
                             <div class="d-flex justify-content-start">
-                                <a
-                                    href="http://"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="icon-div-wrap">
+                                <a href="http://" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
                                     <i class="ti ti-brand-facebook ti-sm"></i>
                                 </a>
-                                <a
-                                    href="http://"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="icon-div-wrap">
+                                <a href="http://" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
                                     <i class="ti ti-brand-instagram ti-sm"></i>
                                 </a>
-                                <a
-                                    href="http://"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="icon-div-wrap">
+                                <a href="http://" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
                                     <i class="ti ti-brand-linkedin ti-sm"></i>
                                 </a>
                             </div>
@@ -43,7 +31,7 @@
 
 
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                     <h6 class="footer-title mb-4">Services</h6>
                     <ul class="list-unstyled">
                         <li class="mb-3">
@@ -63,7 +51,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                     <h6 class="footer-title mb-4">Company</h6>
                     <ul class="list-unstyled">
                         <li class="mb-3">
@@ -87,14 +75,9 @@
                     <h6 class="footer-title mb-4">Get Update</h6>
                     <form class="footer-form">
                         <div class=" mt-1">
-                            <input
-                                type="email"
-                                class=" custom-input mb-4"
-                                id="footer-email"
+                            <input type="email" class=" custom-input mb-4" id="footer-email"
                                 placeholder="Your email address" />
-                            <button
-                                type="submit"
-                                class="filled-btn">
+                            <button type="submit" class="filled-btn">
                                 Get Registered
                             </button>
                         </div>

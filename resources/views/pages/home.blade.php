@@ -24,7 +24,7 @@
                         <h1 class="page-title">Welcome to <span class="animated-text"> LINKSFARMER </span> – Your
                             Trusted <br /> Partner in
                             Link Building!</h1>
-                        <h3>
+                        <h3 class="page_subtitle">
                             We, LINKSFARMER, specialize in delivering premium quality link-building services. Our
                             services are designed to elevate your online presence. Whether you are a business owner, SEO
                             agency, or content marketer, improve the website’s authority, visibility, and search engine
@@ -439,7 +439,7 @@
 
                 <div class="data_wrap">
                     <div class="row gy-3">
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-3 col-sm-6 col-6 ">
                             <div class="services-card">
                                 <div class="img-wrap">
                                     <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
@@ -450,7 +450,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-3 col-sm-6 col-6 ">
                             <div class="services-card">
                                 <div class="img-wrap">
                                     <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
@@ -461,7 +461,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-3 col-sm-6 col-6 ">
                             <div class="services-card">
                                 <div class="img-wrap">
                                     <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
@@ -472,7 +472,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-3 col-sm-6 col-6 ">
                             <div class="services-card">
                                 <div class="img-wrap">
                                     <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
