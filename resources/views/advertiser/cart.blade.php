@@ -51,7 +51,6 @@
                                                 <input type="hidden" id="user_id" name="user_id" value="{{ $userDetail->id }}">
                                                 <input type="hidden" id="website_id" name="website_id" value="{{ $v->id }}">
                                                 <!-- <input type="hidden" id="payment_method" name="payment_method" value="paypal"> -->
-                                                <input type="hidden" id="price{{$v->id}}" name="price" value="{{ ($v->guest_post_price*$arrCookie[$k]->quantity) }}">
                                                 <input type="hidden" name="selected_project_id" value="{{ session('selected_project_id') }}">
 
                                                 <div class="mb-3">
@@ -85,15 +84,23 @@
                                                     <div class="col-md-3">
                                                         <div class="col-md-4 text-md" id="inputQuantitydiv{{ $v->id }}">
                                                             <label class="form-label">Quantity</label>
-                                                            <input type="number" id="inputQuantity{{ $v->id }}" data-price="{{$v->guest_post_price}}" data-web_id="{{$v->id}}" onchange="changeQuantity($(this))" class="form-control" value="{{$arrCookie[$k]->quantity}}" min="1" max="5" />
+                                                            <input type="number" id="inputQuantity{{ $v->id }}" data-price="{{$v->guestpostprice_adminprice}}" data-web_id="{{$v->id}}" onchange="changeQuantity($(this))" class="form-control" value="{{$arrCookie[$k]->quantity}}" min="1" max="5" />
                                                             <div id="quantityError{{ $v->id }}" class="text-danger" style="display:none;">Quantity cannot exceed 5.</div>
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3 text-center d-flex align-items-end justify-content-center">
-                                                        <span class="badge  fs-5 p-2 price-box quantityPrice{{$v->id}}">
-                                                            ${{ ($v->guest_post_price * $arrCookie[$k]->quantity) }}
+                                                        <!-- Guest post price (visible by default) -->
+                                                        <span class="badge fs-5 p-2 price-box quantityPrice{{$v->id}}" id="guestPostPrice{{$v->id}}">
+                                                            ${{ ($v->guestpostprice_adminprice * $arrCookie[$k]->quantity) }}
                                                         </span>
+
+                                                        <!-- LinkedIn session price (hidden by default) -->
+                                                        <span class="badge fs-5 p-2 price-box quantityPrice{{$v->id}}" id="linkedInSessionPrice{{$v->id}}" style="display: none;">
+                                                            ${{ ($v->linkedinsession_adminprice * $arrCookie[$k]->quantity) }}
+                                                        </span>
+                                                        <input type="hidden" id="price{{$v->id}}" name="price" value="{{ ($v->guestpostprice_adminprice*$arrCookie[$k]->quantity) }}">
+
                                                     </div>
                                                 </div>
                                                 <div class="post-title-main d-flex mb-3 justify-content-between">
@@ -196,11 +203,11 @@
                     <td><a href="{{ $website->website_url }}" target="_blank">{{ $website->website_url }}</a></td>
                     <td>{{ $website->categories }}</td>
                     <td>{{ $website->domain_authority }}</td>
-                    <td>${{ $website->guest_post_price }}</td>
+                    <td>${{ $website->guestpostprice_adminprice }}</td>
                     <td>
                         <button type="button" class="btn btn-primary waves-effect waves-light"
                             data-web_id="{{ $website->id }}"
-                            data-price="{{ $website->guest_post_price }}"
+                            data-price="{{ $website->guestpostprice_adminprice }}"
                             data-website_url="{{ $website->website_url }}"
                             data-categories="{{ $website->categories }}"
                             data-forbidden_categories="{{ $website->forbidden_categories }}"
@@ -358,7 +365,6 @@
             .catch(error => console.error('Error refreshing content:', error));
     }
 
-
     function toggleAttachmentType(webId) {
         const fileRadio = document.getElementById(`attachmentFile${webId}`);
         const linkRadio = document.getElementById(`attachmentLink${webId}`);
@@ -374,8 +380,16 @@
         const landingPageUrl = document.getElementById(`landingPageUrl${webId}`);
         const anchorText = document.getElementById(`anchorText${webId}`);
 
+        const guestPostPriceElement = document.getElementById(`guestPostPrice${webId}`);
+        const linkedInSessionPriceElement = document.getElementById(`linkedInSessionPrice${webId}`);
+        const priceInput = document.getElementById(`price${webId}`);
+
+        const guestPostPrice = "{{ isset($v) && isset($arrCookie[$k]) ? ($v->guestpostprice_adminprice * $arrCookie[$k]->quantity) : 0 }}";
+        const linkedInSessionPrice = "{{ isset($v) && isset($arrCookie[$k]) ? ($v->linkedinsession_adminprice * $arrCookie[$k]->quantity) : 0 }}";
+
+
+
         if (fileRadio.checked) {
-            // File radio button selected
             fileInput.style.display = 'block';
             titleInput.style.display = 'block';
             inputQuantitydiv.style.display = 'block';
@@ -389,8 +403,13 @@
             existingPostUrl.removeAttribute('required');
             landingPageUrl.removeAttribute('required');
             anchorText.removeAttribute('required');
+
+            guestPostPriceElement.style.display = 'inline-block';
+            linkedInSessionPriceElement.style.display = 'none';
+
+            priceInput.value = guestPostPrice;
+
         } else if (linkRadio.checked) {
-            // Link radio button selected
             fileInput.style.display = 'none';
             titleInput.style.display = 'none';
             inputQuantitydiv.style.display = 'none';
@@ -404,8 +423,15 @@
             existingPostUrl.setAttribute('required', true);
             landingPageUrl.setAttribute('required', true);
             anchorText.setAttribute('required', true);
+
+            guestPostPriceElement.style.display = 'none';
+            linkedInSessionPriceElement.style.display = 'inline-block';
+
+            priceInput.value = linkedInSessionPrice;
         }
     }
+
+
 
     function updateCartUI(cartItems) {
 

@@ -12,7 +12,6 @@
     <p><strong>Order Details:</strong></p>
     <ul>
         <li><strong>Order ID:</strong> {{ $order_id }}</li>
-        <li><strong>Amount Paid:</strong> {{ $amount_paid }}</li>
         <li><strong>Payment Method:</strong> PayPal</li>
         <li><strong>Payment ID:</strong> {{ $payment_id }}</li>
     </ul>

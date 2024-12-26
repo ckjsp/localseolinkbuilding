@@ -60,7 +60,7 @@
                                     @endif
                                 </td>
                                 <td>${{ $v->price }}</td>
-                                <td>{{ $v->type }}</td>
+                                <td>{{ $v->attachment_type }}</td>
                                 <!-- <td>{{ date('Y-m-d h:i:s A', (strtotime($v->delivery_time) - strtotime(date('Y-m-d h:i:s A')))) }}</td> -->
                                 <td>{{ $v->quantity }}</td>
                                 <td>
