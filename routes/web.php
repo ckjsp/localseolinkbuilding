@@ -35,6 +35,7 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 // Route::get('/admin', 'AdminController@index')->middleware('checkUserRole:admin');
+// new pages added
 
 Auth::routes(['verify' => true]);
 
