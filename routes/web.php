@@ -160,12 +160,16 @@ Route::controller(AdminController::class)->group(function () {
         Route::get('/lslb-admin/website/{id}/edit', 'webEdit')->name('lslbadmin.website.edit');
         Route::put('/lslb-admin/website/{id}', 'webUpdate')->name('lslbadmin.website.update');
         Route::get('/lslb-admin/website/{id}/delete', 'webDestroy')->name('lslbadmin.website.delete');
+        Route::post('/lslb-admin/website/{id}/update-admin-price', 'updateAdminPrice')->name('lslbadmin.website.update.admin.price');
+
 
         Route::get('/lslb-admin/user/{id}/edit', 'userEdit')->name('lslbadmin.user.edit');
         Route::post('/lslb-admin/user/{id}', 'userUpdate')->name('lslbadmin.user.update');
         Route::get('/lslb-admin/user/{id}/delete', 'userDestroy')->name('lslbadmin.user.delete');
     });
 });
+
+
 
 
 
