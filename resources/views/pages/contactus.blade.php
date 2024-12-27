@@ -136,6 +136,66 @@
     </div>
 </section>
 
+<section>
+<div class="position-relative">
+                <div class="container">
+                    <div class="text-center">
+                        <h1 class="page-title">Let's <span class="animated-text"> chat today</span> </h1>
+                        <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
+                        <h3 class="page_subtitle mb-40">
+                        Solve all your queries and concerns regarding Guest Posting and Content Writing Services. Our experts are<br/> here to help you. We will try our best to get back to you within 48 hours!</h3>
+                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
+                            Looking for the best link building platform? Join Links farmer today!
+                        </h2> -->
+                    </div>
+                </div>
+            </div>
+</section>
+
+<section>
+<div class="container">
+    <div class="form-container form_cont">
+      <form>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <!-- <label for="firstName" class="form-label">First Name</label> -->
+            <input type="text" class="form-control fm_cnt" id="firstName" placeholder="First Name">
+          </div>
+          <div class="col-md-6">
+            <!-- <label for="lastName" class="form-label">Last Name</label> -->
+            <input type="text" class="form-control fm_cnt" id="lastName" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <!-- <label for="email" class="form-label">Email</label> -->
+            <input type="email" class="form-control fm_cnt" id="email" placeholder="Email">
+          </div>
+          <div class="col-md-6">
+            <!-- <label for="phone" class="form-label">Phone Number</label> -->
+            <input type="text" class="form-control fm_cnt" id="phone" placeholder="Phone Number">
+          </div>
+        </div>
+        <div class="mt-3">
+          <!-- <label for="company" class="form-label">Company</label> -->
+          <input type="text" class="form-control fm_cnt" id="company" placeholder="Company">
+        </div>
+        <div class="mt-3">
+          <!-- <label for="position" class="form-label">Position</label> -->
+          <input type="text" class="form-control fm_cnt" id="position" placeholder="Position">
+        </div>
+        <div class="mt-3">
+          <!-- <label for="message" class="form-label">Message</label> -->
+          <textarea class="form-control fm_cnt txtarea" id="message" rows="4" placeholder="Message"></textarea>
+        </div>
+        <div class="mt-4 submitbtn">
+          <button type="submit" class="btn btn-submit bt mt-3 filled-btn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
 @include('pages.footer')
 
 <script src="{{ asset_url('libs/popper/popper.js') }}"></script>

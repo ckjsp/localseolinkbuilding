@@ -73,4 +73,15 @@ class PagesController extends Controller
 
         return view('pages.contentmarketingservices');
     }
+
+    public function aboutus()
+    {
+
+        return view('pages.aboutus');
+    }
+    public function blog()
+    {
+
+        return view('pages.blogpage');
+    }
 }
