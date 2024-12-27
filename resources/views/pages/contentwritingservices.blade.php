@@ -157,7 +157,7 @@
         <section class="light-bg">
         <div class="container" style="padding-top: 88px; padding-bottom: 88px;">
                     <div class="text-center">
-                        <h1 class="page-title">What Skills Are    <span class="animated-text"> Required to Become a Good   <br /> Content Writer?  </h1>
+                        <h1 class="page-title">What Skills Are    <span class="animated-text"> Required to Become a Good   <br /></span> Content Writer?  </h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle">
                         No doubt, your words define your brand! That’s why we specialize in creating compelling and SEO-friendly content. Through that, you can engage<br/> your audience and drive results. If you want blog posts, articles, website copy, or market content, our writers can help you. We deliver content for<br/> all your websites, social media, or white papers. You can get, </h3>
@@ -348,6 +348,81 @@
             </div>
         </section>
     
+        <section id="services" class="section-py services-section light-bg">
+            <div class="container">
+                <!-- <div class="text-center mb-3">
+                    <span class="title-section animated-text">Our Services</span>
+                </div> -->
+                <h1 class="subtitle-section text-center">
+                Are you in search of a <span class="animated-text"> complete solution <br/>for your </span>  digital product?
+                </h1>
+                <h5 class="subtitle2-section text-center">At Linksfarmar – we offer a range of services to help you build a strong backlink profile and boost your website’s SEO.</h5>
+
+                <div class="data_wrap">
+                    <div class="row gy-3">
+                        <div class="col-lg-3 col-sm-6 col-6 ">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Content Writing</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-6 ">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Link Building</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-6 ">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Content Marketing</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-6 ">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>SEO Reseller</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section class="section-py linear_bg_section">
+            <div class="container">
+                <div class="linear_bg_wrap">
+                    <div class="text_wrap">
+                        <h2>Content Writing Services!</h2>
+                        <p>Struggling to express your ideas in words? Our expert content writers will do that for you with your preferred length and brand’s voice. Give it a try! Our extraordinary website content writing services along with the other services make us the best content writing services agency.
+                        </p>
+                    </div>
+                    <button type="button" class="btn-white d-block mx-auto">Register Now</button>
+                </div>
+            </div>
+        </section>
 
        
 

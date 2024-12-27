@@ -8,7 +8,12 @@
 
 
     <meta name="description" content="" />
-
+    <style>
+        .pd_pb_100{
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+    </style>
 
 
 </head>
@@ -22,7 +27,7 @@
                         <h1 class="page-title">Capture Attention With   <span class="animated-text"> High-Standard Content<br/> Marketing</span>of LINKSFARMER</h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle">
-                        Writing a content piece is okay, but without promotion, nothing can be achieved. This is where it becomes a major point to foster customer loyalty<br/> and drive traffic. At our site, you can get the best creation and distribution of high-quality content. We help you stand out in a crowded marketplace. </h3>
+                        Writing a content piece is okay, but without promotion, nothing can be achieved. This is where it becomes a major point to foster customer loyalty<br/> and drive traffic. At our site, you can get the best creation and distribution of high-quality content. We help you stand out in a crowded<br/> marketplace. </h3>
                         <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
                             Looking for the best link building platform? Join Links farmer today!
                         </h2> -->
@@ -83,32 +88,32 @@
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
                                 <p>Lite</p>
-                                <h3 class="mb-0">$499</h3>
+                                <h3 class="mb-0">$149</h3>
                             </div>
                             <div class="bottom_wrap">
 
                                 <div class="d-flex flex-column align-items-start justify-content-between">
                                     <ul>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Total Keywords - 10</span>
+                                            <i class="ti ti-circle-check"></i> <span>No. of Posts - 2</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Primary Keywords - 6</span>
+                                            <i class="ti ti-circle-check"></i> <span>Domain Authority: 10-20</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Secondary Keywords - 4</span>
+                                            <i class="ti ti-circle-check"></i> <span>500 Words Well Researched Content</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Website Analysis & Recommendations</span>
+                                            <i class="ti ti-circle-check"></i> <span>1 Anchor Text / URL</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Keywords Research & Mapping</span>
+                                            <i class="ti ti-circle-check"></i> <span>Infographics - 0</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Backlink Analysis</span>
+                                            <i class="ti ti-circle-check"></i> <span>Press Release - 0</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>User Experience Analysis</span>
+                                            <i class="ti ti-circle-check"></i> <span>100% Quality Sites - No<br/> PBNs</span>
                                         </li>
                                     </ul>
                                     <button type="button" class="btn-white mt-5 d-block mx-auto w-100 ">Choose
@@ -121,32 +126,32 @@
                         <div class="pricing_plan_card colored_card ">
                             <div class="upper_wrap">
                                 <p>Standard</p>
-                                <h3 class="mb-0">$749</h3>
+                                <h3 class="mb-0">$349</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <div class="d-flex flex-column align-items-start justify-content-between">
 
                                     <ul>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Total Keywords - 15</span>
+                                            <i class="ti ti-circle-check"></i> <span>No. of Posts - 2</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Primary Keywords - 10</span>
+                                            <i class="ti ti-circle-check"></i> <span>Domain Authority: 20-40</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Secondary Keywords - 5</span>
+                                            <i class="ti ti-circle-check"></i> <span>750 Words Well Researched Content</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Website Analysis & Recommendations</span>
+                                            <i class="ti ti-circle-check"></i> <span>1 Anchor Text / URL</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Keywords Research & Mapping</span>
+                                            <i class="ti ti-circle-check"></i> <span>Infographics - 0</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Backlink Analysis</span>
+                                            <i class="ti ti-circle-check"></i> <span>Press Release - 0</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>User Experience Analysis</span>
+                                            <i class="ti ti-circle-check"></i> <span>Permanent Do-Follow Backlink</span>
                                         </li>
                                     </ul>
                                     <button type="button" class="btn-dark mt-5 d-block mx-auto w-100 ">Choose
@@ -159,32 +164,32 @@
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
                                 <p>Premium</p>
-                                <h3 class="mb-0">$999</h3>
+                                <h3 class="mb-0">$649</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <div class="d-flex flex-column align-items-start justify-content-between">
 
                                     <ul>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Total Keywords - 20</span>
+                                            <i class="ti ti-circle-check"></i> <span>No. of Posts - 2</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Primary Keywords - 12</span>
+                                            <i class="ti ti-circle-check"></i> <span>Domain Authority: 40-50</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Secondary Keywords - 8</span>
+                                            <i class="ti ti-circle-check"></i> <span>1000 Words Well Researched Content</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Website Analysis & Recommendations</span>
+                                            <i class="ti ti-circle-check"></i> <span>2 Anchor Text / URL</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Keywords Research & Mapping</span>
+                                            <i class="ti ti-circle-check"></i> <span>Infographics - 0</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Backlink Analysis</span>
+                                            <i class="ti ti-circle-check"></i> <span>Press Release - 0</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>User Experience Analysis</span>
+                                            <i class="ti ti-circle-check"></i> <span>Permanent Do-Follow Backlink</span>
                                         </li>
                                     </ul>
                                     <button type="button" class="btn-white mt-5 d-block mx-auto w-100 ">Choose
@@ -196,33 +201,33 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
-                                <br/>
-                                <h3 class="mb-0 mt-2">Customized</h3>
+                            <p>Customized</p>
+                                <h3 class="mb-0">$1399</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <div class="d-flex flex-column align-items-start justify-content-between">
 
                                     <ul>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Total Keywords - 20</span>
+                                            <i class="ti ti-circle-check"></i> <span>No. of Posts - 3</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Primary Keywords - 12</span>
+                                            <i class="ti ti-circle-check"></i> <span>Domain Authority: 50+</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Secondary Keywords - 8</span>
+                                            <i class="ti ti-circle-check"></i> <span>1000 Words Well Researched Content</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Website Analysis & Recommendations</span>
+                                            <i class="ti ti-circle-check"></i> <span>1 Anchor Text / URL</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Keywords Research & Mapping</span>
+                                            <i class="ti ti-circle-check"></i> <span>Infographics - 1</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Backlink Analysis</span>
+                                            <i class="ti ti-circle-check"></i> <span>Press Release - 1</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>User Experience Analysis</span>
+                                            <i class="ti ti-circle-check"></i> <span>Permanent Do-Follow Backlink</span>
                                         </li>
                                     </ul>
                                     <button type="button" class="btn-white mt-5 d-block mx-auto w-100 ">Choose
@@ -238,7 +243,7 @@
     <section class="section-py linkedfarmer_different_section">
             <div class="container">
                 <h1 class="subtitle-section text-center mb-60">
-                    Our <span class="animated-text"> Incredible</span> Process
+                What Are <span class="animated-text"> The Big Reasons To Reach LINKSFARMER<br/></span> For Content Marketing?
                 </h1>
                 <ul class="custom_timeline timeline pb-0 mb-0">
                     <li class="timeline-item timeline-item-transparent ">
@@ -246,9 +251,8 @@
                             <span></span>
                         </div>
                         <div class="right_wrap">
-                            <h4>Consultation</h4>
-                            <p>Share your goals without hesitation; we help you by providing the best solution to your
-                                needs.</p>
+                            <h4>Custom Content Strategy</h4>
+                            <p>We offer content marketing plans effectively to meet business goals and target audience needs.</p>
                         </div>
                     </li>
                     <li class="timeline-item timeline-item-transparent ">
@@ -256,9 +260,8 @@
                             <span></span>
                         </div>
                         <div class="right_wrap">
-                            <h4>Content Creation</h4>
-                            <p>Skilled writers on our team craft engaging and relevant content designed to resonate with
-                                the target audience.</p>
+                            <h4>Expert Writer</h4>
+                            <p>Our team has skilled writers who ensure they provide compelling, informative, and engaging content. They resonate with your audience incredibly.</p>
                         </div>
                     </li>
                     <li class="timeline-item timeline-item-transparent ">
@@ -266,8 +269,8 @@
                             <span></span>
                         </div>
                         <div class="right_wrap">
-                            <h4>Publisher Selection</h4>
-                            <p>Simply choose from our curated list of high-authority websites.</p>
+                            <h4>SEO Integration</h4>
+                            <p>Every piece of content of ours is optimized for search engines, which boosts your rankings and drives organic traffic.</p>
                         </div>
                     </li>
                     <li class="timeline-item timeline-item-transparent  ">
@@ -275,8 +278,8 @@
                             <span></span>
                         </div>
                         <div class="right_wrap">
-                            <h4>Placement</h4>
-                            <p>We ensure that your content is published on sites that drive value to your business.</p>
+                            <h4>Diverse Formats</h4>
+                            <p>We deliver from blog posts and articles to infographics and videos. Also, our content in formats aligns with your brand’s messaging.</p>
                         </div>
                     </li>
                     <li class="timeline-item timeline-item-transparent  ">
@@ -284,29 +287,192 @@
                             <span></span>
                         </div>
                         <div class="right_wrap">
-                            <h4>Reporting</h4>
-                            <p>Receive detailed analytics and insights into the performance of your campaigns with our
-                                processing.</p>
-                        </div>
-                    </li>
-                    <li class="timeline-item timeline-item-transparent  pb-0">
-                        <div class="left_wrap">
-                            <span></span>
-                        </div>
-                        <div class="right_wrap">
-                            <h4>Industries We Serve</h4>
-                            <p>Whether you are in technology, finance, health, or the lifestyle sector, our publishers
-                                ensure we’ve got you covered. Thus, partner with us to enhance your online presence and
-                                achieve sustainable growth.</p>
+                            <h4>Results-Driven Approach</h4>
+                            <p>We focus on measurable outcomes and deliver content in real ROI.</p>
                         </div>
                     </li>
                 </ul>
             </div>
         </section>
+        
+        <section class="light-bg">
+        <div class="container" style="padding-top: 88px; padding-bottom: 88px;">
+                    <div class="text-center">
+                        <h1 class="page-title">LINKSFARMER’s    <span class="animated-text"> Process Of Marketing </h1>
+                        <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
+                        <!-- <h3 class="page_subtitle">
+                        No doubt, your words define your brand! That’s why we specialize in creating compelling and SEO-friendly content. Through that, you can engage<br/> your audience and drive results. If you want blog posts, articles, website copy, or market content, our writers can help you. We deliver content for<br/> all your websites, social media, or white papers. You can get, </h3> -->
+                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
+                            Looking for the best link building platform? Join Links farmer today!
+                        </h2> -->
+                    </div>
+                    <div class="guest_posting_wrap mb-5">
+                        <div class="row g-2 gy-md-5 justify-content-center">
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+                                <div class="posting_card">
+                                    <h6>Discovering Audience And Reach Goals</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+                                <div class="posting_card">
+                                    <h6> Content Planning</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+                                <div class="posting_card">
+                                    <h6>Content Creation</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+                                <div class="posting_card">
+                                    <h6>Distribution</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+                                <div class="posting_card">
+                                    <h6>Analytics and Optimization</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        
+        <section class="section-py  guest_posting_section">
+            <div class="container">
+                <h1 class="subtitle-section text-center">
+                How We Do
+                    <span class="animated-text">Content Marketing<br/>  </span>Services?
+                </h1>
+                <div class="data_wrap">
+                    <div class="row g-3  guest_wrp">
+                        <div class="col-lg-4 col-md-6 col-sm-12 ">
+                            <div class="data_card">
+                                <div class="icon_wrap">
+                                    <img src="{{ asset_url('img/guest-posting/img_1.png') }}" alt="linksfarmer-img">
+                                </div>
+                                <h6>Blog and Article Writing</h6>
+                                <p>We help you engage your audience with<br/> insightful and well-researched blogs and<br/> articles tailored to industry and audience</p>
+                            </div>
 
-
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 ">
+                            <div class="data_card">
+                                <div class="icon_wrap">
+                                    <img src="{{ asset_url('img/guest-posting/img_2.png') }}" alt="linksfarmer-img">
+                                </div>
+                                <h6>Social Media Content</h6>
+                                <p>Through social media content, we ensure we<br/> stay relevant and grow your following with<br/> dynamic, sharable content for different<br/> platforms.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 ">
+                            <div class="data_card">
+                                <div class="icon_wrap">
+                                    <img src="{{ asset_url('img/guest-posting/img_3.png') }}" alt="linksfarmer-img">
+                                </div>
+                                <h6>Email Campaigns</h6>
+                                <p>Boost conversions with personalized and<br/> persuasive email marketing content. This is what <br/>speaks directly to your subscribers.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 ">
+                            <div class="data_card">
+                                <div class="icon_wrap">
+                                <img src="{{ asset_url('img/guest-posting/img_1.png') }}" alt="linksfarmer-img">
+                                </div>
+                                <h6>Visual Content Creation</h6>
+                                <p>Captivate your audience with infographics,<br/> videos, and other visual content designs. We aid<br/> in that to communicate complex ideas simply <br/>and effectively. </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 ">
+                            <div class="data_card">
+                                <div class="icon_wrap">
+                                <img src="{{ asset_url('img/guest-posting/img_2.png') }}" alt="linksfarmer-img">
+                                </div>
+                                <h6>Content Strategy Development</h6>
+                                <p>We mainly work to create a comprehensive<br/> content marketing strategy that is tailored to<br/> business objectives.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
        
+        <section id="services" class="section-py services-section light-bg">
+            <div class="container">
+                <!-- <div class="text-center mb-3">
+                    <span class="title-section animated-text">Our Services</span>
+                </div> -->
+                <h1 class="subtitle-section text-center">
+                Are you in search of a <span class="animated-text"> complete solution <br/>for your </span>  digital product?
+                </h1>
+                <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded strategy to boost your online presence.</h5>
 
+                <div class="data_wrap">
+                    <div class="row gy-3">
+                        <div class="col-lg-3 col-sm-6 col-6 ">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Content Writing</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-6 ">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Link Building</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-6 ">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Content Marketing</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-6 ">
+                            <div class="services-card">
+                                <div class="img-wrap">
+                                    <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>SEO Reseller</h6>
+                                    <i class="ti ti-arrow-narrow-right "></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+        
+        <section class="section-py linear_bg_section">
+            <div class="container">
+                <div class="linear_bg_wrap">
+                    <div class="text_wrap">
+                        <h2>Content Marketing Services</h2>
+                        <p>Tailor-made Content Marketing Services to Reach Out to Your Target Audience in the Best Meaningful Manner!
+                        </p>
+                    </div>
+                    <button type="button" class="btn-white d-block mx-auto">Register Now</button>
+                </div>
+            </div>
+        </section>
     @include('pages.footer')
 
     <script src="{{ asset_url('libs/popper/popper.js') }}"></script>

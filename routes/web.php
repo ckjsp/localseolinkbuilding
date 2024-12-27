@@ -51,6 +51,9 @@ Route::get('/link-building-services', [PagesController::class, 'linkbuildingserv
 Route::get('/seo-reseller-services', [PagesController::class, 'seoresellerservices'])->name('seo-reseller-services');
 Route::get('/content-writing-services', [PagesController::class, 'contentwritingservices'])->name('content-writing-services');
 Route::get('/content-marketing-services', [PagesController::class, 'contentmarketingservices'])->name('content-marketing-services');
+Route::get('/about-us', [PagesController::class, 'aboutus'])->name('about-us');
+Route::get('/blog-page', [PagesController::class, 'blog'])->name('blog-page');
+
 
 
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');

@@ -549,7 +549,18 @@
                 </div>
             </div>
         </section>
-
+        <section class="section-py linear_bg_section pt-0">
+            <div class="container">
+                <div class="linear_bg_wrap">
+                    <div class="text_wrap">
+                        <h2>Choose Us For SEO Reseller Services</h2>
+                        <p>For 10+ years, we have proven ourselves to be one of the best SEO Reseller in the US. We<br/> cater to the needs of business consultants, design agencies, and other marketing agencies.
+                        </p>
+                    </div>
+                    <button type="button" class="btn-white d-block mx-auto">Register Now</button>
+                </div>
+            </div>
+        </section>
        
 
     @include('pages.footer')
