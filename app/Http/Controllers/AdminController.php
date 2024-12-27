@@ -344,4 +344,23 @@ class AdminController extends Controller
         $user->delete();
         return redirect()->route('lslbadmin.users')->with('success', 'Record deleted successfully');
     }
+
+    public function updateAdminPrice(Request $request, $id)
+    {
+        $request->validate([
+            'linkedinsession_adminprice' => 'required|numeric|min:0',
+            'guestpostprice_adminprice' => 'required|numeric|min:0',
+        ]);
+
+        $website = lslbWebsite::findOrFail($id);
+
+        $website->linkedinsession_adminprice = $request->input('linkedinsession_adminprice');
+        $website->guestpostprice_adminprice = $request->input('guestpostprice_adminprice');
+
+        $website->save();
+
+        return response()->json([
+            'success' => 'Admin prices updated successfully',
+        ]);
+    }
 }

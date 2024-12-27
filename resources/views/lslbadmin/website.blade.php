@@ -4,20 +4,12 @@
 @section('sidebar-content')
 <!-- Content -->
 <div class="mx-3 flex-grow-1 container-p-y">
-    <!-- <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    {{ __('My Website') }}
-                    <a href="{{ url('/publisher/website/create') }}" class="btn btn-outline-primary float-end"><i
-                            class="ti ti-world-plus m-auto p-1"></i> Add Website</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
+
     @if(session('success'))
     <div class="alert alert-primary mt-3">{{ session('success') }}</div>
     @endif
+    <div id="messageContainer"></div>
+
     <div class="row justify-content-center mt-5">
         <div class="col-md-12">
             <div class="card mt-2">
@@ -39,9 +31,11 @@
                                 <th scope="col">Ahrefs Traffic</th>
                                 <th scope="col">Semrush Traffic</th>
                                 <!--<th scope="col">Google Analytics</th>-->
-                                <th scope="col">Price</th>
+                                <th scope="col">Guest Post Price</th>
+                                <th scope="col">Link Insertion Price</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Google Analytics</th>
+                                <th scope="col">Admin Price</th>
                                 <th scope="col">Action</th>
                                 <th scope="col"><i class="ti ti-dots"></i></th>
                             </tr>
@@ -60,6 +54,7 @@
                                 <td>{{ $v->samrush_traffic }}</td>
                                 <!--<td>{{ $v->google_analytics }}</td>-->
                                 <td>${{ $v->guest_post_price }}</td>
+                                <td>${{ $v->link_insertion_price }} </td>
                                 <td>
                                     <button type="button"
                                         class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle{{ $v->id }}"
@@ -82,6 +77,12 @@
                                     @endif
                                 </td>
                                 <td>
+                                    <button type="button" class="btn btn-label-success" data-bs-toggle="modal" data-bs-target="#adminPriceModal" onclick="setAdminPriceId('{{ $v->id }}')">
+                                        Set Price
+                                    </button>
+                                </td>
+
+                                <td>
                                     <button type="button" class="btn p-0 edit-btn text-info"
                                         onclick="window.location.href=`{{ url('/lslb-admin/website') }}/{{ $v->id }}/edit`"><i
                                             class="ti ti-pencil me-1"></i></button>
@@ -94,7 +95,6 @@
                                         onclick="getSiteDetail($(this))"
                                         data-i="<?= htmlspecialchars(json_encode($v)) ?>"><i
                                             class="ti ti-file-dots fs-3"></i></button> </td>
-                                <!-- <td> <i class="ti ti-file-dots"></i> <button type="button" data-bs-toggle="collapse" data-bs-target="#website-{{$k}}" aria-controls="website-{{$k}}" aria-expanded="false" class="accordion accordion-button collapsed bg-light"></button> </td> -->
                             </tr>
                             @endforeach
                         </tbody>
@@ -249,9 +249,90 @@
     </div>
 </div>
 
+<div class="modal fade" id="adminPriceModal" tabindex="-1" aria-labelledby="adminPriceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="adminPriceModalLabel">Set Admin Prices</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="adminPriceForm">
+                    <input type="hidden" name="website_id" value="{{ $v->id }}">
+
+                    <div class="mb-3">
+                        <label for="linkedinSession" class="form-label">Link Insertion Admin Price</label>
+                        <input type="text" class="form-control" id="linkedinSession" name="linkedinsession_adminprice" placeholder="Enter price">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="guestPostPrice" class="form-label">Guest Post Admin Price</label>
+                        <input type="number" class="form-control" id="guestPostPrice" name="guestpostprice_adminprice" placeholder="Enter price">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update Admin Price</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 @endsection
 
 @push('script')
+<script>
+    document.getElementById('adminPriceForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const websiteId = formData.get('website_id');
+        const url = `/lslb-admin/website/${websiteId}/update-admin-price`;
+
+        fetch(url, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+                body: formData,
+            })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                if (data.success) {
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'alert alert-success';
+                    successMessage.textContent = data.success;
+
+                    const messageContainer = document.getElementById('messageContainer');
+                    messageContainer.innerHTML = '';
+                    messageContainer.appendChild(successMessage);
+
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 5000);
+
+                    const modalElement = document.getElementById('adminPriceModal');
+                    const modal = bootstrap.Modal.getInstance(modalElement);
+                    modal.hide();
+                    document.getElementById('adminPriceForm').reset();
+
+
+                    console.log('Admin prices updated successfully:', data);
+                } else {
+                    console.log('Failed to update admin prices:', data);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    });
+</script>
 <script>
     var table = $('#website-tbl').DataTable();
 
