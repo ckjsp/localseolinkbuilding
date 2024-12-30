@@ -8,68 +8,9 @@
 
 
     <meta name="description" content="" />
-    <style>
-        .search-container {
-        display: flex;
-        justify-content: center;
-        /* margin: 20px 0; */
-        }
-
-        .search-input {
-        width: 840px;
-        height: 58px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        outline: none;
-        color: #ffffff !important;
-        }
-        .search-input::placeholder{
-        font-size: 18px !important;
-        font-weight: 500 !important;
-        color: #ffffff !important;
-        line-height: 28px !important;
-        
-        }
-        .search-input:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-        }
-        .search-input{
-            background: none !important;
-            padding: 15px !important;
-            margin: 30px !important;
-            border: 1px solid #ffffff80;
-            padding-left: 66px !important;
-        }
-        .marg_border {
-           background: linear-gradient(180deg, rgba(43, 255, 255, 0.12) 0%, rgba(43, 255, 255, 0.04) 50%, rgba(43, 255, 255, 0.07) 100%);
-           border-radius: 20px !important;
-           backdrop-filter: blur(84px);
-        }
-        .mb-60{
-            margin-bottom: 60px;
-        }
-        .marg_border:before {
-        content: url("http://127.0.0.1:8000/img/transform-strategy/Frame%20(64).svg");
-         position: absolute;
-         left: 46px;
-         width: 24px;
-         height: 24px;
-        display: block;
-        z-index: 9999999999999;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .figure
-    {
-        padding: 20px !important;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 20px !important;
-    }
-    .mb-100 {
-        margin-bottom: 100px !important;
-    }
-    </style>
+    <!-- <style>
+      
+    </style> -->
 
 
 </head>
@@ -118,6 +59,7 @@
             </div>
         </div>
         </section>
+
 
     </div>
 
