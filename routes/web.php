@@ -53,6 +53,10 @@ Route::get('/content-writing-services', [PagesController::class, 'contentwriting
 Route::get('/content-marketing-services', [PagesController::class, 'contentmarketingservices'])->name('content-marketing-services');
 Route::get('/about-us', [PagesController::class, 'aboutus'])->name('about-us');
 Route::get('/blog-page', [PagesController::class, 'blog'])->name('blog-page');
+Route::get('/blog-inner-page', [PagesController::class, 'bloginnerpage'])->name('blog-inner-page');
+Route::get('/faq', [PagesController::class, 'faqpage'])->name('faq');
+
+
 
 
 

@@ -84,4 +84,17 @@ class PagesController extends Controller
 
         return view('pages.blogpage');
     }
+
+    public function bloginnerpage()
+    {
+
+        return view('pages.bloginnerpage');
+    }
+
+    
+    public function faqpage()
+    {
+
+        return view('pages.faq');
+    }
 }
