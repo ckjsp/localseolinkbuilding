@@ -125,7 +125,7 @@
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
                                 <p>Lite</p>
-                                <h3 class="mb-0">$179</h3>
+                                <h3 class="mb-0">$139</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <ul>
@@ -167,8 +167,8 @@
                     <div class="col-lg-4 col-sm-12">
                         <div class="pricing_plan_card colored_card ">
                             <div class="upper_wrap">
-                                <p>Lite</p>
-                                <h3 class="mb-0">$179</h3>
+                                <p>Standard</p>
+                                <h3 class="mb-0">$159</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <ul>
@@ -211,8 +211,8 @@
                     <div class="col-lg-4 col-sm-12">
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
-                                <p>Lite</p>
-                                <h3 class="mb-0">$179</h3>
+                                <p>Premium</p>
+                                <h3 class="mb-0">$359</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <ul>
@@ -267,7 +267,7 @@
                     despite all the effort, the probability of you getting the backlink is pretty low. However, Link
                     Linksfarmer has your back.</h5>
 
-                <h5 class="subtitle2-section text-center">As one of the largest guest post marketplaces, Link Publishers
+                <h5 class="subtitle2-section text-center">As one of the largest guest post marketplaces, LINKSFARMER
                     allows you to buy guest posts from our pool of 114,828+ global websites of various niches. You can
                     choose high-domain authority websites in your niche, upload content, or hire our expert writers if
                     you don't have content, and get as many quality guest posts as you wish.</h5>
@@ -475,7 +475,7 @@
                                                     <img src="{{ asset_url('img/google-logo.png') }}" />
                                                 </div>
                                                 <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <h5 class="mb-0">David Mitchell</h5>
                                                     <div class="text-warning">
                                                         <i class="ti ti-star-filled ti-sm"></i>
                                                         <i class="ti ti-star-filled ti-sm"></i>
@@ -486,9 +486,7 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
+                                            This platform is a game-changer for SEO! I’ve used it multiple times and always get high-quality links from reputable sites. Highly recommend it for marketers and bloggers alike.
                                             </p>
                                         </div>
 
@@ -501,7 +499,7 @@
                                                     <img src="{{ asset_url('img/google-logo.png') }}" />
                                                 </div>
                                                 <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <h5 class="mb-0">Samantha Collins</h5>
                                                     <div class="text-warning">
                                                         <i class="ti ti-star-filled ti-sm"></i>
                                                         <i class="ti ti-star-filled ti-sm"></i>
@@ -512,9 +510,7 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
+                                            The platform has potential, but I found the pricing a bit steep for smaller businesses. However, the quality of available blogs is commendable.
                                             </p>
                                         </div>
 
@@ -527,7 +523,7 @@
                                                     <img src="{{ asset_url('img/google-logo.png') }}" />
                                                 </div>
                                                 <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <h5 class="mb-0">Neha Gupta</h5>
                                                     <div class="text-warning">
                                                         <i class="ti ti-star-filled ti-sm"></i>
                                                         <i class="ti ti-star-filled ti-sm"></i>
@@ -538,9 +534,7 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
+                                            Fantastic platform for content marketing. I got featured on several high-DA sites, which significantly boosted my SEO efforts. 
                                             </p>
                                         </div>
 
@@ -702,7 +696,7 @@
                                     <img src="{{ asset_url('img/guest-posting/img_2.png') }}" alt="linksfarmer-img">
                                 </div>
                                 <h6>Improves Search Ranking</h6>
-                                <p>At Link Publishers, you can place guest posts on high-DA websites. And when high DA
+                                <p>At LINKSFARMER, you can place guest posts on high-DA websites. And when high DA
                                     websites redirect traffic to your site, Google considers your website more valuable
                                     and trustworthy, boosting your domain authority.</p>
                             </div>
@@ -792,10 +786,7 @@
                             aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book.
+                                Guest posting services aid in finding websites that accept guest posts, creating articles, and submitting them to the website for publication.
                                 </p>
                             </div>
                         </div>
@@ -812,10 +803,7 @@
                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book.
+                                It depends on the owners of the website. Buying guest post backlinks from low-reputation service providers may do more harm than good. Thus, rely on a premium guest posting marketplace that is completely safe. With it, you can expect the best results.
                                 </p>
                             </div>
                         </div>
@@ -832,10 +820,7 @@
                             aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book.
+                                Using guest posting services builds relationships with reputable and reliable blogs. It helps you provide quality do-follow backlinks, which help you with long-term branding and SEO goals. As a result, you can reach your target audience and boost your website’s organic traffic.
                                 </p>
                             </div>
                         </div>
@@ -852,10 +837,7 @@
                             aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book. <br />
+                                Yeah, you can! LINKSFARMER has some high-quality guest blogs in our database for those who want to buy guest blog posts. Also, it depends on your niche and preference. We have a team of writers who can create a unique article or blog for you. <br />
                                 </p>
                             </div>
                         </div>

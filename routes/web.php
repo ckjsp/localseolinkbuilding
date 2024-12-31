@@ -54,6 +54,8 @@ Route::get('/content-marketing-services', [PagesController::class, 'contentmarke
 Route::get('/about-us', [PagesController::class, 'aboutus'])->name('about-us');
 Route::get('/blog-page', [PagesController::class, 'blog'])->name('blog-page');
 Route::get('/blog-inner-page', [PagesController::class, 'bloginnerpage'])->name('blog-inner-page');
+Route::get('/manual-outreach', [PagesController::class, 'manualoutreach'])->name('manual-outreach');
+
 Route::get('/faq', [PagesController::class, 'faqpage'])->name('faq');
 
 

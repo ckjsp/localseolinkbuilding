@@ -177,7 +177,7 @@
                                                     <img src="{{ asset_url('img/google-logo.png') }}" />
                                                 </div>
                                                 <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <h5 class="mb-0">David Mitchell</h5>
                                                     <div class="text-warning">
                                                         <i class="ti ti-star-filled ti-sm"></i>
                                                         <i class="ti ti-star-filled ti-sm"></i>
@@ -188,9 +188,7 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
+                                             This platform is a game-changer for SEO! I’ve used it multiple times and always get high-quality links from reputable sites. Highly recommend it for marketers and bloggers alike.
                                             </p>
                                         </div>
 
@@ -203,7 +201,7 @@
                                                     <img src="{{ asset_url('img/google-logo.png') }}" />
                                                 </div>
                                                 <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <h5 class="mb-0">Samantha Collins</h5>
                                                     <div class="text-warning">
                                                         <i class="ti ti-star-filled ti-sm"></i>
                                                         <i class="ti ti-star-filled ti-sm"></i>
@@ -214,9 +212,7 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
+                                             The platform has potential, but I found the pricing a bit steep for smaller businesses. However, the quality of available blogs is commendable.
                                             </p>
                                         </div>
 
@@ -229,7 +225,7 @@
                                                     <img src="{{ asset_url('img/google-logo.png') }}" />
                                                 </div>
                                                 <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <h5 class="mb-0">Neha Gupta</h5>
                                                     <div class="text-warning">
                                                         <i class="ti ti-star-filled ti-sm"></i>
                                                         <i class="ti ti-star-filled ti-sm"></i>
@@ -240,9 +236,7 @@
                                                 </div>
                                             </div>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
+                                             Fantastic platform for content marketing. I got featured on several high-DA sites, which significantly boosted my SEO efforts. 
                                             </p>
                                         </div>
 
@@ -324,6 +318,7 @@
                             <p>Embrace comprehensive solutions from guest posting to niche edits. Seekers can grab a
                                 wide
                                 range of link-building strategies to meet the unique needs of a website.</p>
+                            <p>By collaborating with reputable websites, it’s effortless to ensure quality assurance. All links will be natural and impactful for successful SEO goals.</p>
                             <p>Our focused strategies are built on thorough research, and every link will add value and
                                 strengthen online presence.</p>
                         </div>
@@ -340,7 +335,7 @@
                     <span class="animated-text">October</span> Featured Websites
                 </h1>
                 <div class="img-wrap">
-                    <img src="{{ asset_url('img/top-featured-img.png') }}" alt="top-featured-img">
+                    <img src="{{ asset_url('img/Featured Websites.png') }}" alt="top-featured-img">
                 </div>
             </div>
         </section>
@@ -371,9 +366,7 @@
                                             </div>
                                             <h6>100% Transparency</h6>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text
-                                                ever since the 1500s, when an unknown printer took a galley...
+                                            Links Farmer offers clear metrics and upfront communication, ensuring you know exactly where your content is published. No hidden costs, just honest and transparent service.
                                             </p>
                                         </div>
                                     </div>
@@ -386,9 +379,7 @@
                                             </div>
                                             <h6>High Quality Content</h6>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text
-                                                ever since the 1500s, when an unknown printer took a galley...
+                                            Our team delivers well-researched, SEO-optimized, and original articles tailored to your niche, ensuring your brand stands out with top-tier content.
                                             </p>
                                         </div>
                                     </div>
@@ -401,9 +392,7 @@
                                             </div>
                                             <h6>Earn High-Quality Backlinks</h6>
                                             <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text
-                                                ever since the 1500s, when an unknown printer took a galley...
+                                            Gain backlinks from high-authority websites that boost your site’s credibility, drive organic traffic, and improve search rankings effectively.
                                             </p>
                                         </div>
                                     </div>

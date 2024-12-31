@@ -19,7 +19,7 @@
             <div class=" landing-hero position-relative">
                 <div class="container">
                     <div class="text-center">
-                        <h1 class="page-title">LINKSFARMER: Your   <span class="animated-text"> Friendly <br /> SEO Reseller</span>Partner  </h1>
+                        <h1 class="page-title">LINKSFARMER: Your   <span class="animated-text"> Friendly <br /> SEO Reseller </span>Partner  </h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle">
                         Expand your business offerings without additional overhead by partnering with us. We are the best SEO reseller and offer<br/> seamless white-label SEO services. With us, you can embrace exceptional results. </h3>
@@ -235,6 +235,7 @@
             </div>
         </section>
     <!-- </div> -->
+     
     <section class="section-py linkedfarmer_different_section">
             <div class="container">
                 <h1 class="subtitle-section text-center mb-60">
@@ -317,7 +318,7 @@
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>A One-stop Outsourced Partner :</h5>
-                                <p>Link Publishers is one of the best outsourced SEO reseller services providers in the USA. We pride ourselves on being a long-term partner for our clients for 10+ Years.</p>
+                                <p>LINKSFARMER is one of the best outsourced SEO reseller services providers in the USA. We pride ourselves on being a long-term partner for our clients for 10+ Years.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
@@ -347,7 +348,7 @@
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Access to High-ranking Keywords :</h5>
-                                <p>You get access to various high-ranking keywords. Link Publishers already have over 450,000 high-volume keywords on Google's first page.</p>
+                                <p>You get access to various high-ranking keywords. LINKSFARMER already have over 450,000 high-volume keywords on Google's first page.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
@@ -366,7 +367,7 @@
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Result-driven Packages :</h5>
-                                <p>Link Publishers have a wide range of result-driven SEO reseller packages that can offer numerous benefits.
+                                <p>LINKSFARMER have a wide range of result-driven SEO reseller packages that can offer numerous benefits.
                                 </p>
                             </div>
                         </div>
@@ -477,10 +478,7 @@
                             aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book.
+                                As a partner with an SEO provider, actually handle all of the technical SEO work for your clients. You would then sell their services as your own and bill your clients accordingly.
                                 </p>
                             </div>
                         </div>
@@ -497,50 +495,41 @@
                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book.
+                                SEO reseller programs actually offer a wide range of services. It includes keyword research, on-page optimization, link building, content creation, and analytics reporting.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingThree">
+                        <h2 class="accordion-header" id="flush-headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                aria-controls="flush-collapseThree">
+                                data-bs-target="#flush-collapseFoure" aria-expanded="false"
+                                aria-controls="flush-collapseFour">
                                 Can I brand the SEO services as my own?
                             </button>
                         </h2>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div id="flush-collapseFour" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book.
+                                You can! Most SEO reseller programs actually allow you to brand your services and use your brand and logos.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingThree">
+                        <h2 class="accordion-header" id="flush-headingFive">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                aria-controls="flush-collapseThree">
+                                data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                aria-controls="flush-collapseFive">
                                 What is white label SEO?
                             </button>
                         </h2>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div id="flush-collapseFive" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book.
+                                White label SEO actually refers to SEO services that are provided by one company. But they can be branded and sold as the services of another company.
                                 </p>
                             </div>
                         </div>

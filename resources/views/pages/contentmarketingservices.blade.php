@@ -24,7 +24,7 @@
             <div class=" landing-hero position-relative">
                 <div class="container">
                     <div class="text-center">
-                        <h1 class="page-title">Capture Attention With   <span class="animated-text"> High-Standard Content<br/> Marketing</span>of LINKSFARMER</h1>
+                        <h1 class="page-title">Capture Attention With   <span class="animated-text"> High-Standard Content<br/> Marketing </span>of LINKSFARMER</h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle">
                         Writing a content piece is okay, but without promotion, nothing can be achieved. This is where it becomes a major point to foster customer loyalty<br/> and drive traffic. At our site, you can get the best creation and distribution of high-quality content. We help you stand out in a crowded<br/> marketplace. </h3>
