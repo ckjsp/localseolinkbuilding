@@ -46,7 +46,8 @@
             <div class="row">
                 <div class="col-lg-6">
                 <figure class="figure">
-                <img src="{{ asset_url('img/transform-strategy/Content Syndication.png.png') }}" alt="Content Syndication">
+                <img src="{{ asset_url('img/transform-strategy/Wealth of Knowledge.png') }}" alt="Content Syndication">
+                <!-- <img src="{{ asset_url('img/Easy Ways Content Syndication Can Boast Your Research.jpg') }}" alt="linksfarmer-img" width="650" height="320"> -->
                 <h4 class="mt-3">Easy Ways Content Syndication Can Boast Your<br/> Research</h4>
                 </figure>
                 </div>

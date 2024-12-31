@@ -89,7 +89,7 @@
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
                         <h2>Ready to revolutionize your SEO strategy?</h2>
-                        <p>Join Link Publishers today and experience the difference firsthand.
+                        <p>Join LINKSFARMER today and experience the difference firsthand.
                         </p>
                     </div>
                     <button type="button" class="btn-white d-block mx-auto">Connect to Our Experts</button>

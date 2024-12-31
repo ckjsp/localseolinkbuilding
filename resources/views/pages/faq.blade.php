@@ -31,38 +31,33 @@
             <div class=" landing-hero position-relative">
                 <div class="container">
                     <div class="text-center">
-                        <h1 class="page-title">Cancellation and Refund Policy</span> </h1>
+                        <h1 class="page-title">FAQs</span> </h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle title_wdth">
-                        Links Farmer provides flexibility on refunds. The Billing department analyzes each request for a refund. Refunds will be made if the service has not been rendered and if the publishing process has not started yet. If the request for a refund comes during the publishing process or after the service has been rendered, it will be denied and payments for services already rendered are non-refundable in any case.</h3>
+                        Sure, everyone may have lots of queries, whatever the services may be. That’s why we have covered almost all possible questions and issues that help you with the best support.</h3>
                         <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
                             Looking for the best link building platform? Join Links farmer today!
                         </h2> -->
                     </div>
                 </div>
             
-                <section class="section-py faq_section">
+                <section class="section-py faq_section pt-60 pb-0">
             <div class="container">
-                <div class="text-center mb-3">
-                    <span class="title-section animated-text">FAQs</span>
-                </div>
-                <h1 class="subtitle-section text-center">
-                    Frequently Asked Questions </h1>
-                <div class="custom-accordian accordion accordion-flush" id="accordionFlushExample">
+               
+                
+                <div class="custom-accordian accordion accordion-flush mt-0" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseOne" aria-expanded="false"
                                 aria-controls="flush-collapseOne">
-                                Why is guest posting vital? </button>
+                                Detailed Information About the Payment Methods That Are Available? </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Guest posting is important because it helps you establish yourself and your website
-                                    and build relationships. You can easily drive traffic to your website and improve
-                                    search engine rankings. 
+                                We accept and offer payment via PayPal. When you are Indian, various payment methods are also available. It includes Razorpay, credit/debit cards, wallets, UPIs, and net banking.
                                 </p>
                             </div>
                         </div>
@@ -72,7 +67,7 @@
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseTwo" aria-expanded="false"
                                 aria-controls="flush-collapseTwo">
-                                How does a guest posting service work?
+                                What Can You Do If You Are Not Satisfied With the Order Performed by the Publisher?
                             </button>
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse"
@@ -92,7 +87,7 @@
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseThree" aria-expanded="false"
                                 aria-controls="flush-collapseThree">
-                                Is buying a guest posting service a good idea?
+                                What About the Lite Package?
                             </button>
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse"
@@ -112,7 +107,7 @@
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseFour" aria-expanded="false"
                                 aria-controls="flush-collapseFour">
-                                How is considering guest posting service safe?
+                                What About the Standard Package?
                             </button>
                         </h2>
                         <div id="flush-collapseFour" class="accordion-collapse collapse"
@@ -132,11 +127,51 @@
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseFive" aria-expanded="false"
                                 aria-controls="flush-collapseFive">
-                                Can I buy guest blog posts?
+                                What About Premium?
                             </button>
                         </h2>
                         <div id="flush-collapseFive" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. <br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseSix" aria-expanded="false"
+                                aria-controls="flush-collapseSix">
+                                Explain About Customized Package?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseSix" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. <br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingSeven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseSeven" aria-expanded="false"
+                                aria-controls="flush-collapseSeven">
+                                Is It Possible To See The Guest Post Sample?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseSeven" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem

@@ -21,7 +21,8 @@
                     <div class="text-center">
                         <h1 class="page-title">Easy Ways Content Syndication Can <br />Boast Your Research</span> </h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
-                        <h3 class="page_subtitle">
+                        <img src="{{ asset_url('img/Easy Ways Content Syndication Can Boast Your Research.jpg') }}" alt="linksfarmer-img" width="1000" height="600">
+                        <h3 class="page_subtitle mt-20">
                             Does your business organization need publicity in the digital market? If yes! You are left with no option other than going for content syndication. Content Syndication is a digital term where you are allowed to republish the same content on third party websites in order to establish your business on a digital platform to a targeted audience. Even though, you hire professionals to advertise your business on digital platforms, the right choice of strategies is an added advantage. The professionals in Search Engine Optimization Service providers wisely handle content syndication and reach the targeted audience from third party websites. Scroll down to have a detailed understanding of the ways to boost your research on content syndication.</h3>
                         <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
                             Looking for the best link building platform? Join Links farmer today!
@@ -29,8 +30,7 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        
 
     <section class="section-py first-section-pt pt-0">
         <div class="container mt-5 ">
@@ -102,6 +102,8 @@
             </div>
         </div>
     </section>
+    </section>
+    </div>
 
     @include('pages.footer')
 

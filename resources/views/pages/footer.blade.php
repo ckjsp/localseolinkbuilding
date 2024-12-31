@@ -10,7 +10,7 @@
                         </a>
                     </div>
                     <p class="footer-text footer-logo-description mb-4">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                    Grow your website traffic and build your reputation with our simple, results-driven link-building services. Start seeing the difference now!
                     </p>
                     <ul class="footer-list social-links-wrap  mt-3">
                         <li>
@@ -64,7 +64,7 @@
                             <a href="#" class="footer-link">Blog</a>
                         </li>
                         <li class="mb-3">
-                            <a href="#" class="footer-link">Life at Link Publishers</a>
+                            <a href="#" class="footer-link">Life at LINKSFARMER</a>
                         </li>
                         <li class="mb-3">
                             <a href="#" class="footer-link">Write for Us</a>

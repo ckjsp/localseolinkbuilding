@@ -61,9 +61,9 @@
                                 <li class="pt-lg-2 font_sz ">Technical issues related to partner news websites, or press release aggregation sites and any related platform performance. This includes the unavailability of web pages, website loading speed, hyperlinks, search engine indexing, third-party comments, content layout, and style.</li>
                                 <li class="pt-lg-2 font_sz ">Refund requests for partial months or years of service, requests due to upgrade or downgrade, and refund requests for unused service limits.</li>
                                 <li class="pt-lg-2 font_sz ">For fairness, no exception will be made to these rules.</li>
-                                <li class="pt-lg-2 font_sz ">To inform Users of new updates, product launches, or service improvements through newsletters or emails.</li>
+                                <!-- <li class="pt-lg-2 font_sz ">To inform Users of new updates, product launches, or service improvements through newsletters or emails.</li>
                                 <li class="pt-lg-2 font_sz ">For information on products and services that might be of interest to the User.</li>
-                                <li class="pt-lg-2 font_sz ">To determine the location of Users' geographical locations for the provision of local services and to guard the Site from unauthorized users.</li>
+                                <li class="pt-lg-2 font_sz ">To determine the location of Users' geographical locations for the provision of local services and to guard the Site from unauthorized users.</li> -->
 
                             </ul>
                             <p class="pt-lg-2 font_sz">

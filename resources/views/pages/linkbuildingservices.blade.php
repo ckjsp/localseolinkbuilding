@@ -84,7 +84,7 @@
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
                                 <p>Lite</p>
-                                <h3 class="mb-0">$179</h3>
+                                <h3 class="mb-0">$79</h3>
                             </div>
                             <div class="bottom_wrap">
 
@@ -130,8 +130,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="pricing_plan_card colored_card ">
                             <div class="upper_wrap">
-                                <p>Lite</p>
-                                <h3 class="mb-0">$179</h3>
+                                <p>Standard</p>
+                                <h3 class="mb-0">$199</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <div class="d-flex flex-column align-items-start justify-content-between">
@@ -178,8 +178,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
-                                <p>Lite</p>
-                                <h3 class="mb-0">$179</h3>
+                                <p>Premium</p>
+                                <h3 class="mb-0">$399</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <div class="d-flex flex-column align-items-start justify-content-between">
@@ -226,8 +226,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
-                                <p>Lite</p>
-                                <h3 class="mb-0">$179</h3>
+                                <p>Customized</p>
+                                <h3 class="mb-0">$599</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <div class="d-flex flex-column align-items-start justify-content-between">
@@ -365,7 +365,7 @@
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Integrations:</h5>
-                                <p>Link Publishers integrates directly with top SEO tools like Moz, Semrush, Ahrefs, and
+                                <p>LINKSFARMER integrates directly with top SEO tools like Moz, Semrush, Ahrefs, and
                                     Google Analytics.</p>
                             </div>
                         </div>
@@ -385,7 +385,7 @@
             <div class="container">
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
-                        <h2>Why Choose Link Publishers for Link Building?</h2>
+                        <h2>Why Choose LINKSFARMER for Link Building?</h2>
                         <p>It’s a piece of cake for our professional. With extensive knowledge in it, we guarantees
                             quality links which bring insane rankings to your website
                         </p>
@@ -610,10 +610,7 @@
                             aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book.
+                                Large network of high-authority sites and a focus on ethical, white hat link building services can help you different from others. 
                                 </p>
                             </div>
                         </div>
@@ -630,10 +627,7 @@
                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book.
+                                Within a few weeks, you can see the results. But it can take a few months to see noticeable improvements in rankings.
                                 </p>
                             </div>
                         </div>

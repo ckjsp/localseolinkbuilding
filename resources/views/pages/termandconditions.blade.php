@@ -34,7 +34,7 @@
                         <h1 class="page-title">Terms & Conditions</span> </h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle title_wdth">
-                            This Agreement, also referred to as the Terms of Use, establishes a legal privity between you the user, any of the terms hereinafter, „you, your or user“ and Links Farmer, any of the references hereinafter, „Links Farmer, we, us or our“, concerning your satisfaction from the Services of Links Farmer. Such terms apply to any visitor to the website of Links Farmer and its services. Usage of the Links Farmer's services will deem you aware of having read and agreed to these terms. If you do not accept any part of these Terms, you must leave Links Farmer immediately and cease to access the Services of Links Farmer.</h3>
+                        This Agreement, also referred to as the Terms of Use, establishes a legal privity between you the user, any of the terms hereinafter, “you, your or user” and Links Farmer, any of the references hereinafter, “Links Farmer, we, us or our”, concerning your satisfaction from the Services of Links Farmer. Such terms apply to any visitor to the website of Links Farmer and its services. Usage of the Links Farmer's services will deem you aware of having read and agreed to these terms. If you do not accept any part of these Terms, you must leave Links Farmer immediately and cease to access the Services of Links Farmer.</h3>
                         <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
                             Looking for the best link building platform? Join Links farmer today!
                         </h2> -->

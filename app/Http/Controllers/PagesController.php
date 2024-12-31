@@ -97,4 +97,9 @@ class PagesController extends Controller
 
         return view('pages.faq');
     }
+    public function manualoutreach()
+    {
+
+        return view('pages.manualoutreach');
+    }
 }
