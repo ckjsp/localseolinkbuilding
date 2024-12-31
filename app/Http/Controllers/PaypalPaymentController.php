@@ -95,7 +95,6 @@ class PaypalPaymentController extends Controller
 
                     $user = lslbUser::where('id', $website->user_id)->first();
 
-
                     $customData = [
                         'from_name' => 'Links Farmer',
                         'mailaddress' => 'no-reply@linksfarmer.com',

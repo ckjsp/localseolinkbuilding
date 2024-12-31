@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\lslbOrder;
 use App\Models\lslbUser;
 use App\Models\lslbWebsite;
+use App\Models\lslbTransaction;
+
 use Illuminate\Support\Facades\Validator;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\Shared\Html;
@@ -52,6 +54,60 @@ class OrdersController extends Controller
             // $data['orders'] = lslbOrder::with('website.user')->get();
             // echo '<pre>'; print_r( $data['orders'] ); echo '</pre>';exit;
             return view('publisher/orders')->with($data);
+        }
+    }
+
+    public function updateOrderStatus(Request $request)
+    {
+        try {
+            $validated = $request->validate([
+                'id' => 'required|exists:lslb_orders,id',
+                'status' => 'required|string',
+                'reason' => 'nullable|string',
+            ]);
+
+            $order = lslbOrder::findOrFail($validated['id']);
+
+            $order->advertiser_status = $validated['status'];
+
+            if ($validated['status'] === 'change' && !empty($validated['reason'])) {
+                $order->advertiser_change = $validated['reason'];
+            }
+
+            $order->save();
+
+            if ($validated['status'] === 'complete') {
+                $website = lslbWebsite::findOrFail($order->website_id);
+                $publisherId = $website->user_id;
+
+                $transaction = new lslbTransaction();
+                $transaction->publisher_id = $publisherId;
+                $transaction->transaction_date = now();
+                $transaction->transaction_type = 'credit';
+                $transaction->amount = $order->price;
+                $transaction->currency = 'USD';
+                $transaction->payment_email = $order->email;
+                $transaction->status = 'pending';
+                $transaction->description = 'Complete Orders';
+                $transaction->save();
+            }
+
+            session()->flash('success', 'Order status updated successfully.');
+
+
+            // Return success response
+            return response()->json([
+                'success' => true,
+                'success' => 'Order status updated successfully.',
+            ]);
+        } catch (\Exception $e) {
+            // Log and return error response
+            \Log::error('Error updating order status: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while updating the order status.',
+                'error' => $e->getMessage(),
+            ]);
         }
     }
 

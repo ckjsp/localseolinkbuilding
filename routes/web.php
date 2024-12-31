@@ -59,13 +59,13 @@ Route::get('/faq', [PagesController::class, 'faqpage'])->name('faq');
 
 
 
-
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
     // Route::get('/logout', [LoginController::class, 'logout']);
+
 
     Route::controller(HomeController::class)->group(function () {
 
@@ -98,6 +98,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/publisher/blog/{id}', 'checkArticle')->name('publisher.blog');
             Route::get('/advertiser/orders', 'index')->name('advertiser.orders');
             Route::post('/advertiser/orders/add', 'store')->name('advertiser.orders.store');
+            Route::post('/update-order-status', 'updateOrderStatus')->name('update.order.status');
         });
 
         Route::get('/paypal/create/{price}/{orderId}', [PaypalPaymentController::class, 'createPayment'])->name('paypal.create');
@@ -113,6 +114,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::controller(PaymentController::class)->group(function () {
             Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
             Route::get('/publisher/payment', 'index')->name('publisher.payment');
+            Route::get('/publisher/wallet', 'wallet')->name('publisher.wallet');
+            Route::post('/wallet/withdrawt', 'withdraw')->name('wallet.withdraw');
         });
     });
 
