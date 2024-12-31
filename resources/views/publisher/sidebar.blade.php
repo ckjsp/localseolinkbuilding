@@ -49,6 +49,22 @@
                 <div data-i18n="Payments">Payments</div>
             </a>
         </li>
+        <li class="menu-item {{ (isset($slug) && $slug == 'wallet') ? 'active' : '' }}">
+            <a href="{{ url('/publisher/wallet') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-wallet"></i>
+                <div data-i18n="wallet">wallet</div>
+            </a>
+        </li>
+
+        <!-- Wallet Balance -->
+        <li class="menu-item {{ (isset($slug) && $slug == 'payment') ? 'active' : '' }}">
+            <div class="wallet-balance text-center mt-4">
+                <strong>Wallet Balance:</strong>
+                <span class="text-success">${{ number_format($wallet_balance, 2) }}</span>
+            </div>
+        </li>
+
+
     </ul>
 </aside>
 <!-- / Menu -->

@@ -23,7 +23,7 @@
         <div class="col-md-12">
             <div class="card mt-2">
                 @if (isset($orders) && count($orders) > 0)
-                <div class="table-responsive m-3">
+                <div class="table-responsive">
                     <table class="table" id="order-tbl">
                         <thead class="table-dark">
                             <tr>
@@ -36,6 +36,7 @@
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Payment Status</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Orders Status</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -60,13 +61,24 @@
                                     Data Not Found
                                     @endif
                                 </td>
-
-
                                 <td>${{ $v->price }}</td>
                                 <td>{{ $v->attachment_type }}</td>
                                 <td>{{ $v->quantity }}</td>
                                 <td>{{ ucwords($v->payment_status) }}</td>
                                 <td>{{ ucwords($v->status) }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle{{ $v->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ ucwords($v->advertiser_status) }}
+                                    </button>
+                                    @if($v->status == 'complete')
+
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'new' ? 'active' : '' }}" onclick="updateOrderStatus({{ $v->id }}, 'new')">New</li>
+                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'complete' ? 'active' : '' }}" onclick="updateOrderStatus({{ $v->id }}, 'complete')">Complete</li>
+                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'change' ? 'active' : '' }}" onclick="showChangeModal({{ $v->id }})">Change</li>
+                                    </ul>
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -96,21 +108,102 @@
         </div>
     </div>
 </div>
+
+<!-- Modal for Change Status -->
+<div class="modal fade" id="changeStatusModal" tabindex="-1" aria-labelledby="changeStatusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="changeStatusForm">
+                    <div class="mb-3">
+                        <label for="changeReason" class="form-label">Change</label>
+                        <textarea class="form-control" id="changeReason" name="reason" rows="3" required></textarea>
+                    </div>
+                    <input type="hidden" id="orderId" name="order_id">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="submitChange()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 @push('script')
+<script>
+    function updateOrderStatus(orderId, status) {
+        if (status !== 'change') {
+            $.ajax({
+                url: "{{ route('update.order.status') }}",
+                method: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    id: orderId,
+                    status: status,
+                },
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert('Error updating status.');
+                    }
+                }
+            });
+        }
+    }
+
+    function showChangeModal(orderId) {
+        $('#orderId').val(orderId);
+        $('#changeStatusModal').modal('show');
+    }
+
+    function submitChange() {
+        const reason = $('#changeReason').val();
+        const orderId = $('#orderId').val();
+
+        if (reason.trim() === '') {
+            alert('Reason is required.');
+            return;
+        }
+
+        $.ajax({
+            url: "{{ route('update.order.status') }}",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                id: orderId,
+                status: 'change',
+                reason: reason,
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('#changeStatusModal').modal('hide');
+                    location.reload();
+                } else {
+                    alert('Error updating status.');
+                }
+            }
+        });
+    }
+</script>
 <script>
     var table = $('#order-tbl').DataTable({
         "columns": [{
                 "width": "11%"
             },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
+            null, // Column 2 (Order ID)
+            null, // Column 3 (Website)
+            null, // Column 4 (Article Title)
+            null, // Column 5 (Price)
+            null, // Column 6 (Type)
+            null, // Column 7 (Quantity)
+            null, // Column 8 (Payment Status)
+            null, // Column 9 (Status)
+            null
         ]
     });
 </script>

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\lslbOrder;
 use App\Models\lslbUser;
 use App\Models\lslbPayment;
+use App\Models\lslbTransaction;
+
+
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -55,6 +58,58 @@ class PaymentController extends Controller
         // echo '<pre>'; print_r( $data['payments'] ); echo '</pre>';exit;
         return view('payment')->with($data);
     }
+
+    public function wallet(Request $request)
+    {
+        $publisherId = Auth::user()->id;
+
+        $payments = lslbTransaction::where('publisher_id', $publisherId)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $data = [
+            'slug' => 'wallet',
+            'payments' => $payments
+        ];
+
+        return view('publisher.wallet')->with($data);
+    }
+
+
+    public function withdraw(Request $request)
+    {
+        $request->validate([
+            'upi_id' => 'required|string|max:255',
+            'wallet_balance' => 'required|numeric|min:1',
+        ]);
+
+        $publisherId = Auth::user()->id;
+        $walletBalance = $request->wallet_balance; // Retrieve the passed wallet balance
+
+        if ($walletBalance <= 0) {
+            return redirect()->back()->with('error', 'Insufficient balance to withdraw.');
+        }
+
+        $transaction = new lslbTransaction();
+        $transaction->publisher_id = $publisherId;
+        $transaction->transaction_date = now();
+        $transaction->transaction_type = 'debit';
+        $transaction->amount = $walletBalance; // Use the passed balance
+        $transaction->currency = 'USD'; // Set a default currency or modify as needed
+        $transaction->payment_email = $request->upi_id;
+        $transaction->status = 'pending'; // Set an initial status
+        $transaction->description = 'Withdrawal request';
+        $transaction->created_at = now();
+        $transaction->updated_at = now();
+
+        if ($transaction->save()) {
+            return redirect()->back()->with('success', 'Withdrawal successful. Your funds have been debited.');
+        } else {
+            return redirect()->back()->with('error', 'Something went wrong. Unable to process the withdrawal.');
+        }
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

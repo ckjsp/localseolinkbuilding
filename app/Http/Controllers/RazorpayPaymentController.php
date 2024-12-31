@@ -9,6 +9,8 @@ use App\Models\lslbOrder;
 use App\Models\lslbPayment;
 use App\Models\lslbUser;
 use App\Models\lslbWebsite;
+use App\Models\lslbTransaction;
+
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyMail;
@@ -115,6 +117,22 @@ class RazorpayPaymentController extends Controller
                     'payment_status' => 'success',
                 ]);
 
+                // $transactionData = [
+                //     'publisher_id' => $order->website->user_id,
+                //     'transaction_date' => now(),
+                //     'transaction_type' => 'credit',
+                //     'amount' => $order->price,
+                //     'currency' => 'USD',
+                //     'payment_email' => $order->email,
+                //     'status' => 'pending',
+                //     'description' => $customOrderId,
+                //     'created_at' => now(),
+                //     'updated_at' => now(),
+                // ];
+
+                // // Insert transaction data
+                // lslbTransaction::create($transactionData);
+
                 $website = lslbWebsite::where('id', $order->website_id)->first();
 
                 $websitename = $website->website_url;
@@ -128,7 +146,6 @@ class RazorpayPaymentController extends Controller
                 });
 
                 setcookie('cart', !empty($updatedCookie) ? json_encode(array_values($updatedCookie)) : '', time() + (86400 * 30), "/");
-
 
                 $customData = [
                     'from_name' => 'Links Farmer',
