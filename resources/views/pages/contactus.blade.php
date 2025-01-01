@@ -158,7 +158,9 @@
                                     <h1 class="page-title">Let's <span class="animated-text"> chat today</span> </h1>
                                     <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                                     <h3 class="page_subtitle mb-40">
-                                        Solve all your queries and concerns regarding Guest Posting and Content Writing Services. Our experts are<br /> here to help you. We will try our best to get back to you within 48 hours!</h3>
+                                        Solve all your queries and concerns regarding Guest Posting and Content Writing
+                                        Services. Our experts are<br /> here to help you. We will try our best to get
+                                        back to you within 48 hours!</h3>
                                     <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
                             Looking for the best link building platform? Join Links farmer today!
                         </h2> -->
@@ -174,34 +176,41 @@
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <!-- <label for="firstName" class="form-label">First Name</label> -->
-                                            <input type="text" class="form-control fm_cnt" id="firstName" placeholder="First Name">
+                                            <input type="text" class="form-control fm_cnt" id="firstName"
+                                                placeholder="First Name">
                                         </div>
                                         <div class="col-md-6">
                                             <!-- <label for="lastName" class="form-label">Last Name</label> -->
-                                            <input type="text" class="form-control fm_cnt" id="lastName" placeholder="Last Name">
+                                            <input type="text" class="form-control fm_cnt" id="lastName"
+                                                placeholder="Last Name">
                                         </div>
                                     </div>
                                     <div class="row g-3 mt-1">
                                         <div class="col-md-6">
                                             <!-- <label for="email" class="form-label">Email</label> -->
-                                            <input type="email" class="form-control fm_cnt" id="email" placeholder="Email">
+                                            <input type="email" class="form-control fm_cnt" id="email"
+                                                placeholder="Email">
                                         </div>
                                         <div class="col-md-6">
                                             <!-- <label for="phone" class="form-label">Phone Number</label> -->
-                                            <input type="text" class="form-control fm_cnt" id="phone" placeholder="Phone Number">
+                                            <input type="text" class="form-control fm_cnt" id="phone"
+                                                placeholder="Phone Number">
                                         </div>
                                     </div>
                                     <div class="mt-3">
                                         <!-- <label for="company" class="form-label">Company</label> -->
-                                        <input type="text" class="form-control fm_cnt" id="company" placeholder="Company">
+                                        <input type="text" class="form-control fm_cnt" id="company"
+                                            placeholder="Company">
                                     </div>
                                     <div class="mt-3">
                                         <!-- <label for="position" class="form-label">Position</label> -->
-                                        <input type="text" class="form-control fm_cnt" id="position" placeholder="Position">
+                                        <input type="text" class="form-control fm_cnt" id="position"
+                                            placeholder="Position">
                                     </div>
                                     <div class="mt-3">
                                         <!-- <label for="message" class="form-label">Message</label> -->
-                                        <textarea class="form-control fm_cnt txtarea" id="message" rows="4" placeholder="Message"></textarea>
+                                        <textarea class="form-control fm_cnt txtarea" id="message" rows="4"
+                                            placeholder="Message"></textarea>
                                     </div>
                                     <a class="mt-4 submitbtn" href="">
                                         <button type="submit" class="btn btn-submit bt mt-3 filled-btn">Submit</button>
@@ -224,7 +233,8 @@
                     <div class="mb-2 pb-1 font_dv">Customer Support</div>
                     <!-- <hr class="my-lg-4" /> -->
                     <p class="pt-lg-2 font_sz">
-                        Our friendly customer support is ready to assist with all service, order, or general queries. Providing speedy but helpful replies is what we strive to achieve.
+                        Our friendly customer support is ready to assist with all service, order, or general queries.
+                        Providing speedy but helpful replies is what we strive to achieve.
 
                     </p>
                     <!-- </div> -->
@@ -237,7 +247,8 @@
                         <div class="mb-2 pb-1 font_dv">Email Us</div>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
-                            For those who require any inquiries or request assistance, you can contact us directly at:</p>
+                            For those who require any inquiries or request assistance, you can contact us directly at:
+                        </p>
                         <p class="pt-lg-2 green_font animated-text pt-10 ">
                             (Email ID)</p>
                         <p class="pt-lg-2 font_sz pt-10 ">
@@ -249,7 +260,8 @@
                         <div class="mb-2 pb-1 font_dv">Call Us</div>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
-                            Do you prefer to talk to someone? Our hours of customer support are Monday to Friday, from 9 AM to 6 PM. Call us at:</p>
+                            Do you prefer to talk to someone? Our hours of customer support are Monday to Friday, from 9
+                            AM to 6 PM. Call us at:</p>
                         <p class="pt-lg-2 green_font animated-text pt-10 ">
                             (1234567890)</p>
                         <p class="pt-lg-2 font_sz pt-10 ">
@@ -261,7 +273,8 @@
                         <div class="mb-2 pb-1 font_dv">Live Chat</div>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
-                            If you need a response right away, use the chat icon in the bottom right corner of our website to speak with an associate of our team at the moment.</p>
+                            If you need a response right away, use the chat icon in the bottom right corner of our
+                            website to speak with an associate of our team at the moment.</p>
                     </div>
                     <hr class="" />
 
@@ -275,7 +288,8 @@
                         <p class="pt-lg-2 green_font animated-text pt-10 ">
                             City, Country, Zip Code</p>
                         <p class="pt-lg-2 font_sz pt-10 ">
-                            Note that our office is strict in accepting appointments only. Please call one of our numbers above to set up an appointment before you come to visit us here.</p>
+                            Note that our office is strict in accepting appointments only. Please call one of our
+                            numbers above to set up an appointment before you come to visit us here.</p>
                     </div>
                     <hr class="" />
 
@@ -283,23 +297,27 @@
                         <div class="mb-2 pb-1 font_dv">Social Media</div>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
-                            You can also connect to us through social media. Subscribe to get updated, news, and promotions:</p>
+                            You can also connect to us through social media. Subscribe to get updated, news, and
+                            promotions:</p>
 
-                        <ul class="footer-list social-links-wrap  mt-3">
-                            <li>
-                                <div class="d-flex justify-content-start animated-text ">
-                                    <a href="http://" target="_blank" rel="noopener noreferrer" class="iconpage">
-                                        <i class="ti ti-brand-facebook ti-sm"></i>
-                                    </a>
-                                    <a href="http://" target="_blank" rel="noopener noreferrer" class="iconpage">
-                                        <i class="ti ti-brand-instagram ti-sm"></i>
-                                    </a>
-                                    <a href="http://" target="_blank" rel="noopener noreferrer" class="iconpage">
-                                        <i class="ti ti-brand-linkedin ti-sm"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="footer-list social-links-wrap  colored_social_links mt-2">
+
+                            <div class="d-flex justify-content-start animated-text ">
+                                <a href="https://www.facebook.com/linksfarmer/" target="_blank"
+                                    rel="noopener noreferrer" class="iconpage">
+                                    <i class="ti ti-brand-facebook ti-sm animated-text"></i>
+                                </a>
+                                <a href="https://www.instagram.com/linksfarmer/" target="_blank"
+                                    rel="noopener noreferrer" class="iconpage">
+                                    <i class="ti ti-brand-instagram ti-sm animated-text"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/links-farmer/about/" target="_blank"
+                                    rel="noopener noreferrer" class="iconpage">
+                                    <i class="ti ti-brand-linkedin ti-sm animated-text"></i>
+                                </a>
+                            </div>
+
+                        </div>
                     </div>
                     <hr class="" />
 
@@ -331,11 +349,11 @@
                                 <td class="font_sz">9:00 AM - 6:00 PM</td>
                             </tr>
                             <tr>
-                                <td class="font_sz">Friday</td>
+                                <td class="font_sz">Saturday</td>
                                 <td class="font_sz">Closed</td>
                             </tr>
                             <tr>
-                                <td class="font_sz pb-0">Friday</td>
+                                <td class="font_sz pb-0">Sunday</td>
                                 <td class="font_sz pb-0">Closed</td>
                             </tr>
                         </table>
@@ -346,9 +364,11 @@
                         <div class="mb-2 pb-1 font_dv">Feedback and Suggestions</div>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
-                        As part of our continuous improvement process, you are welcome to make comments or suggestions through any of the feedback channels mentioned above. Your comments help us grow and serve you better.</p>
+                            As part of our continuous improvement process, you are welcome to make comments or
+                            suggestions through any of the feedback channels mentioned above. Your comments help us grow
+                            and serve you better.</p>
                         <p class="pt-lg-2 font_sz pt-10 ">
-                        Thank you for choosing Links Farmer! We're happy to help you!</p>
+                            Thank you for choosing Links Farmer! We're happy to help you!</p>
                     </div>
                 </div>
             </div>

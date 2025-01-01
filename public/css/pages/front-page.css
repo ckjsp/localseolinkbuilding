@@ -278,9 +278,7 @@ nav.layout-navbar.navbar-active::after {
   transition: all 0.2s ease-in-out;
 }
 
-.landing-footer .footer-link:hover {
-  color: #45e2d0;
-}
+
 
 .landing-footer .footer-top {
 
