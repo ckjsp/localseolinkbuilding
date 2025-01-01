@@ -38,7 +38,7 @@
                 <div data-i18n="Users">Users</div>
             </a>
         </li>
-        
+
         <!-- My Websites -->
         <li class="menu-item {{ (isset($slug) && $slug == 'websites-list') ? 'active' : '' }}">
             <a href="{{ route('lslbadmin.websites') }}" class="menu-link">
@@ -52,6 +52,14 @@
             <a href="{{ route('lslbadmin.orders') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-briefcase"></i>
                 <div data-i18n="Orders">Orders</div>
+            </a>
+        </li>
+
+        <!-- Orders -->
+        <li class="menu-item {{ (isset($slug) && $slug == 'withdrawal-list') ? 'active' : '' }}">
+            <a href="{{ route('lslbadmin.withdrawal') }}" class="menu-link">
+                <i class="menu-icon ti ti-cash"></i>
+                <div data-i18n="Withdrawal">Withdrawal</div>
             </a>
         </li>
 
