@@ -6,8 +6,11 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 
+    <title>Shipping and Delivery Policy | Links Farmer
 
-    <meta name="description" content="" />
+</title>
+    <meta name="description" content="Explore Links Farmer's Shipping and Delivery Policy. Get information on shipping timelines, costs, and how we ensure timely delivery of your services.
+" />
     <style>
         h3.page_subtitle.w_70 {
     width: 70%;

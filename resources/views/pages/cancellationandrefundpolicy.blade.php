@@ -6,8 +6,10 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 
-
-    <meta name="description" content="" />
+    <title>Cancellation and Refund Policy | Links Farmer
+    </title>
+    <meta name="description" content="Explore the Cancellation and Refund Policy at Links Farmer. Find out how we address cancellations and refund requests for our guest posting and link-building services.
+" />
     <style>
         .title_wdth {
             width: 75%;
