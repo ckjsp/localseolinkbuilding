@@ -6,8 +6,10 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 
-
-    <meta name="description" content="" />
+    <title>Terms and Conditions | Links Farmer
+    </title>
+    <meta name="description" content="Explore the Terms and Conditions for Links Farmer's platform. Understand our terms for guest posting, backlinks, and services provided to users.
+" />
     <style>
         .title_wdth {
             width: 75%;

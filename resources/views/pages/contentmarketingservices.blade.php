@@ -6,8 +6,10 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 
-
-    <meta name="description" content="" />
+    <title>Content Marketing Services | Links Farmer
+    </title>
+    <meta name="description" content="Links Farmer offers top-notch content marketing services to help you create, distribute, and optimize content that drives traffic and engagement.
+" />
     <style>
         .pd_pb_100{
             padding-top: 100px;

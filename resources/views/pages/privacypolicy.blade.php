@@ -6,8 +6,10 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 
-
-    <meta name="description" content="" />
+    <title>Privacy Policy | Links Farmer
+    </title>
+    <meta name="description" content="Explore the Privacy Policy for Links Farmer and learn how we protect your personal information and ensure your privacy while using our platform.
+" />
     <style>
         .title_wdth {
             width: 75%;

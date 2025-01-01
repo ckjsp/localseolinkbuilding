@@ -15,13 +15,13 @@
                     <ul class="footer-list social-links-wrap  mt-3">
                         <li>
                             <div class="d-flex justify-content-start">
-                                <a href="http://" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
+                                <a href="https://www.facebook.com/linksfarmer/" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
                                     <i class="ti ti-brand-facebook ti-sm"></i>
                                 </a>
-                                <a href="http://" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
+                                <a href="https://www.instagram.com/linksfarmer/" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
                                     <i class="ti ti-brand-instagram ti-sm"></i>
                                 </a>
-                                <a href="http://" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
+                                <a href="https://www.linkedin.com/company/links-farmer/about/" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
                                     <i class="ti ti-brand-linkedin ti-sm"></i>
                                 </a>
                             </div>

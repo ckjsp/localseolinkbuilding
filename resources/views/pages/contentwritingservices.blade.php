@@ -6,8 +6,10 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 
-
-    <meta name="description" content="" />
+    <title>Professional Content Writing Services | Boost Your Brand with Links Farmer
+    </title>
+    <meta name="description" content="Create impactful content with Links Farmer’s content writing services. Affordable, reliable, and designed to meet your unique requirements.
+" />
 
 <style>
     .data_width{
