@@ -8,7 +8,6 @@ use App\Models\lslbOrder;
 use App\Models\lslbUser;
 use App\Models\lslbWebsite;
 use App\Models\lslbTransaction;
-
 use Illuminate\Support\Facades\Validator;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\Shared\Html;
@@ -27,6 +26,7 @@ class OrdersController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -35,6 +35,7 @@ class OrdersController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
         $data = array();
@@ -51,8 +52,7 @@ class OrdersController extends Controller
         } else {
             $lslbOrder = new lslbOrder;
             $data['orders'] = $lslbOrder->orderList(Auth::user()->id);
-            // $data['orders'] = lslbOrder::with('website.user')->get();
-            // echo '<pre>'; print_r( $data['orders'] ); echo '</pre>';exit;
+
             return view('publisher/orders')->with($data);
         }
     }
@@ -94,14 +94,11 @@ class OrdersController extends Controller
 
             session()->flash('success', 'Order status updated successfully.');
 
-
-            // Return success response
             return response()->json([
                 'success' => true,
                 'success' => 'Order status updated successfully.',
             ]);
         } catch (\Exception $e) {
-            // Log and return error response
             \Log::error('Error updating order status: ' . $e->getMessage());
             return response()->json([
                 'success' => false,
@@ -195,7 +192,6 @@ class OrdersController extends Controller
             }
         }
 
-        // Convert article titles to a comma-separated string
         $articleTitlesString = implode(", ", $storedArticleTitles);
 
         $data['order_id'] = 'order-' . md5(time() . 'DS');
@@ -205,7 +201,6 @@ class OrdersController extends Controller
         $data['delivery_time'] = date("Y-m-d H:i:s", time() + 4 * 24 * 60 * 60);
         $data['status'] = 'new';
 
-        // Store attachments as a comma-separated string
         $data['attachment'] = !empty($attachmentPaths) ? $attachmentsString : null;
 
         $user = lslbUser::find($data['user_id']);
@@ -287,15 +282,12 @@ class OrdersController extends Controller
     {
         $data = array();
         $data['order'] = lslbOrder::where('order_id', $id)->with(['website.user', 'payments'])->get();
-        // echo '<pre>'; print_r( $data['order'] ); echo '</pre>';exit;
         if (!$data['order']) {
-            abort(404); // Handle not found gracefully
+            abort(404);
         }
         $data['userDetail'] = Auth::user();
         return view('order_info')->with($data);
     }
-
-    /** read docx fil */
 
     public function checkArticle(string $id)
 
@@ -311,33 +303,18 @@ class OrdersController extends Controller
                         $text = $element->getText();
                         $content .= $text;
                     } elseif ($element instanceof \PhpOffice\PhpWord\Element\Text) {
-                        // Capture text content from text element
                         $text = $element->getText();
                         $content .= $text;
                     } elseif ($element instanceof \PhpOffice\PhpWord\Element\TextBreak) {
-                        // Capture line breaks
                         $content .= '<br>';
                     } else {
-                        // Handle other elements as needed
-                        // Here, we convert the element to HTML for display
+
                         $html = Html::render($element, $phpWord);
                         $content .= $html;
                     }
                 }
             }
-            /* foreach ($phpWord->getSections() as $section) {
-                foreach ($section->getElements() as $element) {
-                    // Check if the element is a text run
-                    if ($element instanceof \PhpOffice\PhpWord\Element\TextRun) {
-                        foreach ($element->getElements() as $textElement) {
-                            if ($textElement instanceof \PhpOffice\PhpWord\Element\Text) {
-                                echo '<pre>'; print_r( $textElement ); echo '</pre>';
-                                $text .= $textElement->getText() . ' ';
-                            }
-                        }
-                    }
-                }
-            } */
+
             // Use the extracted text as needed
             return view('publisher/blog')->with(['content' => $content]);
         } catch (\Exception $e) {
@@ -401,8 +378,10 @@ class OrdersController extends Controller
                             " . $noteText . "
                             " . $urlText . "  <!-- Display URL if status is 'Complete' -->
                             <a href='" . base_url('/advertiser/orders') . "'>View Orders</a>
-                            <p>If you have any questions or concerns, please contact our customer support.</p>
-                            <p>Thank you for choosing our platform!</p>",
+                             " . ($statusText == 'Complete' ? "<p>Your order has been marked as complete. Please click the link below to review your completed orders:</p>
+                                <a href='" . base_url('/advertiser/orders') . "'>View Completed Orders</a>" : "") . "
+                                <p>If you have any questions or concerns, feel free to reach out to our customer support team.</p>
+                                <p>Thank you for choosing Links Farmer!</p>",
             ];
 
             Mail::to($recipientEmail)->send(new MyMail($customData));

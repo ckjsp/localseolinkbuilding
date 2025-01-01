@@ -104,10 +104,10 @@
         <section class="section-py light-bg pricing_plan_section ">
             <div class="container">
 
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     Our Guest
                     <span class="animated-text"> Post Packages </span>
-                </h1>
+                </h2>
                 <h5 class="subtitle2-section text-center">A competitive price is our forte! Whether you choose any of
                     our below attractive packages, you will get the best services at the best price.</h5>
 
@@ -260,10 +260,10 @@
         <section class="section-py  transform_strategy_section">
             <div class="container">
 
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     Transform Your
                     <span class="animated-text"> Strategy with Linksfarmer </span>Services
-                </h1>
+                </h2>
                 <h5 class="subtitle2-section text-center">Guest posting using traditional methods is extremely complex
                     and time-consuming. You need to invest in high-quality content and approach multiple websites. And
                     despite all the effort, the probability of you getting the backlink is pretty low. However, Link
@@ -338,9 +338,9 @@
         <section class="section-py light-bg linkedfarmer_different_section">
             <div class="container">
 
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     What Makes <span class="animated-text"> LINKSFARMER Different? </span>
-                </h1>
+                </h2>
 
                 <div class="strait_timeline">
                     <div class="timeline_item">
@@ -449,7 +449,7 @@
                             <span class="title-section animated-text">Real Customers Reviews</span>
                         </div>
                         <h3 class="mb-1">
-                            <span class="position-relative fw-bold z-1">What people say
+                            <span class="position-relative fw-bold z-1 subtitle-section">What people say
                             </span>
                         </h3>
                         <p class="mb-3 mb-md-5">
@@ -541,7 +541,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="swiper-slide">
+                                    <!-- <div class="swiper-slide">
                                         <div class="card h-100 reviews-card">
 
                                             <div class="d-flex align-items-center mb-3">
@@ -592,7 +592,7 @@
                                             </p>
                                         </div>
 
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
@@ -616,9 +616,9 @@
         <section class="section-py  linkedfarmer_different_section">
             <div class="container">
 
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     How Linksfarmar <span class="animated-text"> Works</span>
-                </h1>
+                </h2>
 
                 <ul class="custom_timeline timeline pb-0 mb-0">
                     <li class="timeline-item timeline-item-transparent ">
@@ -674,10 +674,10 @@
         </section>
         <section class="section-py light-bg  guest_posting_section">
             <div class="container">
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     How Guest
                     <span class="animated-text"> Posting Boosts Your Brand's </span>Reach
-                </h1>
+                </h2>
                 <div class="data_wrap">
                     <div class="row g-3  ">
                         <div class="col-lg-4 col-md-6 col-sm-12 ">
@@ -755,8 +755,8 @@
                 <div class="text-center mb-3">
                     <span class="title-section animated-text">FAQs</span>
                 </div>
-                <h1 class="subtitle-section text-center">
-                    Frequently Asked Questions </h1>
+                <h2 class="subtitle-section text-center">
+                    Frequently Asked Questions </h2>
                 <div class="custom-accordian accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
@@ -849,11 +849,11 @@
         </section>
         <section class="section-py light-bg services-section">
             <div class="container">
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     Are you in search of a <span class="animated-text"> complete solution </span> <br /> for your
                     digital
                     product?
-                </h1>
+                </h2>
                 <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded
                     strategy to boost your online presence.</h5>
                 <div class="data_wrap">

@@ -153,7 +153,7 @@
                             <span class="title-section animated-text">Real Customers Reviews</span>
                         </div>
                         <h3 class="mb-1">
-                            <span class="position-relative fw-bold z-1">What people say
+                            <span class="position-relative fw-bold z-1 subtitle-section">What people say
                             </span>
                         </h3>
                         <p class="mb-3 mb-md-5">
@@ -245,7 +245,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="swiper-slide">
+                                    <!-- <div class="swiper-slide">
                                         <div class="card h-100 reviews-card">
 
                                             <div class="d-flex align-items-center mb-3">
@@ -296,7 +296,7 @@
                                             </p>
                                         </div>
 
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
@@ -311,9 +311,9 @@
 
         <section id="whyToReach" class="section-py light-bg">
             <div class="container">
-                <h1 class="subtitle-section text-center"> Why To
+                <h2 class="subtitle-section text-center"> Why To
                     <span class="animated-text">Reach LINKSFARMER?</span>
-                </h1>
+                </h2>
                 <div class="row justify-content-center ">
                     <div class="col-lg-10">
                         <div class="whytoreact-wrap">
@@ -335,9 +335,9 @@
                 <div class="text-center mb-3">
                     <span class="title-section animated-text">Top Featured</span>
                 </div>
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     <span class="animated-text">October</span> Featured Websites
-                </h1>
+                </h2>
                 <div class="img-wrap">
                     <img src="{{ asset_url('img/Featured Websites.png') }}" alt="top-featured-img">
                 </div>
@@ -349,9 +349,9 @@
                 <div class="text-center mb-3">
                     <span class="title-section animated-text">Why us?</span>
                 </div>
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     Why to choose Links farmer?
-                </h1>
+                </h2>
 
                 <div class="d-flex align-items-center">
                     <button id="whyus-previous-btn" class="btn  swiper-btn me-3 scaleX-n1-rtl" type="button">
@@ -422,11 +422,11 @@
                 <div class="text-center mb-3">
                     <span class="title-section animated-text">Our Services</span>
                 </div>
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     Are you in search of a <span class="animated-text"> complete solution </span> <br /> for your
                     digital
                     product?
-                </h1>
+                </h2>
                 <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded
                     strategy to boost your online presence.</h5>
 
@@ -489,7 +489,7 @@
                 <div class="registered-wrap">
                     <div class="row  align-items-center flex-column-reverse flex-md-row">
                         <div class="col-md-6">
-                            <h1>First AI-Driven Guest Post& Link Building Platform</h1>
+                            <h2>First AI-Driven Guest Post& Link Building Platform</h2>
                             <p>The future of link Building is here. Say goodbye to manual outreach. Reach a Wider
                                 Audience
                                 and build Authority with AI-suggested guest blogging on high-DA websites.</p>

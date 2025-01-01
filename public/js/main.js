@@ -646,3 +646,10 @@ function deleteCookie(name) {
   var expires = "expires=" + d.toGMTString();
   document.cookie = name + "=;" + expires + ";path=/";
 }
+
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B59LHVYPW3');

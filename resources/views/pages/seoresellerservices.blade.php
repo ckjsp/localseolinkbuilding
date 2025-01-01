@@ -21,10 +21,10 @@
             <div class=" landing-hero position-relative">
                 <div class="container">
                     <div class="text-center">
-                        <h1 class="page-title">LINKSFARMER: Your   <span class="animated-text"> Friendly <br /> SEO Reseller </span>Partner  </h1>
+                        <h1 class="page-title">LINKSFARMER: Your <span class="animated-text"> Friendly <br /> SEO Reseller </span>Partner </h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle">
-                        Expand your business offerings without additional overhead by partnering with us. We are the best SEO reseller and offer<br/> seamless white-label SEO services. With us, you can embrace exceptional results. </h3>
+                            Expand your business offerings without additional overhead by partnering with us. We are the best SEO reseller and offer<br /> seamless white-label SEO services. With us, you can embrace exceptional results. </h3>
                         <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
                             Looking for the best link building platform? Join Links farmer today!
                         </h2> -->
@@ -38,12 +38,12 @@
                             </div>
                             <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                                 <div class="posting_card">
-                                    <h6>On-Page<br/> Optimization</h6>
+                                    <h6>On-Page<br /> Optimization</h6>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                                 <div class="posting_card">
-                                    <h6>Link-Building<br/> Strategies</h6>
+                                    <h6>Link-Building<br /> Strategies</h6>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-4 col-sm-6 col-6">
@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                                 <div class="posting_card">
-                                    <h6>Reporting and<br/> Analytics</h6>
+                                    <h6>Reporting and<br /> Analytics</h6>
                                 </div>
                             </div>
 
@@ -70,16 +70,16 @@
                 </div>
             </div>
         </section>
-      
+
         <!-- Hero: End -->
         <section class="section-py light-bg pricing_plan_section ">
             <div class="container">
 
-                <h1 class="subtitle-section text-center">
-                Pricing & 
+                <h2 class="subtitle-section text-center">
+                    Pricing & 
                     <span class="animated-text"> Plans </span>
-                </h1>
-                <h5 class="subtitle2-section text-center">We believe in providing competitive pricing. Whatever SEO reseller packages you choose from the<br/> ones mentioned below, we assure you of the best seo reseller plans at the right price!</h5>
+                </h2>
+                <h5 class="subtitle2-section text-center">We believe in providing competitive pricing. Whatever SEO reseller packages you choose from the<br /> ones mentioned below, we assure you of the best seo reseller plans at the right price!</h5>
                 <div class="row g-3 mt-60">
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="pricing_plan_card">
@@ -198,7 +198,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
-                                <br/>
+                                <br />
                                 <h3 class="mb-0 mt-2">Customized</h3>
                             </div>
                             <div class="bottom_wrap">
@@ -236,13 +236,56 @@
                 </div>
             </div>
         </section>
-    <!-- </div> -->
-     
-    <section class="section-py linkedfarmer_different_section">
+        <!-- </div> -->
+
+        <section class="section-py">
             <div class="container">
-                <h1 class="subtitle-section text-center mb-60">
+                <!-- Section 1 -->
+                <div class="row gx-5">
+                    <div class="col-lg-6  col-sm-12">
+                        <h2 class="subtitle-section ">
+                            Why
+                            <span class="animated-text"> Partner With </span>LINKSFARMER?
+                        </h2>
+                        <h5 class="subtitle2-section">White label expertise: Our SEO solutions are delivered under your brand, which ensures a consistent client experience.</h5>
+                        <h5 class="subtitle2-section">Proven Results: Leverage our data-driven strategies to obtain measurable outcomes for your clients.</h5>
+                        <h5 class="subtitle2-section">Scalable Solutions: Whether you handle a few accounts or manage large campaigns, LINKSFARMER service helps you.</h5>
+                        <h5 class="subtitle2-section">Dedicated Support: Our expert works alongside you to lead every project to meet your client’s expectations. </h5>
+
+                    </div>
+                    <div class="col-lg-6  col-sm-12">
+                        <img src="{{ asset_url('img/Why Partner.png') }}" alt="Why Partner" width="100%">
+                    </div>
+                </div>
+        </section>
+
+        <section class="section-py pt-0">
+            <div class="container">
+                <div class="row gx-5">
+                    <div class="col-lg-6  col-sm-12">
+                        <img src="{{ asset_url('img/SEO Reseller.png') }}" alt="SEO Reseller" width="100%">
+                    </div>
+
+                    <div class="col-lg-6  col-sm-12">
+                        <h2 class="subtitle-section ">
+                        Benefits Of Our 
+                            <span class="animated-text">SEO Reseller  </span>Program
+                        </h2>
+                        <h5 class="subtitle2-section">There is no need for additional staff or investment in tools, which means it is cost-effective for seekers</h5>
+                        <h5 class="subtitle2-section">Focus on growth by expanding your client base by getting our SEO services.</h5>
+                        <h5 class="subtitle2-section">We offer high-quality services that help you generate new revenue streams.</h5>
+                        <h5 class="subtitle2-section">All deliverables are branded with your company’s identity that ensures the brand’s consistency.</h5>
+                        <h5 class="subtitle2-section">With our SEO reseller plans, you can focus on your core business because we handle the work behind the scenes.</h5>
+                        
+                    </div>
+                </div>
+        </section>
+
+        <section class="section-py linkedfarmer_different_section light-bg" >
+            <div class="container">
+                <h2 class="subtitle-section text-center mb-60">
                     Our <span class="animated-text"> Incredible</span> Process
-                </h1>
+                </h2>
                 <ul class="custom_timeline timeline pb-0 mb-0">
                     <li class="timeline-item timeline-item-transparent ">
                         <div class="left_wrap">
@@ -308,12 +351,12 @@
         </section>
         <section class="section-py agency_section">
             <div class="container">
-                <h1 class="subtitle-section text-center">
-                Why You
+                <h2 class="subtitle-section text-center">
+                    Why You
                     <span class="animated-text"> Should Partner</span>
                     with Us
-                </h1>
-                <h5 class="subtitle2-section text-center">Our SEO reseller program is the key to unlocking growth for your agency. You get a distinct advantage when you use our<br/> SEO reseller service.</h5>
+                </h2>
+                <h5 class="subtitle2-section text-center">Our SEO reseller program is the key to unlocking growth for your agency. You get a distinct advantage when you use our<br /> SEO reseller service.</h5>
                 <h5 class="subtitle2-section text-center">Here are some of them.</h5>
                 <div class="data_wrap mt-60">
                     <div class="row g-3">
@@ -379,17 +422,17 @@
                 </div>
             </div>
             <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center mt-5">
-                        <a href="#landingPricing" class="filled-btn">Get in touch with us</a>
-                    </div>
+                <a href="#landingPricing" class="filled-btn">Get in touch with us</a>
+            </div>
         </section>
         <section id="services" class="section-py services-section light-bg">
             <div class="container">
                 <!-- <div class="text-center mb-3">
                     <span class="title-section animated-text">Our Services</span>
                 </div> -->
-                <h1 class="subtitle-section text-center">
-                Looking for a <span class="animated-text"> Full-Suite SEO and Link  </span> <br /> Building Solution?
-                </h1>
+                <h2 class="subtitle-section text-center">
+                    Looking for a <span class="animated-text"> Full-Suite SEO and Link </span> <br /> Building Solution?
+                </h2>
                 <h5 class="subtitle2-section text-center">At Linksfarmar – we offer a range of services to help you build a strong backlink profile and boost your website’s SEO.</h5>
 
                 <div class="data_wrap">
@@ -449,8 +492,8 @@
                 <div class="text-center mb-3">
                     <span class="title-section animated-text">FAQs</span>
                 </div>
-                <h1 class="subtitle-section text-center">
-                    Frequently Asked Questions </h1>
+                <h2 class="subtitle-section text-center">
+                    Frequently Asked Questions </h2>
                 <div class="custom-accordian accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
@@ -463,7 +506,7 @@
                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                An SEO reseller program is a company that offers its SEO services to other agencies that resell them to their clients.
+                                    An SEO reseller program is a company that offers its SEO services to other agencies that resell them to their clients.
                                 </p>
                             </div>
                         </div>
@@ -480,7 +523,7 @@
                             aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                As a partner with an SEO provider, actually handle all of the technical SEO work for your clients. You would then sell their services as your own and bill your clients accordingly.
+                                    As a partner with an SEO provider, actually handle all of the technical SEO work for your clients. You would then sell their services as your own and bill your clients accordingly.
                                 </p>
                             </div>
                         </div>
@@ -497,7 +540,7 @@
                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                SEO reseller programs actually offer a wide range of services. It includes keyword research, on-page optimization, link building, content creation, and analytics reporting.
+                                    SEO reseller programs actually offer a wide range of services. It includes keyword research, on-page optimization, link building, content creation, and analytics reporting.
                                 </p>
                             </div>
                         </div>
@@ -514,7 +557,7 @@
                             aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                You can! Most SEO reseller programs actually allow you to brand your services and use your brand and logos.
+                                    You can! Most SEO reseller programs actually allow you to brand your services and use your brand and logos.
                                 </p>
                             </div>
                         </div>
@@ -531,7 +574,7 @@
                             aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                White label SEO actually refers to SEO services that are provided by one company. But they can be branded and sold as the services of another company.
+                                    White label SEO actually refers to SEO services that are provided by one company. But they can be branded and sold as the services of another company.
                                 </p>
                             </div>
                         </div>
@@ -545,39 +588,39 @@
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
                         <h2>Choose Us For SEO Reseller Services</h2>
-                        <p>For 10+ years, we have proven ourselves to be one of the best SEO Reseller in the US. We<br/> cater to the needs of business consultants, design agencies, and other marketing agencies.
+                        <p>For 10+ years, we have proven ourselves to be one of the best SEO Reseller in the US. We<br /> cater to the needs of business consultants, design agencies, and other marketing agencies.
                         </p>
                     </div>
                     <button type="button" class="btn-white d-block mx-auto">Register Now</button>
                 </div>
             </div>
         </section>
-       
 
-    @include('pages.footer')
 
-    <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
-    <script src="{{ asset_url('js/bootstrap.js') }}"></script>
-    <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
-    <script src="{{ asset_url('js/front-main.js') }}"></script>
+        @include('pages.footer')
 
-    <!-- Core JS -->
-    <!-- build:js /js/core.js -->
-    <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
-    <script src="{{ asset_url('js/bootstrap.js') }}"></script>
-    <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
+        <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
+        <script src="{{ asset_url('js/bootstrap.js') }}"></script>
+        <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
+        <script src="{{ asset_url('js/front-main.js') }}"></script>
 
-    <!-- endbuild -->
+        <!-- Core JS -->
+        <!-- build:js /js/core.js -->
+        <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
+        <script src="{{ asset_url('js/bootstrap.js') }}"></script>
+        <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
 
-    <!-- Vendors JS -->
-    <script src="{{ asset_url('libs/nouislider/nouislider.js') }}"></script>
-    <script src="{{ asset_url('libs/swiper/swiper.js') }}"></script>
+        <!-- endbuild -->
 
-    <!-- Main JS -->
-    <script src="{{ asset_url('assets/front-main.js') }}"></script>
+        <!-- Vendors JS -->
+        <script src="{{ asset_url('libs/nouislider/nouislider.js') }}"></script>
+        <script src="{{ asset_url('libs/swiper/swiper.js') }}"></script>
 
-    <!-- Page JS -->
-    <script src="{{ asset_url('assets/front-page-landing.js') }}"></script>
+        <!-- Main JS -->
+        <script src="{{ asset_url('assets/front-main.js') }}"></script>
+
+        <!-- Page JS -->
+        <script src="{{ asset_url('assets/front-page-landing.js') }}"></script>
 
 
 </body>

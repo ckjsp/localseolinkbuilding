@@ -77,10 +77,10 @@
         <section class="section-py light-bg pricing_plan_section ">
             <div class="container">
 
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     Pricing & 
                     <span class="animated-text"> Plans </span>
-                </h1>
+                </h2>
                 <h5 class="subtitle2-section text-center">We believe in providing competitive pricing. Whatever SEO
                     reseller packages you choose from the<br /> ones mentioned below, we assure you of the best seo
                     reseller plans at the right price!</h5>
@@ -248,10 +248,10 @@
         <!-- </div> -->
         <section class="section-py linkedfarmer_different_section">
             <div class="container">
-                <h1 class="subtitle-section text-center mb-60">
+                <h2 class="subtitle-section text-center mb-60">
                     What Are <span class="animated-text"> The Big Reasons To Reach LINKSFARMER<br /></span> For Content
                     Marketing?
-                </h1>
+                </h2>
                 <ul class="custom_timeline timeline pb-0 mb-0">
                     <li class="timeline-item timeline-item-transparent ">
                         <div class="left_wrap">
@@ -305,21 +305,26 @@
                 </ul>
             </div>
         </section>
-        <section class="section-py light-bg">
-            <div class="container">
-                <h1 class="subtitle-section text-center mb-60">
-                    LINKSFARMER’s <span class="animated-text"> Process Of Marketing<br /></span>
-                </h1>
-                <ul class=" horizontal_timeline  pb-0 mb-0">
-                    <li class="timeline-item timeline-item-transparent ">
-                        <div class="left_wrap">
-                            <span></span>
-                        </div>
-                        <div class="right_wrap">
-                            <div class="custom_card">
-                                Discovering Audience And Reach Goals
+
+        <section class="light-bg">
+            <div class="container" style="padding-top: 88px; padding-bottom: 88px;">
+                <div class="text-center">
+                    <h2 class="page-title">LINKSFARMER’s <span class="animated-text"> Process Of Marketing </h2>
+                    <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
+                    <!-- <h3 class="page_subtitle">
+                        No doubt, your words define your brand! That’s why we specialize in creating compelling and SEO-friendly content. Through that, you can engage<br/> your audience and drive results. If you want blog posts, articles, website copy, or market content, our writers can help you. We deliver content for<br/> all your websites, social media, or white papers. You can get, </h3> -->
+                    <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
+                            Looking for the best link building platform? Join Links farmer today!
+                        </h2> -->
+                </div>
+                <div class="guest_posting_wrap mb-5">
+                    <div class="row g-2 gy-md-5 justify-content-center">
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+                            <div class="posting_card">
+                                <h6>Discovering Audience And Reach Goals</h6>
                             </div>
                         </div>
+                    </div>
                     </li>
                     <li class="timeline-item timeline-item-transparent ">
                         <div class="left_wrap">
@@ -359,16 +364,16 @@
                         </div>
                     </li>
 
-                </ul>
-            </div>
+                    </ul>
+                </div>
         </section>
 
         <section class="section-py  guest_posting_section">
             <div class="container">
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     How We Do
                     <span class="animated-text">Content Marketing<br /> </span>Services?
-                </h1>
+                </h2>
                 <div class="data_wrap">
                     <div class="row g-3  guest_wrp">
                         <div class="col-lg-4 col-md-6 col-sm-12 ">
@@ -434,10 +439,10 @@
                 <!-- <div class="text-center mb-3">
                     <span class="title-section animated-text">Our Services</span>
                 </div> -->
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     Are you in search of a <span class="animated-text"> complete solution <br />for your </span> digital
                     product?
-                </h1>
+                </h2>
                 <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded
                     strategy to boost your online presence.</h5>
 

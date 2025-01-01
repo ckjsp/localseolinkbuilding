@@ -75,10 +75,10 @@
         <section class="section-py light-bg pricing_plan_section ">
             <div class="container">
 
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     Our Link Building
                     <span class="animated-text"> Packages </span>
-                </h1>
+                </h2>
                 <h5 class="subtitle2-section text-center">Enjoy simple and transparent pricing with no hidden fees.
                     Choose any affordable link <br /> building services plan that fits your budget.</h5>
                 <div class="row g-3 mt-60">
@@ -278,11 +278,11 @@
         </section>
         <section class="section-py agency_section">
             <div class="container">
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     Linksfarmar is not your
                     <span class="animated-text"> ordinary link <br /> building</span>
                     agency!
-                </h1>
+                </h2>
                 <h5 class="subtitle2-section text-center">We are an AI-driven link building platform – using advanced
                     algorithms to secure niche-relevant links from high-ranking domains.</h5>
                 <div class="data_wrap mt-60">
@@ -398,9 +398,9 @@
         </section>
         <section class="section-py light-bg">
             <div class="container">
-                <h1 class="subtitle-section text-center">Benefits of
+                <h2 class="subtitle-section text-center">Benefits of
                     <span class="animated-text">Professional Link Building</span>
-                </h1>
+                </h2>
                 <div class="row justify-content-center ">
                     <div class="col-lg-10">
                         <div class="whytoreact-wrap">
@@ -416,9 +416,9 @@
         </section>
         <section class="section-py linkedfarmer_different_section">
             <div class="container">
-                <h1 class="subtitle-section text-center mb-60">
+                <h2 class="subtitle-section text-center mb-60">
                     Our <span class="animated-text"> Incredible</span> Process
-                </h1>
+                </h2>
                 <ul class="custom_timeline timeline pb-0 mb-0">
                     <li class="timeline-item timeline-item-transparent ">
                         <div class="left_wrap">
@@ -485,10 +485,10 @@
         <section class="section-py transform_strategy_section  ">
             <div class="container">
 
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     We Are
                     <span class="animated-text">Expert In </span>
-                </h1>
+                </h2>
                 <div class="data_wrap grid_wrap">
                     <div class="row g-3">
                         <div class="col-lg-3 col-md-4 col-sm-6 col-6">
@@ -561,9 +561,9 @@
         </section>
         <section class="section-py light-bg">
             <div class="container">
-                <h1 class="subtitle-section text-center">Are You Thinking
+                <h2 class="subtitle-section text-center">Are You Thinking
                     <span class="animated-text">About Handling Link <br /> Building</span> In-House?
-                </h1>
+                </h2>
                 <div class="row justify-content-center ">
                     <div class="col-lg-10">
                         <div class="whytoreact-wrap">
@@ -580,8 +580,8 @@
                 <div class="text-center mb-3">
                     <span class="title-section animated-text">FAQs</span>
                 </div>
-                <h1 class="subtitle-section text-center">
-                    Frequently Asked Questions </h1>
+                <h2 class="subtitle-section text-center">
+                    Frequently Asked Questions </h2>
                 <div class="custom-accordian accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
@@ -653,10 +653,10 @@
         </section>
         <section class="section-py services-section">
             <div class="container">
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                     Looking for a <span class="animated-text"> Full-Suite SEO and Link </span> <br />
                     Building Solution?
-                </h1>
+                </h2>
                 <h5 class="subtitle2-section text-center">At Linksfarmar – we offer a range of services to help you
                     build a strong backlink profile and boost your website’s SEO.</h5>
                 <div class="data_wrap">
