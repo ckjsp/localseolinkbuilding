@@ -7,6 +7,8 @@ use App\Models\lslbOrder;
 use App\Models\lslbUser;
 use App\Models\lslbPayment;
 use App\Models\lslbTransaction;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MyMail;
 
 
 
@@ -77,6 +79,7 @@ class PaymentController extends Controller
 
 
     public function withdraw(Request $request)
+
     {
         $request->validate([
             'upi_id' => 'required|string|max:255',
@@ -84,32 +87,45 @@ class PaymentController extends Controller
         ]);
 
         $publisherId = Auth::user()->id;
-        $walletBalance = $request->wallet_balance; // Retrieve the passed wallet balance
+        $publisheremail = Auth::user()->email;
+        $publishername = Auth::user()->name;
 
-        if ($walletBalance <= 0) {
-            return redirect()->back()->with('error', 'Insufficient balance to withdraw.');
+        $walletBalance = $request->wallet_balance;
+
+        if ($walletBalance <= 30) {
+            return redirect()->back()->with('error', 'Your balance is insufficient to withdraw. You need more than $30 to proceed with the withdrawal.');
         }
 
         $transaction = new lslbTransaction();
         $transaction->publisher_id = $publisherId;
         $transaction->transaction_date = now();
         $transaction->transaction_type = 'debit';
-        $transaction->amount = $walletBalance; // Use the passed balance
-        $transaction->currency = 'USD'; // Set a default currency or modify as needed
+        $transaction->amount = $walletBalance;
+        $transaction->currency = 'USD';
         $transaction->payment_email = $request->upi_id;
-        $transaction->status = 'pending'; // Set an initial status
+        $transaction->status = 'pending';
         $transaction->description = 'Withdrawal request';
         $transaction->created_at = now();
         $transaction->updated_at = now();
 
         if ($transaction->save()) {
+
+            $publisherData = [
+                'publishername' => $publishername,
+                'walletBalance' => $walletBalance,
+            ];
+
+            Mail::send('email.withdrawal_notification', $publisherData, function ($message) use ($publisheremail) {
+                $message->from('no-reply@linksfarmer.com', 'Links Farmer');
+                $message->to($publisheremail);
+                $message->subject('Notification: Payment Withdrawal Request Undertaken - Link Publishers!');
+            });
+
             return redirect()->back()->with('success', 'Withdrawal successful. Your funds have been debited.');
         } else {
             return redirect()->back()->with('error', 'Something went wrong. Unable to process the withdrawal.');
         }
     }
-
-
 
     /**
      * Show the form for creating a new resource.

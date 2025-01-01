@@ -26,6 +26,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function home()
+    {
+        return view('home');
+    }
     public function index()
     {
         if (Auth::user()->role->name == 'Publisher') {

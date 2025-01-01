@@ -11,6 +11,8 @@ use App\Models\lslbPublisher;
 use App\Models\lslbWebsite;
 use App\Models\lslbOrder;
 use App\Models\lslbUser;
+use App\Models\lslbTransaction;
+
 
 class AdminController extends Controller
 {
@@ -96,6 +98,16 @@ class AdminController extends Controller
         $data['orders'] = $lslbOrder->orderList();
         return view('lslbadmin.orders')->with($data);
     }
+    public function getwithdrawal(Request $request)
+    {
+        $withdrawals = lslbTransaction::with('publisher')
+            ->where('transaction_type', 'debit')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('lslbadmin.withdrawal', compact('withdrawals'));
+    }
+
 
     /**
      * Update the specified resource in storage.

@@ -2,6 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\lslbPublisher;
+use App\Models\lslbUser;
+
+
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -43,4 +48,9 @@ class lslbTransaction extends Model
 
     // Enabling timestamps for created_at and updated_at columns
     public $timestamps = true;
+
+    public function publisher()
+    {
+        return $this->belongsTo(lslbUser::class, 'publisher_id'); // Assuming the foreign key is 'publisher_id'
+    }
 }
