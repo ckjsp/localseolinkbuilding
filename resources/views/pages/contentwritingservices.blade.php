@@ -72,7 +72,7 @@
       <!-- Hero: End -->
         <section>
             <div class="container">
-                <div class="plans_card_wrap mb-5">
+                <div class="plans_card_wrap">
                     <div class="row g-2 gy-md-5  ">
                         <div class="col-lg-6  col-sm-12">
                             <div class="custom_card">
@@ -97,12 +97,57 @@
             </div>
         </section>
 
+        <section class="section-py">
+            <div class="container">
+                <!-- Section 1 -->
+                <div class="row gx-5">
+                    <div class="col-lg-6  col-sm-12">
+                        <h2 class="subtitle-section ">
+                        Why Choose LINKSFARMER for
+                            <span class="animated-text"> Content Writing? </span>
+                        </h2>
+                        <h5 class="subtitle2-section">
+                            <ol>
+                                <li>We have experienced writers who comprise seasoned professionals in various industries and niches.</li>
+                                <li>To increase visibility and traffic to your site, LINKSFARMER experts craft content designed to rank higher on search engines.</li>
+                                <li>Reaching us is tailored to your own brand because we adapt our tone, style, and messaging to align seamlessly.</li>
+                                <li>Our rigorous quality checks help ensure error-free, engaging, and impactful content every time.</li> 
+                                <li>We majorly respect deadlines. That is why you get your content on time without compromising quality.</li>
+                            </ol>
+                        </h5>
+                        
+
+                    </div>
+                    <div class="col-lg-6  col-sm-12">
+                        <img src="{{ asset_url('img/Content Writing.png') }}" alt="Content Writing" width="100%">
+                    </div>
+                </div>
+        </section>
+
+        <section class="">
+            <div class="container">
+                <div class="row gx-5">
+                    <div class="col-lg-6  col-sm-12">
+                        <img src="{{ asset_url('img/Brand With Words.png') }}" alt="Brand With Words" width="100%">
+                    </div>
+
+                    <div class="col-lg-6  col-sm-12">
+                        <h2 class="subtitle-section ">
+                        Elevate Your Brand With Words That Work 
+                            
+                        </h2>
+                        <h5 class="subtitle2-section">TGreat content is a cornerstone of a successful digital presence. Hence, partner with LINKSFARMER to unlock the power of words and elevate your brand. It can help you transform your content into a powerful marketing tool.</h5>
+                        
+                    </div>
+                </div>
+        </section>
+
         <section class="section-py  linkedfarmer_different_section">
             <div class="container">
 
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                 How Does <span class="animated-text"> Content Writing Service</span> Work?
-                </h1>
+                </h2>
                 <h3 class="page_subtitle text-center">
                 The only thing you need to do is discuss your content requirements with our representative. He will assign you the best content writer based on<br/> your individual needs. Can it get any simpler than this?</h3>
                 <ul class="custom_timeline timeline pb-0 mb-0">
@@ -159,7 +204,7 @@
         <section class="light-bg">
         <div class="container" style="padding-top: 88px; padding-bottom: 88px;">
                     <div class="text-center">
-                        <h1 class="page-title">What Skills Are    <span class="animated-text"> Required to Become a Good   <br /></span> Content Writer?  </h1>
+                        <h2 class="page-title">What Skills Are    <span class="animated-text"> Required to Become a Good   <br /></span> Content Writer?  </h2>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle">
                         No doubt, your words define your brand! That’s why we specialize in creating compelling and SEO-friendly content. Through that, you can engage<br/> your audience and drive results. If you want blog posts, articles, website copy, or market content, our writers can help you. We deliver content for<br/> all your websites, social media, or white papers. You can get, </h3>
@@ -208,10 +253,10 @@
         <section class="section-py  transform_strategy_section">
             <div class="container">
 
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                  What Type of 
                     <span class="animated-text"> Content Writing Services<br/>  </span>Can You Opt For?
-                </h1>
+                </h2>
                 <h5 class="subtitle2-section text-center">Our team offers extensive types of content writing services. You will surely thank high-quality content writers who work for you! Our experienced content writers have a knack for writing fresh content. This is what ensures that we are always up for the challenges in content writing and blog posts for each service. Here are the types of content services:</h5>
                  <div class="data_wrap">
                     <div class="d-flex flex-wrap justify-content-center gap-2 gap-md-3 ">
@@ -267,8 +312,8 @@
                 <div class="text-center mb-3">
                     <span class="title-section animated-text">FAQs</span>
                 </div>
-                <h1 class="subtitle-section text-center">
-                    Frequently Asked Questions </h1>
+                <h2 class="subtitle-section text-center">
+                    Frequently Asked Questions </h2>
                 <div class="custom-accordian accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
@@ -346,9 +391,9 @@
                 <!-- <div class="text-center mb-3">
                     <span class="title-section animated-text">Our Services</span>
                 </div> -->
-                <h1 class="subtitle-section text-center">
+                <h2 class="subtitle-section text-center">
                 Are you in search of a <span class="animated-text"> complete solution <br/>for your </span>  digital product?
-                </h1>
+                </h>
                 <h5 class="subtitle2-section text-center">At Linksfarmar – we offer a range of services to help you build a strong backlink profile and boost your website’s SEO.</h5>
 
                 <div class="data_wrap">
