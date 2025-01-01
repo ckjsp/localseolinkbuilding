@@ -13,6 +13,8 @@
 
     <meta name="description" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="YLCayHYkKvCKvayPOUHJnQ43h6I2p0IEf35uBwX7iQo" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset_url('img/favicon.svg') }}" />
 
@@ -27,6 +29,8 @@
     <link rel="stylesheet" href="{{ asset_url('fonts/fontawesome.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('fonts/tabler-icons.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('fonts/flag-icons.css') }}" />
+    <link rel="canonical" href="{{ url()->current() }}">
+
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset_url('css/rtl/core.css') }}" class="template-customizer-core-css" />
@@ -43,7 +47,7 @@
 
     <!-- Page CSS -->
     @auth
-        <link rel="stylesheet" href="{{ asset_url('css/pages/cards-advance.css') }}" />
+    <link rel="stylesheet" href="{{ asset_url('css/pages/cards-advance.css') }}" />
     @endauth
 
     @stack('css')
@@ -60,40 +64,42 @@
     <script src="{{ asset_url('js/form-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset_url('js/form-validation/additional-methods.min.js') }}"></script>
     <script src="{{ asset_url('js/projectMenu.js') }}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B59LHVYPW3"></script>
+
 
 </head>
 
 <body>
     @auth
-        @if(Auth::user()->hasVerifiedEmail())
-            <!-- Layout wrapper -->
-            <div
-                class="{{ (Auth::user()->role->name == 'Advertiser' && $slug != 'marketplace') ? 'layout-wrapper layout-navbar-full layout-horizontal layout-without-menu' : 'layout-wrapper layout-content-navbar' }}">
-                <div class="layout-container">
-                    @if(Auth::user()->role->name == 'Advertiser')
-                        @include('includes.second_navbar')
-                    @else
-                        @include('includes.navbar')
-                    @endif
-                    <!-- Layout container -->
-                    <div class="layout-page">
-                        <!-- Content wrapper -->
-                        <div class="content-wrapper">
-                            @yield('content')
-                            @include('includes.footer')
-                        </div>
-                        <!-- Content wrapper -->
-                    </div>
-                    <!-- / Layout page -->
+    @if(Auth::user()->hasVerifiedEmail())
+    <!-- Layout wrapper -->
+    <div
+        class="{{ (Auth::user()->role->name == 'Advertiser' && $slug != 'marketplace') ? 'layout-wrapper layout-navbar-full layout-horizontal layout-without-menu' : 'layout-wrapper layout-content-navbar' }}">
+        <div class="layout-container">
+            @if(Auth::user()->role->name == 'Advertiser')
+            @include('includes.second_navbar')
+            @else
+            @include('includes.navbar')
+            @endif
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    @yield('content')
+                    @include('includes.footer')
                 </div>
-
-                <!-- Overlay -->
-                <div class="layout-overlay layout-menu-toggle"></div>
-                <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-                <div class="drag-target"></div>
+                <!-- Content wrapper -->
             </div>
-            <!-- / Layout wrapper -->
-        @endif
+            <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+        <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+        <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+    @endif
     @endauth
     @yield('auth-content')
     <!-- Core JS -->
@@ -117,16 +123,16 @@
     <!-- Main JS -->
     <script src="{{ asset_url('js/main.js') }}"></script>
     @auth
-        @if(Auth::user()->role->name == 'Advertiser')
-            <script>
-                $cartCookie = getCookie('cart')
-                if ($cartCookie != '') {
-                    $cartArr = JSON.parse($cartCookie);
-                    $('.nav-cart-icon').attr('data-item-count', $cartArr.length);
-                }
-            </script>
+    @if(Auth::user()->role->name == 'Advertiser')
+    <script>
+        $cartCookie = getCookie('cart')
+        if ($cartCookie != '') {
+            $cartArr = JSON.parse($cartCookie);
+            $('.nav-cart-icon').attr('data-item-count', $cartArr.length);
+        }
+    </script>
 
-        @endif
+    @endif
     @endauth
     @stack('script')
 </body>

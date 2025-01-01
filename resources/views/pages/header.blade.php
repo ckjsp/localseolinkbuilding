@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{ asset_url('css/pages/front-page.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('css/pages/front-page-landing.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('libs/node-waves/node-waves.css') }}" />
+    <link rel="canonical" href="{{ url()->current() }}">
+
 
 
     <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.svg')}}" />

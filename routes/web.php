@@ -17,6 +17,8 @@ use App\Http\Controllers\RazorpayPaymentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SitemapController;
+
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -55,6 +57,8 @@ Route::get('/about-us', [PagesController::class, 'aboutus'])->name('about-us');
 Route::get('/blog-page', [PagesController::class, 'blog'])->name('blog-page');
 Route::get('/blog-inner-page', [PagesController::class, 'bloginnerpage'])->name('blog-inner-page');
 Route::get('/manual-outreach', [PagesController::class, 'manualoutreach'])->name('manual-outreach');
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+
 
 Route::get('/faq', [PagesController::class, 'faqpage'])->name('faq');
 
