@@ -75,7 +75,7 @@
         <div class="position-relative">
                 <div class="container">
                     <div class="text-center">
-                        <h1 class="page-title">The Birth of <span class="animated-text"> Marketplace</span> </h1>
+                        <h2 class="page-title">The Birth of <span class="animated-text"> Marketplace</span> </h2>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle mb-3">
                         Having the vision to streamline the guest posting process and reduce burdens, a team of experts started to spark about creating this web page.<br/> From that moment, it became a game changer for various experts. Wherein the power of automation and technology ensures advertisers receive<br/> backlinks faster. This is what allows them to focus on core SEO strategies and content creation.</h3>
