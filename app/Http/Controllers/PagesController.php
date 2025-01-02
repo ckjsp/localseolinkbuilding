@@ -85,13 +85,13 @@ class PagesController extends Controller
         return view('pages.blogpage');
     }
 
-    public function bloginnerpage()
+    public function easyways()
     {
 
         return view('pages.bloginnerpage');
     }
 
-    
+
     public function faqpage()
     {
 

@@ -18,7 +18,6 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SitemapController;
-
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -42,7 +41,9 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes(['verify' => true]);
 
 
-Route::get('/home', [PagesController::class, 'Home'])->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+
+Route::get('/', [PagesController::class, 'Home'])->name('home');
 Route::get('/terms-condition', [PagesController::class, 'termandconditions'])->name('terms-condition');
 Route::get('/privacy-policy', [PagesController::class, 'privacypolicy'])->name('privacy-policy');
 Route::get('/cancellation-and-refund-policy', [PagesController::class, 'CancellationandRefundPolicy'])->name('cancellation-and-refund-policy');
@@ -54,20 +55,13 @@ Route::get('/seo-reseller-services', [PagesController::class, 'seoresellerservic
 Route::get('/content-writing-services', [PagesController::class, 'contentwritingservices'])->name('content-writing-services');
 Route::get('/content-marketing-services', [PagesController::class, 'contentmarketingservices'])->name('content-marketing-services');
 Route::get('/about-us', [PagesController::class, 'aboutus'])->name('about-us');
-Route::get('/blog-page', [PagesController::class, 'blog'])->name('blog-page');
-Route::get('/blog-inner-page', [PagesController::class, 'bloginnerpage'])->name('blog-inner-page');
+Route::get('/blog-page', [PagesController::class, 'blog'])->name('blog');
+Route::get('/easy-ways', [PagesController::class, 'easyways'])->name('easy-ways');
 Route::get('/manual-outreach', [PagesController::class, 'manualoutreach'])->name('manual-outreach');
 Route::get('/sitemap.xml', [SitemapController::class, 'index']);
-
-
 Route::get('/faq', [PagesController::class, 'faqpage'])->name('faq');
-
-
-
-
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
-
 Route::middleware(['auth', 'verified'])->group(function () {
 
     // Route::get('/logout', [LoginController::class, 'logout']);
@@ -75,7 +69,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(HomeController::class)->group(function () {
 
-        Route::get('/', 'index')->name('home');
+        Route::get('/loginin', 'index')->name('home');
         Route::post('/change-password', 'changePassword')->name('password.change.update');
         Route::get('/user/profile', 'userProfile')->name('user.profile');
         Route::post('/user/update/{id}', 'userUpdate')->name('user.update');
@@ -85,7 +79,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
         Route::get('/publisher', [PublisherController::class, 'index'])->name('publisher');
-
         Route::controller(WebsiteController::class)->group(function () {
             Route::get('/publisher/website', 'index')->name('publisher.website');
             Route::get('/publisher/website/create', 'create')->name('publisher.website.create');
@@ -99,6 +92,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
 
         Route::controller(OrdersController::class)->group(function () {
+
             Route::get('/publisher/orders', 'index')->name('publisher.orders');
             Route::get('/publisher/orders/create', 'create')->name('publisher.orders.create');
             Route::get('/publisher/blog/{id}', 'checkArticle')->name('publisher.blog');
@@ -110,14 +104,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/paypal/create/{price}/{orderId}', [PaypalPaymentController::class, 'createPayment'])->name('paypal.create');
         Route::get('/paypal/payment-success', [PaypalPaymentController::class, 'paymentSuccess'])->name('payment.success');
         Route::get('/paypal/payment-cancel/{orderId}', [PaypalPaymentController::class, 'paymentCancel'])->name('payment.cancel');
-
         Route::post('/razorpay/create/', [RazorpayPaymentController::class, 'makePayment'])->name('razorpay.create');
         Route::post('/razorpay/callback', [RazorpayPaymentController::class, 'callback'])->name('razorpay.callback');
         Route::get('/razorpay/cancel', [RazorpayPaymentController::class, 'cancel'])->name('razorpay.cancel');
 
-
-
         Route::controller(PaymentController::class)->group(function () {
+
             Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
             Route::get('/publisher/payment', 'index')->name('publisher.payment');
             Route::get('/publisher/wallet', 'wallet')->name('publisher.wallet');
@@ -126,19 +118,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::controller(AdvertiserController::class)->group(function () {
+
         Route::get('/advertiser/marketplace', 'marketplace')->name('advertiser.marketplace');
         Route::get('/advertiser/cart', 'cart')->name('advertiser.cart');
         Route::get('/advertiser/{page?}', 'index')->name('advertiser');
         Route::get('/advertiser/{page?}', 'index')->name('advertiser');
         Route::get('/check-url', 'checkUrl')->name('check.url');
-
         Route::get('/competitors/{project_id}', 'getCompetitorsByProjectId')->name('competitors.get');
         Route::post('/add-competitor', 'addCompetitor')->name('addcompetitor');
         Route::post('/competitors/{projectId}/remove', 'removeCompetitor')->name('removeCompetitor');
-
-        //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
-        //Route::get('/advertiser/projects', 'projects')->name('advertiser.projects');
-
         Route::get('/advertiser/projects', 'projectCreate')->name('advertiser.projects.create');
         Route::post('/advertiser/projects', 'projectStore')->name('advertiser.projects.store');
         Route::put('/advertiser/projects/{id}', 'projectUpdate')->name('advertiser.projects.update');
@@ -154,12 +142,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('/order/info/{id}', 'orderInfo')->name('order.info');
         Route::post('/order/update-status/{id}', 'updateStatus')->name('order.update.status');
-
-        // Route::post('/publisher/orders/add', 'store')->name('publisher.orders.store');
-        // Route::get('/publisher/orders/{id}/edit', 'edit')->name('publisher.orders.edit');
-        // Route::put('/publisher/orders/{id}', 'update')->name('publisher.orders.update');
-        // Route::get('/publisher/orders/{id}/delete', 'destroy')->name('publisher.orders.delete');
-
     });
 
     Route::post('charge', [StripePaymentController::class, 'charge'])->name('stripe.charge');
@@ -171,22 +153,17 @@ Route::controller(AdminController::class)->group(function () {
         Route::get('/lslb-admin/websites', 'getWebsites')->name('lslbadmin.websites');
         Route::get('/lslb-admin/users', 'getUsers')->name('lslbadmin.users');
         Route::get('/lslb-admin/orders', 'getOrders')->name('lslbadmin.orders');
+        Route::get('/lslb-admin/withdrawal', 'getwithdrawal')->name('lslbadmin.withdrawal');
         Route::post('/lslb-admin/website-status-update/{id}', 'updateStatus')->name('lslbadmin.website.update.status');
-
         Route::get('/lslb-admin/website/{id}/edit', 'webEdit')->name('lslbadmin.website.edit');
         Route::put('/lslb-admin/website/{id}', 'webUpdate')->name('lslbadmin.website.update');
         Route::get('/lslb-admin/website/{id}/delete', 'webDestroy')->name('lslbadmin.website.delete');
         Route::post('/lslb-admin/website/{id}/update-admin-price', 'updateAdminPrice')->name('lslbadmin.website.update.admin.price');
-
-
         Route::get('/lslb-admin/user/{id}/edit', 'userEdit')->name('lslbadmin.user.edit');
         Route::post('/lslb-admin/user/{id}', 'userUpdate')->name('lslbadmin.user.update');
         Route::get('/lslb-admin/user/{id}/delete', 'userDestroy')->name('lslbadmin.user.delete');
     });
 });
-
-
-
 
 
 Route::get('/lslb-admin/login', function () {

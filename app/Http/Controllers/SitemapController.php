@@ -15,50 +15,42 @@ class SitemapController extends Controller
 
         // Add static pages
         $urls[] = [
-            'loc' => URL::to('/home'),
+            'loc' => URL::to('/'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'daily',
             'priority' => '1.0',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/aboutus'),
+            'loc' => URL::to('/about-us'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/bloginnerpage'),
+            'loc' => URL::to('/easy-ways'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/blogpage'),
+            'loc' => URL::to('/blog'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/cancellationandrefundpolicy'),
+            'loc' => URL::to('/cancellation-and-refund-policy'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/contactus'),
-            'lastmod' => Carbon::now()->toAtomString(),
-            'changefreq' => 'monthly',
-            'priority' => '0.8',
-        ];
-
-
-        $urls[] = [
-            'loc' => URL::to('/contentmarketingservices'),
+            'loc' => URL::to('/contact-us'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
@@ -66,7 +58,15 @@ class SitemapController extends Controller
 
 
         $urls[] = [
-            'loc' => URL::to('/contentwritingservices'),
+            'loc' => URL::to('/content-marketing-services'),
+            'lastmod' => Carbon::now()->toAtomString(),
+            'changefreq' => 'monthly',
+            'priority' => '0.8',
+        ];
+
+
+        $urls[] = [
+            'loc' => URL::to('/content-writing-services'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
@@ -81,49 +81,49 @@ class SitemapController extends Controller
 
 
         $urls[] = [
-            'loc' => URL::to('/guestpostingservices'),
+            'loc' => URL::to('/guest-posting-services'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/linkbuildingservices'),
+            'loc' => URL::to('/link-building-services'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/manualoutreach'),
+            'loc' => URL::to('/manual-outreach'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/privacypolicy'),
+            'loc' => URL::to('/privacy-policy'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/seoresellerservices'),
+            'loc' => URL::to('/seo-reseller-services'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/shippinganddeliverypolicy'),
+            'loc' => URL::to('/shipping-and-delivery-policy'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
         ];
 
         $urls[] = [
-            'loc' => URL::to('/termandconditions'),
+            'loc' => URL::to('/terms-conditi'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
