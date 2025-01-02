@@ -175,10 +175,15 @@ input:focus-visible {
 
 }
 
-.custom-menu {
+.mega-dropdown .custom-menu {
+  position: absolute !important;
+  top: 60px !important;
+  backdrop-filter: blur(85px);
+  background-color: rgb(0 0 0 / 60%);
+}
 
-  background-color: #101010;
-
+.mega-dropdown .custom-menu.show {
+  display: inline-block !important;
 }
 
 .page-title {
