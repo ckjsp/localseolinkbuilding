@@ -34,29 +34,25 @@
                             agency, or content marketer, improve the website’s authority, visibility, and search engine
                             rankings. Cultivate your online success by exploring our services. We help your brand thrive
                             in the competitive digital world. Your success is our mission! </h3>
-                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
-                            Looking for the best link building platform? Join Links farmer today!
-                        </h2> -->
+
                         <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
 
-                            <a href="#landingPricing" class="filled-btn">Buy Guest Post</a>
-                            <a href="#landingPricing" class="outlined-btn">Sell Guest Post</a>
+                            <a href="#" class="filled-btn">Buy Guest Post</a>
+                            <a href="#" class="outlined-btn">Sell Guest Post</a>
 
                         </div>
                     </div>
                     <div id="heroDashboardAnimation" class="hero-animation-img">
-                        <a href="../vertical-menu-template/app-ecommerce-dashboard.html" target="_blank">
-                            <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
-                                <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero dashboard"
-                                    class="animation-img"
-                                    data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
-                                    data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
-                                <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero elements"
-                                    class="position-absolute hero-elements-img animation-img top-0 start-0"
-                                    data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
-                                    data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
-                            </div>
-                        </a>
+                        <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
+                            <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero dashboard"
+                                class="animation-img"
+                                data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
+                                data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
+                            <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero elements"
+                                class="position-absolute hero-elements-img animation-img top-0 start-0"
+                                data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
+                                data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,7 +107,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
         <section id="totalSection" class="total-section">
             <div class="container">

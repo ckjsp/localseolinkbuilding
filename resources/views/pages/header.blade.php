@@ -9,7 +9,7 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="description" content="" />
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('public/img/favicon.svg')}}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('public/img/faviconnew.svg')}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -56,7 +56,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti ti-menu-2 ti-sm align-middle"></i>
                     </button>
-                    <a href="landing-page.html" class="app-brand-link">
+                    <a href="#" class="app-brand-link">
                         <div class="logo-wrap">
                             <img src="{{ asset_url('img/header-logo.png') }}" alt="logo">
                         </div>
@@ -259,11 +259,8 @@
 
                                         </ul>
                                     </div>
-
-
                                 </div>
                             </div>
-
                         </li>
                         <li class="nav-item mega-dropdown">
                             <a href="https://freebestseotools.com/"
@@ -304,11 +301,8 @@
 
                                         </ul>
                                     </div>
-
-
                                 </div>
                             </div>
-
                         </li>
                         <li class="nav-item d-xl-none">
                             <a class="nav-link fw-medium" href="{{ route('login') }}">Login</a>
@@ -319,12 +313,10 @@
                     </ul>
                 </div>
                 <div class="landing-menu-overlay d-xl-none"></div>
-
                 <div class="navbar-nav flex-row gap-2 align-items-center ms-auto d-none d-xl-flex">
                     <a href="{{ route('login') }}" class="outlined-btn">
                         Login
                     </a>
-
                     <a href="{{ route('register') }}" class="filled-btn">
                         Sign Up for free
                     </a>
