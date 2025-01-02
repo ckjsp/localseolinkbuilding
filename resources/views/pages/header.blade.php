@@ -86,14 +86,14 @@
 
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/google-index-checker"
+                                                    href="{{ route('guest-posting-services') }}"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Guest Posting </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-robots-txt-generator"
+                                                    href="{{ route('link-building-services') }}"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Link Building
@@ -101,7 +101,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-xml-sitemap-generator-tool"
+                                                    href="{{ route('content-writing-services') }}"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Content Writing
@@ -109,7 +109,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/google-malware-checker-tool"
+                                                    href="{{ route('seo-reseller-services') }}"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     SEO Reseller
@@ -117,18 +117,15 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-broken-links-checker"
+                                                    href="{{ route('content-writing-services') }}"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Content Marketing </a>
                                             </li>
                                         </ul>
                                     </div>
-
-
                                 </div>
                             </div>
-
                         </li>
                         <li class="nav-item mega-dropdown">
                             <a href="https://freebestseotools.com/"
@@ -142,6 +139,8 @@
                                     <div class="col-12 col-lg">
 
                                         <ul class="nav flex-column">
+
+
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
                                                     href="https://freebestseotools.com/free-broken-links-checker"
@@ -236,14 +235,14 @@
 
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/google-index-checker"
+                                                    href="{{ route('about-us') }}"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     About Us </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-robots-txt-generator"
+                                                    href="#"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Life at Link Publishers
@@ -251,7 +250,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-xml-sitemap-generator-tool"
+                                                    href="{{ route('contact-us') }}"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Contact Us
@@ -281,14 +280,14 @@
 
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/google-index-checker"
+                                                    href="{{ route('blog') }}"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Blogs </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-robots-txt-generator"
+                                                    href="{{ route('faq') }}"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     FAQs
@@ -296,7 +295,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-xml-sitemap-generator-tool"
+                                                    href="#"
                                                     target="_blank">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Help Center
