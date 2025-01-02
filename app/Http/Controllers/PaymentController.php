@@ -10,8 +10,6 @@ use App\Models\lslbTransaction;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyMail;
 
-
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -46,6 +44,7 @@ class PaymentController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index(Request $request)
     {
         $url = $this->chekRole($request);
@@ -57,7 +56,6 @@ class PaymentController extends Controller
         $data['userDetail'] = Auth::user();
         $lslbPayment = new lslbPayment;
         $data['payments'] = $lslbPayment->paymentList($data['userDetail']->id, Auth::user()->role->name);
-        // echo '<pre>'; print_r( $data['payments'] ); echo '</pre>';exit;
         return view('payment')->with($data);
     }
 

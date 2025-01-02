@@ -10,7 +10,7 @@
                         </a>
                     </div>
                     <p class="footer-text footer-logo-description mb-4">
-                    Grow your website traffic and build your reputation with our simple, results-driven link-building services. Start seeing the difference now!
+                        Grow your website traffic and build your reputation with our simple, results-driven link-building services. Start seeing the difference now!
                     </p>
                     <ul class="footer-list social-links-wrap  mt-3">
                         <li>
@@ -35,19 +35,19 @@
                     <h6 class="footer-title mb-4">Services</h6>
                     <ul class="list-unstyled">
                         <li class="mb-3">
-                            <a href="#" class="footer-link">Guest Posting</a>
+                            <a href="{{ route('guest-posting-services') }}" class="footer-link">Guest Posting</a>
                         </li>
                         <li class="mb-3">
-                            <a href="#" class="footer-link">Link Building</a>
+                            <a href="{{ route('link-building-services') }}" class="footer-link">Link Building</a>
                         </li>
                         <li class="mb-3">
-                            <a href="#" class="footer-link">Content Writing</a>
+                            <a href="{{ route('content-writing-services') }}" class="footer-link">Content Writing</a>
                         </li>
                         <li class="mb-3">
-                            <a href="#" class="footer-link">SEO Reseller</a>
+                            <a href="{{ route('seo-reseller-services') }}" class="footer-link">SEO Reseller</a>
                         </li>
                         <li class="mb-3">
-                            <a href="#" class="footer-link">Content Marketing</a>
+                            <a href="{{ route('content-marketing-services') }}" class="footer-link">Content Marketing</a>
                         </li>
                     </ul>
                 </div>
@@ -55,16 +55,16 @@
                     <h6 class="footer-title mb-4">Company</h6>
                     <ul class="list-unstyled">
                         <li class="mb-3">
-                            <a href="#" class="footer-link">About</a>
+                            <a href="{{ route('about-us') }}" class="footer-link">About</a>
                         </li>
                         <li class="mb-3">
-                            <a href="#" class="footer-link">Contact</a>
+                            <a href="{{ route('contact-us') }}" class="footer-link">Contact</a>
                         </li>
                         <li class="mb-3">
-                            <a href="#" class="footer-link">Blog</a>
+                            <a href="{{ route('blog') }}" class="footer-link">Blog</a>
                         </li>
                         <li class="mb-3">
-                            <a href="#" class="footer-link">Life at LINKSFARMER</a>
+                            <a href="" class="footer-link">Life at LINKSFARMER</a>
                         </li>
                         <li class="mb-3">
                             <a href="#" class="footer-link">Write for Us</a>
