@@ -18,7 +18,7 @@
         <section class="hero-section">
             <div class=" landing-hero position-relative">
                 <div class="container">
-                    <div class="text-center">
+                    <div class="text-center mb-40">
                         <h1 class="page-title">Capture Attention With <span class="animated-text"> High-Standard
                                 Content<br /> Marketing </span>of LINKSFARMER</h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
@@ -31,41 +31,7 @@
                             Looking for the best link building platform? Join Links farmer today!
                         </h2> -->
                     </div>
-                    <div class="guest_posting_wrap mb-5">
-                        <div class="row g-2 gy-md-5 ">
-                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
-                                <div class="posting_card">
-                                    <h6>Comprehensive SEO Audits</h6>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
-                                <div class="posting_card">
-                                    <h6>On-Page<br /> Optimization</h6>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
-                                <div class="posting_card">
-                                    <h6>Link-Building<br /> Strategies</h6>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
-                                <div class="posting_card">
-                                    <h6>Local SEO</h6>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
-                                <div class="posting_card">
-                                    <h6>Content Creation</h6>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
-                                <div class="posting_card">
-                                    <h6>Reporting and<br /> Analytics</h6>
-                                </div>
-                            </div>
 
-                        </div>
-                    </div>
                     <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
                         <a href="#landingPricing" class="filled-btn">Get Registered Now</a>
                     </div>

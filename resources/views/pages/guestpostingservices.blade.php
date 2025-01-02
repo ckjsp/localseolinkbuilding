@@ -20,7 +20,7 @@
         <section class="hero-section">
             <div class=" landing-hero position-relative">
                 <div class="container">
-                    <div class="text-center">
+                    <div class="text-center mb-40">
                         <h1 class="page-title">FirstAI-Driven How <span class="animated-text"> Guest Posting
                                 Boosts</span> <br /> Your
                             Brand’s
@@ -488,7 +488,9 @@
                                                 </div>
                                             </div>
                                             <p>
-                                            This platform is a game-changer for SEO! I’ve used it multiple times and always get high-quality links from reputable sites. Highly recommend it for marketers and bloggers alike.
+                                                This platform is a game-changer for SEO! I’ve used it multiple times and
+                                                always get high-quality links from reputable sites. Highly recommend it
+                                                for marketers and bloggers alike.
                                             </p>
                                         </div>
 
@@ -512,7 +514,9 @@
                                                 </div>
                                             </div>
                                             <p>
-                                            The platform has potential, but I found the pricing a bit steep for smaller businesses. However, the quality of available blogs is commendable.
+                                                The platform has potential, but I found the pricing a bit steep for
+                                                smaller businesses. However, the quality of available blogs is
+                                                commendable.
                                             </p>
                                         </div>
 
@@ -536,7 +540,8 @@
                                                 </div>
                                             </div>
                                             <p>
-                                            Fantastic platform for content marketing. I got featured on several high-DA sites, which significantly boosted my SEO efforts. 
+                                                Fantastic platform for content marketing. I got featured on several
+                                                high-DA sites, which significantly boosted my SEO efforts.
                                             </p>
                                         </div>
 
@@ -788,7 +793,8 @@
                             aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                Guest posting services aid in finding websites that accept guest posts, creating articles, and submitting them to the website for publication.
+                                    Guest posting services aid in finding websites that accept guest posts, creating
+                                    articles, and submitting them to the website for publication.
                                 </p>
                             </div>
                         </div>
@@ -805,7 +811,10 @@
                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                It depends on the owners of the website. Buying guest post backlinks from low-reputation service providers may do more harm than good. Thus, rely on a premium guest posting marketplace that is completely safe. With it, you can expect the best results.
+                                    It depends on the owners of the website. Buying guest post backlinks from
+                                    low-reputation service providers may do more harm than good. Thus, rely on a premium
+                                    guest posting marketplace that is completely safe. With it, you can expect the best
+                                    results.
                                 </p>
                             </div>
                         </div>
@@ -822,7 +831,10 @@
                             aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                Using guest posting services builds relationships with reputable and reliable blogs. It helps you provide quality do-follow backlinks, which help you with long-term branding and SEO goals. As a result, you can reach your target audience and boost your website’s organic traffic.
+                                    Using guest posting services builds relationships with reputable and reliable blogs.
+                                    It helps you provide quality do-follow backlinks, which help you with long-term
+                                    branding and SEO goals. As a result, you can reach your target audience and boost
+                                    your website’s organic traffic.
                                 </p>
                             </div>
                         </div>
@@ -839,7 +851,10 @@
                             aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                Yeah, you can! LINKSFARMER has some high-quality guest blogs in our database for those who want to buy guest blog posts. Also, it depends on your niche and preference. We have a team of writers who can create a unique article or blog for you. <br />
+                                    Yeah, you can! LINKSFARMER has some high-quality guest blogs in our database for
+                                    those who want to buy guest blog posts. Also, it depends on your niche and
+                                    preference. We have a team of writers who can create a unique article or blog for
+                                    you. <br />
                                 </p>
                             </div>
                         </div>

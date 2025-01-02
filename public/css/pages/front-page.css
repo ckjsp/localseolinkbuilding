@@ -2,6 +2,12 @@
   padding: 5rem 0;
 }
 
+.mega-dropdown {
+  position: relative;
+}
+
+
+
 @media (max-width: 1199.98px) {
   .section-py {
     padding: 4rem 0;
@@ -110,10 +116,11 @@ nav.layout-navbar.navbar-active::after {
 
 @media (min-width: 992px) {
   .navbar.landing-navbar .navbar-nav .nav-item.mega-dropdown>.dropdown-menu {
-    max-width: fit-content;
+    /* max-width: fit-content; */
     inset-inline-start: 50% !important;
     transform: translateX(-50%);
     top: 100%;
+    min-width: max-content;
   }
 }
 
@@ -122,6 +129,7 @@ nav.layout-navbar.navbar-active::after {
     background: transparent;
     box-shadow: none;
     border: none;
+    position: static !important;
   }
 }
 

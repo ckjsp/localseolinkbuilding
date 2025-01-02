@@ -76,18 +76,73 @@
                         <i class="ti ti-x ti-sm"></i>
                     </button>
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link fw-medium" aria-current="page"
-                                href="landing-page.html#landingHero">Service</a>
-                        </li>
 
+                        <li class="nav-item mega-dropdown">
+                            <a href="https://freebestseotools.com/"
+                                class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
+                                aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
+                                Service
+                            </a>
+                            <div class="dropdown-menu custom-menu p-3 p-md-4">
+                                <div class="row gy-4">
+
+                                    <div class="col-12 col-lg">
+
+                                        <ul class="nav flex-column">
+
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/google-index-checker"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Guest Posting </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-robots-txt-generator"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Link Building
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-xml-sitemap-generator-tool"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Content Writing
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/google-malware-checker-tool"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    SEO Reseller
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-broken-links-checker"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Content Marketing </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </li>
                         <li class="nav-item mega-dropdown">
                             <a href="https://freebestseotools.com/"
                                 class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
                                 aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
                                 Tools
                             </a>
-                            <div class="dropdown-menu custom-menu p-4">
+                            <div class="dropdown-menu custom-menu p-3 p-md-4">
                                 <div class="row gy-4">
 
                                     <div class="col-12 col-lg">
@@ -172,15 +227,95 @@
                             </div>
 
                         </li>
+                        <li class="nav-item mega-dropdown">
+                            <a href="https://freebestseotools.com/"
+                                class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
+                                aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
+                                Company
+                            </a>
+                            <div class="dropdown-menu custom-menu p-3 p-md-4">
+                                <div class="row gy-4">
 
-                        <li class="nav-item">
-                            <a class="nav-link fw-medium" href="landing-page.html#landingTeam">Company</a>
+                                    <div class="col-12 col-lg">
+
+                                        <ul class="nav flex-column">
+
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/google-index-checker"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    About Us </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-robots-txt-generator"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Life at Link Publishers
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-xml-sitemap-generator-tool"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Contact Us
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-medium" href="landing-page.html#landingFAQ">Resources</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-medium" href="landing-page.html#landingContact">Contact us</a>
+                        <li class="nav-item mega-dropdown">
+                            <a href="https://freebestseotools.com/"
+                                class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
+                                aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
+                                Resources
+                            </a>
+                            <div class="dropdown-menu custom-menu p-3 p-md-4">
+                                <div class="row gy-4">
+
+                                    <div class="col-12 col-lg">
+
+                                        <ul class="nav flex-column">
+
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/google-index-checker"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Blogs </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-robots-txt-generator"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    FAQs
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link mega-dropdown-link"
+                                                    href="https://freebestseotools.com/free-xml-sitemap-generator-tool"
+                                                    target="_blank">
+                                                    <i class="ti ti-circle me-1"></i>
+                                                    Help Center
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
                         </li>
                         <li class="nav-item d-xl-none">
                             <a class="nav-link fw-medium" href="#">Login</a>
