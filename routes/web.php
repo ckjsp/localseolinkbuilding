@@ -41,7 +41,7 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes(['verify' => true]);
 
 
-Route::get('/', [HomeController::class, 'home'])->name('home');
+// Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/', [PagesController::class, 'Home'])->name('home');
 Route::get('/terms-condition', [PagesController::class, 'termandconditions'])->name('terms-condition');

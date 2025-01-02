@@ -9,7 +9,7 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="description" content="" />
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon.svg')}}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('public/img/favicon.svg')}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{ asset_url('css/pages/front-page-landing.css') }}" />
     <link rel="stylesheet" href="{{ asset_url('libs/node-waves/node-waves.css') }}" />
     <link rel="canonical" href="{{ url()->current() }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.svg')}}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('public/img/favicon.svg')}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -312,10 +312,10 @@
 
                         </li>
                         <li class="nav-item d-xl-none">
-                            <a class="nav-link fw-medium" href="#">Login</a>
+                            <a class="nav-link fw-medium" href="{{ route('login') }}">Login</a>
                         </li>
                         <li class="nav-item d-xl-none">
-                            <a class="nav-link fw-medium" href="#">Sign Up for free</a>
+                            <a class="nav-link fw-medium" href="{{ route('register') }}">Sign Up for free</a>
                         </li>
                     </ul>
                 </div>
