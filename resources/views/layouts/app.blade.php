@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="{{ asset_url('fonts/flag-icons.css') }}" />
     <link rel="canonical" href="{{ url()->current() }}">
 
-
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset_url('css/rtl/core.css') }}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset_url('css/rtl/theme-default.css') }}" class="template-customizer-theme-css" />
@@ -49,17 +48,11 @@
     @auth
     <link rel="stylesheet" href="{{ asset_url('css/pages/cards-advance.css') }}" />
     @endauth
-
     @stack('css')
-
     <script src="{{ asset_url('js/jquery.js') }}"></script>
-
     <!-- Helpers -->
     <script src="{{ asset_url('js/helpers.js') }}"></script>
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
     <script src="{{ asset_url('js/template-customizer.js') }}"></script>
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset_url('js/config.js') }}"></script>
     <script src="{{ asset_url('js/form-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset_url('js/form-validation/additional-methods.min.js') }}"></script>
@@ -98,10 +91,13 @@
         <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
     </div>
+
     <!-- / Layout wrapper -->
+
     @endif
     @endauth
     @yield('auth-content')
+
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
 

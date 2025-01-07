@@ -79,7 +79,7 @@
                     Pricing & 
                     <span class="animated-text"> Plans </span>
                 </h2>
-                <h5 class="subtitle2-section text-center">We believe in providing competitive pricing. Whatever SEO reseller packages you choose from the<br /> ones mentioned below, we assure you of the best seo reseller plans at the right price!</h5>
+                <h5 class="subtitle2-section text-center">We believe in providing competitive pricing. Whatever SEO reseller packages you choose from the<br /> ones mentioned below, we assure you of the best SEO reseller plans at the right price!</h5>
                 <div class="row g-3 mt-60">
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="pricing_plan_card">
@@ -268,20 +268,20 @@
 
                     <div class="col-lg-6  col-sm-12">
                         <h2 class="subtitle-section ">
-                        Benefits Of Our 
-                            <span class="animated-text">SEO Reseller  </span>Program
+                            Benefits Of Our
+                            <span class="animated-text">SEO Reseller </span>Program
                         </h2>
                         <h5 class="subtitle2-section">There is no need for additional staff or investment in tools, which means it is cost-effective for seekers</h5>
                         <h5 class="subtitle2-section">Focus on growth by expanding your client base by getting our SEO services.</h5>
                         <h5 class="subtitle2-section">We offer high-quality services that help you generate new revenue streams.</h5>
                         <h5 class="subtitle2-section">All deliverables are branded with your company’s identity that ensures the brand’s consistency.</h5>
                         <h5 class="subtitle2-section">With our SEO reseller plans, you can focus on your core business because we handle the work behind the scenes.</h5>
-                        
+
                     </div>
                 </div>
         </section>
 
-        <section class="section-py linkedfarmer_different_section light-bg" >
+        <section class="section-py linkedfarmer_different_section light-bg">
             <div class="container">
                 <h2 class="subtitle-section text-center mb-60">
                     Our <span class="animated-text"> Incredible</span> Process
@@ -489,9 +489,7 @@
         </section>
         <section class="section-py faq_section">
             <div class="container">
-                <div class="text-center mb-3">
-                    <span class="title-section animated-text">FAQs</span>
-                </div>
+
                 <h2 class="subtitle-section text-center">
                     Frequently Asked Questions </h2>
                 <div class="custom-accordian accordion accordion-flush" id="accordionFlushExample">

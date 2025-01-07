@@ -262,12 +262,12 @@
 
                 <h2 class="subtitle-section text-center">
                     Transform Your
-                    <span class="animated-text"> Strategy with Linksfarmer </span>Services
+                    <span class="animated-text"> Strategy with LINKSFARMER </span>Services
                 </h2>
                 <h5 class="subtitle2-section text-center">Guest posting using traditional methods is extremely complex
                     and time-consuming. You need to invest in high-quality content and approach multiple websites. And
                     despite all the effort, the probability of you getting the backlink is pretty low. However, Link
-                    Linksfarmer has your back.</h5>
+                    LINKSFARMER has your back.</h5>
 
                 <h5 class="subtitle2-section text-center">As one of the largest guest post marketplaces, LINKSFARMER
                     allows you to buy guest posts from our pool of 114,828+ global websites of various niches. You can
@@ -622,7 +622,7 @@
             <div class="container">
 
                 <h2 class="subtitle-section text-center">
-                    How Linksfarmar <span class="animated-text"> Works</span>
+                    How LINKSFARMER <span class="animated-text"> Works</span>
                 </h2>
 
                 <ul class="custom_timeline timeline pb-0 mb-0">
@@ -757,9 +757,7 @@
         </section>
         <section class="section-py faq_section">
             <div class="container">
-                <div class="text-center mb-3">
-                    <span class="title-section animated-text">FAQs</span>
-                </div>
+
                 <h2 class="subtitle-section text-center">
                     Frequently Asked Questions </h2>
                 <div class="custom-accordian accordion accordion-flush" id="accordionFlushExample">

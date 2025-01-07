@@ -3,7 +3,6 @@
         <div class="container">
             <div class="row justify-content-between  gx-0 gy-4 g-md-5 ">
                 <div class="col-lg-3">
-
                     <div class="mb-40">
                         <a href="#" class="footer-logo">
                             <img src="{{ asset_url('img/footer-logo.png') }}" alt="footer-logo">
@@ -15,21 +14,18 @@
                     <ul class="footer-list social-links-wrap  mt-3">
                         <li>
                             <div class="d-flex justify-content-start">
-                                <a href="https://www.facebook.com/linksfarmer/" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
+                                <a href="https://www.facebook.com/linksfarmer/" rel="noopener noreferrer" class="icon-div-wrap">
                                     <i class="ti ti-brand-facebook ti-sm"></i>
                                 </a>
-                                <a href="https://www.instagram.com/linksfarmer/" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
+                                <a href="https://www.instagram.com/linksfarmer/" rel="noopener noreferrer" class="icon-div-wrap">
                                     <i class="ti ti-brand-instagram ti-sm"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/company/links-farmer/about/" target="_blank" rel="noopener noreferrer" class="icon-div-wrap">
+                                <a href="https://www.linkedin.com/company/links-farmer/about/" rel="noopener noreferrer" class="icon-div-wrap">
                                     <i class="ti ti-brand-linkedin ti-sm"></i>
                                 </a>
                             </div>
                         </li>
                     </ul>
-
-
-
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                     <h6 class="footer-title mb-4">Services</h6>
@@ -63,9 +59,7 @@
                         <li class="mb-3">
                             <a href="{{ route('blog') }}" class="footer-link">Blog</a>
                         </li>
-                        <li class="mb-3">
-                            <a href="" class="footer-link">Life at LINKSFARMER</a>
-                        </li>
+
                         <li class="mb-3">
                             <a href="#" class="footer-link">Write for Us</a>
                         </li>
@@ -86,5 +80,4 @@
             </div>
         </div>
     </div>
-
 </footer>

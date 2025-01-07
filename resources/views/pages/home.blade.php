@@ -24,7 +24,6 @@
 
                 <div class="container">
                     <div class="hero-text-box text-center">
-                        <!-- <h1>First <span class="animated-text">AI-Driven</span>   Guest Post& Link Building Platform</h1> -->
                         <h1 class="page-title">Welcome to <span class="animated-text"> LINKSFARMER </span> – Your
                             Trusted <br /> Partner in
                             Link Building!</h1>
@@ -240,58 +239,7 @@
                                         </div>
 
                                     </div>
-                                    <!-- <div class="swiper-slide">
-                                        <div class="card h-100 reviews-card">
 
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="logo-wrap me-2 ">
-                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
-                                                </div>
-                                                <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
-                                                    <div class="text-warning">
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card h-100 reviews-card">
-
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="logo-wrap me-2 ">
-                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
-                                                </div>
-                                                <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
-                                                    <div class="text-warning">
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
-                                            </p>
-                                        </div>
-
-                                    </div> -->
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
@@ -345,7 +293,7 @@
                     <span class="title-section animated-text">Why us?</span>
                 </div>
                 <h2 class="subtitle-section text-center">
-                    Why to choose Links farmer?
+                    Why to choose LINKSFARMER
                 </h2>
 
                 <div class="d-flex align-items-center">
@@ -365,7 +313,7 @@
                                             </div>
                                             <h6>100% Transparency</h6>
                                             <p>
-                                                Links Farmer offers clear metrics and upfront communication, ensuring you know exactly where your content is published. No hidden costs, just honest and transparent service.
+                                                LINKSFARMER offers clear metrics and upfront communication, ensuring you know exactly where your content is published. No hidden costs, just honest and transparent service.
                                             </p>
                                         </div>
                                     </div>
