@@ -72,6 +72,7 @@ class AdvertiserController extends Controller
 
 
     public function projects()
+
     {
         $data = array();
         $data['slug'] = 'projects';
