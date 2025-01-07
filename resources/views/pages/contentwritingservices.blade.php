@@ -16,7 +16,6 @@
             max-width: 335px !important;
         }
     </style>
-
 </head>
 
 <body>
@@ -26,12 +25,9 @@
                 <div class="container">
                     <div class="text-center">
                         <h1 class="page-title">Professional <span class="animated-text"> content writing services <br /> by LINKSFARMER </h1>
-                        <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle">
                             No doubt, your words define your brand! That’s why we specialize in creating compelling and SEO-friendly content. Through that, you can engage<br /> your audience and drive results. If you want blog posts, articles, website copy, or market content, our writers can help you. We deliver content for<br /> all your websites, social media, or white papers. You can get, </h3>
-                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
-                            Looking for the best link building platform? Join Links farmer today!
-                        </h2> -->
+
                     </div>
                     <div class="guest_posting_wrap mb-5 ">
                         <div class="row g-2 gy-md-5 flex-wrap justify-content-center">
@@ -96,10 +92,8 @@
                 </div>
             </div>
         </section>
-
         <section class="section-py">
             <div class="container">
-                <!-- Section 1 -->
                 <div class="row gx-5">
                     <div class="col-lg-6  col-sm-12">
                         <h2 class="subtitle-section ">
@@ -115,15 +109,12 @@
                                 <li>We majorly respect deadlines. That is why you get your content on time without compromising quality.</li>
                             </ol>
                         </h5>
-
-
                     </div>
                     <div class="col-lg-6  col-sm-12">
                         <img src="{{ asset_url('img/Content Writing.png') }}" alt="Content Writing" width="100%">
                     </div>
                 </div>
         </section>
-
         <section class="">
             <div class="container">
                 <div class="row gx-5">
@@ -151,7 +142,6 @@
                     The only thing you need to do is discuss your content requirements with our representative. He will assign you the best content writer based on<br /> your individual needs. Can it get any simpler than this?</h3>
                 <ul class="custom_timeline timeline pb-0 mb-0">
                     <li class="timeline-item timeline-item-transparent">
-                        <!-- <span class="timeline-point timeline-point-primary"></span> -->
                         <div class="left_wrap">
                             <span></span>
                         </div>
@@ -162,7 +152,6 @@
 
                     </li>
                     <li class="timeline-item timeline-item-transparent ">
-                        <!-- <span class="timeline-point timeline-point-primary"></span> -->
                         <div class="left_wrap">
                             <span></span>
                         </div>
@@ -173,7 +162,6 @@
 
                     </li>
                     <li class="timeline-item timeline-item-transparent ">
-                        <!-- <span class="timeline-point timeline-point-primary"></span> -->
                         <div class="left_wrap">
                             <span></span>
                         </div>
@@ -185,7 +173,6 @@
                     </li>
 
                     <li class="timeline-item timeline-item-transparent  pb-0">
-                        <!-- <span class="timeline-point timeline-point-primary"></span> -->
                         <div class="left_wrap">
                             <span></span>
                         </div>
@@ -204,12 +191,9 @@
             <div class="container" style="padding-top: 88px; padding-bottom: 88px;">
                 <div class="text-center">
                     <h2 class="page-title">What Skills Are <span class="animated-text"> Required to Become a Good <br /></span> Content Writer? </h2>
-                    <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                     <h3 class="page_subtitle">
                         No doubt, your words define your brand! That’s why we specialize in creating compelling and SEO-friendly content. Through that, you can engage<br /> your audience and drive results. If you want blog posts, articles, website copy, or market content, our writers can help you. We deliver content for<br /> all your websites, social media, or white papers. You can get, </h3>
-                    <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
-                            Looking for the best link building platform? Join Links farmer today!
-                        </h2> -->
+
                 </div>
                 <div class="guest_posting_wrap mb-5">
                     <div class="row g-2 gy-md-5 ">
@@ -243,12 +227,10 @@
                                 <h6>Creative thought<br /> process.</h6>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </section>
-
         <section class="section-py  transform_strategy_section">
             <div class="container">
 
@@ -385,9 +367,7 @@
 
         <section id="services" class="section-py services-section light-bg">
             <div class="container">
-                <!-- <div class="text-center mb-3">
-                    <span class="title-section animated-text">Our Services</span>
-                </div> -->
+
                 <h2 class="subtitle-section text-center">
                     Are you in search of a <span class="animated-text"> complete solution <br />for your </span> digital product?
                     </h>
@@ -396,56 +376,65 @@
                     <div class="data_wrap">
                         <div class="row gy-3">
                             <div class="col-lg-3 col-sm-6 col-6 ">
-                                <div class="services-card">
-                                    <div class="img-wrap">
-                                        <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                                <a href="{{ route('content-writing-services') }}">
+
+                                    <div class="services-card">
+                                        <div class="img-wrap">
+                                            <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <h6>Content Writing</h6>
+                                            <i class="ti ti-arrow-narrow-right "></i>
+                                        </div>
                                     </div>
-                                    <div class="d-flex justify-content-between">
-                                        <h6>Content Writing</h6>
-                                        <i class="ti ti-arrow-narrow-right "></i>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-6 ">
-                                <div class="services-card">
-                                    <div class="img-wrap">
-                                        <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                                <a href="{{ route('link-building-services') }}">
+
+                                    <div class="services-card">
+                                        <div class="img-wrap">
+                                            <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <h6>Link Building</h6>
+                                            <i class="ti ti-arrow-narrow-right "></i>
+                                        </div>
                                     </div>
-                                    <div class="d-flex justify-content-between">
-                                        <h6>Link Building</h6>
-                                        <i class="ti ti-arrow-narrow-right "></i>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-6 ">
-                                <div class="services-card">
-                                    <div class="img-wrap">
-                                        <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                                <a href="{{ route('content-marketing-services') }}">
+
+                                    <div class="services-card">
+                                        <div class="img-wrap">
+                                            <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <h6>Content Marketing</h6>
+                                            <i class="ti ti-arrow-narrow-right "></i>
+                                        </div>
                                     </div>
-                                    <div class="d-flex justify-content-between">
-                                        <h6>Content Marketing</h6>
-                                        <i class="ti ti-arrow-narrow-right "></i>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-6 ">
-                                <div class="services-card">
-                                    <div class="img-wrap">
-                                        <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                                <a href="{{ route('seo-reseller-services') }}">
+
+                                    <div class="services-card">
+                                        <div class="img-wrap">
+                                            <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <h6>SEO Reseller</h6>
+                                            <i class="ti ti-arrow-narrow-right "></i>
+                                        </div>
                                     </div>
-                                    <div class="d-flex justify-content-between">
-                                        <h6>SEO Reseller</h6>
-                                        <i class="ti ti-arrow-narrow-right "></i>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
-
-
             </div>
         </section>
-
         <section class="section-py linear_bg_section">
             <div class="container">
                 <div class="linear_bg_wrap">
@@ -458,35 +447,18 @@
                 </div>
             </div>
         </section>
-
-
-
         @include('pages.footer')
-
         <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
         <script src="{{ asset_url('js/bootstrap.js') }}"></script>
         <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
         <script src="{{ asset_url('js/front-main.js') }}"></script>
-
-        <!-- Core JS -->
-        <!-- build:js /js/core.js -->
         <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
         <script src="{{ asset_url('js/bootstrap.js') }}"></script>
         <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
-
-        <!-- endbuild -->
-
-        <!-- Vendors JS -->
         <script src="{{ asset_url('libs/nouislider/nouislider.js') }}"></script>
         <script src="{{ asset_url('libs/swiper/swiper.js') }}"></script>
-
-        <!-- Main JS -->
         <script src="{{ asset_url('assets/front-main.js') }}"></script>
-
-        <!-- Page JS -->
         <script src="{{ asset_url('assets/front-page-landing.js') }}"></script>
-
-
 </body>
 
 </html>
