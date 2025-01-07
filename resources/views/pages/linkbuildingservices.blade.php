@@ -279,7 +279,7 @@
         <section class="section-py agency_section">
             <div class="container">
                 <h2 class="subtitle-section text-center">
-                    Linksfarmar is not your
+                    LINKSFARMER is not your
                     <span class="animated-text"> ordinary link <br /> building</span>
                     agency!
                 </h2>
@@ -577,9 +577,7 @@
         </section>
         <section class="section-py faq_section">
             <div class="container">
-                <div class="text-center mb-3">
-                    <span class="title-section animated-text">FAQs</span>
-                </div>
+
                 <h2 class="subtitle-section text-center">
                     Frequently Asked Questions </h2>
                 <div class="custom-accordian accordion accordion-flush" id="accordionFlushExample">
@@ -612,7 +610,7 @@
                             aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                Large network of high-authority sites and a focus on ethical, white hat link building services can help you different from others. 
+                                    Large network of high-authority sites and a focus on ethical, white hat link building services can help you different from others.
                                 </p>
                             </div>
                         </div>
@@ -629,7 +627,7 @@
                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <p>
-                                Within a few weeks, you can see the results. But it can take a few months to see noticeable improvements in rankings.
+                                    Within a few weeks, you can see the results. But it can take a few months to see noticeable improvements in rankings.
                                 </p>
                             </div>
                         </div>
@@ -643,7 +641,7 @@
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
                         <h2>Best Link Building Services!</h2>
-                        <p>Partner with Linksfarmar to design a link building strategy that improves your search engine
+                        <p>Partner with LINKSFARMER to design a link building strategy that improves your search engine
                             ranking.
                         </p>
                     </div>
@@ -657,7 +655,7 @@
                     Looking for a <span class="animated-text"> Full-Suite SEO and Link </span> <br />
                     Building Solution?
                 </h2>
-                <h5 class="subtitle2-section text-center">At Linksfarmar – we offer a range of services to help you
+                <h5 class="subtitle2-section text-center">At LINKSFARMER – we offer a range of services to help you
                     build a strong backlink profile and boost your website’s SEO.</h5>
                 <div class="data_wrap">
                     <div class="row g-2 g-lg-3">

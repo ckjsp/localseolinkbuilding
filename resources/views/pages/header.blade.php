@@ -10,6 +10,8 @@
     <meta name="description" content="" />
 
     <link rel="icon" type="image/x-icon" href="{{ asset('public/img/faviconnew.svg')}}" />
+    <meta name="robots" content="noindex, nofollow">
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -86,39 +88,34 @@
 
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('guest-posting-services') }}"
-                                                    target="_blank">
+                                                    href="{{ route('guest-posting-services') }}">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Guest Posting </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('link-building-services') }}"
-                                                    target="_blank">
+                                                    href="{{ route('link-building-services') }}">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Link Building
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('content-writing-services') }}"
-                                                    target="_blank">
+                                                    href="{{ route('content-writing-services') }}">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Content Writing
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('seo-reseller-services') }}"
-                                                    target="_blank">
+                                                    href="{{ route('seo-reseller-services') }}">
                                                     <i class="ti ti-circle me-1"></i>
                                                     SEO Reseller
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('content-writing-services') }}"
-                                                    target="_blank">
+                                                    href="{{ route('content-writing-services') }}">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Content Marketing </a>
                                             </li>
@@ -143,38 +140,33 @@
 
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-broken-links-checker"
-                                                    target="_blank">
+                                                    href="https://freebestseotools.com/free-broken-links-checker">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Broken Links Finder </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/google-index-checker"
-                                                    target="_blank">
+                                                    href="https://freebestseotools.com/google-index-checker">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Google Index Checker </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-robots-txt-generator"
-                                                    target="_blank">
+                                                    href="https://freebestseotools.com/free-robots-txt-generator">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Robots.txt Generator
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-xml-sitemap-generator-tool"
-                                                    target="_blank">
+                                                    href="https://freebestseotools.com/free-xml-sitemap-generator-tool">
                                                     <i class="ti ti-circle me-1"></i>
                                                     XML Sitemap Generator
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/google-malware-checker-tool"
-                                                    target="_blank">
+                                                    href="https://freebestseotools.com/google-malware-checker-tool">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Google Malware Checker
                                                 </a>
@@ -187,23 +179,20 @@
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-seo-plagiarism-checker-tool"
-                                                    target="_blank">
+                                                    href="https://freebestseotools.com/free-seo-plagiarism-checker-tool">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Free Plagiarism Checker </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-word-counter-tool"
-                                                    target="_blank">
+                                                    href="https://freebestseotools.com/free-word-counter-tool">
                                                     <i class="ti ti-circle me-1"></i>
 
                                                     Word Counter </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/domain-whois-checker-too"
-                                                    target="_blank">
+                                                    href="https://freebestseotools.com/domain-whois-checker-too">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Whois Checker </a>
                                             </li>
@@ -218,7 +207,6 @@
 
                                 </div>
                             </div>
-
                         </li>
                         <li class="nav-item mega-dropdown">
                             <a href="https://freebestseotools.com/"
@@ -228,35 +216,22 @@
                             </a>
                             <div class="dropdown-menu custom-menu p-3 p-md-4">
                                 <div class="row gy-4">
-
                                     <div class="col-12 col-lg">
-
                                         <ul class="nav flex-column">
-
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('about-us') }}"
-                                                    target="_blank">
+                                                    href="{{ route('about-us') }}">
                                                     <i class="ti ti-circle me-1"></i>
                                                     About Us </a>
                                             </li>
+
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="#"
-                                                    target="_blank">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Life at Link Publishers
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('contact-us') }}"
-                                                    target="_blank">
+                                                    href="{{ route('contact-us') }}">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Contact Us
                                                 </a>
                                             </li>
-
                                         </ul>
                                     </div>
                                 </div>
@@ -277,28 +252,24 @@
 
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('blog') }}"
-                                                    target="_blank">
+                                                    href="{{ route('blog') }}">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Blogs </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('faq') }}"
-                                                    target="_blank">
+                                                    href="{{ route('faq') }}">
                                                     <i class="ti ti-circle me-1"></i>
                                                     FAQs
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="#"
-                                                    target="_blank">
+                                                    href="#">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Help Center
                                                 </a>
                                             </li>
-
                                         </ul>
                                     </div>
                                 </div>

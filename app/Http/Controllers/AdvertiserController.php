@@ -72,6 +72,7 @@ class AdvertiserController extends Controller
 
 
     public function projects()
+
     {
         $data = array();
         $data['slug'] = 'projects';
@@ -148,7 +149,7 @@ class AdvertiserController extends Controller
                 'categories' => serialize($validatedData['projectCategories']),
                 'forbidden_category' => !empty($validatedData['projectForbiddenCategories'])
                     ? serialize($validatedData['projectForbiddenCategories'])
-                    : null, // Serialize only if the value is not empty
+                    : null,
                 'additional_note' => $validatedData['additional_note'],
             ];
 
