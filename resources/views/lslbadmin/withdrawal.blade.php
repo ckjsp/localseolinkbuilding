@@ -4,16 +4,7 @@
 @section('sidebar-content')
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
-    <!-- <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    {{ __('My Orders') }}
-                    <a href="{{ route('publisher.orders.create') }}" class="btn btn-outline-primary float-end">+ Add Order</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
+
     @if(session('success'))
     <div class="alert alert-primary mt-3">{{ session('success') }}</div>
     @endif
@@ -32,7 +23,7 @@
                                 <th scope="col">Publisher email</th>
                                 <th scope="col">Transaction Date</th>
                                 <th scope="col">Amount</th>
-                                <th scope="col">Payment Email/UPI</th>
+                                <th scope="col">Payment info</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
@@ -43,8 +34,35 @@
                                 <td>{{ $withdrawal->publisher->email }}</td>
                                 <td>{{ $withdrawal->transaction_date }}</td>
                                 <td>{{ $withdrawal->amount }}</td>
-                                <td>{{ $withdrawal->payment_email }}</td>
-                                <td>{{ $withdrawal->status }}</td>
+                                <td>
+                                    <div class="d-flex mb-1">
+                                        <span class="fw-bolder pe-1">Payment type :</span>
+                                        {{ $withdrawal->user->preferred_method ?? 'N/A' }}
+                                    </div>
+                                    @if($withdrawal->user->preferred_method == 'paypal')
+                                    <div class="d-flex mb-1">
+                                        <span class="fw-bolder pe-1">Payment email:</span>
+                                        {{ $withdrawal->payment_email }}
+                                    </div>
+                                    @elseif($withdrawal->user->preferred_method == 'razorpay')
+                                    <div class="d-flex mb-1">
+                                        <span class="fw-bolder pe-1">Payment id :</span>
+                                        {{ $withdrawal->payment_email }}
+                                    </div>
+                                    @else
+                                    <div class="d-flex mb-1">
+                                        <span class="fw-bolder pe-1">payment_info:</span>
+                                        N/A
+                                    </div>
+                                    @endif
+                                </td>
+                                <td>
+                                    <select class="form-select status-dropdown" data-id="{{ $withdrawal->transaction_id }}">
+                                        <option value="pending" {{ $withdrawal->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                                        <option value="completed" {{ $withdrawal->status == 'completed' ? 'selected' : '' }}>Complete</option>
+                                    </select>
+                                </td>
+
                             </tr>
                             @endforeach
                         </tbody>
@@ -75,7 +93,6 @@
     </div>
 </div>
 @endsection
-
 @push('script')
 <script>
     $(document).ready(function() {
@@ -83,6 +100,32 @@
             "order": [
                 [5, 'desc']
             ]
+        });
+    });
+</script>
+<script>
+    $(document).on('change', '.status-dropdown', function() {
+        const withdrawalId = $(this).data('id');
+        const newStatus = $(this).val();
+
+        $.ajax({
+            url: '{{ route("updateWithdrawalStatus") }}',
+            method: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                id: withdrawalId,
+                status: newStatus
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert(response.message);
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function() {
+                alert('An error occurred while processing the request.');
+            }
         });
     });
 </script>

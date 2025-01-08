@@ -76,6 +76,12 @@ class lslbUser extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(lslbWebsite::class);
     }
 
+    public function transactions()
+    {
+        return $this->hasMany(lslbTransaction::class, 'publisher_id', 'id');
+    }
+
+
     /* function getUsersWithWebsite()
     {
         $selectedUserData = lslbUser::select('*', 'lslb_websites.id as web_id')->join('lslb_websites', 'lslb_users.id', '=', 'lslb_websites.user_id')->get();

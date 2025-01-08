@@ -86,7 +86,7 @@
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
                                 <p>Lite</p>
-                                <h3 class="mb-0">$79</h3>
+                                <h3 class="mb-0">$149</h3>
                             </div>
                             <div class="bottom_wrap">
 
@@ -133,7 +133,7 @@
                         <div class="pricing_plan_card colored_card ">
                             <div class="upper_wrap">
                                 <p>Standard</p>
-                                <h3 class="mb-0">$199</h3>
+                                <h3 class="mb-0">$399</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <div class="d-flex flex-column align-items-start justify-content-between">
@@ -181,7 +181,7 @@
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
                                 <p>Premium</p>
-                                <h3 class="mb-0">$399</h3>
+                                <h3 class="mb-0">$599</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <div class="d-flex flex-column align-items-start justify-content-between">
@@ -229,7 +229,7 @@
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
                                 <p>Customized</p>
-                                <h3 class="mb-0">$599</h3>
+                                <h3 class="mb-0">$999</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <div class="d-flex flex-column align-items-start justify-content-between">
@@ -660,48 +660,60 @@
                 <div class="data_wrap">
                     <div class="row g-2 g-lg-3">
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                            <a href="{{ route('content-writing-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Content Writing</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Content Writing</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                            <a href="{{ route('link-building-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Link Building</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Link Building</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                            <a href="{{ route('content-marketing-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Content Marketing</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Content Marketing</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                            <a href="{{ route('seo-reseller-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>SEO Reseller</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>SEO Reseller</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

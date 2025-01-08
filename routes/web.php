@@ -165,6 +165,9 @@ Route::controller(AdminController::class)->group(function () {
     });
 });
 
+Route::post('/withdrawal/update-status', [AdminController::class, 'updateWithdrawalStatus'])->name('updateWithdrawalStatus');
+
+
 
 Route::get('/lslb-admin/login', function () {
     return view('lslbadmin.login');
