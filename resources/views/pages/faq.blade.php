@@ -4,8 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-
     <title>FAQ | Frequently Asked Questions | Links Farmer
     </title>
     <meta name="description" content="Find answers to common questions about guest posting, link building, and SEO services at Links Farmer. Explore our FAQ now!
@@ -37,14 +35,10 @@
                         <h1 class="page-title">Frequently Asked Questions</span> </h1>
                         <h3 class="page_subtitle title_wdth">
                             Sure, everyone may have lots of queries, whatever the services may be. That’s why we have covered almost all possible questions and issues that help you with the best support.</h3>
-
                     </div>
                 </div>
-
                 <section class="section-py faq_section pt-60 pb-0">
                     <div class="container">
-
-
                         <div class="custom-accordian accordion accordion-flush mt-0" id="accordionFlushExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne">
@@ -167,9 +161,6 @@
                         </div>
                     </div>
                 </section>
-
-
-
             </div>
         </section>
     </div>
@@ -179,26 +170,13 @@
     <script src="{{ asset_url('js/bootstrap.js') }}"></script>
     <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
     <script src="{{ asset_url('js/front-main.js') }}"></script>
-
-    <!-- Core JS -->
-    <!-- build:js /js/core.js -->
     <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
     <script src="{{ asset_url('js/bootstrap.js') }}"></script>
     <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
-
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
     <script src="{{ asset_url('libs/nouislider/nouislider.js') }}"></script>
     <script src="{{ asset_url('libs/swiper/swiper.js') }}"></script>
-
-    <!-- Main JS -->
     <script src="{{ asset_url('assets/front-main.js') }}"></script>
-
-    <!-- Page JS -->
     <script src="{{ asset_url('assets/front-page-landing.js') }}"></script>
-
-
 </body>
 
 </html>

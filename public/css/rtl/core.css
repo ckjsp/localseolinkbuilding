@@ -29193,7 +29193,7 @@ ul.footer-list.social-links-wrap.mt-3 {
 }
 
 .marg_border:before {
-    content: url("http://127.0.0.1:8000/img/transform-strategy/Frame%20(64).svg");
+    content: url("../../img/transform-strategy/Frame%20(64).svg");
     position: absolute;
     left: 46px;
     width: 24px;

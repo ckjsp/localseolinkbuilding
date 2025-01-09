@@ -24,7 +24,7 @@
             <div class=" landing-hero position-relative">
                 <div class="container">
                     <div class="text-center">
-                        <h1 class="page-title">Professional <span class="animated-text"> content writing services <br /> by LINKSFARMER </h1>
+                        <h1 class="page-title">Professional <span class="animated-text"> content writing services</span> <br /> by LINKSFARMER </h1>
                         <h3 class="page_subtitle">
                             No doubt, your words define your brand! That’s why we specialize in creating compelling and SEO-friendly content. Through that, you can engage<br /> your audience and drive results. If you want blog posts, articles, website copy, or market content, our writers can help you. We deliver content for<br /> all your websites, social media, or white papers. You can get, </h3>
 
@@ -369,7 +369,7 @@
             <div class="container">
 
                 <h2 class="subtitle-section text-center">
-                    Are you in search of a <span class="animated-text"> complete solution <br />for your </span> digital product?
+                    Are you in search of a <span class="animated-text"> complete solution <br />for </span>your digital product?
                     </h>
                     <h5 class="subtitle2-section text-center">At LINKSFARMER – we offer a range of services to help you build a strong backlink profile and boost your website’s SEO.</h5>
 

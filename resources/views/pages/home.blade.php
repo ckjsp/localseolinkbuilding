@@ -297,9 +297,9 @@
                 </h2>
 
                 <div class="d-flex align-items-center">
-                    <!-- <button id="whyus-previous-btn" class="btn  swiper-btn me-3 scaleX-n1-rtl" type="button">
+                    <button id="whyus-previous-btn" class="btn  swiper-btn me-3 scaleX-n1-rtl d-none" type="button">
                         <i class="ti ti-chevron-left ti-sm"></i>
-                    </button> -->
+                    </button>
 
                     <div class="swiper-whyus-carousel overflow-hidden ">
                         <div class="swiper" id="swiper-whyus">
@@ -350,9 +350,9 @@
                         </div>
                     </div>
 
-                    <!-- <button id="whyus-next-btn" class="btn swiper-btn ms-3 scaleX-n1-rtl" type="button">
+                    <button id="whyus-next-btn" class="btn swiper-btn ms-3 scaleX-n1-rtl d-none" type="button">
                         <i class="ti ti-chevron-right ti-sm"></i>
-                    </button> -->
+                    </button>
 
                 </div>
 
