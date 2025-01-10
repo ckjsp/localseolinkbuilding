@@ -115,7 +115,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('content-writing-services') }}">
+                                                    href="{{ route('content-marketing-services') }}">
                                                     <i class="ti ti-circle me-1"></i>
                                                     Content Marketing </a>
                                             </li>
