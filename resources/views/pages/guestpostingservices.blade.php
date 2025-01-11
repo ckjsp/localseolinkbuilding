@@ -345,7 +345,7 @@
                 <div class="strait_timeline">
                     <div class="timeline_item">
                         <div class="left_wrap">
-                            <div class="d-flex align-items-center w-100">
+                            <div class="d-flex justify-content-center align-items-center w-100">
                                 <h5>0% Risk Process</h5>
                                 <span></span>
                             </div>
@@ -366,7 +366,7 @@
                     </div>
                     <div class="timeline_item">
                         <div class="left_wrap">
-                            <div class="d-flex align-items-center w-100">
+                            <div class="d-flex justify-content-center align-items-center w-100">
                                 <h5>Biggest Catalog</h5>
                                 <span></span>
                             </div>
@@ -384,7 +384,7 @@
                     </div>
                     <div class="timeline_item">
                         <div class="left_wrap">
-                            <div class="d-flex align-items-center w-100">
+                            <div class="d-flex justify-content-center align-items-center w-100">
                                 <h5>Supporting Media</h5>
                                 <span></span>
                             </div>
@@ -402,7 +402,7 @@
                     </div>
                     <div class="timeline_item">
                         <div class="left_wrap">
-                            <div class="d-flex align-items-center w-100">
+                            <div class="d-flex justify-content-center align-items-center w-100">
                                 <h5>How Does It Work?</h5>
                                 <span></span>
                             </div>

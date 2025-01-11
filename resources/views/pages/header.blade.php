@@ -74,7 +74,7 @@
                     <ul class="navbar-nav mx-auto">
 
                         <li class="nav-item mega-dropdown">
-                            <a href="https://freebestseotools.com/"
+                            <a href="{{ route('seo-reseller-services') }}"
                                 class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
                                 aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
                                 Service
