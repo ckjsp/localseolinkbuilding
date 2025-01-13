@@ -353,63 +353,63 @@
                     <span class="animated-text"> Should Partner</span>
                     with Us
                 </h2>
-                <h5 class="subtitle2-section text-center">Our SEO reseller program is the key to unlocking growth for your agency. You get a distinct advantage when you use our<br /> SEO reseller service.</h5>
-                <h5 class="subtitle2-section text-center">Here are some of them.</h5>
+                <h5 class="subtitle2-section text-center">Partnering with us through our SEO reseller program gonna give you a competitive edge and unlock new growth opportunities.</h5>
+                <!-- <h5 class="subtitle2-section text-center">Here are some of them.</h5> -->
                 <div class="data_wrap mt-60">
                     <div class="row g-3">
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>A One-stop Outsourced Partner :</h5>
-                                <p>LINKSFARMER is one of the best outsourced SEO reseller services providers in the USA. We pride ourselves on being a long-term partner for our clients for 10+ Years.</p>
+                                <p>Today, we have proudly been a top outsourced SEO reseller service provider in the USA Market. Diverse professionals have reached us for trusted long-term partnerships over a decade.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>High-ranking Resalable Designs :</h5>
-                                <p>A wide range of high-quality link-building, content services, and SEO that are customizable and built explicitly for resale.</p>
+                                <p>We offer a diverse selection of premium, customizable link-building, content, and SEO services. They are designed specifically for resale.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Personalized Dashboard :</h5>
-                                <p>You have a personalized dashboard that enables you to place, track, and manage orders easily.</p>
+                                <p>You can have a customized dashboard. It gonna allow for effortless order placement, tracking, and management.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>100% White Label SEO :</h5>
-                                <p>You get 100% versatile white-label reseller SEO that can be conveniently resold as a standalone or a part of a broader marketing strategy.</p>
+                                <p>You are able to opt for 100% adaptable white-label reseller SEO. This is what makes sure easy to resell on its own or integrated into a larger marketing strategy.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Dedicated Account Manager :</h5>
-                                <p>Your SEO reseller agency will have a dedicated account manager assigned to them.</p>
+                                <p>Reaching us means reducing your burden even by hiring a dedicated account manager. Their flawless work helps you manage things better.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Access to High-ranking Keywords :</h5>
-                                <p>You get access to various high-ranking keywords. LINKSFARMER already have over 450,000 high-volume keywords on Google's first page.</p>
+                                <p>You can access a plethora of high-ranking keywords by reaching us. We, LINKSFARMER boast over 450,000 high-volume keywords currently on Google's first page that helps you.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Amazing Prices :</h5>
-                                <p>Our prices are flexible and designed for SEO reseller companies and white-label SEO resellers.
+                                <p>We offer prices which is adaptable and tailored specifically for SEO reseller companies and white-label SEO resellers.
                                 </p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Bulk Order Discounts :</h5>
-                                <p>We offer incredible discounts on our SEO reseller services when you place bulk orders.</p>
+                                <p>Enjoy amazing savings on our SEO reseller services for your bulk orders by reaching LINKSFARMER.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Result-driven Packages :</h5>
-                                <p>LINKSFARMER have a wide range of result-driven SEO reseller packages that can offer numerous benefits.
+                                <p>LINKSFARMER offers a diverse selection of effective SEO reseller packages that offer exceptional advantages.
                                 </p>
                             </div>
                         </div>
@@ -595,7 +595,7 @@
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
                         <h2>Choose Us For SEO Reseller Services</h2>
-                        <p>For 10+ years, we have proven ourselves to be one of the best SEO Reseller in the US. We<br /> cater to the needs of business consultants, design agencies, and other marketing agencies.
+                        <p>With over a decade of experience, we have established ourselves as a leading SEO reseller in the US. By serving the needs of business consultants, design agencies, and various marketing firms, we become everyone’s choice.
                         </p>
                     </div>
                     <button type="button" class="btn-white d-block mx-auto">Register Now</button>

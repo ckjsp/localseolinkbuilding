@@ -21,7 +21,8 @@ if (!function_exists('asset_url')) {
         if (env('APP_ENV') === 'local') {
             return $base_url . '/' . $mainSlug;
         } else {
-            return $base_url . '/public/' . $mainSlug;
+            // return $base_url . '/public/' . $mainSlug;
+            return $base_url . '/' . $mainSlug;
         }
         //return $base_url . '/' . $mainSlug;
     }
@@ -86,5 +87,3 @@ if (!function_exists('checkBankImage')) {
         return (file_exists($url)) ? $url : asset_url('images/favicon.png');
     }
 }
-
-?>

@@ -73,8 +73,8 @@
                         <div class="col-lg-6  col-sm-12">
                             <div class="custom_card">
                                 <h3>
-                                    Not Sure Which Plan Suits You the Best? Contact us, and let’s help you make the
-                                    right choice.
+                                    Aren’t you able to be sure which plan can suit you? Then, contact us to make an informed decision ever!
+
                                 </h3>
                                 <button type="button" class="btn-white">Talk to an Expert</button>
                             </div>
@@ -82,8 +82,8 @@
                         <div class="col-lg-6  col-sm-12">
                             <div class="custom_card">
                                 <h3>
-                                    Ready to supercharge your strategy? Level up your Content game with a tailor-made
-                                    plan for buying guest posts.
+                                    Simply, elevate your strategy and enhance your content with our customized plan for your required guest posts.
+
                                 </h3>
                                 <button type="button" class="btn-white">Build Your Customize Plan</button>
                             </div>
@@ -139,7 +139,7 @@
                     How Does <span class="animated-text"> Content Writing Service</span> Work?
                 </h2>
                 <h3 class="page_subtitle text-center">
-                    The only thing you need to do is discuss your content requirements with our representative. He will assign you the best content writer based on<br /> your individual needs. Can it get any simpler than this?</h3>
+                    Before you start using our content writing service, simply share your requirements with our representative. We significantly match you with the ideal writer for your needs which makes everything easy!</h3>
                 <ul class="custom_timeline timeline pb-0 mb-0">
                     <li class="timeline-item timeline-item-transparent">
                         <div class="left_wrap">
@@ -147,7 +147,7 @@
                         </div>
                         <div class="right_wrap">
                             <h4>Opt for Hire Content Writing</h4>
-                            <p>When you are placing the Guest Posting order, select ‘hire content writer’. Even if you are looking to get content writing services for your website we do that too! Go to the Content Writing section and place an order.</p>
+                            <p>First, hire a content writer when you want to place your Guest Posting order. If you need website content, just head to the Content Writing section. This is what helps you to place your order!</p>
                         </div>
 
                     </li>
@@ -157,7 +157,7 @@
                         </div>
                         <div class="right_wrap">
                             <h4>Customize Your Order</h4>
-                            <p>Next step is to customize the order by selecting your preferred voice, content type, writing style, add keywords, and mention your target URL.</p>
+                            <p>The second thing is, involved in personalizing your order by choosing your desired voice. Especially, choose your desired content type, and writing style. Don’t forget to add keywords, and specify your target URL.</p>
                         </div>
 
                     </li>
@@ -167,7 +167,7 @@
                         </div>
                         <div class="right_wrap">
                             <h4>Finalize Word Count</h4>
-                            <p>Then mention how lengthy you want your content to be? As you will select the word count, you will get the estimated price in the dialogue box on the right side.</p>
+                            <p>The third step is, to try to indicate your desired word count. Sure, you'll see the estimated price that is displayed in the dialogue box on the right side.</p>
                         </div>
 
                     </li>
@@ -178,7 +178,7 @@
                         </div>
                         <div class="right_wrap">
                             <h4>Get Your Content Written</h4>
-                            <p>As soon as you place the order, our versatile marketing content writer will start working on your content. Also, proofreading and reviewing will be done before submitting it.</p>
+                            <p>Finally, our skilled marketing content writer will promptly start crafting your content. These might be proofread and reviewed before submission.</p>
                         </div>
 
                     </li>
@@ -238,7 +238,7 @@
                     What Type of
                     <span class="animated-text"> Content Writing Services<br /> </span>Can You Opt For?
                 </h2>
-                <h5 class="subtitle2-section text-center">Our team offers extensive types of content writing services. You will surely thank high-quality content writers who work for you! Our experienced content writers have a knack for writing fresh content. This is what ensures that we are always up for the challenges in content writing and blog posts for each service. Here are the types of content services:</h5>
+                <h5 class="subtitle2-section text-center">We, LINKSFARMER provide a wide range of high-quality content writing services. You can ensure all of them are fresh and engaging content. These gonna meet every challenge and need of you.</h5>
                 <div class="data_wrap">
                     <div class="d-flex flex-wrap justify-content-center gap-2 gap-md-3 ">
                         <div class="data_card data_width">
@@ -440,7 +440,7 @@
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
                         <h2>Content Writing Services!</h2>
-                        <p>Struggling to express your ideas in words? Our expert content writers will do that for you with your preferred length and brand’s voice. Give it a try! Our extraordinary website content writing services along with the other services make us the best content writing services agency.
+                        <p>Have you been troubled while articulating your thoughts? Reach us who have skilled content writers. They capture your ideas in your desired length and brand voice. So that we are always a premier choice for exceptional website content and more.
                         </p>
                     </div>
                     <button type="button" class="btn-white d-block mx-auto">Register Now</button>
