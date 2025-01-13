@@ -370,8 +370,7 @@
                     digital
                     product?
                 </h2>
-                <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded
-                    strategy to boost your online presence.</h5>
+                <h5 class="subtitle2-section text-center">Enhance your online presence with our tailored services crafted for a comprehensive strategy.</h5>
 
                 <div class="data_wrap">
                     <div class="row gy-3">
@@ -444,10 +443,8 @@
                 <div class="registered-wrap">
                     <div class="row  align-items-center flex-column-reverse flex-md-row">
                         <div class="col-md-6">
-                            <h2>First AI-Driven Guest Post& Link Building Platform</h2>
-                            <p>The future of link Building is here. Say goodbye to manual outreach. Reach a Wider
-                                Audience
-                                and build Authority with AI-suggested guest blogging on high-DA websites.</p>
+                            <h2>The First Artificial Intelligence Driven Guest Post & Link Building Spot!</h2>
+                            <p>Revolutionize your link-building effortlessly with our AI-driven guest post platform. You'll be 100% sure to reach a wider audience and establish authority on high-DA websites. Embrace it without the hassle of manual outreach.</p>
                             <button type="button" class="btn-white">Get Registered</button>
                         </div>
                         <div class="col-md-6">
