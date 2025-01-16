@@ -22,12 +22,9 @@
                 <div class="container">
                     <div class="text-center">
                         <h1 class="page-title">LINKSFARMER: Your <span class="animated-text"> Friendly <br /> SEO Reseller </span>Partner </h1>
-                        <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle">
                             Expand your business offerings without additional overhead by partnering with us. We are the best SEO reseller and offer<br /> seamless white-label SEO services. With us, you can embrace exceptional results. </h3>
-                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
-                            Looking for the best link building platform? Join Links farmer today!
-                        </h2> -->
+
                     </div>
                     <div class="guest_posting_wrap mb-5">
                         <div class="row g-2 gy-md-5 ">
@@ -79,7 +76,7 @@
                     Pricing & 
                     <span class="animated-text"> Plans </span>
                 </h2>
-                <h5 class="subtitle2-section text-center">We believe in providing competitive pricing. Whatever SEO reseller packages you choose from the<br /> ones mentioned below, we assure you of the best seo reseller plans at the right price!</h5>
+                <h5 class="subtitle2-section text-center">We believe in providing competitive pricing. Whatever SEO reseller packages you choose from the<br /> ones mentioned below, we assure you of the best SEO reseller plans at the right price!</h5>
                 <div class="row g-3 mt-60">
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="pricing_plan_card">
@@ -268,20 +265,20 @@
 
                     <div class="col-lg-6  col-sm-12">
                         <h2 class="subtitle-section ">
-                        Benefits Of Our 
-                            <span class="animated-text">SEO Reseller  </span>Program
+                            Benefits Of Our
+                            <span class="animated-text">SEO Reseller </span>Program
                         </h2>
                         <h5 class="subtitle2-section">There is no need for additional staff or investment in tools, which means it is cost-effective for seekers</h5>
                         <h5 class="subtitle2-section">Focus on growth by expanding your client base by getting our SEO services.</h5>
                         <h5 class="subtitle2-section">We offer high-quality services that help you generate new revenue streams.</h5>
                         <h5 class="subtitle2-section">All deliverables are branded with your company’s identity that ensures the brand’s consistency.</h5>
                         <h5 class="subtitle2-section">With our SEO reseller plans, you can focus on your core business because we handle the work behind the scenes.</h5>
-                        
+
                     </div>
                 </div>
         </section>
 
-        <section class="section-py linkedfarmer_different_section light-bg" >
+        <section class="section-py linkedfarmer_different_section light-bg">
             <div class="container">
                 <h2 class="subtitle-section text-center mb-60">
                     Our <span class="animated-text"> Incredible</span> Process
@@ -356,63 +353,63 @@
                     <span class="animated-text"> Should Partner</span>
                     with Us
                 </h2>
-                <h5 class="subtitle2-section text-center">Our SEO reseller program is the key to unlocking growth for your agency. You get a distinct advantage when you use our<br /> SEO reseller service.</h5>
-                <h5 class="subtitle2-section text-center">Here are some of them.</h5>
+                <h5 class="subtitle2-section text-center">Partnering with us through our SEO reseller program gonna give you a competitive edge and unlock new growth opportunities.</h5>
+                <!-- <h5 class="subtitle2-section text-center">Here are some of them.</h5> -->
                 <div class="data_wrap mt-60">
                     <div class="row g-3">
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>A One-stop Outsourced Partner :</h5>
-                                <p>LINKSFARMER is one of the best outsourced SEO reseller services providers in the USA. We pride ourselves on being a long-term partner for our clients for 10+ Years.</p>
+                                <p>Today, we have proudly been a top outsourced SEO reseller service provider in the USA Market. Diverse professionals have reached us for trusted long-term partnerships over a decade.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>High-ranking Resalable Designs :</h5>
-                                <p>A wide range of high-quality link-building, content services, and SEO that are customizable and built explicitly for resale.</p>
+                                <p>We offer a diverse selection of premium, customizable link-building, content, and SEO services. They are designed specifically for resale.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Personalized Dashboard :</h5>
-                                <p>You have a personalized dashboard that enables you to place, track, and manage orders easily.</p>
+                                <p>You can have a customized dashboard. It gonna allow for effortless order placement, tracking, and management.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>100% White Label SEO :</h5>
-                                <p>You get 100% versatile white-label reseller SEO that can be conveniently resold as a standalone or a part of a broader marketing strategy.</p>
+                                <p>You are able to opt for 100% adaptable white-label reseller SEO. This is what makes sure easy to resell on its own or integrated into a larger marketing strategy.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Dedicated Account Manager :</h5>
-                                <p>Your SEO reseller agency will have a dedicated account manager assigned to them.</p>
+                                <p>Reaching us means reducing your burden even by hiring a dedicated account manager. Their flawless work helps you manage things better.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Access to High-ranking Keywords :</h5>
-                                <p>You get access to various high-ranking keywords. LINKSFARMER already have over 450,000 high-volume keywords on Google's first page.</p>
+                                <p>You can access a plethora of high-ranking keywords by reaching us. We, LINKSFARMER boast over 450,000 high-volume keywords currently on Google's first page that helps you.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Amazing Prices :</h5>
-                                <p>Our prices are flexible and designed for SEO reseller companies and white-label SEO resellers.
+                                <p>We offer prices which is adaptable and tailored specifically for SEO reseller companies and white-label SEO resellers.
                                 </p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Bulk Order Discounts :</h5>
-                                <p>We offer incredible discounts on our SEO reseller services when you place bulk orders.</p>
+                                <p>Enjoy amazing savings on our SEO reseller services for your bulk orders by reaching LINKSFARMER.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="data_card">
                                 <h5>Result-driven Packages :</h5>
-                                <p>LINKSFARMER have a wide range of result-driven SEO reseller packages that can offer numerous benefits.
+                                <p>LINKSFARMER offers a diverse selection of effective SEO reseller packages that offer exceptional advantages.
                                 </p>
                             </div>
                         </div>
@@ -433,53 +430,65 @@
                 <h2 class="subtitle-section text-center">
                     Looking for a <span class="animated-text"> Full-Suite SEO and Link </span> <br /> Building Solution?
                 </h2>
-                <h5 class="subtitle2-section text-center">At Linksfarmar – we offer a range of services to help you build a strong backlink profile and boost your website’s SEO.</h5>
+                <h5 class="subtitle2-section text-center">At LINKSFARMER – we offer a range of services to help you build a strong backlink profile and boost your website’s SEO.</h5>
 
                 <div class="data_wrap">
                     <div class="row gy-3">
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                            <a href="{{ route('content-writing-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Content Writing</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Content Writing</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                            <a href="{{ route('link-building-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Link Building</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Link Building</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                            <a href="{{ route('content-marketing-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Content Marketing</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Content Marketing</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                            <a href="{{ route('seo-reseller-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>SEO Reseller</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>SEO Reseller</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -489,9 +498,7 @@
         </section>
         <section class="section-py faq_section">
             <div class="container">
-                <div class="text-center mb-3">
-                    <span class="title-section animated-text">FAQs</span>
-                </div>
+
                 <h2 class="subtitle-section text-center">
                     Frequently Asked Questions </h2>
                 <div class="custom-accordian accordion accordion-flush" id="accordionFlushExample">
@@ -548,7 +555,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseFoure" aria-expanded="false"
+                                data-bs-target="#flush-collapseFour" aria-expanded="false"
                                 aria-controls="flush-collapseFour">
                                 Can I brand the SEO services as my own?
                             </button>
@@ -588,7 +595,7 @@
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
                         <h2>Choose Us For SEO Reseller Services</h2>
-                        <p>For 10+ years, we have proven ourselves to be one of the best SEO Reseller in the US. We<br /> cater to the needs of business consultants, design agencies, and other marketing agencies.
+                        <p>With over a decade of experience, we have established ourselves as a leading SEO reseller in the US. By serving the needs of business consultants, design agencies, and various marketing firms, we become everyone’s choice.
                         </p>
                     </div>
                     <button type="button" class="btn-white d-block mx-auto">Register Now</button>

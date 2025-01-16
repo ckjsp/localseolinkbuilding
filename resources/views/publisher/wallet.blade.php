@@ -26,12 +26,10 @@
                 @csrf
                 <div class="form-group mb-3">
                     <div class="row">
-                        <!-- Input for UPI ID -->
                         <div class="col-2">
                             <input type="text" id="upi_id" name="upi_id" class="form-control" placeholder="Enter your UPI ID" required>
                         </div>
 
-                        <!-- Hidden input for wallet balance -->
                         <input type="hidden" id="wallet_balance" name="wallet_balance" value="{{ $wallet_balance }}">
 
                         <div class="col-2">

@@ -64,6 +64,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\lslbUser
      */
+
     protected function create(array $data)
 
     {
@@ -75,11 +76,6 @@ class RegisterController extends Controller
             'identity' => $data['identity'],
             'password' => Hash::make($data['password']),
         ]);
-
-
-        event(new Registered($user));
-
-        $user->sendEmailVerificationNotification();
 
         return $user;
     }

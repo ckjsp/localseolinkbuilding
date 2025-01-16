@@ -8,9 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
     <title>@yield('title')</title>
-
     <meta name="description" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="YLCayHYkKvCKvayPOUHJnQ43h6I2p0IEf35uBwX7iQo" />
@@ -31,7 +29,6 @@
     <link rel="stylesheet" href="{{ asset_url('fonts/flag-icons.css') }}" />
     <link rel="canonical" href="{{ url()->current() }}">
 
-
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset_url('css/rtl/core.css') }}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset_url('css/rtl/theme-default.css') }}" class="template-customizer-theme-css" />
@@ -49,17 +46,12 @@
     @auth
     <link rel="stylesheet" href="{{ asset_url('css/pages/cards-advance.css') }}" />
     @endauth
-
     @stack('css')
-
     <script src="{{ asset_url('js/jquery.js') }}"></script>
 
     <!-- Helpers -->
     <script src="{{ asset_url('js/helpers.js') }}"></script>
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
     <script src="{{ asset_url('js/template-customizer.js') }}"></script>
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset_url('js/config.js') }}"></script>
     <script src="{{ asset_url('js/form-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset_url('js/form-validation/additional-methods.min.js') }}"></script>
@@ -75,6 +67,7 @@
     <!-- Layout wrapper -->
     <div
         class="{{ (Auth::user()->role->name == 'Advertiser' && $slug != 'marketplace') ? 'layout-wrapper layout-navbar-full layout-horizontal layout-without-menu' : 'layout-wrapper layout-content-navbar' }}">
+
         <div class="layout-container">
             @if(Auth::user()->role->name == 'Advertiser')
             @include('includes.second_navbar')
@@ -98,13 +91,15 @@
         <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
     </div>
+
     <!-- / Layout wrapper -->
+
     @endif
     @endauth
     @yield('auth-content')
+
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-
     <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
     <script src="{{ asset_url('js/bootstrap.js') }}"></script>
     <script src="{{ asset_url('libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
@@ -131,10 +126,28 @@
             $('.nav-cart-icon').attr('data-item-count', $cartArr.length);
         }
     </script>
-
     @endif
     @endauth
     @stack('script')
+
+
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6784e3bd49e2fd8dfe069a7c/1ihfhj7t5';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
 </body>
 
 </html>

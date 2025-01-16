@@ -21,18 +21,14 @@
             <div class=" landing-hero position-relative">
                 <div class="container">
                     <div class="text-center mb-40">
-                        <h1 class="page-title">FirstAI-Driven How <span class="animated-text"> Guest Posting
+                        <h1 class="page-title">How <span class="animated-text"> Guest Posting
                                 Boosts</span> <br /> Your
-                            Brand’s
+                            Brand’s Phenomenal
                             Reach?</h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle">
-                            Grow your website’s authority and traffic and achieve more conversions with <br /> our
-                            proven guest
-                            posting tactics.! </h3>
-                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
-                            Looking for the best link building platform? Join Links farmer today!
-                        </h2> -->
+                            Enhance your website's authority, increase traffic, and boost conversions through our effective guest posting strategies. Our tactics will mesmerize you!</h3>
+
                     </div>
                     <div class="guest_posting_wrap mb-5">
                         <div class="row g-2 gy-md-5 ">
@@ -82,8 +78,7 @@
                         <div class="col-lg-6  col-sm-12">
                             <div class="custom_card">
                                 <h3>
-                                    Not Sure Which Plan Suits You the Best? Contact us, and let’s help you make the
-                                    right choice.
+                                    Aren’t you able to be sure which plan can suit you? Then, contact us to make an informed decision ever!
                                 </h3>
                                 <button type="button" class="btn-white">Talk to an Expert</button>
                             </div>
@@ -91,8 +86,7 @@
                         <div class="col-lg-6  col-sm-12">
                             <div class="custom_card">
                                 <h3>
-                                    Ready to supercharge your strategy? Level up your Content game with a tailor-made
-                                    plan for buying guest posts.
+                                    Simply, elevate your strategy and enhance your content with our customized plan for your required guest posts.
                                 </h3>
                                 <button type="button" class="btn-white">Build Your Customize Plan</button>
                             </div>
@@ -108,8 +102,7 @@
                     Our Guest
                     <span class="animated-text"> Post Packages </span>
                 </h2>
-                <h5 class="subtitle2-section text-center">A competitive price is our forte! Whether you choose any of
-                    our below attractive packages, you will get the best services at the best price.</h5>
+                <h5 class="subtitle2-section text-center">Why to call us? We pride ourselves on offering unbeatable prices ensuring that with any of our appealing packages. Users can receive top-notch services at fantastic rates by reaching us.</h5>
 
                 <div class="custom_radio_buttons">
                     <label>I want to buy a Guest Post Package
@@ -127,7 +120,7 @@
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
                                 <p>Lite</p>
-                                <h3 class="mb-0">$139</h3>
+                                <h3 class="mb-0">$179</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <ul>
@@ -170,7 +163,7 @@
                         <div class="pricing_plan_card colored_card ">
                             <div class="upper_wrap">
                                 <p>Standard</p>
-                                <h3 class="mb-0">$159</h3>
+                                <h3 class="mb-0">$299</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <ul>
@@ -214,7 +207,7 @@
                         <div class="pricing_plan_card">
                             <div class="upper_wrap">
                                 <p>Premium</p>
-                                <h3 class="mb-0">$359</h3>
+                                <h3 class="mb-0">$699</h3>
                             </div>
                             <div class="bottom_wrap">
                                 <ul>
@@ -262,17 +255,10 @@
 
                 <h2 class="subtitle-section text-center">
                     Transform Your
-                    <span class="animated-text"> Strategy with Linksfarmer </span>Services
+                    <span class="animated-text"> Strategy with LINKSFARMER </span>Services
                 </h2>
-                <h5 class="subtitle2-section text-center">Guest posting using traditional methods is extremely complex
-                    and time-consuming. You need to invest in high-quality content and approach multiple websites. And
-                    despite all the effort, the probability of you getting the backlink is pretty low. However, Link
-                    Linksfarmer has your back.</h5>
+                <h5 class="subtitle2-section text-center">Navigating traditional guest posting can be a daunting and time-consuming task with low success rates. But we ensure you to easily purchase guest posts. Explore from a vast selection of over 114,828 reputable sites across various niches. We help you access high-quality backlinks and guest posts that are tailored to your needs. </h5>
 
-                <h5 class="subtitle2-section text-center">As one of the largest guest post marketplaces, LINKSFARMER
-                    allows you to buy guest posts from our pool of 114,828+ global websites of various niches. You can
-                    choose high-domain authority websites in your niche, upload content, or hire our expert writers if
-                    you don't have content, and get as many quality guest posts as you wish.</h5>
 
                 <div class="data_wrap">
                     <div class="d-flex flex-wrap justify-content-center gap-2 gap-md-3 ">
@@ -345,7 +331,7 @@
                 <div class="strait_timeline">
                     <div class="timeline_item">
                         <div class="left_wrap">
-                            <div class="d-flex align-items-center w-100">
+                            <div class="d-flex justify-content-center align-items-center w-100">
                                 <h5>0% Risk Process</h5>
                                 <span></span>
                             </div>
@@ -366,7 +352,7 @@
                     </div>
                     <div class="timeline_item">
                         <div class="left_wrap">
-                            <div class="d-flex align-items-center w-100">
+                            <div class="d-flex justify-content-center align-items-center w-100">
                                 <h5>Biggest Catalog</h5>
                                 <span></span>
                             </div>
@@ -384,7 +370,7 @@
                     </div>
                     <div class="timeline_item">
                         <div class="left_wrap">
-                            <div class="d-flex align-items-center w-100">
+                            <div class="d-flex justify-content-center align-items-center w-100">
                                 <h5>Supporting Media</h5>
                                 <span></span>
                             </div>
@@ -402,7 +388,7 @@
                     </div>
                     <div class="timeline_item">
                         <div class="left_wrap">
-                            <div class="d-flex align-items-center w-100">
+                            <div class="d-flex justify-content-center align-items-center w-100">
                                 <h5>How Does It Work?</h5>
                                 <span></span>
                             </div>
@@ -546,58 +532,7 @@
                                         </div>
 
                                     </div>
-                                    <!-- <div class="swiper-slide">
-                                        <div class="card h-100 reviews-card">
 
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="logo-wrap me-2 ">
-                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
-                                                </div>
-                                                <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
-                                                    <div class="text-warning">
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card h-100 reviews-card">
-
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="logo-wrap me-2 ">
-                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
-                                                </div>
-                                                <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
-                                                    <div class="text-warning">
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
-                                            </p>
-                                        </div>
-
-                                    </div> -->
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
@@ -612,7 +547,8 @@
             <div class="container">
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
-                        <h2>Boost your backlink game with AI-powered guest posting</h2>
+                        <h2>Magnify your backlink strategy with our promising services of AI-driven guest posting.
+                        </h2>
                     </div>
                     <button type="button" class="btn-white d-block mx-auto">Book a Free Demo now!</button>
                 </div>
@@ -622,7 +558,7 @@
             <div class="container">
 
                 <h2 class="subtitle-section text-center">
-                    How Linksfarmar <span class="animated-text"> Works</span>
+                    How LINKSFARMER <span class="animated-text"> Works</span>
                 </h2>
 
                 <ul class="custom_timeline timeline pb-0 mb-0">
@@ -681,7 +617,7 @@
             <div class="container">
                 <h2 class="subtitle-section text-center">
                     How Guest
-                    <span class="animated-text"> Posting Boosts Your Brand's </span>Reach
+                    <span class="animated-text"> Posting Boosts Your Brand's </span>Reach?
                 </h2>
                 <div class="data_wrap">
                     <div class="row g-3  ">
@@ -702,10 +638,8 @@
                                 <div class="icon_wrap">
                                     <img src="{{ asset_url('img/guest-posting/img_2.png') }}" alt="linksfarmer-img">
                                 </div>
-                                <h6>Improves Search Ranking</h6>
-                                <p>At LINKSFARMER, you can place guest posts on high-DA websites. And when high DA
-                                    websites redirect traffic to your site, Google considers your website more valuable
-                                    and trustworthy, boosting your domain authority.</p>
+                                <h6>Boost Domain Authority </h6>
+                                <p>At LINKSFARMER, you can publish guest posts on reputable high-DA websites. It gonna can enhance your site's value and trustworthiness in Google's view. This is what ultimately increases your domain authority.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 ">
@@ -714,8 +648,7 @@
                                     <img src="{{ asset_url('img/guest-posting/img_3.png') }}" alt="linksfarmer-img">
                                 </div>
                                 <h6>Drive High-Intent Traffic</h6>
-                                <p>Posting relevant guest blog on relevant websites in your niche drives high-intent
-                                    traffic, which is easy to convert.</p>
+                                <p>Publishing relevant guest blogs on niche websites helps to attract motivated traffic. They can be easier to convert.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 ">
@@ -724,9 +657,7 @@
                                     <img src="{{ asset_url('img/guest-posting/img_4.png') }}" alt="linksfarmer-img">
                                 </div>
                                 <h6>Increases Brand Awareness</h6>
-                                <p>We are a Top Guest posting service provider publishing content on websites relevant
-                                    to your niche, attracting a wide range of audiences to your website. This
-                                    supercharges your brand awareness. </p>
+                                <p>We, LINKSFARMER serve as a leading guest posting platform and enhance brand visibility for sure. By publishing this highly niche-relevant content, you can draw diverse audiences to your platform for sure. </p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 ">
@@ -734,9 +665,8 @@
                                 <div class="icon_wrap">
                                     <img src="{{ asset_url('img/guest-posting/img_5.png') }}" alt="linksfarmer-img">
                                 </div>
-                                <h6>Helps with link-building</h6>
-                                <p>Buying quality guest posts helps you acquire high-quality backlinks and enhance
-                                    link-building efforts, which boosts your backlink profile and, thus, your ranking.
+                                <h6>High-Quality Link-Buildings </h6>
+                                <p>Yup, purchasing quality guest posts allows you to gain valuable backlinks. It even improves your link-building strategy, and ultimately strengthens your backlink profile. So simply enhance your rankings with us.
                                 </p>
                             </div>
                         </div>
@@ -746,9 +676,7 @@
                                     <img src="{{ asset_url('img/guest-posting/img_6.png') }}" alt="linksfarmer-img">
                                 </div>
                                 <h6>Enhances Credibility</h6>
-                                <p>Insightful guest posts on popular and high DA websites can portray you as a thought
-                                    leader or industry expert. Also, when you get traffic from high DA sites, your
-                                    credibility rises, and so does your search ranking.</p>
+                                <p>Publishing insightful guest posts on high-authority websites not only turns you into an industry expert. Besides, it enhances your credibility and improves your search ranking through increased traffic.</p>
                             </div>
                         </div>
                     </div>
@@ -757,9 +685,7 @@
         </section>
         <section class="section-py faq_section">
             <div class="container">
-                <div class="text-center mb-3">
-                    <span class="title-section animated-text">FAQs</span>
-                </div>
+
                 <h2 class="subtitle-section text-center">
                     Frequently Asked Questions </h2>
                 <div class="custom-accordian accordion accordion-flush" id="accordionFlushExample">
@@ -874,48 +800,61 @@
                 <div class="data_wrap">
                     <div class="row g-2 g-lg-3">
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                            <a href="{{ route('content-writing-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Content Writing</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Content Writing</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                            <a href="{{ route('link-building-services') }}">
+
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Link Building</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Link Building</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                            <a href="{{ route('content-marketing-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Content Marketing</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Content Marketing</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                            <a href="{{ route('seo-reseller-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>SEO Reseller</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>SEO Reseller</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -927,8 +866,7 @@
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
                         <h2>Skyrocket your traffic with powerful guest posts.</h2>
-                        <p>Book your free demo and see how our marketplace connects you with high-quality blogs in
-                            minutes.
+                        <p>Schedule your free demo and discover how the marketplace links you with premium blogs in no time!
                         </p>
                     </div>
 

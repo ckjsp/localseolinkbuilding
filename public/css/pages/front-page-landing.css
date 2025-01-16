@@ -1578,6 +1578,7 @@ footer .footer-list li .icon-div-wrap svg {
 
   .linear_bg_section .linear_bg_wrap {
     padding: 40px 30px;
+    background-image:  linear-gradient(92.07deg, #84F9A6 -0.22%, #0ACCF7 101.16%);
     /* background-size: 20%, 20%, 100%; */
   }
 
@@ -1651,6 +1652,28 @@ footer .footer-list li .icon-div-wrap svg {
 
   .transform_strategy_section .data_wrap .data_card .icon_wrap {
     margin-bottom: 10px;
+  }
+
+  .strait_timeline .timeline_item {
+    flex-direction: column;
+  }
+
+  .strait_timeline .timeline_item .left_wrap:before {
+    left: 50%;
+    top: -43%;
+  }
+  .strait_timeline .timeline_item .left_wrap span {
+    display: none;
+  }
+
+  .strait_timeline .timeline_item .left_wrap {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+  .strait_timeline .timeline_item .left_wrap h5 {
+    font-size: 20px;
+    line-height: 30px;
   }
 }
 
@@ -1859,7 +1882,6 @@ footer .footer-list li .icon-div-wrap svg {
 }
 
 .light-style .landing-hero {
-  /* background: linear-gradient(138.18deg, #eae8fd 0%, #fce5e6 94.44%); */
   background: url("../../img/front-pages/backgrounds/hero-bg.png");
 }
 

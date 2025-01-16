@@ -6,16 +6,16 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 
-   <title>About Us | Links Farmer
+    <title>About Us | Links Farmer
 
-</title>
+    </title>
 
 
     <meta name="description" content="Links Farmer is a marketplace platform that offers guest posts and link-building services. Connect with top publishers to buy high-quality guest posts and build authoritative backlinks that enhance your SEO strategy and boost search engine rankings.
 " />
     <style>
         .pt-60 {
-         padding-top: 60px !important;
+            padding-top: 60px !important;
         }
     </style>
 
@@ -31,7 +31,7 @@
                         <h1 class="page-title">Our <span class="animated-text"> company story</span> </h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle mb-40">
-                        LINKSFARMER is the leading AI-driven guest posting marketplace. We connect advertisers with publishers on one convenient platform. Engaging<br/> with our one-stop solution helps you with buying, selling, and publishing your guest post within 32 hours. There is no frustrating experience once<br/> you visit our platform.</h3>
+                            LINKSFARMER is the leading AI-driven guest posting marketplace. We connect advertisers with publishers on one convenient platform. Engaging<br /> with our one-stop solution helps you with buying, selling, and publishing your guest post within 32 hours. There is no frustrating experience once<br /> you visit our platform.</h3>
                         <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
                             Looking for the best link building platform? Join Links farmer today!
                         </h2> -->
@@ -69,21 +69,19 @@
                 </div>
             </section>
         </section>
-            <!-- Hero: End -->
+        <!-- Hero: End -->
 
         <section class="light-bg section-py">
-        <div class="position-relative">
+            <div class="position-relative">
                 <div class="container">
                     <div class="text-center">
                         <h2 class="page-title">The Birth of <span class="animated-text"> Marketplace</span> </h2>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle mb-3">
-                        Having the vision to streamline the guest posting process and reduce burdens, a team of experts started to spark about creating this web page.<br/> From that moment, it became a game changer for various experts. Wherein the power of automation and technology ensures advertisers receive<br/> backlinks faster. This is what allows them to focus on core SEO strategies and content creation.</h3>
+                            Having the vision to streamline the guest posting process and reduce burdens, a team of experts started to spark about creating this web page.<br /> From that moment, it became a game changer for various experts. Wherein the power of automation and technology ensures advertisers receive<br /> backlinks faster. This is what allows them to focus on core SEO strategies and content creation.</h3>
                         <h3 class="page_subtitle">
-                        LINKSFARMER, recognize the diverse needs of the SEO world. From comprehensive link building to bespoke content services, it emerged as one<br/> stop solution from 2018 to still. What truly set us apart from others is our unwavering commitment to excellence. Humble Endeavor has blossomed<br/> into the fastest-growing platform in this marketplace.</h3>
-                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
-                            Looking for the best link building platform? Join Links farmer today!
-                        </h2> -->
+                            LINKSFARMER, recognize the diverse needs of the SEO world. From comprehensive link building to bespoke content services, it emerged as one<br /> stop solution from 2018 to still. What truly set us apart from others is our unwavering commitment to excellence. Humble Endeavor has blossomed<br /> into the fastest-growing platform in this marketplace.</h3>
+
                     </div>
                 </div>
             </div>
@@ -94,14 +92,14 @@
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
                         <h2>Ready to revolutionize your SEO strategy?</h2>
-                        <p>Join LINKSFARMER today and experience the difference firsthand.
+                        <p>Join us now and see the results to satisfy yourself!
                         </p>
                     </div>
                     <button type="button" class="btn-white d-block mx-auto">Connect to Our Experts</button>
                 </div>
             </div>
         </section>
-       
+
 
     </div>
 

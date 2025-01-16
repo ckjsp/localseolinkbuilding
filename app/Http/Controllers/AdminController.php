@@ -11,16 +11,19 @@ use App\Models\lslbPublisher;
 use App\Models\lslbWebsite;
 use App\Models\lslbOrder;
 use App\Models\lslbUser;
+use Illuminate\Support\Facades\Log;
 use App\Models\lslbTransaction;
 
 
 class AdminController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('AdminAuth');
@@ -45,13 +48,13 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
         if (Auth::user()) {
             $data = array();
             $data['slug'] = 'dashboard';
             $data['websiteCount'] = lslbWebsite::all()->count();
-            // $data['orderCount'] = $this->countOrder(lslbOrder::with('website')->get());
             $lslbOrder = new lslbOrder;
             $data['orderCount'] = $lslbOrder->orderList()->count();
             $data['userCount'] = lslbUser::all()->count();
@@ -89,6 +92,7 @@ class AdminController extends Controller
     }
 
     public function getOrders(Request $request)
+
     {
         $this->chekRole($request);
         $data = array();
@@ -98,16 +102,17 @@ class AdminController extends Controller
         $data['orders'] = $lslbOrder->orderList();
         return view('lslbadmin.orders')->with($data);
     }
+
     public function getwithdrawal(Request $request)
+
     {
-        $withdrawals = lslbTransaction::with('publisher')
+        $withdrawals = lslbTransaction::with(['publisher', 'user'])
             ->where('transaction_type', 'debit')
             ->orderBy('created_at', 'desc')
             ->get();
 
         return view('lslbadmin.withdrawal', compact('withdrawals'));
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -180,6 +185,7 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
     public function webEdit(Request $request, string $id)
     {
         $url = $this->chekRole($request);
@@ -198,6 +204,7 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function webUpdate(Request $request, string $id)
     {
         $url = $this->chekRole($request);
@@ -226,8 +233,7 @@ class AdminController extends Controller
             'forbidden_categories' => 'required',
             'guest_post_price' => 'required',
             'link_insertion_price' => 'required',
-            // 'fc_guest_post_price' => 'required',
-            // 'fc_link_insertion_price' => 'required',
+
         ];
         if ($request->post('old_url') == $request->post('website_url')) {
             $rulesArr['website_url'] = 'required|url';
@@ -258,16 +264,17 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
     public function WebDestroy(Request $request, string $id)
     {
         $url = $this->chekRole($request);
         if (!empty($url)) {
             return redirect($url);
         }
-        $website = lslbWebsite::find($id); // Assuming 'Website' is the model for your data
+        $website = lslbWebsite::find($id);
 
         if (!$website) {
-            abort(404); // Handle not found gracefully
+            abort(404);
         }
         $website->update([
             'website_url' => 'delete-' . $website->website_url,
@@ -279,6 +286,7 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
     public function userEdit(Request $request, string $id)
     {
         $url = $this->chekRole($request);
@@ -298,24 +306,22 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function userUpdate(Request $request, string $id)
     {
         $url = $this->chekRole($request);
         if (!empty($url)) {
             return redirect($url);
         }
-        $user = lslbUser::find($id); // Assuming 'user' is the model for your data
+        $user = lslbUser::find($id);
         if (!$user) {
-            abort(404); // Handle not found gracefully
+            abort(404);
         }
 
         $rules = [
             'name' => 'required',
             'email' => 'required|email',
-            // 'phone_number' => 'required',
-            // 'dial_code' => 'required',
             'identity' => 'required',
-            // 'company_website_url' => 'required|url',
             'country' => 'required',
             'preferred_method' => 'required',
         ];
@@ -339,16 +345,18 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
     public function userDestroy(Request $request, string $id)
+
     {
         $url = $this->chekRole($request);
         if (!empty($url)) {
             return redirect($url);
         }
-        $user = lslbUser::find($id); // Assuming 'Website' is the model for your data
+        $user = lslbUser::find($id);
 
         if (!$user) {
-            abort(404); // Handle not found gracefully
+            abort(404);
         }
         $user->update([
             'email' => 'delete-' . $user->email,
@@ -358,6 +366,7 @@ class AdminController extends Controller
     }
 
     public function updateAdminPrice(Request $request, $id)
+
     {
         $request->validate([
             'linkedinsession_adminprice' => 'required|numeric|min:0',
@@ -373,6 +382,51 @@ class AdminController extends Controller
 
         return response()->json([
             'success' => 'Admin prices updated successfully',
+        ]);
+    }
+
+    public function updateWithdrawalStatus(Request $request)
+
+    {
+        $withdrawal = lslbTransaction::with('user')->find($request->id);
+
+        if ($withdrawal) {
+            $withdrawal->status = $request->status;
+            $withdrawal->save();
+
+            if ($withdrawal->status === 'completed') {
+                $user = $withdrawal->user;
+
+                if ($user) {
+                    $email = $user->email;
+
+                    $data = [
+                        'name' => $user->name,
+                        'amount' => $withdrawal->amount,
+                        'transaction_date' => $withdrawal->transaction_date,
+                    ];
+
+                    Mail::send('email.withdrawal_completed', $data, function ($message) use ($email) {
+                        $message->to($email)
+                            ->subject('Your Withdrawal Payment is Complete');
+                    });
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Status updated successfully, and email sent to the user!',
+                    ]);
+                }
+            }
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Status updated successfully, but no email sent as the status is not "Completed".',
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Failed to update status.',
         ]);
     }
 }

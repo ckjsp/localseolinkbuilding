@@ -24,7 +24,6 @@
 
                 <div class="container">
                     <div class="hero-text-box text-center">
-                        <!-- <h1>First <span class="animated-text">AI-Driven</span>   Guest Post& Link Building Platform</h1> -->
                         <h1 class="page-title">Welcome to <span class="animated-text"> LINKSFARMER </span> – Your
                             Trusted <br /> Partner in
                             Link Building!</h1>
@@ -34,29 +33,25 @@
                             agency, or content marketer, improve the website’s authority, visibility, and search engine
                             rankings. Cultivate your online success by exploring our services. We help your brand thrive
                             in the competitive digital world. Your success is our mission! </h3>
-                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
-                            Looking for the best link building platform? Join Links farmer today!
-                        </h2> -->
+
                         <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
 
-                            <a href="#landingPricing" class="filled-btn">Buy Guest Post</a>
-                            <a href="#landingPricing" class="outlined-btn">Sell Guest Post</a>
+                            <a href="#" class="filled-btn">Buy Guest Post</a>
+                            <a href="#" class="outlined-btn">Sell Guest Post</a>
 
                         </div>
                     </div>
                     <div id="heroDashboardAnimation" class="hero-animation-img">
-                        <a href="../vertical-menu-template/app-ecommerce-dashboard.html" target="_blank">
-                            <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
-                                <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero dashboard"
-                                    class="animation-img"
-                                    data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
-                                    data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
-                                <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero elements"
-                                    class="position-absolute hero-elements-img animation-img top-0 start-0"
-                                    data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
-                                    data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
-                            </div>
-                        </a>
+                        <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
+                            <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero dashboard"
+                                class="animation-img"
+                                data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
+                                data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
+                            <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero elements"
+                                class="position-absolute hero-elements-img animation-img top-0 start-0"
+                                data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
+                                data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,7 +106,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
         <section id="totalSection" class="total-section">
             <div class="container">
@@ -245,58 +239,7 @@
                                         </div>
 
                                     </div>
-                                    <!-- <div class="swiper-slide">
-                                        <div class="card h-100 reviews-card">
 
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="logo-wrap me-2 ">
-                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
-                                                </div>
-                                                <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
-                                                    <div class="text-warning">
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card h-100 reviews-card">
-
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="logo-wrap me-2 ">
-                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
-                                                </div>
-                                                <div>
-                                                    <h5 class="mb-0">Cecilia Payne</h5>
-                                                    <div class="text-warning">
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                        <i class="ti ti-star-filled ti-sm"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley...
-                                            </p>
-                                        </div>
-
-                                    </div> -->
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
@@ -350,7 +293,7 @@
                     <span class="title-section animated-text">Why us?</span>
                 </div>
                 <h2 class="subtitle-section text-center">
-                    Why to choose Links farmer?
+                    Why to choose LINKSFARMER
                 </h2>
 
                 <div class="d-flex align-items-center">
@@ -358,7 +301,7 @@
                         <i class="ti ti-chevron-left ti-sm"></i>
                     </button>
 
-                    <div class="swiper-whyus-carousel overflow-hidden ">
+                    <div class="swiper-whyus-carousel overflow-hidden">
                         <div class="swiper" id="swiper-whyus">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
@@ -370,7 +313,7 @@
                                             </div>
                                             <h6>100% Transparency</h6>
                                             <p>
-                                                Links Farmer offers clear metrics and upfront communication, ensuring you know exactly where your content is published. No hidden costs, just honest and transparent service.
+                                                LINKSFARMER offers clear metrics and upfront communication, ensuring you know exactly where your content is published. No hidden costs, just honest and transparent service.
                                             </p>
                                         </div>
                                     </div>
@@ -427,54 +370,65 @@
                     digital
                     product?
                 </h2>
-                <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded
-                    strategy to boost your online presence.</h5>
+                <h5 class="subtitle2-section text-center">Enhance your online presence with our tailored services crafted for a comprehensive strategy.</h5>
 
                 <div class="data_wrap">
                     <div class="row gy-3">
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                            <a href="{{ route('content-writing-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Content Writing</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Content Writing</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                            <a href="{{ route('link-building-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Link Building</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Link Building</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                            <a href="{{ route('content-marketing-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Content Marketing</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>Content Marketing</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-6 ">
-                            <div class="services-card">
-                                <div class="img-wrap">
-                                    <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                            <a href="{{ route('seo-reseller-services') }}">
+
+                                <div class="services-card">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>SEO Reseller</h6>
+                                        <i class="ti ti-arrow-narrow-right "></i>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6>SEO Reseller</h6>
-                                    <i class="ti ti-arrow-narrow-right "></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -489,10 +443,8 @@
                 <div class="registered-wrap">
                     <div class="row  align-items-center flex-column-reverse flex-md-row">
                         <div class="col-md-6">
-                            <h2>First AI-Driven Guest Post& Link Building Platform</h2>
-                            <p>The future of link Building is here. Say goodbye to manual outreach. Reach a Wider
-                                Audience
-                                and build Authority with AI-suggested guest blogging on high-DA websites.</p>
+                            <h2>The First Artificial Intelligence Driven Guest Post & Link Building Spot!</h2>
+                            <p>Revolutionize your link-building effortlessly with our AI-driven guest post platform. You'll be 100% sure to reach a wider audience and establish authority on high-DA websites. Embrace it without the hassle of manual outreach.</p>
                             <button type="button" class="btn-white">Get Registered</button>
                         </div>
                         <div class="col-md-6">
