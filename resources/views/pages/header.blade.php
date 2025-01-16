@@ -58,7 +58,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti ti-menu-2 ti-sm align-middle"></i>
                     </button>
-                    <a href="#" class="app-brand-link">
+                    <a href="{{ route('home') }}" class="app-brand-link">
                         <div class="logo-wrap">
                             <img src="{{ asset_url('img/header-logo.png') }}" alt="logo">
                         </div>

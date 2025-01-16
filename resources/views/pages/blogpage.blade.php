@@ -48,7 +48,7 @@
                     <div class="col-lg-6">
                         <figure class="figure">
                             <img src="{{ asset_url('img/transform-strategy/Wealth of Knowledge.png') }}" alt="Content Syndication">
-                            <a href="{{ route('easy-ways') }}" class="text-decoration-none">
+                            <a href="{{ route('easy-ways-content-syndication-can-boast-your-research') }}" class="text-decoration-none">
                                 <h4 class="mt-3">Easy Ways Content Syndication Can Boast Your<br /> Research</h4>
                             </a>
                         </figure>
@@ -57,7 +57,7 @@
                     <div class="col-lg-6">
                         <figure class="figure">
                             <img src="{{ asset_url('img/transform-strategy/Links Farmer.png.png') }}" alt="Content Syndication">
-                            <a href="{{ route('manual-outreach') }}" class="text-decoration-none">
+                            <a href="{{ route('manual-outreach-vs-links-farmer') }}" class="text-decoration-none">
                                 <h4 class="mt-3">Manual Outreach Vs Links Farmer: Which Is Better For<br /> Your SEO?</h4>
                             </a>
                         </figure>

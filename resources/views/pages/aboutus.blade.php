@@ -91,7 +91,7 @@
             <div class="container">
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
-                        <h2>Ready to revolutionize your SEO strategy?</h2>
+                        <h2>Transform your SEO strategy with LINKSFARMER</h2>
                         <p>Join us now and see the results to satisfy yourself!
                         </p>
                     </div>

@@ -139,8 +139,7 @@
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
                             Should you want to visit us personally, we are located at:</p>
-                        <p class="pt-lg-2 green_font animated-text pt-10 ">
-                            (Add address)</p>
+
                         <p class="pt-lg-2 green_font animated-text pt-10 ">
                             202/1, Skyzone Business Hub
                             Kamrej Road, Near Shyam Dham Mandir

@@ -136,7 +136,8 @@
             <div class="container">
 
                 <h2 class="subtitle-section text-center">
-                    How Does <span class="animated-text"> Content Writing Service</span> Work?
+
+                    What Magic<span class="animated-text"> Content Writing Will Do For You?</span>
                 </h2>
                 <h3 class="page_subtitle text-center">
                     Before you start using our content writing service, simply share your requirements with our representative. We significantly match you with the ideal writer for your needs which makes everything easy!</h3>
@@ -235,8 +236,9 @@
             <div class="container">
 
                 <h2 class="subtitle-section text-center">
-                    What Type of
-                    <span class="animated-text"> Content Writing Services<br /> </span>Can You Opt For?
+                    What Kind Of
+                    <span class="animated-text"> Reliable Services<br /> </span> You Can Opt From Us?
+
                 </h2>
                 <h5 class="subtitle2-section text-center">We, LINKSFARMER provide a wide range of high-quality content writing services. You can ensure all of them are fresh and engaging content. These gonna meet every challenge and need of you.</h5>
                 <div class="data_wrap">
@@ -439,7 +441,7 @@
             <div class="container">
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
-                        <h2>Content Writing Services!</h2>
+                        <h2>Our Content Writing Services For You</h2>
                         <p>Have you been troubled while articulating your thoughts? Reach us who have skilled content writers. They capture your ideas in your desired length and brand voice. So that we are always a premier choice for exceptional website content and more.
                         </p>
                     </div>

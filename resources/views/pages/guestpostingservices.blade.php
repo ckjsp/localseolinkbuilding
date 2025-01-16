@@ -128,16 +128,16 @@
                                         <i class="ti ti-circle-check"></i> <span>Number of Posts: 3</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>Domain Authority: 10-20</span>
+                                        <i class="ti ti-circle-check"></i> <span>Domain Authority (DA): 10-20</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>500+ words content</span>
+                                        <i class="ti ti-circle-check"></i> <span>Word Count: 500+</span>
                                     </li>
                                     <li>
                                         <i class="ti ti-circle-check"></i> <span>1 Keyword / URL</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>1 Do Follow Links</span>
+                                        <i class="ti ti-circle-check"></i> <span>1 Do-Follow link</span>
                                     </li>
                                     <li>
                                         <i class="ti ti-circle-check"></i> <span>Links on Real Website</span>
@@ -146,13 +146,13 @@
                                         <i class="ti ti-circle-check"></i> <span>Delivery time 7-14 days</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>Google Indexed Website</span>
+                                        <i class="ti ti-circle-check"></i> <span>Google-indexed websites</span>
                                     </li>
                                     <li>
                                         <i class="ti ti-circle-check"></i> <span>Niche Relevant Blog</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>Content Revision: Single</span>
+                                        <i class="ti ti-circle-check"></i> <span>Single revision included: Single</span>
                                     </li>
                                 </ul>
                                 <button type="button" class="btn-white mt-5 d-block mx-auto w-100 ">Choose Plan</button>
@@ -171,17 +171,16 @@
                                         <i class="ti ti-circle-check"></i> <span>Number of Posts: 3</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>Domain Authority: 20-40</span>
+                                        <i class="ti ti-circle-check"></i> <span>Domain Authority (DA): 20-40</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>500+ words of Well-researched
-                                            content</span>
+                                        <i class="ti ti-circle-check"></i> <span>Word Count: 500+</span>
                                     </li>
                                     <li>
                                         <i class="ti ti-circle-check"></i> <span>1 Keyword / URL</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>1 Do Follow Links</span>
+                                        <i class="ti ti-circle-check"></i> <span>1 Do-Follow link</span>
                                     </li>
                                     <li>
                                         <i class="ti ti-circle-check"></i> <span>Links on Real Website</span>
@@ -190,13 +189,13 @@
                                         <i class="ti ti-circle-check"></i> <span>Delivery time 14-21 days</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>Google Indexed Website</span>
+                                        <i class="ti ti-circle-check"></i> <span>Google-indexed websites</span>
                                     </li>
                                     <li>
                                         <i class="ti ti-circle-check"></i> <span>Niche Relevant Blog</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>Content Revision: Single</span>
+                                        <i class="ti ti-circle-check"></i> <span>Single revision included: Single</span>
                                     </li>
                                 </ul>
                                 <button type="button" class="btn-dark mt-5 d-block mx-auto w-100 ">Choose Plan</button>
@@ -215,17 +214,16 @@
                                         <i class="ti ti-circle-check"></i> <span>Number of Posts: 5</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>Domain Authority: 40-50</span>
+                                        <i class="ti ti-circle-check"></i> <span>Domain Authority (DA): 40-50</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>750+ words of Well-researched
-                                            content</span>
+                                        <i class="ti ti-circle-check"></i> <span>Word Count: 750+</span>
                                     </li>
                                     <li>
                                         <i class="ti ti-circle-check"></i> <span>1 Keyword / URL</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>1 Do Follow Links</span>
+                                        <i class="ti ti-circle-check"></i> <span>1 Do-Follow link</span>
                                     </li>
                                     <li>
                                         <i class="ti ti-circle-check"></i> <span>Links on Real Website</span>
@@ -234,13 +232,13 @@
                                         <i class="ti ti-circle-check"></i> <span>Delivery time 21-30 days</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>Google Indexed Website</span>
+                                        <i class="ti ti-circle-check"></i> <span>Google-indexed websites</span>
                                     </li>
                                     <li>
                                         <i class="ti ti-circle-check"></i> <span>Niche Relevant Blog</span>
                                     </li>
                                     <li>
-                                        <i class="ti ti-circle-check"></i> <span>Content Revision: Multiple</span>
+                                        <i class="ti ti-circle-check"></i> <span>Single revision included: Multiple</span>
                                     </li>
                                 </ul>
                                 <button type="button" class="btn-white mt-5 d-block mx-auto w-100 ">Choose Plan</button>
@@ -627,9 +625,9 @@
                                     <img src="{{ asset_url('img/guest-posting/img_1.png') }}" alt="linksfarmer-img">
                                 </div>
                                 <h6>Improves Search Ranking</h6>
-                                <p>With reliable guest post services, you can get 100% dofollow backlinks from authority
-                                    blogs. This signals the search engines your website is relevant, which helps improve
-                                    search ranking.</p>
+                                <p>Boost your search ranking by securing 100% do-follow backlinks. Through reliable guest post services, you are able to signal search engines to make sure that your website is relevant.
+
+                                </p>
                             </div>
 
                         </div>
@@ -865,7 +863,7 @@
             <div class="container">
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
-                        <h2>Skyrocket your traffic with powerful guest posts.</h2>
+                        <h2>Foster Your Traffic Effortlessly With Dynamic Guest Posts</h2>
                         <p>Schedule your free demo and discover how the marketplace links you with premium blogs in no time!
                         </p>
                     </div>
