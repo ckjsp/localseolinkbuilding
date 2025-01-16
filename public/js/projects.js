@@ -43,9 +43,7 @@ $(document).ready(function () {
             "projectCategories[]": {
                 minSelected: 1,
             },
-            "projectForbiddenCategories[]": {
-                minSelected: 1,
-            },
+         
             additional_note: {
                 maxlength: 500,
             },
@@ -61,8 +59,7 @@ $(document).ready(function () {
                 urlExists: "This URL has already been added in a project.", // Custom message
             },
             "projectCategories[]": "Please select at least one category.",
-            "projectForbiddenCategories[]":
-                "Please select at least one forbidden category.",
+           
             additional_note: {
                 maxlength: "Additional note cannot exceed 500 characters.",
             },

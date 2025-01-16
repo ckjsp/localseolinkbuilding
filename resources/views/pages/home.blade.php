@@ -1,236 +1,587 @@
 @include('pages.header')
-<title>Terms and Conditions
 
-</title>
-<section class="section-py first-section-pt">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h1 class="mb-2 pb-1">Terms and Conditions</h1>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    This Agreement, also referred to as the Terms of Use, establishes a legal privity between you the user, any of the terms hereinafter, "your or user“ and Links Farmer, any of the references hereinafter, "Links Farmer, we, us or our“, concerning your satisfaction from the Services of Links Farmer. Such terms apply to any visitor to the website of Links Farmer and its services. Usage of the Links Farmer's services will deem you aware of having read and agreed to these terms. If you do not accept any part of these Terms, you must leave Links Farmer immediately and cease to access the Services of Links Farmer.
-                </p>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+
+
+    <meta name="description" content="" />
+
+
+
+</head>
+
+<body>
+    <div data-bs-spy="scroll" class="scrollspy-example">
+        <section id="hero-animation" class="hero-section">
+            <div id="landingHero" class="section-py landing-hero position-relative">
+
+                <div class="container">
+                    <div class="hero-text-box text-center">
+                        <!-- <h1>First <span class="animated-text">AI-Driven</span>   Guest Post& Link Building Platform</h1> -->
+                        <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1>
+                        <h3>
+                            We, LINKSFARMER, specialize in delivering premium quality link-building services. Our
+                            services are designed to elevate your online presence. Whether you are a business owner, SEO
+                            agency, or content marketer, improve the website’s authority, visibility, and search engine
+                            rankings. Cultivate your online success by exploring our services. We help your brand thrive
+                            in the competitive digital world. Your success is our mission! </h3>
+                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
+                            Looking for the best link building platform? Join Links farmer today!
+                        </h2> -->
+                        <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
+
+                            <a href="#landingPricing" class="filled-btn">Buy Guest Post</a>
+                            <a href="#landingPricing" class="outlined-btn">Sell Guest Post</a>
+
+                        </div>
+                    </div>
+                    <div id="heroDashboardAnimation" class="hero-animation-img">
+                        <a href="../vertical-menu-template/app-ecommerce-dashboard.html" target="_blank">
+                            <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
+                                <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero dashboard"
+                                    class="animation-img"
+                                    data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
+                                    data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
+                                <img src="{{ asset_url('img/hero-element-img.png') }}" alt="hero elements"
+                                    class="position-absolute hero-elements-img animation-img top-0 start-0"
+                                    data-app-light-img="{{ asset_url('img/hero-elements-img.png') }}"
+                                    data-app-dark-img="{{ asset_url('img/hero-elements-img.png') }}" />
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="landing-hero-blank"></div>
+        </section>
+        <!-- Hero: End -->
+
+        <section id="getFeaturedOn" class="section-py  light-bg">
+            <div class="text-center mb-3">
+                <span class="title-section animated-text">Get Featured On</span>
+            </div>
+            <div class="swiper-logo-carousel py-4 my-lg-2">
+                <div class="swiper" id="swiper-clients-logos">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="client-logo-wrap">
+
+                                <img src="{{ asset_url('img/featured/chicago.png') }}" alt="client logo" />
+
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="client-logo-wrap">
+
+                                <img src="{{ asset_url('img/featured/digital-gernal.png') }}" alt="client logo" />
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="client-logo-wrap">
+
+                                <img src="{{ asset_url('img/featured/forbes.png') }}" alt="client logo" />
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="client-logo-wrap">
+
+                                <img src="{{ asset_url('img/featured/hubspot.png') }}" alt="client logo" />
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="client-logo-wrap">
+
+                                <img src="{{ asset_url('img/featured/mercury-news.png') }}" alt="client logo" />
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="client-logo-wrap">
+                                <img src="{{ asset_url('img/featured/yahoo.png') }}" alt="client logo" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">General Terms
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    Links Farmer reserves the right to amend or change these Terms of Use from time to time. That change will take effect from the first time it is published on the Links Farmer website, and continuing to use the Links Farmer subscription after such changes have been posted means that you accept the changes. You should, therefore, be reviewing these Terms regularly, to know the changes that may be in force.
-
-                </p>
+        </section>
+        <section id="totalSection" class="total-section">
+            <div class="container">
+                <div class="row gy-5 mt-2">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="totals-card">
+                            <h5 class="animated-text">854,248+</h5>
+                            <p>Total Websites</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="totals-card">
+                            <h5 class="animated-text">14,248+</h5>
+                            <p>Total Publishers</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="totals-card">
+                            <h5 class="animated-text">9,248+</h5>
+                            <p>Total Advertisers</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="totals-card">
+                            <h5 class="animated-text">42,248+</h5>
+                            <p>Total Complete Orders</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Your Responsibilities
+        </section>
+        <!-- Real customers reviews: Start -->
+        <section id="landingReviews" class="section-py  landing-reviews pb-0">
 
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    By using the Links Farmer website and services, you shall bear full responsibility for all actions carried out through the Links Farmer website and services. To utilize Links Farmer services, a Client agrees to be 18 years of age or above or is otherwise one of the age of majority as established by the jurisdiction in which the Client resides, whichever is higher. In entering these Terms, you make sure that your rights and abilities are sufficient to enter into this Agreement and to perform by its provisions. Moreover, you undertake that Links Farmer services won’t be used in any other unlawful or prohibited manner and that you will adhere to jurisdictional laws including, but not limited to, those relating to copyright and intellectual property.
+            <div class="container">
+                <div class="row align-items-center gx-0 gy-4 g-lg-5">
+                    <div class="col-md-6 col-lg-5 col-xl-3">
+                        <div class="mb-3 pb-1">
+                            <span class="title-section animated-text">Real Customers Reviews</span>
+                        </div>
+                        <h3 class="mb-1">
+                            <span class="position-relative fw-bold z-1">What people say
+                            </span>
+                        </h3>
+                        <p class="mb-3 mb-md-5">
+                            See what our customers have to<br class="d-none d-xl-block" />
+                            say about their experience.
+                        </p>
+                        <div class="landing-reviews-btns">
+                            <button id="reviews-previous-btn" class="btn  swiper-btn me-3 scaleX-n1-rtl" type="button">
+                                <i class="ti ti-chevron-left ti-sm"></i>
+                            </button>
+                            <button id="reviews-next-btn" class="btn  swiper-btn scaleX-n1-rtl" type="button">
+                                <i class="ti ti-chevron-right ti-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-7 col-xl-9">
+                        <div class="swiper-reviews-carousel overflow-hidden mb-5 pb-md-2 pb-md-3">
+                            <div class="swiper" id="swiper-reviews">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="card h-100 reviews-card">
 
-                </p>
-                <p class="pt-lg-2">
-                    Links Farmer services should meet some expectations and requirements based on general market conditions. The team of the Links Farmer platform does not support the use of its services for selling or purchasing links. We advise that users stick to Google guidelines and refrain from all sorts of link manipulation.
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="logo-wrap me-2 ">
+                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <div class="text-warning">
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
 
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card h-100 reviews-card">
 
-                </p>
-            </div>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="logo-wrap me-2 ">
+                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <div class="text-warning">
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
 
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Description of Services
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    The following are the services offered by the Links Farmer platform to the users:
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card h-100 reviews-card">
 
-                </p>
-                <ul>
-                    <li>The creation, writing, and distribution of PR materials, be it a press release, articles, or advertorials.</li>
-                </ul>
-                <ul>
-                    <li>A right purchase to publish an article on another third-party web with agreements to Links Farmer.
-                    </li>
-                </ul>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="logo-wrap me-2 ">
+                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <div class="text-warning">
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
 
-                <p class="pt-lg-2">
-                    Links Farmer functions solely as an intermediary and an agent between users and other third-party publishers and does not have the right or authority to act on either party's behalf.
-                </p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card h-100 reviews-card">
 
-                <p class="pt-lg-2">
-                    NEW FEATURES Any new features or tools that are added from time to time to an existing service shall be subject to these Terms of Use.
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="logo-wrap me-2 ">
+                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <div class="text-warning">
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
 
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Registration Requirements
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    You must provide true, accurate, current, and complete information as required by the registration process to access and use the Links Farmer services. Well, that's your job: keeping the registration info all fresh and accurate for you. If any of the above information should become false, incomplete, or out-of-date, Links Farmer has the right to suspend or terminate your account and deny further use of the services.
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card h-100 reviews-card">
 
-                </p>
-                <p class="pt-lg-2">
-                    Links Farmer allows such access for those who have completed the identification procedures for Know Your Customer (KYC) and Anti-Money Laundering (AML) verification. Other users may find that they have limited access to some platform features but can update their data or complete the identification process. More specific details about how your data is processed can be found in our Privacy Policy.
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="logo-wrap me-2 ">
+                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Cecilia Payne</h5>
+                                                    <div class="text-warning">
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                        <i class="ti ti-star-filled ti-sm"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
 
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Access to Your Account
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    Your account on Links Farmer is personal and you have a responsibility to keep your login details confidential. This includes your password. Take all precautions, therefore, to prevent unauthorized access to your account. Notify Links Farmer immediately if you suspect that your account or password has been compromised.
-                </p>
-                <p class="pt-lg-2">
-                    Only you or the people you have authorized can be allowed to access and use this account. You are the sole bearer of the responsibility for any abuse of the account on any third party’s account. However, in case you feel like an unknown source has gained access to this account, you should protect this account
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1  fw-bold">Acceptable Use Policy
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    Links Farmer will not be responsible for loss of revenue, income, profits, savings, contracts, goodwill, data or any third-party claims, or for any indirect or consequential losses in connection with the use or inability to use our services.
-                </p>
-                <p class="pt-lg-2">
-                    You are responsible for all content that you create, submit, post or any other form of transmission through the Links Farmer platform. You are obliged to look for and consider all information before it is sent on or made public. Links Farmer does not monitor and control the content of materials that the Participant submits and does not accept the warranties for the content accuracy, completeness or quality.
-                </p>
-                <p class="pt-lg-2">
-                    You are seen to have accepted the content terms or factors as they are terms when you have management capabilities over restraint when publishing any content including the authority to publish content; Deals, and amendments. If your content includes photographs, videos or other formats of multimedia that depict identifiable individuals, you will be required to have their permission before posting such content.
-                </p>
-                <p class="pt-lg-2">
-                    When using Links Farmer services, you shall not:
-                </p>
-                <ul>
-                    <li>Give false, misleading or inaccurate information.
-                    </li>
-                </ul>
-                <ul>
-                    <li>Submit content belonging to others without their consent or use someone else's account without permission.
-
-                    </li>
-                </ul>
-                <ul>
-                    <li>Your activities must include illegal postulate content encouraging illegal acts from others.
-
-                    </li>
-                </ul>
-                <ul>
-                    <li>Harass, defame, discriminate, or threaten others.
-
-                    </li>
-                </ul>
-                <ul>
-                    <li>Falsely claim affiliation with another individual or organization, or imitate any person or entity. Trademarks, copyright, patents, and other ownership rights are among the intellectual property rights that are violated.
-
-                    </li>
-                </ul>
-                <ul>
-                    <li>Introduce harmful or malicious code or attempt to disrupt the functioning of Links Farmer.
-
-                    </li>
-                </ul>
-                <ul>
-                    <li>Collect data from Links Farmer through unauthorized methods, including scraping or the use of bots, spiders, or other automated tools.
-                    </li>
-                </ul>
-                <ul>
-                    <li>Involve activities that disrupt the normal functioning of Links Farmer or overload its activity-dedication infrastructure like denial-of-service attacks.
-
-                    </li>
-                </ul>
-                <p class="pt-lg-2">
-                    You can file a complaint at the email address specified above if you believe that another user has breached any of these Terms.
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Content Ownership and License
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    You retain any of your rights to any content you submit, but by posting or publishing content through Links Farmer, you grant Links Farmer a non-exclusive, transferable, sub-licensable, royalty-free, global license to copy, modify, adapt, distribute, display, and create derivative works from such content. Such license shall remain in effect until deletion of such Content from the Service.
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Paid Services
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    Links Farmer allows you to purchase the right to publish content on third-party websites with whom we have arrangements. The price for these services is detailed on the Links Farmer site, and you should remit such payments directly to Links Farmer. There are no refundable services provided by us under any of these agreements, as such services do not create a contract on behalf of any third-party website. Please refer to the Refund Policy for information regarding any refunds before making a purchase.
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Currency Conversion
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    If your transaction involves currency conversion, Links Farmer will use a foreign exchange rate provided by Currencylayer, which is updated regularly. Links Farmer will not be responsible for the variance of the exchange rate at the time of the transaction. In addition, transactions that require conversion of currency will be charged a 3% currency conversion fee. The user will be notified of the applicable rate of exchange at the time of payment and by making the payment, the user agrees to the currency conversion conditions.
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Indemnification
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    This indemnification clause states concerning all liabilities, claims, losses, damages, or any kind of expenses accruing, including reasonable attorney's fees, about any breach of the Terms by you or any claims by third parties resulting from content facilitated through any submission by you or your usage of the services of Links Farmer.
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Termination of Services
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    Links Farmer reserves the right to terminate your access to the website for violating these Terms, or if we suspect you have violated them, or when requested by law enforcement officials or other government agencies.
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Dispute Resolution
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    For the settlement of disputes, links Farms recommends directly contacting us for trying amicable, swift, and speedy resolution to any matter. Failure to achieve amicable terms shall then invite further processes through the proper procedure as contained under the Laws below on Jurisdiction and Governing Law.
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Mandatory Litigation
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    Except as explicitly provided for in these Terms, any dispute related to your access to or use of Links Farmer services will be resolved in the courts of Estonia. All litigation will be handled individually, and no class actions will be permitted.
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Service Performance and Interruptions
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    Links Farmer shall make reasonable efforts to ensure continuous service. But this does not hold because from time to time, because of maintenance, updates and/or other technical issues, the service might not be available. You agree and acknowledge that there can be such interruptions and that Links Farmer makes every reasonable effort to remedy any such interruptions promptly but shall not be liable for the same.
-                </p>
-            </div>
-            <div class="col-lg-8">
-                <h5 class="mb-2 pb-1 fw-bold">Privacy and Data Protection
-                </h5>
-                <hr class="my-lg-4" />
-                <p class="pt-lg-2">
-                    By using Links Farmer services, you agree to our Privacy Policy regarding the collection and use of your personal information. Your registration details and other data submitted will be processed by GDPR and relevant data protection laws. For more information, please refer to our Privacy Policy.
-                </p>
-                <p class="pt-lg-2">
-                    These Terms and States make up the entire and complete agreement between you and Links Farmer and supersede any prior communications, representations or agreements of any kind about your use of this website or services.
-                </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-        </div>
+        </section>
+        <!-- Real customers reviews: End -->
+
+        <section id="whyToReach" class="section-py light-bg">
+            <div class="container">
+                <h1 class="subtitle-section text-center"> Why To
+                    <span class="animated-text">Reach LINKSFARMER?</span>
+                </h1>
+                <div class="row justify-content-center ">
+                    <div class="col-lg-10">
+                        <div class="whytoreact-wrap">
+                            <p>We have experienced professionals who provide trusted care to your website. Many clients
+                                across industries boost their digital footprint by approaching us.</p>
+                            <p>Embrace comprehensive solutions from guest posting to niche edits. Seekers can grab a
+                                wide
+                                range of link-building strategies to meet the unique needs of a website.</p>
+                            <p>Our focused strategies are built on thorough research, and every link will add value and
+                                strengthen online presence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="topFeatured" class="section-py topFeatured-section">
+            <div class="container">
+                <div class="text-center mb-3">
+                    <span class="title-section animated-text">Top Featured</span>
+                </div>
+                <h1 class="subtitle-section text-center">
+                    <span class="animated-text">October</span> Featured Websites
+                </h1>
+                <div class="img-wrap">
+                    <img src="{{ asset_url('img/top-featured-img.png') }}" alt="top-featured-img">
+                </div>
+            </div>
+        </section>
+
+        <section id="whyUs" class="section-py light-bg">
+            <div class="container">
+                <div class="text-center mb-3">
+                    <span class="title-section animated-text">Why us?</span>
+                </div>
+                <h1 class="subtitle-section text-center">
+                    Why to choose Links farmer?
+                </h1>
+
+                <div class="d-flex align-items-center">
+                    <button id="whyus-previous-btn" class="btn  swiper-btn me-3 scaleX-n1-rtl" type="button">
+                        <i class="ti ti-chevron-left ti-sm"></i>
+                    </button>
+
+                    <div class="swiper-whyus-carousel overflow-hidden ">
+                        <div class="swiper" id="swiper-whyus">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/transparency.png') }}"
+                                                    alt="whyus-img">
+                                            </div>
+                                            <h6>100% Transparency</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/content.png') }}" alt="whyus-img">
+                                            </div>
+                                            <h6>High Quality Content</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/backlinks.png') }}" alt="whyus-img">
+                                            </div>
+                                            <h6>Earn High-Quality Backlinks</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/transparency.png') }}"
+                                                    alt="whyus-img">
+                                            </div>
+                                            <h6>100% Transparency</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/backlinks.png') }}" alt="whyus-img">
+                                            </div>
+                                            <h6>Earn High-Quality Backlinks</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100 whyus-card">
+                                        <div class="h-100">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset_url('img/whyus/content.png') }}" alt="whyus-img">
+                                            </div>
+                                            <h6>High Quality Content</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                                ever since the 1500s, when an unknown printer took a galley...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="whyus-button-next"></div>
+                            <div class="whyus-button-prev"></div>
+                        </div>
+                    </div>
+
+                    <button id="whyus-next-btn" class="btn swiper-btn ms-3 scaleX-n1-rtl" type="button">
+                        <i class="ti ti-chevron-right ti-sm"></i>
+                    </button>
+
+                </div>
+
+
+            </div>
+        </section>
+
+        <section id="services" class="section-py services-section">
+            <div class="container">
+                <div class="text-center mb-3">
+                    <span class="title-section animated-text">Our Services</span>
+                </div>
+                <h1 class="subtitle-section text-center">
+                    Are you in search of a <span class="animated-text"> complete solution </span> for your digital
+                    product?
+                </h1>
+                <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded
+                    strategy to boost your online presence.</h5>
+                <div class="row gy-3">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="services-card">
+                            <div class="img-wrap">
+                                <img src="{{ asset_url('img/services/service1.png') }}" alt="service-img">
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <h6>Guest Post</h6>
+                                <i class="ti ti-arrow-narrow-right "></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="services-card">
+                            <div class="img-wrap">
+                                <img src="{{ asset_url('img/services/service2.png') }}" alt="service-img">
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <h6>Guest Post</h6>
+                                <i class="ti ti-arrow-narrow-right "></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="services-card">
+                            <div class="img-wrap">
+                                <img src="{{ asset_url('img/services/service3.png') }}" alt="service-img">
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <h6>Guest Post</h6>
+                                <i class="ti ti-arrow-narrow-right "></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="services-card">
+                            <div class="img-wrap">
+                                <img src="{{ asset_url('img/services/service4.png') }}" alt="service-img">
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <h6>Guest Post</h6>
+                                <i class="ti ti-arrow-narrow-right "></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="getRegistered" class="section-py getRegistered-section">
+            <div class="container">
+
+                <div class="registered-wrap">
+                    <div class="row  align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-md-6">
+                            <h1>First AI-Driven Guest Post& Link Building Platform</h1>
+                            <p>The future of link Building is here. Say goodbye to manual outreach. Reach a Wider
+                                Audience
+                                and build Authority with AI-suggested guest blogging on high-DA websites.</p>
+                            <button type="button" class="btn-white">Get Registered</button>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img-wrap">
+                                <img src="{{ asset_url('img/registered-img.png') }}" alt="registered-img">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
     </div>
-</section>
+    </section>
 
-@include('pages.footer')
+    </div>
 
-<script src="{{ asset_url('libs/popper/popper.js') }}"></script>
-<script src="{{ asset_url('js/bootstrap.js') }}"></script>
-<script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
-<script src="{{ asset_url('js/front-main.js') }}"></script>
+
+    @include('pages.footer')
+
+    <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
+    <script src="{{ asset_url('js/bootstrap.js') }}"></script>
+    <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
+    <script src="{{ asset_url('js/front-main.js') }}"></script>
+
+    <!-- Core JS -->
+    <!-- build:js /js/core.js -->
+    <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
+    <script src="{{ asset_url('js/bootstrap.js') }}"></script>
+    <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="{{ asset_url('libs/nouislider/nouislider.js') }}"></script>
+    <script src="{{ asset_url('libs/swiper/swiper.js') }}"></script>
+
+    <!-- Main JS -->
+    <script src="{{ asset_url('assets/front-main.js') }}"></script>
+
+    <!-- Page JS -->
+    <script src="{{ asset_url('assets/front-page-landing.js') }}"></script>
+
 
 </body>
 

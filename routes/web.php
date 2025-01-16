@@ -38,12 +38,24 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['verify' => true]);
 
+
+
+Route::get('/home', [PagesController::class, 'Home'])->name('home');
 Route::get('/terms-condition', [PagesController::class, 'termandconditions'])->name('terms-condition');
 Route::get('/privacy-policy', [PagesController::class, 'privacypolicy'])->name('privacy-policy');
 Route::get('/cancellation-and-refund-policy', [PagesController::class, 'CancellationandRefundPolicy'])->name('cancellation-and-refund-policy');
 Route::get('/shipping-and-delivery-policy', [PagesController::class, 'ShippingandDeliveryPolicy'])->name('shipping-and-delivery-policy');
 Route::get('/contact-us', [PagesController::class, 'ContactUs'])->name('contact-us');
-Route::get('/home', [PagesController::class, 'Home'])->name('home');
+Route::get('/guest-posting-services', [PagesController::class, 'Guestpostingservices'])->name('guest-posting-services');
+Route::get('/link-building-services', [PagesController::class, 'linkbuildingservices'])->name('link-building-services');
+Route::get('/seo-reseller-services', [PagesController::class, 'seoresellerservices'])->name('seo-reseller-services');
+Route::get('/content-writing-services', [PagesController::class, 'contentwritingservices'])->name('content-writing-services');
+Route::get('/content-marketing-services', [PagesController::class, 'contentmarketingservices'])->name('content-marketing-services');
+
+
+
+
+
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
 
@@ -87,8 +99,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/paypal/payment-success', [PaypalPaymentController::class, 'paymentSuccess'])->name('payment.success');
         Route::get('/paypal/payment-cancel/{orderId}', [PaypalPaymentController::class, 'paymentCancel'])->name('payment.cancel');
 
-        Route::get('/razorpay/create/{price}/{orderId}', [RazorpayPaymentController::class, 'makePayment'])->name('razorpay.create');
+        Route::post('/razorpay/create/', [RazorpayPaymentController::class, 'makePayment'])->name('razorpay.create');
         Route::post('/razorpay/callback', [RazorpayPaymentController::class, 'callback'])->name('razorpay.callback');
+        Route::get('/razorpay/cancel', [RazorpayPaymentController::class, 'cancel'])->name('razorpay.cancel');
+
 
 
         Route::controller(PaymentController::class)->group(function () {
@@ -123,6 +137,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     Route::controller(OrdersController::class)->group(function () {
+
         Route::get('/order/info/{id}', 'orderInfo')->name('order.info');
         Route::post('/order/update-status/{id}', 'updateStatus')->name('order.update.status');
 

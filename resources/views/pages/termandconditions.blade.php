@@ -3,7 +3,7 @@
 
 </title>
 <section class="section-py first-section-pt">
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-lg-8">
                 <h1 class="mb-2 pb-1">Terms and Conditions</h1>
@@ -47,10 +47,13 @@
 
                 </p>
                 <ul>
-                    <li>The creation, writing, and distribution of PR materials, be it a press release, articles, or advertorials.</li>
+                    <li>
+                        <p>The creation, writing, and distribution of PR materials, be it a press release, articles, or advertorials.</p>
+                    </li>
                 </ul>
                 <ul>
-                    <li>A right purchase to publish an article on another third-party web with agreements to Links Farmer.
+                    <li>
+                        <p> right purchase to publish an article on another third-party web with agreements to Links Farmer.</p>
                     </li>
                 </ul>
 
@@ -104,40 +107,54 @@
                     When using Links Farmer services, you shall not:
                 </p>
                 <ul>
-                    <li>Give false, misleading or inaccurate information.
+                    <li>
+                        <P>Give false, misleading or inaccurate information.</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>Submit content belonging to others without their consent or use someone else's account without permission.
+                    <li>
+                        <p>Submit content belonging to others without their consent or use someone else's account without permission.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>Your activities must include illegal postulate content encouraging illegal acts from others.
+                    <li>
+                        <p>Your activities must include illegal postulate content encouraging illegal acts from others.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>Harass, defame, discriminate, or threaten others.
+                    <li>
+                        <p>Harass, defame, discriminate, or threaten others.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>Falsely claim affiliation with another individual or organization, or imitate any person or entity. Trademarks, copyright, patents, and other ownership rights are among the intellectual property rights that are violated.
+                    <li>
+                        <p>Falsely claim affiliation with another individual or organization, or imitate any person or entity. Trademarks, copyright, patents, and other ownership rights are among the intellectual property rights that are violated.
+                        </p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <p>Deliver spam or unsolicited promotional materials.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>Introduce harmful or malicious code or attempt to disrupt the functioning of Links Farmer.
+                    <li>
+                        <p>Introduce harmful or malicious code or attempt to disrupt the functioning of Links Farmer.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>Collect data from Links Farmer through unauthorized methods, including scraping or the use of bots, spiders, or other automated tools.
+                    <li>
+                        <p>Collect data from Links Farmer through unauthorized methods, including scraping or the use of bots, spiders, or other automated tools.</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>Involve activities that disrupt the normal functioning of Links Farmer or overload its activity-dedication infrastructure like denial-of-service attacks.
+                    <li>
+                        <p>Involve activities that disrupt the normal functioning of Links Farmer or overload its activity-dedication infrastructure like denial-of-service attacks.</p>
 
                     </li>
                 </ul>
@@ -149,7 +166,7 @@
                 <h5 class="mb-2 pb-1 fw-bold">Content Ownership and License
                 </h5>
                 <hr class="my-lg-4" />
-                <p class="pt-lg-2">
+                <p class="pt-lg-2 ">
                     You retain any of your rights to any content you submit, but by posting or publishing content through Links Farmer, you grant Links Farmer a non-exclusive, transferable, sub-licensable, royalty-free, global license to copy, modify, adapt, distribute, display, and create derivative works from such content. Such license shall remain in effect until deletion of such Content from the Service.
                 </p>
             </div>

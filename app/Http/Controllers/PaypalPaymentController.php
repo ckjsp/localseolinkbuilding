@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use App\Models\lslbOrder;
 
 use App\Models\lslbPayment;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MyMail;
+
 
 class PaypalPaymentController extends Controller
 
@@ -52,11 +55,8 @@ class PaypalPaymentController extends Controller
     }
 
     public function paymentSuccess(Request $request)
-
     {
-
         $provider = new PayPalClient;
-        // $provider = \PayPal::setProvider();
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
 
@@ -73,7 +73,6 @@ class PaypalPaymentController extends Controller
 
                 if ($customId) {
                     $paymentdata = [
-
                         'user_id' => $order->u_id,
                         'order_id' => $order->id,
                         'payment_amount' => $captures['amount']['value'],
@@ -81,16 +80,29 @@ class PaypalPaymentController extends Controller
                         'payment_method' => 'PayPal',
                         'payment_type' => 'capture',
                         'payment_responce' => serialize(json_encode($response)),
-
                     ];
 
                     $payment = lslbPayment::create($paymentdata);
 
                     $order->update([
-
                         'payment_status' => 'success',
-
                     ]);
+
+                    $customData = [
+                        'from_name' => 'Links Farmer',
+                        'mailaddress' => 'no-reply@linksfarmer.com',
+                        'subject' => 'Order Payment Successful',
+                        'order_id' => $order->order_id,
+                        'amount_paid' => $captures['amount']['value'],
+                        'payment_id' => $captures['id'],
+                    ];
+
+                    // Send the email using the Blade view
+                    Mail::send('email.order_payment_successful_paypal', $customData, function ($message) use ($customData, $order) {
+                        $message->from($customData['mailaddress'], $customData['from_name']);
+                        $message->to($order->email);
+                        $message->subject($customData['subject']);
+                    });
 
                     return redirect()->route('advertiser.orders')->with('success', 'Payment completed successfully!');
                 }
@@ -103,6 +115,7 @@ class PaypalPaymentController extends Controller
 
         return redirect()->route('advertiser.orders')->with('error', 'Payment capture failed.');
     }
+
 
     public function paymentCancel($orderId)
 

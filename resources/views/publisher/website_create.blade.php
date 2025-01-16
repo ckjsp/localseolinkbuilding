@@ -270,6 +270,7 @@
                             value="{{ (isset($categories) && !empty($categories)) ? $categories : '' }}" multiple>
                         <label for="inputCategories1" class="form-label">Categories</label>
                         <div class="select2-primary">
+
                             <select id="inputCategories1" name="categories[]" class="form-select select2" multiple>
                                 <option value="General" {{ (in_array("General", $Carr)) ? 'selected' : '' }}>General
                                 </option>
@@ -364,6 +365,9 @@
                                 </option>
 
                             </select>
+                            <small class="form-text text-muted">
+                                Please select up to 5 categories only
+                            </small>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4">
@@ -383,6 +387,7 @@
                         <label for="inputForbiddenCategories1" class="form-label">Select the forbidden categories you
                             accept</label>
                         <div class="select2-info">
+
                             <select id="inputForbiddenCategories1" name="forbidden_categories[]"
                                 class="select2 form-select" multiple>
                                 <option value="Casino" {{ (in_array("Casino",$FCarr)) ? 'selected' : '' }}>Casino

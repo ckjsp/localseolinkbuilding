@@ -18,17 +18,24 @@ class lslbOrder extends Authenticatable
         'order_id',
         'website_id',
         'u_id',
+        'email',
         'price',
         'quantity',
-        'type',
+        'attachment_type',
         'order_date',
         'delivery_time',
         'status',
+        'rejection_reason',
         'payment_method',
         'payment_status',
         'attachment',
+        'existing_post_url',
+        'landing_page_url',
+        'anchor_text',
         'article_title',
         'special_instructions',
+        'selected_project_id',
+
     ];
 
     public function website()

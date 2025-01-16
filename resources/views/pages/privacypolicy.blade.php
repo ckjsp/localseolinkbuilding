@@ -8,7 +8,7 @@
 <!-- Sections:Start -->
 
 <section class="section-py first-section-pt">
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-lg-8">
                 <h1 class="mb-2 pb-1">Privacy Policy
@@ -28,11 +28,12 @@
                 </h5>
                 <hr class="my-lg-4" />
                 <p class="pt-lg-2">
-                    By accepting this Privacy Policy, you accept our collection, storage, use, and sharing of your data as defined herein. If you disagree with any item herein, do not use this site or platform.
-                </p>
-                <p class="pt-lg-2">
                     You agree with the terms and conditions outlined in this Privacy Policy when entering, connecting, accessing or using services from Links Farmer. This includes collecting and processing your personal information as outlined herein. If you do not agree with any of the stated terms, do not use the Site and/or Platform.
                 </p>
+                <p class="pt-lg-2">
+                    By accepting this Privacy Policy, you accept our collection, storage, use, and sharing of your data as defined herein. If you disagree with any item herein, do not use this site or platform.
+                </p>
+
             </div>
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1 fw-bold">Information We Collect from Users:
@@ -54,44 +55,55 @@
                     Non-personal data is data that cannot identify you. But when data is considered anonymized, it cannot identify the individual directly, however, it becomes possible to identify indirectly it with the help of some specific knowledge or methods. This type of information is gathered automatically through how you use the Site or Platform. Non-personal data includes all technical and behavioural information that does not have reference to your identity.
 
                 </p>
+                <p class="pt-lg-2">Examples of Non-personal Information include:
+                </p>
                 <ul>
-                    <li>Your IP address
+                    <li>
+                        <p>Your IP address</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>Kind of browser one uses (e.g. Chrome, Firefox, Safari )
+                    <li>
+                        <p>Kind of browser one uses (e.g. Chrome, Firefox, Safari )</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>Operating system and screen resolution
+                    <li>
+                        <p>Operating system and screen resolution</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>Language settings of your browser
+                    <li>
+                        <p>Language settings of your browser</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>Flash version
+                    <li>
+                        <p>Flash version</p>
                     </li>
                 </ul>
 
                 <ul>
-                    <li>Click-stream data, which tracks your activities on the Site.
+                    <li>
+                        <p>Click-stream data, which tracks your activities on the Site.</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>Search queries typed while navigating around the Site
+                    <li>
+                        <p>Search queries typed while navigating around the Site</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>The amount of time spent on different pages
+                    <li>
+                        <p>The amount of time spent on different pages</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>Site interaction with features and sections
+                    <li>
+                        <p>Site interaction with features and sections</p>
 
                     </li>
                 </ul>
@@ -116,37 +128,43 @@
 
                 </p>
                 <ul>
-                    <li>Full name
+                    <li>
+                        <p>Full name</p>
 
                     </li>
                 </ul>
 
                 <ul>
-                    <li>Username
+                    <li>
+                        <p>Username</p>
 
                     </li>
                 </ul>
 
                 <ul>
-                    <li>Email address
+                    <li>
+                        <p>Email address</p>
 
                     </li>
                 </ul>
 
                 <ul>
-                    <li>Country of residence
+                    <li>
+                        <p>Country of residence</p>
 
                     </li>
                 </ul>
 
                 <ul>
-                    <li>Passwords, including the PayPal email or other payment details
+                    <li>
+                        <p>Passwords, including the PayPal email or other payment details</p>
 
                     </li>
                 </ul>
 
                 <ul>
-                    <li>If provided, phone number.
+                    <li>
+                        <p>If provided, phone number.</p>
 
                     </li>
                 </ul>
@@ -210,21 +228,25 @@
                 </h5>
                 <hr class="my-lg-4" />
                 <ul>
-                    <li>It helps the operation of the Service and enables the users to buy and sell posts along with navigation on the site.
+                    <li>
+                        <p>It helps the operation of the Service and enables the users to buy and sell posts along with navigation on the site.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>To enrich and personalize the User's experience on the Site.
+                    <li>
+                        <p>To enrich and personalize the User's experience on the Site.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>To conduct internal analytics, know the usage patterns, and otherwise evolve the design and functionality of the Site and Platform.
+                    <li>
+                        <p>To conduct internal analytics, know the usage patterns, and otherwise evolve the design and functionality of the Site and Platform.</p>
                     </li>
                 </ul>
                 <ul>
-                    <li>To improve Site performance, including identification and troubleshooting of technical problems or preventing fraud.
+                    <li>
+                        <p>To improve Site performance, including identification and troubleshooting of technical problems or preventing fraud.</p>
                     </li>
                 </ul>
 
@@ -234,33 +256,39 @@
                     Personal Information:
                 </h5>
                 <ul>
-                    <li>To create aggregated statistical data to improve and customize the Site as well as analyze behaviour to present and deliver better services.
+                    <li>
+                        <p>To create aggregated statistical data to improve and customize the Site as well as analyze behaviour to present and deliver better services.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>To verify the Users accessing via their account, thus securing access and allowing authorized access.
+                    <li>
+                        <p>To verify the Users accessing via their account, thus securing access and allowing authorized access.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>To communicate with users in exchange for customer support, technical assistance, or seeking feedback on services rendered.
+                    <li>
+                        <p>To communicate with users in exchange for customer support, technical assistance, or seeking feedback on services rendered.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>To inform Users of new updates, product launches, or service improvements through newsletters or emails.
+                    <li>
+                        <p>To inform Users of new updates, product launches, or service improvements through newsletters or emails.</p>
 
 
                     </li>
                 </ul>
                 <ul>
-                    <li>For information on products and services that might be of interest to the User.
+                    <li>
+                        <p>For information on products and services that might be of interest to the User.</p>
 
                     </li>
                 </ul>
                 <ul>
-                    <li>To determine the location of Users' geographical locations for the provision of local services and to guard the Site from unauthorized users.
+                    <li>
+                        <p>To determine the location of Users' geographical locations for the provision of local services and to guard the Site from unauthorized users.</p>
 
                     </li>
                 </ul>
@@ -286,14 +314,14 @@
 
                 </p>
             </div>
-            <div class="col-lg-8">
+            <!-- <div class="col-lg-8">
                 <h5 class="mb-2 pb-1  fw-bold">Termination of Services
                 </h5>
                 <hr class="my-lg-4" />
                 <p class="pt-lg-2">
                     Links Farmer reserves the right to terminate your access to the website for violating these Terms, or if we suspect you have violated them, or when requested by law enforcement officials or other government agencies.
                 </p>
-            </div>
+            </div> -->
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1  fw-bold">We are allowed to share your information with other parties, including.
 
@@ -303,7 +331,8 @@
                     Google Analytics: </p>
 
                 <ul>
-                    <li> From Google Analytics, we regularly review and analyze the traffic going to our site. It collects completely anonymous information - including IP addresses, and browser types - to help in improving the user experience.
+                    <li>
+                        <p>From Google Analytics, we regularly review and analyze the traffic going to our site. It collects completely anonymous information - including IP addresses, and browser types - to help in improving the user experience.</p>
 
                     </li>
                 </ul>
@@ -311,7 +340,8 @@
                     Ad Networks and Advertisers: </p>
 
                 <ul>
-                    <li>This Service may be advertised on third-party sites. If you click on these ads, the applicable third-party advertiser may use tracking technologies to collect data about your interactions with the advertising provided by it.
+                    <li>
+                        <p>This Service may be advertised on third-party sites. If you click on these ads, the applicable third-party advertiser may use tracking technologies to collect data about your interactions with the advertising provided by it.</p>
 
                     </li>
                 </ul>
@@ -350,9 +380,7 @@
                     We may transfer your data across borders to other jurisdictions to provide our services effectively. Such transfer may be to countries having a different standard of data protection than that in your jurisdiction. You consent to the transfer of your data to such countries by using the Site.
 
                 </p>
-                <p class="pt-lg-2">
-                    These Terms and States make up the entire and complete agreement between you and Links Farmer and supersede any prior communications, representations or agreements of any kind about your use of this website or services.
-                </p>
+
             </div>
             <div class="col-lg-8">
                 <h5 class="mb-2 pb-1 fw-bold">Direct Marketing:

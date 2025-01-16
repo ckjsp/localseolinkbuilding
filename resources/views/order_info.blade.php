@@ -1,17 +1,17 @@
 @push('css')
 
 @endpush
-<?php 
-    $page ='publisher.sidebar'; 
-    if(Auth::user()->role->name === 'Advertiser') $page ='advertiser.menu';
-    if(Auth::user()->role->name === 'Admin') $page ='lslbadmin.sidebar';
+<?php
+$page = 'publisher.sidebar';
+if (Auth::user()->role->name === 'Advertiser') $page = 'advertiser.menu';
+if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
 ?>
 @extends($page)
 @section('sidebar-content')
 <!-- Content -->
 
 <div class="container-xxl flex-grow-1 container-p-y">
-   
+
     <div class="card overflow-hidden">
         <!-- Map Menu Wrapper -->
         <div class="row app-logistics-fleet-wrapper mb-5">
@@ -53,7 +53,7 @@
                             </div>
                             <div id="fleet1" class="accordion-collapse collapse show" data-bs-parent="#fleet">
                                 <div class="accordion-body pt-3 pb-0">
-                                
+
                                     <ul class="timeline ps-3 mt-4 mb-0">
                                         <li class="timeline-item ms-1 ps-4 border-left-dashed">
                                             <span class="timeline-indicator-advanced timeline-indicator-success border-0 shadow-none">
@@ -145,7 +145,7 @@
             <div class="col h-100 map-container mb-5">
                 <!-- Map -->
                 <div id="map" class="h-100 w-100">
-                    <h3 class="mt-5 text-center text-primary">{{ $order[0]->article_title }}</h3>
+                    <h3 class="mt-5 text-center text-primary">{{ $order[0]->attachment_type }}</h3>
                     <div class="border w-75 m-auto mb-3"> </div>
                     <div class="order-detail-section">
                         <div class="row mb-3">
@@ -173,45 +173,108 @@
                             </div>
                             @endif
                         </div>
+
+                        <!-- <div class="col-md-6">
+                                <strong class="m-2 font-bold">Type: </strong> {{ $order[0]->attachment_type }}
+                            </div> -->
+
+                        @if ($order[0]->attachment_type == 'Guest Post')
+
+                        <!-- Guest Post Section -->
+
                         <div class="row mb-3">
-                            <div class="col-md-6"><strong class="m-2 font-bold">Article Doc: </strong> <?= !empty($order[0]->attachment) ? '<a href="' . url('/storage/app/' . $order[0]->attachment) . '" target="_blank" class="btn btn-primary">Download Docx </a>' : 'Data Not Found' ?></div>
-                            <div class="col-md-6"><strong class="m-2 font-bold">Type: </strong> {{ $order[0]->type }}</div>
+                            <div class="col-md-6">
+                                @if (!empty($order[0]->attachment))
+                                @php
+                                $attachments = explode(',', $order[0]->attachment); // Split the comma-separated file paths
+                                @endphp
+                                @foreach ($attachments as $index => $attachment)
+                                <div class="mb-2">
+                                    <strong>Article Doc {{ $index + 1 }}: </strong>
+                                    <a href="{{ url('/storage/app/' . trim($attachment)) }}" target="_blank" class="btn btn-primary">Download Docx</a>
+                                </div>
+                                @endforeach
+                                @else
+                                <p>Data Not Found</p>
+                                @endif
+                            </div>
                         </div>
+
+
+                        @elseif ($order[0]->attachment_type == 'Link Insertion')
+
+                        <!-- Link Insertion Section -->
+
+                        <div class="row mb-3">
+                            <div class="col-md-9">
+                                <strong class="m-2 font-bold">Existing Post URL : </strong>
+                                {{ $order[0]->existing_post_url }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-9">
+                                <strong class="m-2 font-bold">Landing Page URL : </strong>
+                                {{ $order[0]->landing_page_url }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <strong class="m-2 font-bold">Anchor Text: </strong>
+                                {{ $order[0]->anchor_text }}
+                            </div>
+                        </div>
+                        @else
+
+                        <!-- Default Section -->
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <strong class="m-2 font-bold">Attachment Type: </strong>
+                                Not Available
+                            </div>
+                        </div>
+
+                        @endif
+
+
                         <div class="row mb-3">
                             <div class="col-md-6"><strong class="m-2 font-bold">Quantity: </strong> {{ $order[0]->quantity }}</div>
                             <div class="col-md-6"><strong class="m-2 font-bold">Total Amount: </strong> ${{ $order[0]->price }}</div>
                         </div>
                         @if($userDetail->role->name == 'Admin')
-                            <div class="row mb-3">
-                                <div class="col-md-6"><strong class="m-2 font-bold">Payment Method: </strong> {{ $order[0]->payment_method }}</div>
-                                <div class="col-md-6"><strong class="m-2 font-bold">Payment Status: </strong> {!! $order[0]->payment_status !!}</div>
-                            </div>
-                            @if(isset($order[0]->payments[0]->payment_type))
-                                <div class="row mb-3">
-                                    <div class="col-md-6"><strong class="m-2 font-bold">Payment Type: </strong> {{ $order[0]->payments[0]->payment_type }}</div>
-                                </div>
-                            @endif
+                        <div class="row mb-3">
+                            <div class="col-md-6"><strong class="m-2 font-bold">Payment Method: </strong> {{ $order[0]->payment_method }}</div>
+                            <div class="col-md-6"><strong class="m-2 font-bold">Payment Status: </strong> {!! $order[0]->payment_status !!}</div>
+                        </div>
+                        @if(isset($order[0]->payments[0]->payment_type))
+                        <div class="row mb-3">
+                            <div class="col-md-6"><strong class="m-2 font-bold">Payment Type: </strong> {{ $order[0]->payments[0]->payment_type }}</div>
+                        </div>
+                        @endif
                         @endif
                         <div class="row mb-3">
                             <div class="col-md-12"><strong class="m-2 font-bold">Special Instructions: </strong> {!! $order[0]->special_instructions !!}</div>
                         </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12"><strong class="m-2 font-bold">Rejection reason: </strong> {!! $order[0]->rejection_reason !!}</div>
+                        </div>
                         @if($userDetail->role->name != 'Advertiser')
-                            <div class="row mb-3 justify-content-center noteBox-div d-none">
-                                <div class="col-md-10">
-                                    <label for="noteBox" class="form-label"> Status Notes: </label>
-                                    <textarea class="form-control" id="noteBox" rows="7" name="note" value="" placeholder="If you have any specific note regarding status. mention them below."></textarea>
-                                </div>
+                        <div class="row mb-3 justify-content-center noteBox-div d-none">
+                            <div class="col-md-10">
+                                <label for="noteBox" class="form-label"> Status Notes: </label>
+                                <textarea class="form-control" id="noteBox" rows="7" name="note" value="" placeholder="If you have any specific note regarding status. mention them below."></textarea>
                             </div>
+                        </div>
                         @endif
                     </div>
                 </div>
             </div>
             @if($userDetail->role->name != 'Advertiser')
-                <div class="map-container d-flex justify-content-end mr-5">
-                    <div class="btn-group mx-5">
-                        <button type="button" class="btn btn-outline-primary mx-5 orderStatus disabled" data-item="{{ $order[0]->status }}">Save Status</button>
-                    </div>
+            <div class="map-container d-flex justify-content-end mr-5">
+                <div class="btn-group mx-5">
+                    <button type="button" class="btn btn-outline-primary mx-5 orderStatus disabled" data-item="{{ $order[0]->status }}">Save Status</button>
                 </div>
+            </div>
             @endif
             <!-- Overlay Hidden -->
             <div class="app-overlay d-none"></div>
@@ -224,13 +287,13 @@
 @push('script')
 <script>
     $('.order-status').click(function() {
-        if(!$(this).hasClass('active')){
+        if (!$(this).hasClass('active')) {
             $this = $(this);
             $statusText = $this.text();
             $('.statusBtnTitle').text($statusText);
-            $('.order-status').removeClass('active'); 
+            $('.order-status').removeClass('active');
             $this.addClass('active');
-            $('.orderStatus').removeClass('disabled'); 
+            $('.orderStatus').removeClass('disabled');
             $('.orderStatus').data('item', $this.data('item'));
             $('.noteBox-div').removeClass('d-none');
         }
@@ -242,24 +305,24 @@
         $note = $('#noteBox').val();
         $id = $('#id').val();
         $_token = $('input[name="_token"]').val();
-        if($note != ''){
+        if ($note != '') {
             $('#noteBox').removeClass('is-invalid');
             if ($status != '') {
                 $.ajax({
                     type: 'POST',
-                    url: '<?= route('order.update.status',$order[0]->id) ?>',
+                    url: '<?= route('order.update.status', $order[0]->id) ?>',
                     data: {
-                        '_token' : $_token,
-                        'status' : $status,
-                        'note' : $note,
+                        '_token': $_token,
+                        'status': $status,
+                        'note': $note,
                     },
                     success: function(response) {
                         var $obj = JSON.parse(response);
-                        if($obj.error != ''){
-                            $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>'+$obj.error+'</li></ul>');
-                        }else{
-                            $('#alert').attr('class', '').addClass('alert alert-success').html('<ul class="m-auto"><li>'+$obj.success+'</li></ul>');
-                            setTimeout(location.reload(true) ,1000);
+                        if ($obj.error != '') {
+                            $('#alert').attr('class', '').addClass('alert alert-danger').html('<ul class="m-auto"><li>' + $obj.error + '</li></ul>');
+                        } else {
+                            $('#alert').attr('class', '').addClass('alert alert-success').html('<ul class="m-auto"><li>' + $obj.success + '</li></ul>');
+                            setTimeout(location.reload(true), 1000);
                         }
                         $('#noteBox-div').addClass('d-none');
                     },
@@ -269,7 +332,7 @@
                     }
                 });
             }
-        }else{
+        } else {
             $('#noteBox').addClass('is-invalid');
         }
     });

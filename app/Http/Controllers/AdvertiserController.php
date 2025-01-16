@@ -59,24 +59,17 @@ class AdvertiserController extends Controller
             $data['failedOrderCount'] = lslbOrder::where('u_id', Auth::user()->id)->where('payment_status', 'failed')->count();
 
             $userId = Auth::user()->id;
-            //$projects = lslbProject::all();
-            $projects = lslbProject::where('user_id', $userId)->get();
-            $selectedProjectId = session('selected_project_id', $projects->first()->id ?? null);
-            $selectedProject = $projects->where('id', $selectedProjectId)->first();
-            if ($selectedProject) {
-                $projects = $projects->filter(function ($project) use ($selectedProjectId) {
-                    return $project->id !== $selectedProjectId;
-                })->prepend($selectedProject);
-            }
+
+            $projects = lslbProject::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
 
             $data['projects'] = $projects;
-            $data['selectedProject'] = $selectedProject;
 
             return view('advertiser/home')->with($data);
         } else {
             return redirect('/login');
         }
     }
+
 
     public function projects()
     {
@@ -100,14 +93,22 @@ class AdvertiserController extends Controller
     public function cart()
     {
         $data = array();
-        $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart']) : array();
+
+        $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
         $ids = array_column($arrCookie, 'web_id');
+
         $data['slug'] = 'cart';
         $data['userDetail'] = Auth::user();
+
         $data['websites'] = lslbWebsite::findMany($ids);
-        $data['allWebsites'] = lslbWebsite::all();
+
+        $data['allWebsites'] = lslbWebsite::where('status', 'approve')
+            ->whereNotIn('id', $ids)
+            ->get();
+
         return view('advertiser/cart')->with($data);
     }
+
 
     public function projectCreate()
     {
@@ -125,7 +126,7 @@ class AdvertiserController extends Controller
             'project_name' => 'required|string|max:255',
             'project_url' => 'required|url',
             'projectCategories' => 'required|array',
-            'projectForbiddenCategories' => 'required|array',
+            'projectForbiddenCategories' => 'nullable|array',
             'additional_note' => 'nullable|string',
         ]);
 
@@ -145,7 +146,9 @@ class AdvertiserController extends Controller
                 'project_name' => $validatedData['project_name'],
                 'project_url' => $validatedData['project_url'],
                 'categories' => serialize($validatedData['projectCategories']),
-                'forbidden_category' => serialize($validatedData['projectForbiddenCategories']),
+                'forbidden_category' => !empty($validatedData['projectForbiddenCategories'])
+                    ? serialize($validatedData['projectForbiddenCategories'])
+                    : null, // Serialize only if the value is not empty
                 'additional_note' => $validatedData['additional_note'],
             ];
 
@@ -165,6 +168,7 @@ class AdvertiserController extends Controller
             ]);
         }
     }
+
 
     public function checkUrl(Request $request)
     {
@@ -318,26 +322,49 @@ class AdvertiserController extends Controller
     }
 
     public function projectDestroy($id)
-
     {
-        $project = lslbProject::findOrFail($id);
+        $selectedProjectId = session('selected_project_id');
 
-        if ($project->delete()) {
-            $remainingProjects = lslbProject::count();
+        if ($id == $selectedProjectId) {
+            $project = lslbProject::findOrFail($id);
 
-            if ($remainingProjects === 0) {
-                return response()->json(['success' => 'Project deleted successfully.', 'clearLocalStorage' => true]);
+            if ($project->delete()) {
+                session()->forget('selected_project_id');
+
+                $remainingProjects = lslbProject::count();
+
+                if ($remainingProjects === 0) {
+                    return response()->json(['success' => 'Project deleted successfully.', 'clearLocalStorage' => true]);
+                }
+                return response()->json(['success' => 'Project deleted successfully.']);
+            } else {
+                return response()->json(['error' => 'Failed to delete the project.'], 500);
             }
-            return response()->json(['success' => 'Project deleted successfully.']);
         } else {
-            return response()->json(['error' => 'Failed to delete the project.'], 500);
+            return response()->json(['error' => 'The selected project ID does not match the project to be deleted.'], 400);
         }
     }
+
 
     public function showMenu()
     {
         $userId = Auth::id();
-        $projects = lslbProject::select('id', 'project_name')->where('user_id', $userId)->get()->toArray();
+        $projects = lslbProject::select('id', 'project_name')
+            ->where('user_id', $userId)
+            ->get()
+            ->toArray();
+
+        if (!empty($projects)) {
+            if (!session()->has('selected_project_id')) {
+                session(['selected_project_id' => $projects[0]['id']]);
+            }
+
+            $selectedProjectId = session('selected_project_id');
+
+            $projects = collect($projects)->sortByDesc(function ($project) use ($selectedProjectId) {
+                return $project['id'] == $selectedProjectId ? 1 : 0;
+            })->values()->toArray();
+        }
 
         return response()->json([
             'statuscode' => 200,
@@ -345,7 +372,6 @@ class AdvertiserController extends Controller
             'data' => $projects
         ], 200);
     }
-
 
     public function getProjectName(Request $request)
     {
