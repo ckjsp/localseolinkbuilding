@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('sidebar-content'); ?>
 <?php $__env->startPush('css'); ?>
 <link rel="stylesheet" href="<?php echo e(asset_url('libs/select2/select2.css')); ?>" />
@@ -21,7 +23,7 @@
                         </div>
                         <h4 class="ms-1 mb-0"><?php echo e($orderCount); ?></h4>
                     </div>
-                    <p class="mb-1">Total Orders 12</p>
+                    <p class="mb-1">Total Orders</p>
                     <p class="mb-0">
                         <span class="fw-medium me-1"><?php echo e($successOrderCount); ?></span>
                         <small class="text-muted">Completed Orders</small>
@@ -65,130 +67,125 @@
         </div> -->
     </div>
     <div class="project_details">
-        <?php if ($projects->isEmpty()): ?>
-            <div class="row text-center justify-content-center empty-container">
-                <img src="<?php echo e(asset('/img/pages/add-folder.png')); ?>" style="max-width: 170px;margin: 0 auto;">
-                <h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5>
-                <p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest
-                    posting
-                    campaigns.</p>
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
-                    class="btn btn-primary w-auto">+Add Projects
-                </a>
-            </div>
+        <?php if($projects->isEmpty()): ?>
+        <div class="row text-center justify-content-center empty-container">
+            <img src="<?php echo e(asset('/img/pages/add-folder.png')); ?>" style="max-width: 170px;margin: 0 auto;">
+            <h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5>
+            <p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest
+                posting
+                campaigns.</p>
+            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
+                class="btn btn-primary w-auto">+Add Projects
+            </a>
+        </div>
         <?php else: ?>
-            <div class="d-flex justify-content-between my-3 step-3">
-                <h5 class="card-title">
-                </h5>
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
-                    class="btn btn-primary w-auto">+Add Projects
-                </a>
+        <div class="d-flex justify-content-between my-3 step-3">
+            <h5 class="card-title">
+            </h5>
+            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
+                class="btn btn-primary w-auto">+Add Projects
+            </a>
+            
+        </div>
+        <?php if(session('success')): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert">
+            <?php echo e(session('success')); ?>
 
-            </div>
-            <?php if (session('success')): ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert">
-                    <?php echo e(session('success')); ?>
-
-                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php endif; ?>
-            <div id="projects-container">
-                <?php $__currentLoopData = $projects;
-                $__env->addLoop($__currentLoopData);
-                foreach ($__currentLoopData as $project): $__env->incrementLoopIndices();
-                    $loop = $__env->getLastLoop(); ?>
-                    <div class="row mb-3 step-4" id="project-card-<?php echo e($project->id); ?>">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title"><?php echo e($project->project_name); ?></h5>
-                                <div class="d-flex gap-3">
-                                    <p class="card-text"> <?php echo e($project->project_url); ?></p>
-                                    <span>Created on <?php echo e(\Carbon\Carbon::parse($project->created_at)->format('F d, Y')); ?></span>
+            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php endif; ?>
+        <div id="projects-container">
+            <?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="row mb-3 step-4" id="project-card-<?php echo e($project->id); ?>">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title"><?php echo e($project->project_name); ?></h5>
+                        <div class="d-flex gap-3">
+                            <p class="card-text"> <?php echo e($project->project_url); ?></p>
+                            <span>Created on <?php echo e(\Carbon\Carbon::parse($project->created_at)->format('F d, Y')); ?></span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row d-flex">
+                            <div class="col col-md-3 border rounded p-4 pb-0 active-bg">
+                                <div>
+                                    <p>Total Backlinks built from LP</p>
+                                    <h4>1</h4>
+                                </div>
+                                <div>
+                                    <p>Total Paid</p>
+                                    <h4>$25</h4>
+                                </div>
+                                <div>
+                                    <p>Total Content Written</p>
+                                    <h4>10</h4>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <div class="row d-flex">
-                                    <div class="col col-md-3 border rounded p-4 pb-0 active-bg">
-                                        <div>
-                                            <p>Total Backlinks built from LP</p>
-                                            <h4>1</h4>
-                                        </div>
-                                        <div>
-                                            <p>Total Paid</p>
-                                            <h4>$25</h4>
-                                        </div>
-                                        <div>
-                                            <p>Total Content Written</p>
-                                            <h4>10</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col col-md-3 d-flex flex-column border rounded p-3">
-                                        <img src="<?php echo e(asset_url('img/pages/project-moz-logo.svg')); ?>"
-                                            style="max-width: 67px; height: 23px;" />
-                                        <div class="mt-3 d-flex align-items-center">
-                                            <span class="mt-3">Domain Authority</span><br>
-                                        </div>
+                            <div class="col col-md-3 d-flex flex-column border rounded p-3">
+                                <img src="<?php echo e(asset_url('img/pages/project-moz-logo.svg')); ?>"
+                                    style="max-width: 67px; height: 23px;" />
+                                <div class="mt-3 d-flex align-items-center">
+                                    <span class="mt-3">Domain Authority</span><br>
+                                </div>
 
+                                <h4 class="mt-3"> <svg width="20" viewBox="0 0 160 160">
+                                        <circle r="70" cx="80" cy="80" fill="transparent" stroke="#e0e0e0"
+                                            stroke-width="12px"></circle>
+                                        <circle r="70" cx="80" cy="80" fill="transparent" stroke="#45e2d0"
+                                            stroke-width="12px" stroke-dasharray="439.6px" stroke-dashoffset="109.9px">
+                                        </circle>
+                                    </svg> 70</h4>
+
+                                <div class="mt-2 d-flex align-items-center">
+                                    <span class="mt-3">Spam Score</span><br>
+                                </div>
+
+                                <h4 class="mt-3">20%</h4>
+
+                            </div>
+
+                            <div class="col  d-flex flex-column border rounded p-3">
+                                <img src="<?php echo e(asset_url('img/pages/project-semrush-logo.svg')); ?>" style="max-width: 30%;"
+                                    alt="Project SEMrush Logo" />
+                                <div class="d-flex gap-5 flex-wrap mt-2">
+                                    <div class="mt-3 justify-content-between align-items-center">
+                                        <p>Authority Score</p>
                                         <h4 class="mt-3"> <svg width="20" viewBox="0 0 160 160">
                                                 <circle r="70" cx="80" cy="80" fill="transparent" stroke="#e0e0e0"
                                                     stroke-width="12px"></circle>
                                                 <circle r="70" cx="80" cy="80" fill="transparent" stroke="#45e2d0"
-                                                    stroke-width="12px" stroke-dasharray="439.6px" stroke-dashoffset="109.9px">
-                                                </circle>
-                                            </svg> 70</h4>
-
-                                        <div class="mt-2 d-flex align-items-center">
-                                            <span class="mt-3">Spam Score</span><br>
-                                        </div>
-
-                                        <h4 class="mt-3">20%</h4>
-
+                                                    stroke-width="12px" stroke-dasharray="439.6px"
+                                                    stroke-dashoffset="109.9px"></circle>
+                                            </svg> 4</h4>
                                     </div>
-
-                                    <div class="col  d-flex flex-column border rounded p-3">
-                                        <img src="<?php echo e(asset_url('img/pages/project-semrush-logo.svg')); ?>" style="max-width: 30%;"
-                                            alt="Project SEMrush Logo" />
-                                        <div class="d-flex gap-5 flex-wrap mt-2">
-                                            <div class="mt-3 justify-content-between align-items-center">
-                                                <p>Authority Score</p>
-                                                <h4 class="mt-3"> <svg width="20" viewBox="0 0 160 160">
-                                                        <circle r="70" cx="80" cy="80" fill="transparent" stroke="#e0e0e0"
-                                                            stroke-width="12px"></circle>
-                                                        <circle r="70" cx="80" cy="80" fill="transparent" stroke="#45e2d0"
-                                                            stroke-width="12px" stroke-dasharray="439.6px"
-                                                            stroke-dashoffset="109.9px"></circle>
-                                                    </svg> 4</h4>
-                                            </div>
-                                            <div class="mt-3  justify-content-between align-items-center">
-                                                <p>Organic Traffic</p>
-                                                <h4>268</h4>
-                                            </div>
-                                            <div class="mt-3  justify-content-between align-items-center">
-                                                <p>Referring Domain</p>
-                                                <h4>1.1K</h4>
-                                            </div>
-                                            <div class="mt-3  justify-content-between align-items-center">
-                                                <p>Total Backlinks</p>
-                                                <h4>66.2K</h4>
-                                            </div>
-                                        </div>
+                                    <div class="mt-3  justify-content-between align-items-center">
+                                        <p>Organic Traffic</p>
+                                        <h4>268</h4>
                                     </div>
-
-                                    <div class="col col-md-12 d-flex align-items-center justify-content-end  px-0">
-                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#competitorModal"
-                                            data-project-id="<?php echo e($project->id); ?>" id="addcompetitorBtn"
-                                            class="btn btn-primary w-auto step-5 waves-effect waves-light">
-                                            +Add Competitors
-                                        </a>
+                                    <div class="mt-3  justify-content-between align-items-center">
+                                        <p>Referring Domain</p>
+                                        <h4>1.1K</h4>
+                                    </div>
+                                    <div class="mt-3  justify-content-between align-items-center">
+                                        <p>Total Backlinks</p>
+                                        <h4>66.2K</h4>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col col-md-12 d-flex align-items-center justify-content-end  px-0">
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#competitorModal"
+                                    data-project-id="<?php echo e($project->id); ?>" id="addcompetitorBtn"
+                                    class="btn btn-primary w-auto step-5 waves-effect waves-light">
+                                    +Add Competitors
+                                </a>
+                            </div>
                         </div>
                     </div>
-                <?php endforeach;
-                $__env->popLoop();
-                $loop = $__env->getLastLoop(); ?>
+                </div>
             </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>
         <?php endif; ?>
     </div>
     <?php echo $__env->make('advertiser.partials.createprojectmodal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -236,17 +233,17 @@
 </div>
 
 <style>
-    #projectCategories~.select2 .select2-search__field {
-        width: 100% !important;
-    }
+#projectCategories~.select2 .select2-search__field {
+    width: 100% !important;
+}
 
-    .width-calc {
-        width: calc(25% - 20px);
-    }
+.width-calc {
+    width: calc(25% - 20px);
+}
 
-    .card-body .row {
-        gap: 10px;
-    }
+.card-body .row {
+    gap: 10px;
+}
 </style>
 
 <script src="<?php echo e(asset_url('libs/shepherd/shepherd.js')); ?>"></script>
@@ -255,180 +252,180 @@
 <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const addCompetitorBtns = document.querySelectorAll('#addcompetitorBtn');
-        const loader = document.getElementById('loader');
+document.addEventListener('DOMContentLoaded', function() {
+    const addCompetitorBtns = document.querySelectorAll('#addcompetitorBtn');
+    const loader = document.getElementById('loader');
 
-        addCompetitorBtns.forEach(btn => {
+    addCompetitorBtns.forEach(btn => {
 
-            btn.addEventListener('click', function() {
-                const projectId = btn.getAttribute('data-project-id');
-                document.getElementById('projectId').value = projectId;
+        btn.addEventListener('click', function() {
+            const projectId = btn.getAttribute('data-project-id');
+            document.getElementById('projectId').value = projectId;
 
-                // Show loader
-                loader.style.display = 'block';
+            // Show loader
+            loader.style.display = 'block';
 
-                // Fetch competitors for the project
-                fetch(`/competitors/${projectId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        const competitorList = document.getElementById('competitorList');
-                        competitorList.innerHTML = ''; // Clear the list first
+            // Fetch competitors for the project
+            fetch(`/competitors/${projectId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const competitorList = document.getElementById('competitorList');
+                    competitorList.innerHTML = ''; // Clear the list first
 
-                        // Handle competitors after a delay
-                        setTimeout(() => {
-                            if (Array.isArray(data.competitors) && data.competitors
-                                .length > 0) {
-                                let counter = 1;
+                    // Handle competitors after a delay
+                    setTimeout(() => {
+                        if (Array.isArray(data.competitors) && data.competitors
+                            .length > 0) {
+                            let counter = 1;
 
-                                data.competitors.forEach(url => {
-                                    url = url.trim(); // Remove extra spaces
+                            data.competitors.forEach(url => {
+                                url = url.trim(); // Remove extra spaces
 
-                                    if (url) { // Ensure URL is not empty
-                                        const listItem = document.createElement(
-                                            'li');
-                                        listItem.className =
-                                            'list-group-item d-flex justify-content-between align-items-center';
+                                if (url) { // Ensure URL is not empty
+                                    const listItem = document.createElement(
+                                        'li');
+                                    listItem.className =
+                                        'list-group-item d-flex justify-content-between align-items-center';
 
-                                        listItem.textContent =
-                                            `${counter}. ${url}`;
+                                    listItem.textContent =
+                                        `${counter}. ${url}`;
 
-                                        // Create remove button
-                                        const removeBtn = document
-                                            .createElement('button');
-                                        removeBtn.className =
-                                            'btn btn-danger btn-sm ms-2';
-                                        removeBtn.textContent = 'Remove';
-                                        removeBtn.addEventListener('click',
-                                            function() {
-                                                // Show loader
-                                                loader.style.display =
-                                                    'block';
+                                    // Create remove button
+                                    const removeBtn = document
+                                        .createElement('button');
+                                    removeBtn.className =
+                                        'btn btn-danger btn-sm ms-2';
+                                    removeBtn.textContent = 'Remove';
+                                    removeBtn.addEventListener('click',
+                                        function() {
+                                            // Show loader
+                                            loader.style.display =
+                                                'block';
 
-                                                // Remove competitor URL
-                                                fetch(`/competitors/${projectId}/remove`, {
-                                                        method: 'POST',
-                                                        headers: {
-                                                            'Content-Type': 'application/json',
-                                                            'X-Requested-With': 'XMLHttpRequest',
-                                                            'X-CSRF-TOKEN': document
-                                                                .querySelector(
-                                                                    'meta[name="csrf-token"]'
-                                                                )
-                                                                .getAttribute(
-                                                                    'content'
-                                                                )
-                                                        },
-                                                        body: JSON
-                                                            .stringify({
-                                                                url: url
-                                                            })
-                                                    })
-                                                    .then(response =>
-                                                        response.json())
-                                                    .then(data => {
-                                                        if (data
-                                                            .success) {
-                                                            listItem
-                                                                .remove(); // Remove from the list on success
-                                                        } else {
-                                                            console
-                                                                .error(
-                                                                    'Error removing competitor:',
-                                                                    data
-                                                                    .error
-                                                                );
-                                                        }
-                                                    })
-                                                    .catch(error => {
-                                                        console.error(
-                                                            'Error:',
-                                                            error);
-                                                    })
-                                                    .finally(() => {
-                                                        loader.style
-                                                            .display =
-                                                            'none'; // Hide loader after processing
-                                                    });
-                                            });
+                                            // Remove competitor URL
+                                            fetch(`/competitors/${projectId}/remove`, {
+                                                    method: 'POST',
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        'X-Requested-With': 'XMLHttpRequest',
+                                                        'X-CSRF-TOKEN': document
+                                                            .querySelector(
+                                                                'meta[name="csrf-token"]'
+                                                            )
+                                                            .getAttribute(
+                                                                'content'
+                                                            )
+                                                    },
+                                                    body: JSON
+                                                        .stringify({
+                                                            url: url
+                                                        })
+                                                })
+                                                .then(response =>
+                                                    response.json())
+                                                .then(data => {
+                                                    if (data
+                                                        .success) {
+                                                        listItem
+                                                            .remove(); // Remove from the list on success
+                                                    } else {
+                                                        console
+                                                            .error(
+                                                                'Error removing competitor:',
+                                                                data
+                                                                .error
+                                                            );
+                                                    }
+                                                })
+                                                .catch(error => {
+                                                    console.error(
+                                                        'Error:',
+                                                        error);
+                                                })
+                                                .finally(() => {
+                                                    loader.style
+                                                        .display =
+                                                        'none'; // Hide loader after processing
+                                                });
+                                        });
 
-                                        listItem.appendChild(removeBtn);
-                                        competitorList.appendChild(listItem);
+                                    listItem.appendChild(removeBtn);
+                                    competitorList.appendChild(listItem);
 
-                                        counter++;
-                                    }
-                                });
-                            } else {
-                                competitorList.innerHTML =
-                                    '<li class="list-group-item">No competitors found.</li>';
-                            }
+                                    counter++;
+                                }
+                            });
+                        } else {
+                            competitorList.innerHTML =
+                                '<li class="list-group-item">No competitors found.</li>';
+                        }
 
-                            // Hide loader after displaying competitors
-                            loader.style.display = 'none';
-                        }, 1000); // Show competitors after 3 seconds
-                    })
-                    .catch(error => {
-                        console.error('Error fetching competitors:', error);
-                        // Hide loader on error
+                        // Hide loader after displaying competitors
                         loader.style.display = 'none';
-                    });
-            });
-        });
-
-        // Reset data when the modal is closed
-
-        $('#competitorModal').on('hidden.bs.modal', function() {
-            document.getElementById('competitorForm').reset(); // Reset form fields
-            document.getElementById('competitorList').innerHTML = ''; // Clear competitor list
+                    }, 1000); // Show competitors after 3 seconds
+                })
+                .catch(error => {
+                    console.error('Error fetching competitors:', error);
+                    // Hide loader on error
+                    loader.style.display = 'none';
+                });
         });
     });
+
+    // Reset data when the modal is closed
+
+    $('#competitorModal').on('hidden.bs.modal', function() {
+        document.getElementById('competitorForm').reset(); // Reset form fields
+        document.getElementById('competitorList').innerHTML = ''; // Clear competitor list
+    });
+});
 </script>
 
 <script>
-    function validateCompetitorUrl() {
-        const urlField = document.getElementById('competitorUrl');
-        const errorMsg = document.getElementById('urlErrorMsg');
-        const urlValue = urlField.value;
+function validateCompetitorUrl() {
+    const urlField = document.getElementById('competitorUrl');
+    const errorMsg = document.getElementById('urlErrorMsg');
+    const urlValue = urlField.value;
 
-        // Updated regex to ensure valid domain structure and TLD, and no path after the domain
-        const regex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/)?$/;
+    // Updated regex to ensure valid domain structure and TLD, and no path after the domain
+    const regex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/)?$/;
 
-        if (!regex.test(urlValue)) {
-            urlField.classList.add('is-invalid');
-            errorMsg.style.display = 'block';
-            return false;
-        } else {
-            urlField.classList.remove('is-invalid');
-            errorMsg.style.display = 'none';
-            return true;
-        }
+    if (!regex.test(urlValue)) {
+        urlField.classList.add('is-invalid');
+        errorMsg.style.display = 'block';
+        return false;
+    } else {
+        urlField.classList.remove('is-invalid');
+        errorMsg.style.display = 'none';
+        return true;
+    }
+}
+
+function handleCompetitorFormSubmit() {
+    // Validate URL first
+    const isValid = validateCompetitorUrl();
+
+    if (!isValid) {
+        return false;
     }
 
-    function handleCompetitorFormSubmit() {
-        // Validate URL first
-        const isValid = validateCompetitorUrl();
-
-        if (!isValid) {
-            return false;
-        }
-
-        // Show loader if the URL is valid
-        document.getElementById('loader').style.display = 'block';
-        return true; // Allow form to be submitted
-    }
+    // Show loader if the URL is valid
+    document.getElementById('loader').style.display = 'block';
+    return true; // Allow form to be submitted
+}
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Set timeout to remove alerts after 3 seconds
-        setTimeout(() => {
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(alert => {
-                alert.classList.remove('show');
-                alert.classList.add('fade');
-            });
-        }, 3000); // 3 seconds
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    // Set timeout to remove alerts after 3 seconds
+    setTimeout(() => {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(alert => {
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+        });
+    }, 3000); // 3 seconds
+});
 </script>
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('script'); ?>
