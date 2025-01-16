@@ -1,10 +1,10 @@
 <!-- Menu -->
 
-<aside class="layout-menu menu-vertical menu bg-menu-theme " style="width: 300px; overflow-y: auto;">
+<aside class="layout-menu menu-vertical menu bg-menu-theme " style="width: 250px; overflow-y: auto;">
     <div class="app-brand demo">
         <a href="{{ route('publisher') }}" class="app-brand-link">
             <img src="{{ asset_url('img/favicon.svg') }}" alt="Logo" class="w-60 small-logo">
-            <img src="{{ asset_url('img/header-logo.png') }}" alt="Logo" class="w-100 full-logo">
+            <img src="{{ asset_url('img/logo.svg') }}" alt="Logo" class="w-100 full-logo">
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -83,8 +83,7 @@
                     @csrf
                     <label for="selectday" class="form-label">TAT</label>
                     <div class="select2-primary">
-                        <select id="selectday" class="form-select select2" name="selectday[]" multiple="multiple"
-                            data-placeholder="Select days">
+                        <select id="selectday" class="form-select select2" name="selectday[]" multiple="multiple" data-placeholder="Select days">
                             <option value="1">Last 1 day</option>
                             <option value="2">Last 2 days</option>
                             <option value="3">Last 3 days</option>
@@ -114,15 +113,13 @@
                     <div class="row rounded py-2 ms-1">
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputBacklinkType1" type="radio"
-                                    name="backlink_type" id="inputBacklinkType1" value="dofollow">
+                                <input class="form-check-input rounded-circle inputBacklinkType1" type="radio" name="backlink_type" id="inputBacklinkType1" value="dofollow">
                                 <label class="form-check-label" for="inputBacklinkType1">DoFollow</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputBacklinkType2" type="radio"
-                                    name="backlink_type" id="inputBacklinkType2" value="nofollow">
+                                <input class="form-check-input rounded-circle inputBacklinkType2" type="radio" name="backlink_type" id="inputBacklinkType2" value="nofollow">
                                 <label class="form-check-label" for="inputBacklinkType2">NoFollow</label>
                             </div>
                         </div>
@@ -135,50 +132,43 @@
                     <div class="row rounded py-2 ms-1">
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputPrice1" type="radio"
-                                    name="price_filters" id="inputPrice1" value="0-100">
+                                <input class="form-check-input rounded-circle inputPrice1" type="radio" name="price_filters" id="inputPrice1" value="0-100">
                                 <label class="form-check-label" for="inputPrice1">Under $100</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputPrice2" type="radio"
-                                    name="price_filters" id="inputPrice2" value="100-500">
+                                <input class="form-check-input rounded-circle inputPrice2" type="radio" name="price_filters" id="inputPrice2" value="100-500">
                                 <label class="form-check-label" for="inputPrice2">$100 to $500</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputPrice3" type="radio"
-                                    name="price_filters" id="inputPrice3" value="500-1000">
+                                <input class="form-check-input rounded-circle inputPrice3" type="radio" name="price_filters" id="inputPrice3" value="500-1000">
                                 <label class="form-check-label" for="inputPrice3">$500 to $1000</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputPrice4" type="radio"
-                                    name="price_filters" id="inputPrice4" value="1000-1500">
+                                <input class="form-check-input rounded-circle inputPrice4" type="radio" name="price_filters" id="inputPrice4" value="1000-1500">
                                 <label class="form-check-label" for="inputPrice4">$1000 to $1500</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputPrice5" type="radio"
-                                    name="price_filters" id="inputPrice5" value="1500-2000">
+                                <input class="form-check-input rounded-circle inputPrice5" type="radio" name="price_filters" id="inputPrice5" value="1500-2000">
                                 <label class="form-check-label" for="inputPrice5">$1500 to $2000</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputPrice6" type="radio"
-                                    name="price_filters" id="inputPrice6" value="2000-3000">
+                                <input class="form-check-input rounded-circle inputPrice6" type="radio" name="price_filters" id="inputPrice6" value="2000-3000">
                                 <label class="form-check-label" for="inputPrice6">$2000 to $3000</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputPrice7" type="radio"
-                                    name="price_filters" id="inputPrice7" value="3001-99999999">
+                                <input class="form-check-input rounded-circle inputPrice7" type="radio" name="price_filters" id="inputPrice7" value="3001-99999999">
                                 <label class="form-check-label" for="inputPrice7">Above $3000</label>
                             </div>
                         </div>
@@ -209,8 +199,7 @@
                     <div class="row rounded py-2 ms-1">
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputDA1" type="radio" name="da_filter"
-                                    id="inputDA1" value="1-20">
+                                <input class="form-check-input rounded-circle inputDA1" type="radio" name="da_filter" id="inputDA1" value="1-20">
                                 <label class="form-check-label" for="inputDA1">1 - 20</label>
                             </div>
                         </div>
@@ -219,29 +208,25 @@
 
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputDA2" type="radio" name="da_filter"
-                                    id="inputDA2" value="21-40">
+                                <input class="form-check-input rounded-circle inputDA2" type="radio" name="da_filter" id="inputDA2" value="21-40">
                                 <label class="form-check-label" for="inputDA2">21 - 40</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputDA3" type="radio" name="da_filter"
-                                    id="inputDA3" value="41-60">
+                                <input class="form-check-input rounded-circle inputDA3" type="radio" name="da_filter" id="inputDA3" value="41-60">
                                 <label class="form-check-label" for="inputDA3">41 - 60</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputDA4" type="radio" name="da_filter"
-                                    id="inputDA4" value="61-80">
+                                <input class="form-check-input rounded-circle inputDA4" type="radio" name="da_filter" id="inputDA4" value="61-80">
                                 <label class="form-check-label" for="inputDA4">61 - 80</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputDA5" type="radio" name="da_filter"
-                                    id="inputDA5" value="81-100">
+                                <input class="form-check-input rounded-circle inputDA5" type="radio" name="da_filter" id="inputDA5" value="81-100">
                                 <label class="form-check-label" for="inputDA5">81 - 100</label>
                             </div>
                         </div>
@@ -255,36 +240,31 @@
                     <div class="row rounded py-2 ms-1">
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputAT1 " type="radio"
-                                    name="ahrefs_traffic" id="inputAT1" value="1-20">
+                                <input class="form-check-input rounded-circle inputAT1 " type="radio" name="ahrefs_traffic" id="inputAT1" value="1-20">
                                 <label class="form-check-label" for="inputAT1">1 - 20</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputAT2 " type="radio"
-                                    name="ahrefs_traffic" id="inputAT2" value="21-40">
+                                <input class="form-check-input rounded-circle inputAT2 " type="radio" name="ahrefs_traffic" id="inputAT2" value="21-40">
                                 <label class="form-check-label" for="inputAT2">21 - 40</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputAT3 " type="radio"
-                                    name="ahrefs_traffic" id="inputAT3" value="41-60">
+                                <input class="form-check-input rounded-circle inputAT3 " type="radio" name="ahrefs_traffic" id="inputAT3" value="41-60">
                                 <label class="form-check-label" for="inputAT3">41 - 60</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputAT4 " type="radio"
-                                    name="ahrefs_traffic" id="inputAT4" value="61-80">
+                                <input class="form-check-input rounded-circle inputAT4 " type="radio" name="ahrefs_traffic" id="inputAT4" value="61-80">
                                 <label class="form-check-label" for="inputAT4">61 - 80</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputAT5 " type="radio"
-                                    name="ahrefs_traffic" id="inputAT5" value="81-100">
+                                <input class="form-check-input rounded-circle inputAT5 " type="radio" name="ahrefs_traffic" id="inputAT5" value="81-100">
                                 <label class="form-check-label" for="inputAT5">81 - 100</label>
                             </div>
                         </div>
@@ -299,36 +279,31 @@
                     <div class="row rounded py-2 ms-1">
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputST1" type="radio"
-                                    name="semrush_traffic" id="inputST1" value="1-20">
+                                <input class="form-check-input rounded-circle inputST1" type="radio" name="semrush_traffic" id="inputST1" value="1-20">
                                 <label class="form-check-label" for="inputST1">1 - 20</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputST2 " type="radio"
-                                    name="semrush_traffic" id="inputST2" value="21-40">
+                                <input class="form-check-input rounded-circle inputST2 " type="radio" name="semrush_traffic" id="inputST2" value="21-40">
                                 <label class="form-check-label" for="inputST2">21 - 40</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputST3 " type="radio"
-                                    name="semrush_traffic" id="inputST3" value="41-60">
+                                <input class="form-check-input rounded-circle inputST3 " type="radio" name="semrush_traffic" id="inputST3" value="41-60">
                                 <label class="form-check-label" for="inputST3">41 - 60</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputST4 " type="radio"
-                                    name="semrush_traffic" id="inputST4" value="61-80">
+                                <input class="form-check-input rounded-circle inputST4 " type="radio" name="semrush_traffic" id="inputST4" value="61-80">
                                 <label class="form-check-label" for="inputST4">61 - 80</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-check">
-                                <input class="form-check-input rounded-circle inputST5 " type="radio"
-                                    name="semrush_traffic" id="inputST5" value="81-100">
+                                <input class="form-check-input rounded-circle inputST5 " type="radio" name="semrush_traffic" id="inputST5" value="81-100">
                                 <label class="form-check-label" for="inputST5">81 - 100</label>
                             </div>
                         </div>
@@ -338,8 +313,7 @@
             </li>
             <li class="menu-item py-2">
                 <div class="px-3">
-                    <button type="button" id="clearFilters"
-                        class="btn button btn-primary  waves-effect waves-light">Clear Filters</button>
+                    <button type="button" id="clearFilters" class="btn button btn-primary  waves-effect waves-light">Clear Filters</button>
                 </div>
             </li>
         </ul>
