@@ -4,7 +4,7 @@
         @if(!isset($slug) || $slug != 'marketplace')
         <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
             <a href="{{ url('/') }}" class="app-brand-link gap-2">
-                <img src="{{ asset_url('img/logo.svg') }}" alt="Logo" class="w-75">
+                <img src="{{ asset_url('img/header-logo.png') }}" alt="Logo" class="w-75">
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-xl-none">
@@ -23,7 +23,8 @@
             <ul class="navbar-nav flex-row align-items-center ms-auto">
 
                 <li class="nav-item me-2 me-xl-0">
-                    <a class="nav-link cart nav-cart-icon {{ (isset($slug) && $slug == 'cart') ? 'text-primary' : '' }}" href="{{ route('advertiser.cart') }}" data-item-count="0">
+                    <a class="nav-link cart nav-cart-icon {{ (isset($slug) && $slug == 'cart') ? 'text-primary' : '' }}"
+                        href="{{ route('advertiser.cart') }}" data-item-count="0">
                         <i class="ti ti-shopping-cart ti-md"></i>
                     </a>
                 </li>
@@ -57,7 +58,8 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                         <div class="avatar avatar-online">
-                            <img src="<?= (!empty(Auth::user()->image)) ? url('storage/app/' . Auth::user()->image) : asset_url('img/avatars/1.png'); ?>" alt class="h-auto rounded-circle" />
+                            <img src="<?= (!empty(Auth::user()->image)) ? url('storage/app/' . Auth::user()->image) : asset_url('img/avatars/1.png'); ?>"
+                                alt class="h-auto rounded-circle" />
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -66,8 +68,8 @@
                                 <div class="d-flex">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar avatar-online">
-                                            <img src="<?= (!empty(Auth::user()->image)) ? url('storage/app/' . Auth::user()->image) : asset_url('img/avatars/1.png'); ?>" alt
-                                                class="h-auto rounded-circle" />
+                                            <img src="<?= (!empty(Auth::user()->image)) ? url('storage/app/' . Auth::user()->image) : asset_url('img/avatars/1.png'); ?>"
+                                                alt class="h-auto rounded-circle" />
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
