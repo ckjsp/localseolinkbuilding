@@ -19,9 +19,8 @@
     <div class="alert alert-primary mt-3">{{ session('success') }}</div>
     <input type="hidden" id="tempWebId" data-web_id="<?= session('website_id') ?>">
     @endif
-    <h5 class="shadow-lg p-3 bg-white rounded">My Shopping Bag ({{ count($arrCookie) }} Items)</h5>
+    <h5 class="shadow-lg p-3  rounded">My Shopping Bag ({{ count($arrCookie) }} Items)</h5>
     <div class="row">
-        <!-- Checkout Wizard -->
         <div class="wizard-icons wizard-icons-example mb-5">
             <div class="bs-stepper-content">
 
@@ -50,7 +49,6 @@
                                                 <input type="hidden" id="quantity{{$v->id}}" name="quantity" value="{{$arrCookie[$k]->quantity}}" />
                                                 <input type="hidden" id="user_id" name="user_id" value="{{ $userDetail->id }}">
                                                 <input type="hidden" id="website_id" name="website_id" value="{{ $v->id }}">
-                                                <!-- <input type="hidden" id="payment_method" name="payment_method" value="paypal"> -->
                                                 <input type="hidden" name="selected_project_id" value="{{ session('selected_project_id') }}">
 
                                                 <div class="mb-3">
@@ -90,12 +88,10 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3 text-center d-flex align-items-end justify-content-center">
-                                                        <!-- Guest post price (visible by default) -->
                                                         <span class="badge fs-5 p-2 price-box quantityPrice{{$v->id}}" id="guestPostPrice{{$v->id}}">
                                                             ${{ ($v->guestpostprice_adminprice * $arrCookie[$k]->quantity) }}
                                                         </span>
 
-                                                        <!-- LinkedIn session price (hidden by default) -->
                                                         <span class="badge fs-5 p-2 price-box quantityPrice{{$v->id}}" id="linkedInSessionPrice{{$v->id}}" style="display: none;">
                                                             ${{ ($v->linkedinsession_adminprice * $arrCookie[$k]->quantity) }}
                                                         </span>
@@ -179,7 +175,7 @@
 </div>
 
 <div class="container-xxl flex-grow-1 container-p-y mt-5">
-    <h5 class="shadow-lg p-3 bg-white rounded">Similar Website</h5>
+    <h5 class="shadow-lg p-3  rounded">Similar Website</h5>
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead class="table-dark">

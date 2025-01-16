@@ -56,8 +56,8 @@ Route::get('/content-writing-services', [PagesController::class, 'contentwriting
 Route::get('/content-marketing-services', [PagesController::class, 'contentmarketingservices'])->name('content-marketing-services');
 Route::get('/about-us', [PagesController::class, 'aboutus'])->name('about-us');
 Route::get('/blog-page', [PagesController::class, 'blog'])->name('blog');
-Route::get('/easy-ways', [PagesController::class, 'easyways'])->name('easy-ways');
-Route::get('/manual-outreach', [PagesController::class, 'manualoutreach'])->name('manual-outreach');
+Route::get('/easy-ways-content-syndication-can-boast-your-research', [PagesController::class, 'easyways'])->name('easy-ways-content-syndication-can-boast-your-research');
+Route::get('/manual-outreach-vs-links-farmer', [PagesController::class, 'manualoutreach'])->name('manual-outreach-vs-links-farmer');
 Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 Route::get('/faq', [PagesController::class, 'faqpage'])->name('faq');
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');

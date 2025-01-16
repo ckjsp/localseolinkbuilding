@@ -279,9 +279,8 @@
         <section class="section-py agency_section">
             <div class="container">
                 <h2 class="subtitle-section text-center">
-                    LINKSFARMER is not your
-                    <span class="animated-text"> ordinary link <br /> building</span>
-                    agency!
+                    LINKSFARMER Transcends Typical Link-Building Agency
+
                 </h2>
                 <h5 class="subtitle2-section text-center">By utilizing AI and advanced algorithms to acquire niche-specific links from top-ranking domains.</h5>
                 <div class="data_wrap mt-60">
@@ -375,7 +374,7 @@
             <div class="container">
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
-                        <h2>Why Choose LINKSFARMER for Link Building?</h2>
+                        <h2>Why LINKSFARMER Is the Finest Spot For Link Building?</h2>
                         <p>Enhance your search engine ranking by partnering with LINKSFARMER. We help to create a tailored link-building strategy!
                         </p>
                     </div>

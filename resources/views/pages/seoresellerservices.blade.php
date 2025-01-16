@@ -349,9 +349,9 @@
         <section class="section-py agency_section">
             <div class="container">
                 <h2 class="subtitle-section text-center">
-                    Why You
-                    <span class="animated-text"> Should Partner</span>
-                    with Us
+                    Why It’s
+                    <span class="animated-text"> Beneficial To Partner</span>
+                    With Us?
                 </h2>
                 <h5 class="subtitle2-section text-center">Partnering with us through our SEO reseller program gonna give you a competitive edge and unlock new growth opportunities.</h5>
                 <!-- <h5 class="subtitle2-section text-center">Here are some of them.</h5> -->
@@ -594,7 +594,7 @@
             <div class="container">
                 <div class="linear_bg_wrap">
                     <div class="text_wrap">
-                        <h2>Choose Us For SEO Reseller Services</h2>
+                        <h2>Reach Us for Reputable SEO Reseller Services</h2>
                         <p>With over a decade of experience, we have established ourselves as a leading SEO reseller in the US. By serving the needs of business consultants, design agencies, and various marketing firms, we become everyone’s choice.
                         </p>
                     </div>
