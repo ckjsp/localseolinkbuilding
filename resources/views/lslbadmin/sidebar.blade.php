@@ -6,18 +6,15 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="{{ route('publisher') }}" class="app-brand-link">
-            <img src="{{ asset_url('img/favicon.svg') }}" alt="Logo" class="w-60 small-logo">
-            <img src="{{ asset_url('img/logo.svg') }}" alt="Logo" class="w-100 full-logo">
-            <!-- <span class="app-brand-logo demo">
-                <img src="{{ asset_url('img/logo.svg') }}" alt="Logo">
-            </span> -->
-            <!-- <span class="app-brand-text demo menu-text fw-bold">Vuexy</span> -->
+            <img src="{{ asset_url('img/faviconnew.svg') }}" alt="Logo" class="w-100 small-logo">
+            <img src="{{ asset_url('img/header-logo.png') }}" alt="Logo" class="w-100 full-logo">
+
         </a>
 
-        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+        <!-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
             <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
             <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
-        </a>
+        </a> -->
     </div>
 
     <div class="menu-inner-shadow"></div>

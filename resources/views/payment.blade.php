@@ -18,6 +18,7 @@
         </div>
     </div> -->
     @if(session('success'))
+
     <div class="alert alert-primary mt-3">{{ session('success') }}</div>
     @endif
     <div class="row justify-content-center mt-5">

@@ -24,7 +24,7 @@
             <div class="card mt-2">
                 @if(count($websites) > 0)
                 <div class="card-datatable table-responsive pt-0">
-                    <table class="datatables-basic table" id="websiteTbl">
+                    <table class="table dataTable" id="websiteTbl">
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">Website URL</th>

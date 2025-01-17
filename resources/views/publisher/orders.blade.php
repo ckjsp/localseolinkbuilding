@@ -24,7 +24,7 @@
                 <input type="hidden" id="url" value="{{ url('order/update-status') }}">
                 <div id="alert"></div>
                 <div class="card-datatable overflow-x-auto pt-0">
-                    <table class="datatables-basic table bg-white" id="orderTbl">
+                    <table class="datatables-basic table" id="orderTbl">
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">Date</th>

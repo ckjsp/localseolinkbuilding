@@ -25,7 +25,7 @@
                 <div class="m-3">
                     <input type="hidden" id="url" value="{{ url('order/update-status') }}">
                     <div id="alert"></div>
-                    <table class="table bg-white" id="order-tbl">
+                    <table class="table " id="order-tbl">
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">Date</th>

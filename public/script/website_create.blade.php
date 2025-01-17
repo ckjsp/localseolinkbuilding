@@ -33,7 +33,7 @@
         </ul>
     </div>
     @endif
-    <section class="border rounded p-5 mt-5 bg-white">
+    <section class="border rounded p-5 mt-5 ">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <form class="row g-3" action="{{ (isset($website) && !empty($website)) ? route('publisher.website.update', $website->id) : route('publisher.website.store') }}" method="Post" id="addWebsiteForm" enctype="multipart/form-data">
