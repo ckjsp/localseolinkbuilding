@@ -23,16 +23,11 @@
                     <div class="text-center">
                         <h1 class="page-title">Why Link Building Is <span class="animated-text"> Essential<br /> for
                                 SEO</span> Success?</h1>
-                        <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle mb-40">
                             Link building is the cornerstone of every website’s visibility and search engine ranking. At
                             LINKSFARMER, we specialize in creating authentic and high-quality backlinks. It not only
                             boosts your site’s authority but also attracts targeted traffic. </h3>
-                        <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
-                            Looking for the best link building platform? Join Links farmer today!
-                        </h2> -->
                     </div>
-
                     <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
                         <a href="#landingPricing" class="filled-btn">Get Registered Now</a>
                     </div>
@@ -96,16 +91,16 @@
                                             <i class="ti ti-circle-check"></i> <span>Number of Posts: 3</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Domain Authority: 10-20</span>
+                                            <i class="ti ti-circle-check"></i> <span>Domain Authority (DA): 10-20</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>500+ words content</span>
+                                            <i class="ti ti-circle-check"></i> <span>Word Count: 500+</span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>1 Keyword / URL</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>1 Do Follow Links</span>
+                                            <i class="ti ti-circle-check"></i> <span>1 Do-Follow link</span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>Links on Real Website</span>
@@ -114,13 +109,13 @@
                                             <i class="ti ti-circle-check"></i> <span>Delivery time 7-14 days</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Google Indexed Website</span>
+                                            <i class="ti ti-circle-check"></i> <span>Google-indexed websites</span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>Niche Relevant Blog</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Content Revision: Single</span>
+                                            <i class="ti ti-circle-check"></i> <span>Single revision included: Single</span>
                                         </li>
                                     </ul>
                                     <button type="button" class="btn-white  d-block mx-auto w-100 ">Choose
@@ -143,17 +138,17 @@
                                             <i class="ti ti-circle-check"></i> <span>Number of Posts: 3</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Domain Authority: 20-40</span>
+                                            <i class="ti ti-circle-check"></i> <span>Domain Authority (DA): 20-40</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>500+ words of Well-researched
-                                                content</span>
+                                            <i class="ti ti-circle-check"></i> <span>Word Count: 500+
+                                            </span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>1 Keyword / URL</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>1 Do Follow Links</span>
+                                            <i class="ti ti-circle-check"></i> <span>1 Do-Follow link</span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>Links on Real Website</span>
@@ -162,13 +157,13 @@
                                             <i class="ti ti-circle-check"></i> <span>Delivery time 14-21 days</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Google Indexed Website</span>
+                                            <i class="ti ti-circle-check"></i> <span>Google-indexed websites</span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>Niche Relevant Blog</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Content Revision: Single</span>
+                                            <i class="ti ti-circle-check"></i> <span>Single revision included: Single</span>
                                         </li>
                                     </ul>
                                     <button type="button" class="btn-dark  d-block mx-auto w-100 ">Choose
@@ -191,17 +186,17 @@
                                             <i class="ti ti-circle-check"></i> <span>Number of Posts: 5</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Domain Authority: 40-50</span>
+                                            <i class="ti ti-circle-check"></i> <span>Domain Authority (DA): 40-50</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>750+ words of Well-researched
-                                                content</span>
+                                            <i class="ti ti-circle-check"></i> <span>Word Count: 750+
+                                            </span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>1 Keyword / URL</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>1 Do Follow Links</span>
+                                            <i class="ti ti-circle-check"></i> <span>1 Do-Follow link</span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>Links on Real Website</span>
@@ -210,13 +205,13 @@
                                             <i class="ti ti-circle-check"></i> <span>Delivery time 21-30 days</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Google Indexed Website</span>
+                                            <i class="ti ti-circle-check"></i> <span>Google-indexed websites</span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>Niche Relevant Blog</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Content Revision: Multiple</span>
+                                            <i class="ti ti-circle-check"></i> <span>Single revision included: Multiple</span>
                                         </li>
                                     </ul>
                                     <button type="button" class="btn-white  d-block mx-auto w-100 ">Choose
@@ -239,17 +234,17 @@
                                             <i class="ti ti-circle-check"></i> <span>Number of Posts: 5</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Domain Authority: 40-50</span>
+                                            <i class="ti ti-circle-check"></i> <span>Domain Authority (DA): 40-50</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>750+ words of Well-researched
+                                            <i class="ti ti-circle-check"></i> <span>Word Count: 750+
                                                 content</span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>1 Keyword / URL</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>1 Do Follow Links</span>
+                                            <i class="ti ti-circle-check"></i> <span>1 Do-Follow link</span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>Links on Real Website</span>
@@ -258,13 +253,13 @@
                                             <i class="ti ti-circle-check"></i> <span>Delivery time 21-30 days</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Google Indexed Website</span>
+                                            <i class="ti ti-circle-check"></i> <span>Google-indexed websites</span>
                                         </li>
                                         <li>
                                             <i class="ti ti-circle-check"></i> <span>Niche Relevant Blog</span>
                                         </li>
                                         <li>
-                                            <i class="ti ti-circle-check"></i> <span>Content Revision: Multiple</span>
+                                            <i class="ti ti-circle-check"></i> <span>Single revision included: Multiple</span>
                                         </li>
                                     </ul>
                                     <button type="button" class="btn-white  d-block mx-auto w-100 ">Choose
