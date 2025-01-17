@@ -6,13 +6,13 @@
     <div class="app-brand demo">
         <a href="{{ route('publisher') }}" class="app-brand-link">
             <img src="{{ asset_url('img/favicon.svg') }}" alt="Logo" class="w-60 small-logo">
-            <img src="{{ asset_url('img/logo.svg') }}" alt="Logo" class="w-100 full-logo">
+            <img src="{{ asset_url('img/header-logo.png') }}" alt="Logo" class="w-100 full-logo">
         </a>
 
-        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+        <!-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
             <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
             <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
-        </a>
+        </a> -->
     </div>
 
     <div class="menu-inner-shadow"></div>
@@ -20,12 +20,11 @@
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
         <li class="menu-item {{ (isset($slug) && $slug == 'dashboard') ? 'active' : '' }}">
-            <a href="{{ url('/') }}" class="menu-link">
+            <a href="{{ url('/publisher') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboard">Dashboard</div>
             </a>
         </li>
-
         <!-- My Websites -->
         <li class="menu-item {{ (isset($slug) && $slug == 'websites') ? 'active' : '' }}">
             <a href="{{ url('/publisher/website') }}" class="menu-link">

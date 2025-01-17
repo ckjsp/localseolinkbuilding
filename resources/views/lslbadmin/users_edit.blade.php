@@ -29,7 +29,7 @@
         </ul>
     </div>
     @endif
-    <section class="border rounded p-5 mt-5 bg-white">
+    <section class="border rounded p-5 mt-5">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 @if(session('error'))
@@ -61,8 +61,10 @@
                         <!-- <div class="mb-3 col-12 col-md-6 fv-plugins-icon-container">
                             <label class="form-label" for="inputPhoneNumber">Phone Number</label>
                             <div class="input-group">
-                                <span class="input-group-text phone_code"><?php //echo !empty($user->dial_code) ? $user->dial_code : '+91'  ?></span>
-                                <input type="number" id="inputPhoneNumber" name="phone_number" value="<?php //echo $user->phone_number ?>" maxlength="13" class="form-control inputPhoneNumber" placeholder="9856485236">
+                                <span class="input-group-text phone_code"><?php //echo !empty($user->dial_code) ? $user->dial_code : '+91'  
+                                                                            ?></span>
+                                <input type="number" id="inputPhoneNumber" name="phone_number" value="<?php //echo $user->phone_number 
+                                                                                                        ?>" maxlength="13" class="form-control inputPhoneNumber" placeholder="9856485236">
                                 <div class="invalid-feedback"><strong class="num-msg"></strong></div>
                             </div>
                         </div> -->
@@ -165,33 +167,33 @@
 <script src="{{ asset_url('js/pages-profile.js') }}"></script>
 <script src="{{ asset_url('libs/intlTelInput/intlTelInput.min.js') }}"></script>
 <script>
-    $(window).ready(function () {
+    $(window).ready(function() {
         var input = document.querySelector("#inputPhoneNumber");
         var iti = window.intlTelInput(input, {
             separateDialCode: true,
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
         });
 
-        $('.iti.iti--allow-dropdown').css('width','100%');
+        $('.iti.iti--allow-dropdown').css('width', '100%');
 
         var defaultDialingCode = $('#dial_code').val();
         var countryCode = window.intlTelInputGlobals.getCountryData().find(function(country) {
-            return '+'+country.dialCode === defaultDialingCode;
+            return '+' + country.dialCode === defaultDialingCode;
         });
-        if(countryCode){
+        if (countryCode) {
             iti.setCountry(countryCode.iso2);
         }
 
         input.addEventListener("countrychange", function() {
             var countryDialCode = iti.getSelectedCountryData().dialCode;
-            $('#dial_code').val('+'+countryDialCode);
+            $('#dial_code').val('+' + countryDialCode);
         });
 
         $.validator.addMethod("validPhoneNumber", function(value, element) {
-            if(!iti.isValidNumber()){
-                $('.iti__selected-flag').css('height','60%');
-            }else{
-                $('.iti__selected-flag').css('height','100%');
+            if (!iti.isValidNumber()) {
+                $('.iti__selected-flag').css('height', '60%');
+            } else {
+                $('.iti__selected-flag').css('height', '100%');
             }
             return iti.isValidNumber();
         }, "Please enter a valid phone number");
@@ -289,7 +291,7 @@
             messages: messagesFun()
         });
     });
-  
+
 
     function isValidHttpUrl(str) {
         const pattern = new RegExp(
@@ -307,7 +309,7 @@
     function IsEmail(email) {
         var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if (!regex.test(email)) {
-            return false;   
+            return false;
         } else {
             return true;
         }

@@ -18,7 +18,7 @@
                 <input type="hidden" id="url" value="{{ url('lslb-admin/website-status-update') }}">
                 <div id="alert"></div>
                 <div class="m-3 table-responsive">
-                    <table class="table" id="website-tbl">
+                    <table class="table dataTable" id="website-tbl">
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">Website URL</th>

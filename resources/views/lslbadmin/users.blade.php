@@ -23,7 +23,7 @@
             <div class="card mt-2">
                 @if (count($users) > 0)
                 <div class="table-responsive text-nowrap m-3">
-                    <table class="table bg-white" id="user-tbl">
+                    <table class="table" id="user-tbl">
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">No.</th>
@@ -52,7 +52,7 @@
                                     <button type="button" class="btn p-0 edit-btn text-info" onclick="window.location.href=`{{ url('/lslb-admin/user') }}/{{ $v->id }}/edit`"><i class="ti ti-pencil me-1"></i></button>
                                     <button type="button" class="btn p-0 delete-btn text-danger" data-bs-toggle="modal" data-bs-target="#delete-pop" onclick="$('.delete-yes-btn').attr('data-href',`{{ url('/lslb-admin/user') }}/{{ $v->id }}/delete`);"><i class="ti ti-trash me-1"></i></button>
                                 </td>
-                                <td class="p-0 text-center">{!! !empty($v->email_verified_at) && $v->email_verified_at != null ?  '<i class="tf-icons ti ti-clock-check text-info"></i>' : '<i class="tf-icons ti ti-clock-cog text-danger"></i>' !!}</td>
+                                <td class="p-0 text-center">{!! !empty($v->email_verified_at) && $v->email_verified_at != null ? '<i class="tf-icons ti ti-clock-check text-info"></i>' : '<i class="tf-icons ti ti-clock-cog text-danger"></i>' !!}</td>
                             </tr>
                             @php $num++; @endphp
                             @endforeach
@@ -86,7 +86,7 @@
 @endsection
 
 @push('script')
-    <script>
-        var table = $('#user-tbl').DataTable();
-    </script>
+<script>
+    var table = $('#user-tbl').DataTable();
+</script>
 @endpush
