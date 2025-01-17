@@ -110,8 +110,9 @@
                         <span class="checkmark"></span>
                     </label>
                     <span class="custom_vr"></span>
-                    <label>I want to buy an Individual Guest Posts
-                        <input type="radio" name="radio">
+                    <label>
+                        I want to buy an Individual Guest Post
+                        <input type="radio" name="radio" id="redirectRadio">
                         <span class="checkmark"></span>
                     </label>
                 </div>
@@ -882,15 +883,11 @@
     <script src="{{ asset_url('js/bootstrap.js') }}"></script>
     <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
     <script src="{{ asset_url('js/front-main.js') }}"></script>
-
     <!-- Core JS -->
     <!-- build:js /js/core.js -->
     <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
     <script src="{{ asset_url('js/bootstrap.js') }}"></script>
     <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
-
-    <!-- endbuild -->
-
     <!-- Vendors JS -->
     <script src="{{ asset_url('libs/nouislider/nouislider.js') }}"></script>
     <script src="{{ asset_url('libs/swiper/swiper.js') }}"></script>
@@ -900,8 +897,13 @@
 
     <!-- Page JS -->
     <script src="{{ asset_url('assets/front-page-landing.js') }}"></script>
-
-
+    <script>
+        document.getElementById('redirectRadio').addEventListener('change', function() {
+            if (this.checked) {
+                window.location.href = '/login'; // Replace '/login' with your actual login page URL
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -258,7 +258,7 @@
             </div>
             <div class="modal-body">
                 <form id="adminPriceForm">
-                    <input type="hidden" name="website_id" value="{{ $v->id }}">
+                    <input type="hidden" name="website_id" value="{{ $v->id ?? '' }}">
 
                     <div class="mb-3">
                         <label for="linkedinSession" class="form-label">Link Insertion Admin Price</label>
