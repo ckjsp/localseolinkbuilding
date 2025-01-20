@@ -69,7 +69,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(HomeController::class)->group(function () {
 
-        Route::get('/loginin', 'index')->name('home');
+        // Route::get('/loginin', 'index')->name('home');
         Route::post('/change-password', 'changePassword')->name('password.change.update');
         Route::get('/user/profile', 'userProfile')->name('user.profile');
         Route::post('/user/update/{id}', 'userUpdate')->name('user.update');

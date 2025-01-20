@@ -86,7 +86,7 @@
         <div class="container-xxl">
             <div class="footer-container d-flex align-items-center justify-content-around">
                 <div>
-                    ©2025 Link Publishers All Rights Reserved.
+                    ©2025 Links Farmer All Rights Reserved.
 
 
                 </div>
