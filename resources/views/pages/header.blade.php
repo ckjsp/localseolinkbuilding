@@ -7,7 +7,9 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <meta name="description" content="" />
+    <meta name="description" content="{{ $content }}" />
+    <title>{{ $pagetitale }}</title>
+
 
     <link rel="icon" type="image/x-icon" href="{{ asset('public/img/faviconnew.svg')}}" />
     <meta name="robots" content="noindex, nofollow">
