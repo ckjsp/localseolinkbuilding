@@ -1,22 +1,15 @@
+<?php
+$pagetitale = 'Professional Content Writing Services | Boost Your Brand with Links Farmer';
+$content = 'Create impactful content with Links Farmer’s content writing services. Affordable, reliable, and designed to meet your unique requirements.';
+?>
+
 @include('pages.header')
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-
-    <title>Professional Content Writing Services | Boost Your Brand with Links Farmer
-    </title>
-    <meta name="description" content="Create impactful content with Links Farmer’s content writing services. Affordable, reliable, and designed to meet your unique requirements.
-" />
-
-    <style>
-        .data_width {
-            max-width: 335px !important;
-        }
-    </style>
-</head>
+<style>
+    .data_width {
+        max-width: 335px !important;
+    }
+</style>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">

@@ -1,30 +1,23 @@
+<?php
+$pagetitale = 'FAQ | Frequently Asked Questions | Links Farmer';
+$content = 'Find answers to common questions about guest posting, link building, and SEO services at Links Farmer. Explore our FAQ now!';
+?>
 @include('pages.header')
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>FAQ | Frequently Asked Questions | Links Farmer
-    </title>
-    <meta name="description" content="Find answers to common questions about guest posting, link building, and SEO services at Links Farmer. Explore our FAQ now!
-" />
-    <style>
-        .title_wdth {
-            width: 75%;
-            margin: auto;
-        }
+<style>
+    .title_wdth {
+        width: 75%;
+        margin: auto;
+    }
 
-        .pl-neg-1 {
-            padding-left: 30px !important;
-        }
+    .pl-neg-1 {
+        padding-left: 30px !important;
+    }
 
-        .pt-60 {
-            padding-top: 60px !important;
-        }
-    </style>
-
-
-</head>
+    .pt-60 {
+        padding-top: 60px !important;
+    }
+</style>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">

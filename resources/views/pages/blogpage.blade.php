@@ -1,21 +1,10 @@
+<?php
+$pagetitale = 'Blogs | Links Farmer';
+$content = 'Stay updated with the Links Farmer blog. Get the latest trends, tips, and insights on SEO, guest posting, and online marketing strategies.';
+?>
 @include('pages.header')
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-
-    <title>Blogs | Links Farmer
-    </title>
-    <meta name="description" content="Stay updated with the Links Farmer blog. Get the latest trends, tips, and insights on SEO, guest posting, and online marketing strategies.
-" />
-    <!-- <style>
-      
-    </style> -->
-
-
-</head>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">

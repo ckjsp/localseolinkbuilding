@@ -1,17 +1,11 @@
+<?php
+$pagetitale = 'Content Marketing Services | Links Farmer';
+$content = 'Links Farmer offers top-notch content marketing services to help you create, distribute, and optimize content that drives traffic and engagement.';
+?>
+
 @include('pages.header')
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-
-    <title>Content Marketing Services | Links Farmer
-    </title>
-    <meta name="description" content="Links Farmer offers top-notch content marketing services to help you create, distribute, and optimize content that drives traffic and engagement.
-" />
-
-</head>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">

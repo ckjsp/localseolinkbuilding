@@ -1,19 +1,8 @@
+<?php
+$pagetitale = 'High-Quality Guest Posting Service | Links Farmer';
+$content = 'Links Farmer offers premium guest posting services to help you build quality backlinks and grow your website’s SEO. Get started today!';
+?>
 @include('pages.header')
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-
-    <title>High-Quality Guest Posting Service | Links Farmer
-    </title>
-    <meta name="description" content="Links Farmer offers premium guest posting services to help you build quality backlinks and grow your website’s SEO. Get started today!
-" />
-
-
-
-</head>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">
