@@ -14,13 +14,13 @@
                     <ul class="footer-list social-links-wrap  mt-3">
                         <li>
                             <div class="d-flex justify-content-start">
-                                <a href="https://www.facebook.com/linksfarmer/" rel="noopener noreferrer" class="icon-div-wrap">
+                                <a href="https://www.facebook.com/linksfarmer/" rel="noopener noreferrer" target="_blank" class="icon-div-wrap">
                                     <i class="ti ti-brand-facebook ti-sm"></i>
                                 </a>
-                                <a href="https://www.instagram.com/linksfarmer/" rel="noopener noreferrer" class="icon-div-wrap">
+                                <a href="https://www.instagram.com/linksfarmer/" rel="noopener noreferrer" target="_blank" class="icon-div-wrap">
                                     <i class="ti ti-brand-instagram ti-sm"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/company/links-farmer/about/" rel="noopener noreferrer" class="icon-div-wrap">
+                                <a href="https://www.linkedin.com/company/links-farmer/about/" rel="noopener noreferrer" target="_blank" class="icon-div-wrap">
                                     <i class="ti ti-brand-linkedin ti-sm"></i>
                                 </a>
                             </div>
@@ -80,4 +80,30 @@
             </div>
         </div>
     </div>
+
+
+    <div class="content-footer footer bg-footer-theme ">
+        <div class="container-xxl">
+            <div class="footer-container d-flex align-items-center justify-content-around">
+                <div>
+                    ©2025 Link Publishers All Rights Reserved.
+
+
+                </div>
+                <div class="d-none d-lg-inline-block">
+                    <a href="{{ route('terms-condition') }}" class="footer-link me-4" target="_blank">Terms & Conditions</a>
+                    <a href="{{ route('privacy-policy') }}" target="_blank" class="footer-link me-4">Privacy Policy
+                    </a>
+
+                    <a href="{{ route('cancellation-and-refund-policy') }}" target="_blank" class="footer-link me-4">Refund Policy</a>
+
+                    <a href="https://pixinvent.ticksy.com/" target="_blank" class="footer-link d-none d-sm-inline-block">Get Help</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>
+
+<!-- Footer -->
+
+<!-- / Footer -->

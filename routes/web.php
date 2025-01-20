@@ -55,7 +55,7 @@ Route::get('/seo-reseller-services', [PagesController::class, 'seoresellerservic
 Route::get('/content-writing-services', [PagesController::class, 'contentwritingservices'])->name('content-writing-services');
 Route::get('/content-marketing-services', [PagesController::class, 'contentmarketingservices'])->name('content-marketing-services');
 Route::get('/about-us', [PagesController::class, 'aboutus'])->name('about-us');
-Route::get('/blog-page', [PagesController::class, 'blog'])->name('blog');
+Route::get('/blog', [PagesController::class, 'blog'])->name('blog');
 Route::get('/easy-ways-content-syndication-can-boast-your-research', [PagesController::class, 'easyways'])->name('easy-ways-content-syndication-can-boast-your-research');
 Route::get('/manual-outreach-vs-links-farmer', [PagesController::class, 'manualoutreach'])->name('manual-outreach-vs-links-farmer');
 Route::get('/sitemap.xml', [SitemapController::class, 'index']);

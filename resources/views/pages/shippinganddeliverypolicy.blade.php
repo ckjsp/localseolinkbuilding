@@ -49,7 +49,7 @@ $content = "Explore Links Farmer's Shipping and Delivery Policy. Get information
                     <!-- <div class="row"> -->
                     <div class="col-lg-12 light-bg p-30 rounded-20 ">
 
-                        <div class="mb-2 pb-1 font_dv">Order Processing</div>
+                        <h2 class="mb-2 pb-1 font_dv">Order Processing</h2>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz">
                             The order enters the system for processing with Links Farmer when one orders with it. What typically happens within several hours from this step is a process known as order detail verification whereby Links Farmer checks upon information relating to your chosen service. Issues of orders and payment do get their solution since they seek fast responses to communicate through their support customer department. Ensure to provide the right contact and payment details to avoid any delays in processing.
@@ -62,7 +62,7 @@ $content = "Explore Links Farmer's Shipping and Delivery Policy. Get information
 
                     <div class="col-lg-12 light-bg p-30 rounded-20 mt-20">
 
-                        <div class="mb-2 pb-1 font_dv">Delivery Timeframes</div>
+                        <h2 class="mb-2 pb-1 font_dv">Delivery Timeframes</h2>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz">
                             We estimate the time in delivering your order on how complicated the service might be, which type of service was purchased, and specific delivery requirements. However, through working with a network of reputed publishers and platforms, we deliver the services within the time frame as agreed upon.
@@ -78,7 +78,8 @@ $content = "Explore Links Farmer's Shipping and Delivery Policy. Get information
 
                     <div class="col-lg-12 light-bg p-30 rounded-20 mt-20">
 
-                        <div class="mb-2 pb-1 font_dv">Shipping Costs and Fees</div>
+                        <h2 class="mb-2 pb-1 font_dv">Shipping Costs and Fees
+                        </h2>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz">
                             There are no shipping costs for digital services like publishing or content distribution. All services provided by Links Farmer are delivered electronically, eliminating the need for traditional shipping methods and related charges. However, the cost of services will depend on the package you choose and the specifications of your order.
@@ -93,7 +94,8 @@ $content = "Explore Links Farmer's Shipping and Delivery Policy. Get information
 
                     <div class="col-lg-12 light-bg p-30 rounded-20 mt-20">
 
-                        <div class="mb-2 pb-1 font_dv">Monitoring Your Order </div>
+                        <h2 class="mb-2 pb-1 font_dv">Monitoring Your Order 
+                        </h2>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz">
                             For publishing or content orders, Links Farmer offers tracking options for you to track your service's progress. Once your order is underway, this lets you know about the status, and all related links and information about the service shall be made available to you. You can even contact our customer care team for real-time updates and help.
@@ -104,7 +106,7 @@ $content = "Explore Links Farmer's Shipping and Delivery Policy. Get information
 
                     <div class="col-lg-12 light-bg p-30 rounded-20 mt-20">
 
-                        <div class="mb-2 pb-1 font_dv">Order Changes and Cancellations</div>
+                        <h2 class="mb-2 pb-1 font_dv">Order Changes and Cancellations</h2>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz">
                             Once an order is processed, and the service is initiated, changes or cancellations can no longer be made. If you need a change before initiating the service, you can contact our support team instantly. We will try to get it done as long as it is within the terms of the agreement.
@@ -119,7 +121,7 @@ $content = "Explore Links Farmer's Shipping and Delivery Policy. Get information
 
                     <div class="col-lg-12 light-bg p-30 rounded-20 mt-20">
 
-                        <div class="mb-2 pb-1 font_dv">Customer Support </div>
+                        <h2 class="mb-2 pb-1 font_dv">Customer Support </h2>
                         <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz">
                             All the questions regarding shipping of orders or delivery time and so forth can be addressed to a dedicated customer support team in place at Links Farmer. This organization strives to provide the customer with prompt responses to any kind of inquiry and make all aspects of the order looked after professionally and efficiently.
