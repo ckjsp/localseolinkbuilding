@@ -29,7 +29,7 @@ class SitemapController extends Controller
         ];
 
         $urls[] = [
-            'loc' => URL::to('/easy-ways'),
+            'loc' => URL::to('/easy-ways-content-syndication-can-boast-your-research'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
@@ -95,7 +95,7 @@ class SitemapController extends Controller
         ];
 
         $urls[] = [
-            'loc' => URL::to('/manual-outreach'),
+            'loc' => URL::to('/manual-outreach-vs-links-farmer'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
