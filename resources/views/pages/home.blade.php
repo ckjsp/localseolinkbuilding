@@ -1,21 +1,10 @@
+<?php
+$pagetitale = 'Guest Post Marketplace | Link Building Platform | Links Farmer';
+$content = 'Links Farmer combines the best of a guest post marketplace and link building platform. Buy and sell guest posts to grow your SEO effortlessly.';
+?>
 @include('pages.header')
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-
-    <title>Guest Post Marketplace | Link Building Platform | Links Farmer</title>
-
-
-    <meta name="description" content="Links Farmer combines the best of a guest post marketplace and link building platform. Buy and sell guest posts to grow your SEO effortlessly.
-
-" />
-
-
-
-</head>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">

@@ -1,19 +1,8 @@
+<?php
+$pagetitale = 'White Label SEO Reselling | Links Farmer';
+$content = 'Offer premium SEO services under your brand with Links Farmer’s white-label SEO reselling solutions. Grow your business without extra effort.';
+?>
 @include('pages.header')
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-
-    <title>White Label SEO Reselling | Links Farmer
-    </title>
-    <meta name="description" content="Offer premium SEO services under your brand with Links Farmer’s white-label SEO reselling solutions. Grow your business without extra effort.
-" />
-
-
-
-</head>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">

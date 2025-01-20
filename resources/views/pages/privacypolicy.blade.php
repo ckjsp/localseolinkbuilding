@@ -1,32 +1,23 @@
+<?php
+$pagetitale = 'Privacy Policy | Links Farmer';
+$content = 'Explore the Privacy Policy for Links Farmer and learn how we protect your personal information and ensure your privacy while using our platform.';
+?>
 @include('pages.header')
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<style>
+    .title_wdth {
+        width: 75%;
+        margin: auto;
+    }
 
+    .pl-neg-1 {
+        padding-left: 30px !important;
+    }
 
-    <title>Privacy Policy | Links Farmer
-    </title>
-    <meta name="description" content="Explore the Privacy Policy for Links Farmer and learn how we protect your personal information and ensure your privacy while using our platform.
-" />
-    <style>
-        .title_wdth {
-            width: 75%;
-            margin: auto;
-        }
-
-        .pl-neg-1 {
-            padding-left: 30px !important;
-        }
-
-        .pt-60 {
-            padding-top: 60px !important;
-        }
-    </style>
-
-
-</head>
+    .pt-60 {
+        padding-top: 60px !important;
+    }
+</style>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">
@@ -308,10 +299,10 @@
                             <div class="mb-2 pb-1 font_dv">Changes to the Privacy Policy:</div>
                             <!-- <hr class="my-lg-4" /> -->
                             <p class="pt-lg-2 font_sz">
-                            Changes may be made from time to time to this Privacy Policy to reflect changes in practice or operational, legal, or regulatory requirements. Updates are reflected in the 'Last updated' date at the beginning of this document whenever we update the policy.
+                                Changes may be made from time to time to this Privacy Policy to reflect changes in practice or operational, legal, or regulatory requirements. Updates are reflected in the 'Last updated' date at the beginning of this document whenever we update the policy.
                             </p>
                             <p class="pt-lg-2 font_sz">
-                            Reviews of this Privacy Policy should be a regular occurrence so that you can remain apprised of the new developments in the ways that we are protecting your data. Most significant changes to this Privacy Policy will be posted on either the homepage or emailed to you, based on the type of change. Those changes would take effect seven days from the time notice has been posted.
+                                Reviews of this Privacy Policy should be a regular occurrence so that you can remain apprised of the new developments in the ways that we are protecting your data. Most significant changes to this Privacy Policy will be posted on either the homepage or emailed to you, based on the type of change. Those changes would take effect seven days from the time notice has been posted.
                             </p>
                             <p class="pt-lg-2 font_sz">
                                 OIt contains all the personal details, and we regard them with utmost confidentiality. It advises referring to this Privacy Policy from time to time and knowing how data is treated. You can contact us about this Privacy Policy for any clarification or inquiry. We will always be available for further explanations and assistance with any issues that may concern data privacy.

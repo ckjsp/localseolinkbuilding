@@ -1,19 +1,8 @@
+<?php
+$pagetitale = 'Link Building Services | Link Building Strategies | Links Farmer';
+$content = 'Links Farmer offers professional link-building solutions to boost your website’s authority. Achieve top search engine rankings today!';
+?>
 @include('pages.header')
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-
-    <title>Link Building Services | Link Building Strategies | Links Farmer
-    </title>
-    <meta name="description" content="Links Farmer offers professional link-building solutions to boost your website’s authority. Achieve top search engine rankings today!
-" />
-
-
-
-</head>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">

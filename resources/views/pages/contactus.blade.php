@@ -1,16 +1,8 @@
+<?php
+$pagetitale = 'Contact Us | Links Farmer';
+$content = 'Reach out to Links Farmer for all your guest posting and SEO needs. We provide quality backlinks and expert support to grow your online presence.';
+?>
 @include('pages.header')
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-
-    <title>Contact Us | Links Farmer
-    </title>
-    <meta name="description" content="Reach out to Links Farmer for all your guest posting and SEO needs. We provide quality backlinks and expert support to grow your online presence.
-" />
-</head>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">
