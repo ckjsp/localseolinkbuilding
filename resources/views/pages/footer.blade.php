@@ -86,7 +86,7 @@
         <div class="container-xxl">
             <div class="footer-container d-flex align-items-center justify-content-around">
                 <div>
-                    ©2025 Link Publishers All Rights Reserved.
+                    ©2025 Links Farmer All Rights Reserved.
 
 
                 </div>
@@ -97,13 +97,9 @@
 
                     <a href="{{ route('cancellation-and-refund-policy') }}" target="_blank" class="footer-link me-4">Refund Policy</a>
 
-                    <a href="https://pixinvent.ticksy.com/" target="_blank" class="footer-link d-none d-sm-inline-block">Get Help</a>
+                    <a href="#" target="_blank" class="footer-link d-none d-sm-inline-block">Get Help</a>
                 </div>
             </div>
         </div>
     </div>
 </footer>
-
-<!-- Footer -->
-
-<!-- / Footer -->

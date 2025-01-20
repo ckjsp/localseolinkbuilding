@@ -98,7 +98,7 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
                             For those who require any inquiries or request assistance, you can contact us directly at:
                         </p>
                         <p class="pt-lg-2 green_font animated-text pt-10 ">
-                            (Email ID)</p>
+                            info@linksfarmer.com</p>
                         <p class="pt-lg-2 font_sz pt-10 ">
                             We aim to respond to every email within 24-48 hours during business days.</p>
                     </div>
