@@ -1,26 +1,15 @@
+<?php
+$pagetitale = 'About Us | Links Farmer';
+$content = 'Links Farmer is a marketplace platform that offers guest posts and link-building services. Connect with top publishers to buy high-quality guest posts and build authoritative backlinks that enhance your SEO strategy and boost search engine rankings.';
+?>
+
 @include('pages.header')
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-
-    <title>About Us | Links Farmer
-
-    </title>
-
-
-    <meta name="description" content="Links Farmer is a marketplace platform that offers guest posts and link-building services. Connect with top publishers to buy high-quality guest posts and build authoritative backlinks that enhance your SEO strategy and boost search engine rankings.
-" />
-    <style>
-        .pt-60 {
-            padding-top: 60px !important;
-        }
-    </style>
-
-
-</head>
+<style>
+    .pt-60 {
+        padding-top: 60px !important;
+    }
+</style>
 
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">
