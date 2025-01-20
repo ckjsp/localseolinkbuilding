@@ -47,267 +47,265 @@
     <script src="{{ asset_url('js/front-config.js') }}"></script>
 </head>
 
-<body>
 
-    <script src=" {{ asset_url('js/dropdown-hover.js') }}"></script>
-    <script src="{{ asset_url('js/mega-dropdown.js') }}"></script>
-    <nav class="layout-navbar custom-navbar shadow-none py-0">
-        <div class="container">
-            <div class="navbar navbar-expand-xl landing-navbar">
-                <div class="navbar-brand app-brand demo d-flex  me-4">
-                    <button class="navbar-toggler text-light border-0 px-0 me-2" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="ti ti-menu-2 ti-sm align-middle"></i>
-                    </button>
-                    <a href="{{ route('home') }}" class="app-brand-link">
-                        <div class="logo-wrap">
-                            <img src="{{ asset_url('img/header-logo.png') }}" alt="logo">
+<script src=" {{ asset_url('js/dropdown-hover.js') }}"></script>
+<script src="{{ asset_url('js/mega-dropdown.js') }}"></script>
+<nav class="layout-navbar custom-navbar shadow-none py-0">
+    <div class="container">
+        <div class="navbar navbar-expand-xl landing-navbar">
+            <div class="navbar-brand app-brand demo d-flex  me-4">
+                <button class="navbar-toggler text-light border-0 px-0 me-2" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="ti ti-menu-2 ti-sm align-middle"></i>
+                </button>
+                <a href="{{ route('home') }}" class="app-brand-link">
+                    <div class="logo-wrap">
+                        <img src="{{ asset_url('img/header-logo.png') }}" alt="logo">
+                    </div>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse landing-nav-menu" id="navbarSupportedContent">
+                <button class="navbar-toggler border-0 text-light position-absolute end-0 top-0 scaleX-n1-rtl"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                    <i class="ti ti-x ti-sm"></i>
+                </button>
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item mega-dropdown">
+                        <a href="{{ route('seo-reseller-services') }}"
+                            class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
+                            aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
+                            Service
+                        </a>
+                        <div class="dropdown-menu custom-menu p-3 p-md-4">
+                            <div class="row gy-4">
+
+                                <div class="col-12 col-lg">
+
+                                    <ul class="nav flex-column">
+
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link"
+                                                href="{{ route('guest-posting-services') }}">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Guest Posting </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link"
+                                                href="{{ route('link-building-services') }}">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Link Building
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link"
+                                                href="{{ route('content-writing-services') }}">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Content Writing
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link"
+                                                href="{{ route('seo-reseller-services') }}">
+                                                <i class="ti ti-circle me-1"></i>
+                                                SEO Reseller
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link"
+                                                href="{{ route('content-marketing-services') }}">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Content Marketing </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                </div>
+                    </li>
+                    <li class="nav-item mega-dropdown">
+                        <a href="https://freebestseotools.com/"
+                            class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
+                            aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
+                            Tools
+                        </a>
+                        <div class="dropdown-menu custom-menu p-3 p-md-4">
+                            <div class="row gy-4">
 
-                <div class="collapse navbar-collapse landing-nav-menu" id="navbarSupportedContent">
-                    <button class="navbar-toggler border-0 text-light position-absolute end-0 top-0 scaleX-n1-rtl"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-                        <i class="ti ti-x ti-sm"></i>
-                    </button>
-                    <ul class="navbar-nav mx-auto">
+                                <div class="col-12 col-lg">
 
-                        <li class="nav-item mega-dropdown">
-                            <a href="{{ route('seo-reseller-services') }}"
-                                class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
-                                aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
-                                Service
-                            </a>
-                            <div class="dropdown-menu custom-menu p-3 p-md-4">
-                                <div class="row gy-4">
+                                    <ul class="nav flex-column">
 
-                                    <div class="col-12 col-lg">
 
-                                        <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link" target="_blank"
+                                                href="https://freebestseotools.com/free-broken-links-checker">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Broken Links Finder </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link" target="_blank"
+                                                href="https://freebestseotools.com/google-index-checker">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Google Index Checker </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link" target="_blank"
+                                                href="https://freebestseotools.com/free-robots-txt-generator">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Robots.txt Generator
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link" target="_blank"
+                                                href="https://freebestseotools.com/free-xml-sitemap-generator-tool">
+                                                <i class="ti ti-circle me-1"></i>
+                                                XML Sitemap Generator
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link" target="_blank"
+                                                href="https://freebestseotools.com/google-malware-checker-tool">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Google Malware Checker
+                                            </a>
+                                        </li>
 
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('guest-posting-services') }}">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Guest Posting </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('link-building-services') }}">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Link Building
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('content-writing-services') }}">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Content Writing
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('seo-reseller-services') }}">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    SEO Reseller
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('content-marketing-services') }}">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Content Marketing </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-lg">
+
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link" target="_blank"
+                                                href="https://freebestseotools.com/free-seo-plagiarism-checker-tool">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Free Plagiarism Checker </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link" target="_blank"
+                                                href="https://freebestseotools.com/free-word-counter-tool">
+                                                <i class="ti ti-circle me-1"></i>
+
+                                                Word Counter </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link" target="_blank"
+                                                href="https://freebestseotools.com/domain-whois-checker-too">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Whois Checker </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="py-1 px-2 outlined-btn w-50 fs-6 mt-3"
+                                                onclick="window.open('https://freebestseotools.com/domain-whois-checker-too', '_blank')">
+                                                View
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item mega-dropdown">
+                        <a href="https://freebestseotools.com/"
+                            class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
+                            aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
+                            Company
+                        </a>
+                        <div class="dropdown-menu custom-menu p-3 p-md-4">
+                            <div class="row gy-4">
+                                <div class="col-12 col-lg">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link"
+                                                href="{{ route('about-us') }}">
+                                                <i class="ti ti-circle me-1"></i>
+                                                About Us </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link"
+                                                href="{{ route('contact-us') }}">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Contact Us
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                        </li>
-                        <li class="nav-item mega-dropdown">
-                            <a href="https://freebestseotools.com/"
-                                class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
-                                aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
-                                Tools
-                            </a>
-                            <div class="dropdown-menu custom-menu p-3 p-md-4">
-                                <div class="row gy-4">
+                        </div>
+                    </li>
+                    <li class="nav-item mega-dropdown">
+                        <a href="https://freebestseotools.com/"
+                            class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
+                            aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
+                            Resources
+                        </a>
+                        <div class="dropdown-menu custom-menu p-3 p-md-4">
+                            <div class="row gy-4">
 
-                                    <div class="col-12 col-lg">
+                                <div class="col-12 col-lg">
 
-                                        <ul class="nav flex-column">
+                                    <ul class="nav flex-column">
 
-
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-broken-links-checker">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Broken Links Finder </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/google-index-checker">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Google Index Checker </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-robots-txt-generator">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Robots.txt Generator
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-xml-sitemap-generator-tool">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    XML Sitemap Generator
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/google-malware-checker-tool">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Google Malware Checker
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                    <div class="col-12 col-lg">
-
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-seo-plagiarism-checker-tool">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Free Plagiarism Checker </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/free-word-counter-tool">
-                                                    <i class="ti ti-circle me-1"></i>
-
-                                                    Word Counter </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="https://freebestseotools.com/domain-whois-checker-too">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Whois Checker </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <button class="py-1 px-2 outlined-btn w-50 fs-6 mt-3"
-                                                    onclick="window.open('https://freebestseotools.com/domain-whois-checker-too', '_blank')">
-                                                    View
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link"
+                                                href="{{ route('blog') }}">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Blogs </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link"
+                                                href="{{ route('faq') }}">
+                                                <i class="ti ti-circle me-1"></i>
+                                                FAQs
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link mega-dropdown-link"
+                                                href="#">
+                                                <i class="ti ti-circle me-1"></i>
+                                                Help Center
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                        </li>
-                        <li class="nav-item mega-dropdown">
-                            <a href="https://freebestseotools.com/"
-                                class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
-                                aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
-                                Company
-                            </a>
-                            <div class="dropdown-menu custom-menu p-3 p-md-4">
-                                <div class="row gy-4">
-                                    <div class="col-12 col-lg">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('about-us') }}">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    About Us </a>
-                                            </li>
-
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('contact-us') }}">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Contact Us
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item mega-dropdown">
-                            <a href="https://freebestseotools.com/"
-                                class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
-                                aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
-                                Resources
-                            </a>
-                            <div class="dropdown-menu custom-menu p-3 p-md-4">
-                                <div class="row gy-4">
-
-                                    <div class="col-12 col-lg">
-
-                                        <ul class="nav flex-column">
-
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('blog') }}">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Blogs </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="{{ route('faq') }}">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    FAQs
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link mega-dropdown-link"
-                                                    href="#">
-                                                    <i class="ti ti-circle me-1"></i>
-                                                    Help Center
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item d-xl-none">
-                            <a class="nav-link fw-medium" href="{{ route('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item d-xl-none">
-                            <a class="nav-link fw-medium" href="{{ route('register') }}">Sign Up for free</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="landing-menu-overlay d-xl-none"></div>
-                <div class="navbar-nav flex-row gap-2 align-items-center ms-auto d-none d-xl-flex">
-                    <a href="{{ route('login') }}" class="outlined-btn">
-                        Login
-                    </a>
-                    <a href="{{ route('register') }}" class="filled-btn">
-                        Sign Up for free
-                    </a>
-                </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-none">
+                        <a class="nav-link fw-medium" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item d-xl-none">
+                        <a class="nav-link fw-medium" href="{{ route('register') }}">Sign Up for free</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="landing-menu-overlay d-xl-none"></div>
+            <div class="navbar-nav flex-row gap-2 align-items-center ms-auto d-none d-xl-flex">
+                <a href="{{ route('login') }}" class="outlined-btn">
+                    Login
+                </a>
+                <a href="{{ route('register') }}" class="filled-btn">
+                    Sign Up for free
+                </a>
             </div>
         </div>
-    </nav>
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/6784e3bd49e2fd8dfe069a7c/1ihfhj7t5';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
+    </div>
+</nav>
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+    (function() {
+        var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/6784e3bd49e2fd8dfe069a7c/1ihfhj7t5';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>

@@ -123,7 +123,7 @@ class SitemapController extends Controller
         ];
 
         $urls[] = [
-            'loc' => URL::to('/terms-conditi'),
+            'loc' => URL::to('/terms-condition'),
             'lastmod' => Carbon::now()->toAtomString(),
             'changefreq' => 'monthly',
             'priority' => '0.8',
