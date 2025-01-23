@@ -280,4 +280,14 @@
         height: 100px !important;
         width: 100px !important;
     }
+    .figure_wrap{
+      max-width: 690px;
+      width: 100%;
+    }
+    .figure_wrap .figure {
+      width: 100%;
+    }
+    .figure_wrap img {
+      width: 100%;
+    }
 /* Sagar css end */

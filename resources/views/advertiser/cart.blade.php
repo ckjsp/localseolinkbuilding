@@ -380,8 +380,9 @@
         const linkedInSessionPriceElement = document.getElementById(`linkedInSessionPrice${webId}`);
         const priceInput = document.getElementById(`price${webId}`);
 
-        const guestPostPrice = "{{ isset($v) && isset($arrCookie[$k]) ? ($v->guestpostprice_adminprice * $arrCookie[$k]->quantity) : 0 }}";
-        const linkedInSessionPrice = "{{ isset($v) && isset($arrCookie[$k]) ? ($v->linkedinsession_adminprice * $arrCookie[$k]->quantity) : 0 }}";
+        const guestPostPrice = "{{ isset($v) && isset($arrCookie[$k]) ? ($v->guestpostprice_adminprice * (is_array($arrCookie[$k]) ? $arrCookie[$k]['quantity'] : $arrCookie[$k]->quantity)) : 0 }}";
+
+        const linkedInSessionPrice = "{{ isset($v) && isset($arrCookie[$k]) ? ($v->linkedinsession_adminprice * (is_array($arrCookie[$k]) ? $arrCookie[$k]['quantity'] : $arrCookie[$k]->quantity)) : 0 }}";
 
 
 
@@ -491,10 +492,9 @@
         var $cartCookie = getCookie('cart');
 
         if ($quantity > 5) {
-            // Show error and reset quantity to 5
             $('#quantityError' + $web_id).text('Maximum quantity is 5.').show();
             $this.val(5);
-            $quantity = 5; // Reset to 5 for further processing
+            $quantity = 5;
         } else {
             // Hide error message if quantity is valid
             $('#quantityError' + $web_id).hide();

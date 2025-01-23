@@ -48,14 +48,14 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
                                                 placeholder="Phone Number">
                                         </div>
                                     </div>
-                                    <div class="mt-3">
+                                    <!-- <div class="mt-3">
                                         <input type="text" class="form-control fm_cnt" id="company"
                                             placeholder="Company">
                                     </div>
                                     <div class="mt-3">
                                         <input type="text" class="form-control fm_cnt" id="position"
                                             placeholder="Position">
-                                    </div>
+                                    </div> -->
                                     <div class="mt-3">
                                         <textarea class="form-control fm_cnt txtarea" id="message" rows="4"
                                             placeholder="Message"></textarea>

@@ -4,8 +4,6 @@ $content = 'Stay updated with the Links Farmer blog. Get the latest trends, tips
 ?>
 @include('pages.header')
 
-
-
 <body>
     <div data-bs-spy="scroll" class="scrollspy-example">
         <section class="hero-section">
@@ -34,22 +32,26 @@ $content = 'Stay updated with the Links Farmer blog. Get the latest trends, tips
         <section class="mb-100">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <figure class="figure">
-                            <img src="{{ asset_url('img/transform-strategy/Wealth of Knowledge.png') }}" alt="Content Syndication">
-                            <a href="{{ route('easy-ways-content-syndication-can-boast-your-research') }}" class="text-decoration-none">
-                                <h4 class="mt-3">Easy Ways Content Syndication Can Boast Your<br /> Research</h4>
-                            </a>
-                        </figure>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="figure_wrap">
+                            <figure class="figure">
+                                <img src="{{ asset_url('img/transform-strategy/Wealth of Knowledge.png') }}" alt="Content Syndication">
+                                <a href="{{ route('easy-ways-content-syndication-can-boast-your-research') }}" class="text-decoration-none">
+                                    <h4 class="mt-3">Easy Ways Content Syndication Can Boast Your<br /> Research</h4>
+                                </a>
+                            </figure>
+                        </div>
 
                     </div>
-                    <div class="col-lg-6">
-                        <figure class="figure">
-                            <img src="{{ asset_url('img/transform-strategy/Links Farmer.png.png') }}" alt="Content Syndication">
-                            <a href="{{ route('manual-outreach-vs-links-farmer') }}" class="text-decoration-none">
-                                <h4 class="mt-3">Manual Outreach Vs Links Farmer: Which Is Better For<br /> Your SEO?</h4>
-                            </a>
-                        </figure>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="figure_wrap">
+                            <figure class="figure">
+                                <img src="{{ asset_url('img/transform-strategy/Links Farmer.png.png') }}" alt="Content Syndication">
+                                <a href="{{ route('manual-outreach-vs-links-farmer') }}" class="text-decoration-none">
+                                    <h4 class="mt-3">Manual Outreach Vs Links Farmer: Which Is Better For<br /> Your SEO?</h4>
+                                </a>
+                            </figure>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -63,20 +65,12 @@ $content = 'Stay updated with the Links Farmer blog. Get the latest trends, tips
     <script src="{{ asset_url('js/bootstrap.js') }}"></script>
     <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
     <script src="{{ asset_url('js/front-main.js') }}"></script>
-
-    <!-- Core JS -->
-    <!-- build:js /js/core.js -->
     <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
     <script src="{{ asset_url('js/bootstrap.js') }}"></script>
     <script src="{{ asset_url('libs/node-waves/node-waves.js') }}"></script>
-    <!-- endbuild -->
-    <!-- Vendors JS -->
     <script src="{{ asset_url('libs/nouislider/nouislider.js') }}"></script>
     <script src="{{ asset_url('libs/swiper/swiper.js') }}"></script>
-
-    <!-- Main JS -->
     <script src="{{ asset_url('assets/front-main.js') }}"></script>
-    <!-- Page JS -->
     <script src="{{ asset_url('assets/front-page-landing.js') }}"></script>
 
 

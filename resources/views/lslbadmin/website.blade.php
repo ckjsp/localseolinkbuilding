@@ -395,7 +395,7 @@
         const guestPostPrice = $('#guestPostPrice').val();
 
         if (!linkedinSession || !guestPostPrice) {
-            alert('Please provide LinkedIn Session and Guest Post Admin Price.');
+            alert('Please provide Link Insertion  and Guest Post Admin Price.');
             return;
         }
 
