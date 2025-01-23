@@ -34,7 +34,7 @@
                             </div>
                             <hr class="d-none d-sm-block d-lg-none">
                         </div>
-                        <div class="col-sm-6 col-lg-4 cursor-pointer">
+                        <!-- <div class="col-sm-6 col-lg-4 cursor-pointer">
                             <div class="d-flex justify-content-between align-items-start pb-3 pb-sm-0 card-widget-3 linksCard" data-href="{{ route('publisher.sales') }}">
                                 <div>
                                     <h4 class="mb-2">0</h4>
@@ -44,7 +44,7 @@
                                     <span class="avatar-initial bg-label-primary rounded"><i class="ti ti-chart-pie-2 ti-sm"></i></span>
                                 </span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -57,9 +57,9 @@
 @push('script')
 <!-- Page JS -->
 <script src="{{ asset_url('js/dashboards-analytics.js') }}"></script>
-    <script>
-        $('.linksCard').click(function(){
-            window.location.href = $(this).attr('data-href');
-        });
-    </script>
+<script>
+    $('.linksCard').click(function() {
+        window.location.href = $(this).attr('data-href');
+    });
+</script>
 @endpush
