@@ -3,7 +3,7 @@
     <div class="container-xxl">
         @if(!isset($slug) || $slug != 'marketplace')
         <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
-            <a href="{{ url('/') }}" class="app-brand-link gap-2">
+            <a href="{{ route('advertiser') }}" class="app-brand-link gap-2">
                 <img src="{{ asset_url('img/header-logo.png') }}" alt="Logo" class="w-75">
             </a>
 

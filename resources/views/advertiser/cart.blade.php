@@ -492,9 +492,10 @@
         var $cartCookie = getCookie('cart');
 
         if ($quantity > 5) {
+            // Show error and reset quantity to 5
             $('#quantityError' + $web_id).text('Maximum quantity is 5.').show();
             $this.val(5);
-            $quantity = 5;
+            $quantity = 5; // Reset to 5 for further processing
         } else {
             // Hide error message if quantity is valid
             $('#quantityError' + $web_id).hide();
