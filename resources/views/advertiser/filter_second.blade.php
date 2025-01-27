@@ -85,7 +85,7 @@
                     <div class="select2-primary">
                         <select id="selectday" class="form-select select2" name="selectday[]" multiple="multiple"
                             data-placeholder="Select days">
-                            <option value="1">Last 1 day</option>
+                            <option value="1">Last 1 days</option>
                             <option value="2">Last 2 days</option>
                             <option value="3">Last 3 days</option>
                             <option value="4">Last 4 days</option>

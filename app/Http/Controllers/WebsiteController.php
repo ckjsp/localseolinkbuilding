@@ -249,6 +249,15 @@ class WebsiteController extends Controller
                 });
             }
 
+            if (!empty($request->post('selectday'))) {
+                $daysArr = $request->post('selectday');
+
+                $query->where(function ($query) use ($daysArr) {
+                    foreach ($daysArr as $day) {
+                        $query->orWhere('publishing_time', 'LIKE', "%$day%"); // Filter based on publishing_time
+                    }
+                });
+            }
 
 
 
@@ -341,11 +350,6 @@ class WebsiteController extends Controller
             }
 
 
-            if (!empty($request->post('selectday'))) {
-                $days = $request->post('selectday');
-                $dateLimit = now()->subDays(max($days));
-                $query->where('created_at', '>=', $dateLimit);
-            }
 
 
             $query->where('status', 'approve');

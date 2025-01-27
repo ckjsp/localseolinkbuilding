@@ -281,6 +281,7 @@
     });
 
     $("#selectday").on('change', function() {
+        console.log("Selected day(s):", $(this).val());
         tblFilter();
     });
 
@@ -310,6 +311,8 @@
 
     const tblFilter = () => {
         const $url = $("#url").val();
+        console.log("URL value:", $url);
+
         const $_token = $('input[name="_token"]').val();
         let formData = $('#websitefilter').serialize();
 

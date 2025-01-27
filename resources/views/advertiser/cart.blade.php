@@ -61,20 +61,17 @@
                                                 <div>
                                                     <!-- Upload File Radio -->
                                                     <label for="attachmentFile{{ $v->id }}" style="color: #45e2d0; cursor: pointer;">
-                                                        <input type="radio" name="attachment_types" value="Guest Post"
-                                                            id="attachmentFile{{ $v->id }}"
-                                                            class="form-check-input"
-                                                            checked
-                                                            onchange="toggleAttachmentType({{ $v->id }})">
+                                                        <input type="radio" name="attachment_type_{{ $v->id }}" value="Guest Post"
+                                                            id="attachmentFile{{ $v->id }}" class="form-check-input" checked
+                                                            onchange="toggleAttachmentType('{{ $v->id }}')">
                                                         Upload File
                                                     </label>
 
                                                     <!-- Add Link Radio -->
                                                     <label for="attachmentLink{{ $v->id }}" style="cursor: pointer;">
-                                                        <input type="radio" name="attachment_types" value="Link Insertion"
-                                                            id="attachmentLink{{ $v->id }}"
-                                                            class="form-check-input"
-                                                            onchange="toggleAttachmentType({{ $v->id }})">
+                                                        <input type="radio" name="attachment_type_{{ $v->id }}" value="Link Insertion"
+                                                            id="attachmentLink{{ $v->id }}" class="form-check-input"
+                                                            onchange="toggleAttachmentType('{{ $v->id }}')">
                                                         Add Link
                                                     </label>
 
@@ -179,24 +176,34 @@
                                                     <label for="razorpay-${item.web_id}" class="form-check-label">Razorpay</label>
                                                 </div>
                                                 <div>
-                                                    <label for="attachmentFile{{ $v->id }}" style="cursor: pointer;">
-                                                        <input type="radio" name="attachment_type" value="Guest Post"
+                                                    <label for="attachmentFile{{ $v->id }}">
+                                                        <input
+                                                            type="radio"
+                                                            name="attachment_type_{{ $v->id }}"
+                                                            value="Guest Post"
                                                             id="attachmentFile{{ $v->id }}"
                                                             class="form-check-input"
+                                                            onchange="toggleAttachmentType('{{ $v->id }}')">
+                                                        Upload File
+                                                    </label>
 
-
-                                                            onchange="toggleAttachmentType({{ $v->id }})">
-                                                        Upload File</label>
                                                     <label for="attachmentLink{{ $v->id }}" style="color: #45e2d0; cursor: pointer;">
-                                                        <input type="radio" name="attachment_type" value="Link Insertion"
+                                                        <input
+                                                            type="radio"
+                                                            name="attachment_type_{{ $v->id }}"
+                                                            value="Link Insertion"
                                                             id="attachmentLink{{ $v->id }}"
                                                             class="form-check-input"
+                                                            onchange="toggleAttachmentType('{{ $v->id }}')"
+                                                            checked>
+                                                        Add Link
+                                                    </label>
 
-                                                            checked
-                                                            onchange="toggleAttachmentType({{ $v->id }})">
-                                                        Add Link</label>
-                                                    <input type="hidden" name="attachment_type" id="selectedAttachmentType{{ $v->id }}" value="Link Insertion">
-
+                                                    <input
+                                                        type="hidden"
+                                                        name="attachment_type"
+                                                        id="selectedAttachmentType{{ $v->id }}"
+                                                        value="Link Insertion">
                                                 </div>
 
                                                 <div class="d-flex mt-4">
@@ -502,35 +509,24 @@
     }
 
 
-
-
     function toggleAttachmentType(id) {
+        // Get the forms and inputs
         const cartForm = document.getElementById(`cartform-${id}`);
         const addLinkCartForm = document.getElementById(`addlinkcartform-${id}`);
         const uploadFileRadio = document.getElementById(`attachmentFile${id}`);
         const addLinkRadio = document.getElementById(`attachmentLink${id}`);
 
+        // Reset forms visibility based on selection
         if (uploadFileRadio.checked) {
-            // Show file upload section and hide link insertion section
             console.log("Upload File selected");
-            // Show file upload section and hide link insertion section
             cartForm.style.display = 'block';
             addLinkCartForm.style.display = 'none';
-            cartForm.style.display = 'block';
-            addLinkCartForm.style.display = 'none';
-
-
         } else if (addLinkRadio.checked) {
-            console.log("add link");
-
-            // Show link insertion section and hide file upload section
+            console.log("Add Link selected");
             cartForm.style.display = 'none';
             addLinkCartForm.style.display = 'block';
-
-
         }
     }
-
 
 
     function updateCartUI(cartItems) {
