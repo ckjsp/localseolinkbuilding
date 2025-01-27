@@ -26,8 +26,8 @@
                 @csrf
                 <div class="form-group mb-3">
                     <div class="row">
-                        <div class="col-2">
-                            <input type="text" id="upi_id" name="upi_id" class="form-control" placeholder="Enter your UPI ID" required>
+                        <div class="col-3">
+                            <input type="text" id="upi_id" name="upi_id" class="form-control" placeholder="Enter your UPI ID or PayPal Email Id" required>
                         </div>
 
                         <input type="hidden" id="wallet_balance" name="wallet_balance" value="{{ $wallet_balance }}">

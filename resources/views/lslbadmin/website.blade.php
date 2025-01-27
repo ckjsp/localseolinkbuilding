@@ -64,7 +64,15 @@
                                     <ul class="dropdown-menu" style="">
                                         <li class="dropdown-item webStatus{{ $v->id }} {{ $v->status == 'pending' ? 'active' : '' }}" onclick="webStatus($(this), <?= $v->id ?>)" data-item="pending">Pending</li>
                                         <li class="dropdown-item webStatus{{ $v->id }} {{ $v->status == 'in-review' ? 'active' : '' }}" onclick="webStatus($(this), <?= $v->id ?>)" data-item="in-review">In Review</li>
-                                        <li class="dropdown-item webStatus{{ $v->id }} {{ $v->status == 'approve' ? 'active' : '' }}" onclick="webStatus($(this), <?= $v->id ?>)" data-item="approve">Approve</li>
+                                        <li
+                                            class="dropdown-item webStatus{{ $v->id }} {{ $v->status == 'approve' ? 'active' : '' }}"
+                                            onclick="webStatus($(this), {{ $v->id }})"
+                                            data-item="approve"
+                                            data-link-insertion-price="{{ $v->link_insertion_price }}"
+                                            data-guest-post-price="{{ $v->guest_post_price }}">
+                                            Approve
+                                        </li>
+
                                         <li class="dropdown-item webStatus{{ $v->id }} {{ $v->status == 'rejected' ? 'active' : '' }}" onclick="webStatus($(this), <?= $v->id ?>)" data-item="rejected">Rejected</li>
                                     </ul>
                                 </td>
@@ -231,14 +239,17 @@
                 <div class="modal-body">
                     <input type="hidden" id="orderId" name="orderId">
                     <input type="hidden" id="status" name="status">
+
                     <div class="mb-3">
                         <label for="linkedinSession" class="form-label">Link Insertion Admin Price</label>
                         <input type="text" class="form-control" id="linkedinSession" name="linkedinSession" placeholder="Enter price">
                     </div>
                     <div class="mb-3">
                         <label for="guestPostPrice" class="form-label">Guest Post Admin Price</label>
-                        <input type="number" class="form-control" id="guestPostPrice" name="guestPostPrice" placeholder="Enter price">
+                        <input type="text" class="form-control" id="guestPostPrice" name="guestPostPrice" placeholder="Enter price">
                     </div>
+
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -343,14 +354,22 @@
         $('#orderId').val($id);
         $('#status').val($status);
 
-        if ($status === 'rejected') {
-            $('#rejectionModal').modal('show');
-        } else if ($status === 'approve') {
+        if ($status === 'approve') {
+            // Dynamically populate the fields in the modal
+            const linkInsertionPrice = $this.data('link-insertion-price'); // Get from button data
+            const guestPostPrice = $this.data('guest-post-price'); // Get from button data
+
+            $('#linkedinSession').val(linkInsertionPrice || ''); // Set value or leave blank
+            $('#guestPostPrice').val(guestPostPrice || ''); // Set value or leave blank
+
             $('#approvalModal').modal('show');
+        } else if ($status === 'rejected') {
+            $('#rejectionModal').modal('show');
         } else {
             updateStatus($id, $status, null);
         }
     }
+
 
     function resetModalFields() {
         $('#rejectionReason').val('');
@@ -364,6 +383,7 @@
 
     $('#approvalModal').on('hidden.bs.modal', function() {
         resetModalFields();
+
     });
 
 
