@@ -332,7 +332,7 @@ input:focus-visible {
 }
 
 .reviews-card {
-  padding: 28px;
+  padding: 20px 20px 70px 20px;
 }
 
 .reviews-card::before {

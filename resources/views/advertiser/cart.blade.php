@@ -59,12 +59,28 @@
                                                     <label for="razorpay-${item.web_id}" class="form-check-label">Razorpay</label>
                                                 </div>
                                                 <div>
-                                                    <input type="radio" name="attachment_type" value="Guest Post" id="attachmentFile{{ $v->id }}" class="form-check-input attachment-type-radio" checked onchange="toggleAttachmentType({{ $v->id }})">
-                                                    <label for="attachmentFile{{ $v->id }}" class="form-check-label">Upload File</label>
-                                                    <input type="radio" name="attachment_type" value="Link Insertion" id="attachmentLink{{ $v->id }}" class="form-check-input attachment-type-radio" onchange="toggleAttachmentType({{ $v->id }})">
-                                                    <label for="attachmentLink{{ $v->id }}" class="form-check-label">Add Link</label>
-                                                </div>
+                                                    <!-- Upload File Radio -->
+                                                    <label for="attachmentFile{{ $v->id }}" style="color: #45e2d0; cursor: pointer;">
+                                                        <input type="radio" name="attachment_types" value="Guest Post"
+                                                            id="attachmentFile{{ $v->id }}"
+                                                            class="form-check-input"
+                                                            checked
+                                                            onchange="toggleAttachmentType({{ $v->id }})">
+                                                        Upload File
+                                                    </label>
 
+                                                    <!-- Add Link Radio -->
+                                                    <label for="attachmentLink{{ $v->id }}" style="cursor: pointer;">
+                                                        <input type="radio" name="attachment_types" value="Link Insertion"
+                                                            id="attachmentLink{{ $v->id }}"
+                                                            class="form-check-input"
+                                                            onchange="toggleAttachmentType({{ $v->id }})">
+                                                        Add Link
+                                                    </label>
+
+                                                    <!-- Hidden Input for storing attachment type -->
+                                                    <input type="hidden" name="attachment_type" id="selectedAttachmentType{{ $v->id }}" value="Guest Post">
+                                                </div>
                                                 <div class="d-flex mt-4">
                                                     <button type="button" class="btn-close btn-pinned" data-web_id="{{ $v->id }}" onclick="removeFromCart($(this))" aria-label="Close"></button>
                                                 </div>
@@ -99,21 +115,6 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="post-title-main d-flex mb-3 justify-content-between">
-
-                                                    <div class="col-md-12">
-                                                        <div id="linkInputSection{{ $v->id }}" style="display: none;">
-                                                            <label class="form-label" for="existingPostUrl{{ $v->id }}">Existing Post URL</label>
-                                                            <input type="url" class="form-control" name="existing_post_url" id="existingPostUrl{{ $v->id }}" placeholder="Enter existing post URL">
-
-                                                            <label class="form-label mt-2" for="landingPageUrl{{ $v->id }}">Landing Page URL</label>
-                                                            <input type="url" class="form-control" name="landing_page_url" id="landingPageUrl{{ $v->id }}" placeholder="Enter landing page URL">
-
-                                                            <label class="form-label mt-2" for="anchorText{{ $v->id }}">Anchor Text</label>
-                                                            <input type="text" class="form-control" name="anchor_text" id="anchorText{{ $v->id }}" placeholder="Enter anchor text">
-                                                        </div>
-                                                    </div>
-                                                </div>
 
                                                 <div class="post-title-main d-flex mb-3 justify-content-between">
                                                     <div class="col-md-12">
@@ -141,6 +142,119 @@
                                                 </div>
                                                 <div class="d-flex justify-content-end">
                                                     <div class="text-center mx-2">
+                                                        @if(session('selected_project_id'))
+                                                        <button type="submit" class="btn btn-primary checkout-btn" data-can-submit="false">
+                                                            <span class="loader-box spinner-border me-1" role="status" aria-hidden="true" style="display: none;"></span>
+                                                            Check Out
+                                                        </button>
+                                                        @else
+                                                        <div class="alert alert-warning">
+                                                            Please select a project before proceeding.
+                                                        </div>
+                                                        @endif
+
+
+
+                                                    </div>
+                                                    <div class="text-center mx-2">
+                                                        <button type="button" class="btn btn-danger btn-label-danger" data-web_id="{{ $v->id }}" onclick="removeFromCart($(this))">Remove</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+
+
+                                            <form action="{{ route('advertiser.orders.store') }}" method="post" id="addlinkcartform-{{ $v->id }}" enctype="multipart/form-data" style="display: none !important;">
+                                                @csrf
+                                                <input type="hidden" id="quantity{{$v->id}}" name="quantity" value="1" />
+                                                <input type="hidden" id="user_id" name="user_id" value="{{ $userDetail->id }}">
+                                                <input type="hidden" id="website_id" name="website_id" value="{{ $v->id }}">
+                                                <input type="hidden" name="selected_project_id" value="{{ session('selected_project_id') }}">
+
+                                                <div class="mb-3">
+                                                    <label class="form-label">Payment Method</label><br>
+                                                    <input type="radio" name="payment_method" value="paypal" id="paypal-${item.web_id}" class="payment-method-radio" checked>
+                                                    <label for="paypal-${item.web_id}" class="form-check-label">PayPal</label>
+                                                    <input type="radio" name="payment_method" value="razorpay" id="razorpay-${item.web_id}" class="payment-method-radio">
+                                                    <label for="razorpay-${item.web_id}" class="form-check-label">Razorpay</label>
+                                                </div>
+                                                <div>
+                                                    <label for="attachmentFile{{ $v->id }}" style="cursor: pointer;">
+                                                        <input type="radio" name="attachment_type" value="Guest Post"
+                                                            id="attachmentFile{{ $v->id }}"
+                                                            class="form-check-input"
+
+
+                                                            onchange="toggleAttachmentType({{ $v->id }})">
+                                                        Upload File</label>
+                                                    <label for="attachmentLink{{ $v->id }}" style="color: #45e2d0; cursor: pointer;">
+                                                        <input type="radio" name="attachment_type" value="Link Insertion"
+                                                            id="attachmentLink{{ $v->id }}"
+                                                            class="form-check-input"
+
+                                                            checked
+                                                            onchange="toggleAttachmentType({{ $v->id }})">
+                                                        Add Link</label>
+                                                    <input type="hidden" name="attachment_type" id="selectedAttachmentType{{ $v->id }}" value="Link Insertion">
+
+                                                </div>
+
+                                                <div class="d-flex mt-4">
+                                                    <button type="button" class="btn-close btn-pinned" data-web_id="{{ $v->id }}" onclick="removeFromCart($(this))" aria-label="Close"></button>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6 d-flex align-items-start flex-column">
+                                                        <a href="{{ $v->website_url }}" class="badge text-primary p-3 pb-0 px-0 fs-5" target="_blank">
+                                                            {{ $v->website_url }}
+                                                        </a>
+                                                        <div>
+                                                            <p class="m-0 fs-6">Categories: <span>{{ $v->categories }}</span></p>
+                                                            <p class="m-0 fs-6">Forbidden Categories: <span>{{ $v->forbidden_categories }}</span></p>
+                                                        </div>
+                                                    </div>
+                                                    <!--<div class="col-md-3">-->
+                                                    <!--    <div class="col-md-4 text-md" id="inputQuantitydiv{{ $v->id }}">-->
+                                                    <!--        <label class="form-label">Quantity</label>-->
+                                                    <!--        <input type="number" id="inputQuantity{{ $v->id }}" data-price="{{$v->guestpostprice_adminprice}}" data-web_id="{{$v->id}}" onchange="changeQuantity($(this))" class="form-control" value="{{$arrCookie[$k]->quantity}}" min="1" max="5" />-->
+                                                    <!--        <div id="quantityError{{ $v->id }}" class="text-danger" style="display:none;">Quantity cannot exceed 5.</div>-->
+
+                                                    <!--    </div>-->
+                                                    <!--</div>-->
+                                                    <div class="col-md-3 text-center d-flex align-items-end justify-content-center">
+                                                        <!--<span class="badge fs-5 p-2 price-box quantityPrice{{$v->id}}" id="guestPostPrice{{$v->id}}">-->
+                                                        <!--    ${{ ($v->guestpostprice_adminprice * $arrCookie[$k]->quantity) }}-->
+                                                        <!--</span>-->
+
+                                                        <span class="badge fs-5 p-2 price-box">
+                                                            ${{ $v->linkedinsession_adminprice }}
+                                                        </span>
+                                                        <input type="hidden" id="price{{$v->id}}" name="price" value="{{ $v->linkedinsession_adminprice }}">
+
+                                                    </div>
+                                                </div>
+                                                <div class="post-title-main d-flex mb-3 justify-content-between">
+
+                                                    <div class="col-md-12">
+                                                        <div id="linkInputSection{{ $v->id }}">
+                                                            <label class="form-label" for="existingPostUrl{{ $v->id }}">Existing Post URL</label>
+                                                            <input type="url" class="form-control" name="existing_post_url" id="existingPostUrl{{ $v->id }}" placeholder="Enter existing post URL">
+
+                                                            <label class="form-label mt-2" for="landingPageUrl{{ $v->id }}">Landing Page URL</label>
+                                                            <input type="url" class="form-control" name="landing_page_url" id="landingPageUrl{{ $v->id }}" placeholder="Enter landing page URL">
+
+                                                            <label class="form-label mt-2" for="anchorText{{ $v->id }}">Anchor Text</label>
+                                                            <input type="text" class="form-control" name="anchor_text" id="anchorText{{ $v->id }}" placeholder="Enter anchor text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12 mb-3">
+                                                    <label class="form-label" for="inputSpecialInstructions{{$v->id}}">Special Instructions</label>
+                                                    <textarea type="text" class="form-control" rows="5" name="special_instructions" id="inputSpecialInstructions{{$v->id}}" required></textarea>
+                                                </div>
+                                                <div class="d-flex justify-content-end">
+                                                    <div class="text-center mx-2">
 
                                                         @if(session('selected_project_id'))
                                                         <button type="submit" class="btn btn-primary checkout-btn">
@@ -160,6 +274,9 @@
                                                     </div>
                                                 </div>
                                             </form>
+
+
+
                                         </div>
                                     </div>
                                     @endforeach
@@ -264,19 +381,42 @@
 <script>
     $('.inputDocFile').change(function() {
         const selectedFile = this.files[0];
-        if (selectedFile) {
-            const allowedFileTypes = ['application/msword',
-                'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-            ];
+        const form = $(this).closest('form');
+        const submitButton = form.find('button[type="submit"]');
+        const allowedFileTypes = [
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        ];
 
+        if (selectedFile) {
             if (allowedFileTypes.includes(selectedFile.type)) {
+                // Valid file type
                 $(this).removeClass('is-invalid').addClass('is-valid');
+                submitButton.data('can-submit', true); // Allow submission
             } else {
+                // Invalid file type
                 $(this).addClass('is-invalid').removeClass('is-valid');
-                $('#fileInput').val('');
+                $(this).val(''); // Clear the file input
+                submitButton.data('can-submit', false); // Disallow submission
             }
+        } else {
+            // No file selected
+            $(this).removeClass('is-valid is-invalid');
+            submitButton.data('can-submit', false); // Disallow submission
         }
     });
+
+    // Intercept form submission
+    $('form').on('submit', function(e) {
+        const submitButton = $(this).find('button[type="submit"]');
+        const canSubmit = submitButton.data('can-submit');
+
+        if (!canSubmit) {
+            e.preventDefault(); // Prevent form submission
+            alert('Please upload a valid file before submitting.');
+        }
+    });
+
 
     function addToCart($this) {
         var $web_id = $this.data('web_id');
@@ -361,70 +501,33 @@
             .catch(error => console.error('Error refreshing content:', error));
     }
 
-    function toggleAttachmentType(webId) {
-        const fileRadio = document.getElementById(`attachmentFile${webId}`);
-        const linkRadio = document.getElementById(`attachmentLink${webId}`);
-
-        const fileInput = document.getElementById(`inputDocFile${webId}`);
-        const titleInput = document.getElementById(`inputArticleTitle${webId}`);
-        const inputQuantitydiv = document.getElementById(`inputQuantitydiv${webId}`);
-
-        const linkInputSection = document.getElementById(`linkInputSection${webId}`);
-        const uplodefileInputSection = document.getElementById(`uplodefileInputSection${webId}`);
-
-        const existingPostUrl = document.getElementById(`existingPostUrl${webId}`);
-        const landingPageUrl = document.getElementById(`landingPageUrl${webId}`);
-        const anchorText = document.getElementById(`anchorText${webId}`);
-
-        const guestPostPriceElement = document.getElementById(`guestPostPrice${webId}`);
-        const linkedInSessionPriceElement = document.getElementById(`linkedInSessionPrice${webId}`);
-        const priceInput = document.getElementById(`price${webId}`);
-
-        const guestPostPrice = "{{ isset($v) && isset($arrCookie[$k]) ? ($v->guestpostprice_adminprice * (is_array($arrCookie[$k]) ? $arrCookie[$k]['quantity'] : $arrCookie[$k]->quantity)) : 0 }}";
-
-        const linkedInSessionPrice = "{{ isset($v) && isset($arrCookie[$k]) ? ($v->linkedinsession_adminprice * (is_array($arrCookie[$k]) ? $arrCookie[$k]['quantity'] : $arrCookie[$k]->quantity)) : 0 }}";
 
 
 
-        if (fileRadio.checked) {
-            fileInput.style.display = 'block';
-            titleInput.style.display = 'block';
-            inputQuantitydiv.style.display = 'block';
+    function toggleAttachmentType(id) {
+        const cartForm = document.getElementById(`cartform-${id}`);
+        const addLinkCartForm = document.getElementById(`addlinkcartform-${id}`);
+        const uploadFileRadio = document.getElementById(`attachmentFile${id}`);
+        const addLinkRadio = document.getElementById(`attachmentLink${id}`);
 
-            linkInputSection.style.display = 'none';
-            uplodefileInputSection.style.display = 'block';
+        if (uploadFileRadio.checked) {
+            // Show file upload section and hide link insertion section
+            console.log("Upload File selected");
+            // Show file upload section and hide link insertion section
+            cartForm.style.display = 'block';
+            addLinkCartForm.style.display = 'none';
+            cartForm.style.display = 'block';
+            addLinkCartForm.style.display = 'none';
 
-            fileInput.setAttribute('required', true);
-            titleInput.setAttribute('required', true);
 
-            existingPostUrl.removeAttribute('required');
-            landingPageUrl.removeAttribute('required');
-            anchorText.removeAttribute('required');
+        } else if (addLinkRadio.checked) {
+            console.log("add link");
 
-            guestPostPriceElement.style.display = 'inline-block';
-            linkedInSessionPriceElement.style.display = 'none';
+            // Show link insertion section and hide file upload section
+            cartForm.style.display = 'none';
+            addLinkCartForm.style.display = 'block';
 
-            priceInput.value = guestPostPrice;
 
-        } else if (linkRadio.checked) {
-            fileInput.style.display = 'none';
-            titleInput.style.display = 'none';
-            inputQuantitydiv.style.display = 'none';
-
-            uplodefileInputSection.style.display = 'none';
-            linkInputSection.style.display = 'block';
-
-            fileInput.removeAttribute('required');
-            titleInput.removeAttribute('required');
-
-            existingPostUrl.setAttribute('required', true);
-            landingPageUrl.setAttribute('required', true);
-            anchorText.setAttribute('required', true);
-
-            guestPostPriceElement.style.display = 'none';
-            linkedInSessionPriceElement.style.display = 'inline-block';
-
-            priceInput.value = linkedInSessionPrice;
         }
     }
 
@@ -492,10 +595,9 @@
         var $cartCookie = getCookie('cart');
 
         if ($quantity > 5) {
-            // Show error and reset quantity to 5
             $('#quantityError' + $web_id).text('Maximum quantity is 5.').show();
             $this.val(5);
-            $quantity = 5; // Reset to 5 for further processing
+            $quantity = 5;
         } else {
             // Hide error message if quantity is valid
             $('#quantityError' + $web_id).hide();
@@ -541,7 +643,6 @@
                 }
             });
 
-            toggleAttachmentType($web_id);
         }
     }
 

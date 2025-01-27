@@ -21,7 +21,6 @@ class PaypalPaymentController extends Controller
 
     {
 
-
         $provider = new PayPalClient;
 
         // $provider = \PayPal::setProvider();
@@ -52,8 +51,7 @@ class PaypalPaymentController extends Controller
                 }
             }
         } else {
-            // return response()->json(['error' => 'Payment creation failed.'], 500);
-            return redirect()->route('advertiser.orders')->with('error', 'Payment capture failed.');
+            return response()->json(['error' => 'Payment creation failed.'], 500);
         }
     }
 
