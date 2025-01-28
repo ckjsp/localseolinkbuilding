@@ -48,7 +48,7 @@ $content = 'Stay updated with the Links Farmer blog. Get the latest trends, tips
                             <figure class="figure">
                                 <img src="{{ asset_url('img/transform-strategy/Links Farmer.png.png') }}" alt="Content Syndication">
                                 <a href="{{ route('manual-outreach-vs-links-farmer') }}" class="text-decoration-none">
-                                    <h4 class="mt-3">Manual Outreach Vs Links Farmer: Which Is Better For<br /> Your SEO?</h4>
+                                    <h4 class="mt-3">Manual Outreach Vs Links Farmer: Which Is Better For Your SEO?</h4>
                                 </a>
                             </figure>
                         </div>

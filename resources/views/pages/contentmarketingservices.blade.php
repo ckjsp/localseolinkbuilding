@@ -18,9 +18,9 @@ $content = 'Links Farmer offers top-notch content marketing services to help you
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle">
                             Writing a content piece is okay, but without promotion, nothing can be achieved. This is
-                            where it becomes a major point to foster customer loyalty<br /> and drive traffic. At our
+                            where it becomes a major point to foster customer loyalty and drive traffic. At our
                             site, you can get the best creation and distribution of high-quality content. We help you
-                            stand out in a crowded<br /> marketplace. </h3>
+                            stand out in a crowded marketplace. </h3>
                         <!-- <h2 class="hero-sub-title h6 mb-4 pb-1">
                             Looking for the best link building platform? Join Links farmer today!
                         </h2> -->
@@ -278,51 +278,55 @@ $content = 'Links Farmer offers top-notch content marketing services to help you
                         </h2> -->
                 </div>
                 <div class="guest_posting_wrap mb-5">
-                    <div class="row g-2 gy-md-5 justify-content-center">
-                        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
-                            <div class="posting_card">
-                                <h6>Discovering Audience And Reach Goals</h6>
+
+
+                    <ul class="horizontal_timeline">
+                        <li class="timeline-item timeline-item-transparent ">
+                            <div class="left_wrap">
+                                <span></span>
                             </div>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="timeline-item timeline-item-transparent ">
-                        <div class="left_wrap">
-                            <span></span>
-                        </div>
-                        <div class="right_wrap">
-                            <div class="custom_card">
-                                Content Planning </div>
-                        </div>
-                    </li>
-                    <li class="timeline-item timeline-item-transparent ">
-                        <div class="left_wrap">
-                            <span></span>
-                        </div>
-                        <div class="right_wrap">
-                            <div class="custom_card">
-                                Content Creation </div>
-                        </div>
-                    </li>
-                    <li class="timeline-item timeline-item-transparent ">
-                        <div class="left_wrap">
-                            <span></span>
-                        </div>
-                        <div class="right_wrap">
-                            <div class="custom_card">
-                                Distribution </div>
-                        </div>
-                    </li>
-                    <li class="timeline-item timeline-item-transparent ">
-                        <div class="left_wrap">
-                            <span></span>
-                        </div>
-                        <div class="right_wrap">
-                            <div class="custom_card">
-                                Analytics and Optimization
+                            <div class="right_wrap">
+                                <div class="custom_card">
+                                    Discovering Audience And Reach Goals </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                        <li class="timeline-item timeline-item-transparent ">
+                            <div class="left_wrap">
+                                <span></span>
+                            </div>
+                            <div class="right_wrap">
+                                <div class="custom_card">
+                                    Content Planning </div>
+                            </div>
+                        </li>
+                        <li class="timeline-item timeline-item-transparent ">
+                            <div class="left_wrap">
+                                <span></span>
+                            </div>
+                            <div class="right_wrap">
+                                <div class="custom_card">
+                                    Content Creation </div>
+                            </div>
+                        </li>
+                        <li class="timeline-item timeline-item-transparent ">
+                            <div class="left_wrap">
+                                <span></span>
+                            </div>
+                            <div class="right_wrap">
+                                <div class="custom_card">
+                                    Distribution </div>
+                            </div>
+                        </li>
+                        <li class="timeline-item timeline-item-transparent ">
+                            <div class="left_wrap">
+                                <span></span>
+                            </div>
+                            <div class="right_wrap">
+                                <div class="custom_card">
+                                    Analytics and Optimization
+                                </div>
+                            </div>
+                        </li>
 
                     </ul>
                 </div>

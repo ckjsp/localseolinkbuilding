@@ -176,7 +176,7 @@
                                                     <label for="razorpay-${item.web_id}" class="form-check-label">Razorpay</label>
                                                 </div>
                                                 <div>
-                                                    <label for="attachmentFile{{ $v->id }}">
+                                                    <label for="attachmentFile{{ $v->id }}" style="cursor: pointer;">
                                                         <input
                                                             type="radio"
                                                             name="attachment_type_{{ $v->id }}"
@@ -413,16 +413,7 @@
         }
     });
 
-    // Intercept form submission
-    $('form').on('submit', function(e) {
-        const submitButton = $(this).find('button[type="submit"]');
-        const canSubmit = submitButton.data('can-submit');
 
-        if (!canSubmit) {
-            e.preventDefault(); // Prevent form submission
-            alert('Please upload a valid file before submitting.');
-        }
-    });
 
 
     function addToCart($this) {
