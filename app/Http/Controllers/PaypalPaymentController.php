@@ -120,6 +120,13 @@ class PaypalPaymentController extends Controller
                         $message->subject('New orders have been successfully placed on your website');
                     });
 
+                    // Remove ordered website from the cart
+                    $cart = json_decode($_COOKIE['cart'] ?? '[]', true); // Get the current cart
+                    $updatedCart = array_filter($cart, function ($item) use ($order) {
+                        return $item['web_id'] != $order->website_id;
+                    });
+                    setcookie('cart', json_encode(array_values($updatedCart)), time() + (2 * 24 * 60 * 60), '/');
+
                     return redirect()->route('advertiser.orders')->with('success', 'Payment completed successfully!');
                 }
 

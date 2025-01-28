@@ -193,7 +193,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link mega-dropdown-link" target="_blank"
-                                                href="https://freebestseotools.com/domain-whois-checker-too">
+                                                href="https://freebestseotools.com/domain-whois-checker-tool">
                                                 <i class="ti ti-circle me-1"></i>
                                                 Whois Checker </a>
                                         </li>

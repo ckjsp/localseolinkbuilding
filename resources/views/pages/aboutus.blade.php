@@ -17,7 +17,7 @@ $content = 'Links Farmer is a marketplace platform that offers guest posts and l
             <div class=" landing-hero position-relative">
                 <div class="container">
                     <div class="text-center">
-                        <h1 class="page-title">Our <span class="animated-text"> company story</span> </h1>
+                        <h1 class="page-title">Our <span class="animated-text"> Company Story</span> </h1>
                         <!-- <h1>Welcome to LINKSFARMER – Your Trusted <br /> Partner in Link Building!</h1> -->
                         <h3 class="page_subtitle mb-40">
                             LINKSFARMER is the leading AI-driven guest posting marketplace. We connect advertisers with publishers on one convenient platform. Engaging<br /> with our one-stop solution helps you with buying, selling, and publishing your guest post within 32 hours. There is no frustrating experience once<br /> you visit our platform.</h3>
