@@ -27,7 +27,7 @@ $content = 'Links Farmer offers top-notch content marketing services to help you
                     </div>
 
                     <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
-                        <a href="#landingPricing" class="filled-btn">Get Registered Now</a>
+                        <a href="{{ route('register') }}" class="filled-btn">Get Registered Now</a>
                     </div>
                 </div>
             </div>
@@ -472,7 +472,10 @@ $content = 'Links Farmer offers top-notch content marketing services to help you
                             Meaningful Manner!
                         </p>
                     </div>
-                    <button type="button" class="btn-white d-block mx-auto">Register Now</button>
+                    <a href="{{ route('register') }}">
+
+                        <button type="button" class="btn-white d-block mx-auto">Register Now</button>
+                    </a>
                 </div>
             </div>
         </section>

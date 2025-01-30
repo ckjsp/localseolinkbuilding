@@ -70,7 +70,7 @@
                                     <button type="button" class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle{{ $v->id }}" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ ucwords($v->advertiser_status) }}
                                     </button>
-                                    @if($v->status == 'complete')
+                                    @if($v->status == 'complete' && $v->advertiser_status != 'complete')
 
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'new' ? 'active' : '' }}" onclick="updateOrderStatus({{ $v->id }}, 'new')">New</li>

@@ -51,7 +51,7 @@ $content = 'Offer premium SEO services under your brand with Links Farmer’s wh
                         </div>
                     </div>
                     <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
-                        <a href="#landingPricing" class="filled-btn">Get Registered Now</a>
+                        <a href="{{ route('register') }}" class="filled-btn">Get Registered Now</a>
                     </div>
                 </div>
             </div>
@@ -587,7 +587,9 @@ $content = 'Offer premium SEO services under your brand with Links Farmer’s wh
                         <p>With over a decade of experience, we have established ourselves as a leading SEO reseller in the US. By serving the needs of business consultants, design agencies, and various marketing firms, we become everyone’s choice.
                         </p>
                     </div>
-                    <button type="button" class="btn-white d-block mx-auto">Register Now</button>
+                    <a href="{{ route('register') }}">
+                        <button type="button" class="btn-white d-block mx-auto">Register Now</button>
+                    </a>
                 </div>
             </div>
         </section>

@@ -60,9 +60,9 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if($v->attachment_type == 'Guest Post')
+                                    @if($v->attachment_type == 'guest_post')
                                     ${{ number_format($v->guest_post_price * $v->quantity, 2) }}
-                                    @elseif($v->attachment_type == 'Link Insertion')
+                                    @elseif($v->attachment_type == 'link_insertion')
                                     ${{ number_format($v->link_insertion_price * $v->quantity, 2) }}
                                     @else
                                     N/A
@@ -74,7 +74,7 @@
                                     <button type="button" class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle{{ $v->id }}" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ ucwords($v->status) }}
                                     </button>
-                                    <ul class="dropdown-menu" style="">
+                                    <ul class="dropdown-menu">
                                         <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'new' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="new">New</li>
                                         <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'in-progress' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="in-progress">In-Progress</li>
                                         <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'delayed' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="delayed">Delayed</li>

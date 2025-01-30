@@ -194,113 +194,113 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    var validator = $('#user-register-form').validate({
-        rules: {
-            name: {
-                required: true,
-                minlength: 2
+    $(document).ready(function() {
+        var validator = $('#user-register-form').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 8
+                },
+                password_confirmation: {
+                    required: true,
+                    equalTo: "#password"
+                },
+                role: {
+                    required: true
+                }
             },
-            email: {
-                required: true,
-                email: true
+            messages: {
+                name: {
+                    required: "Please enter your username",
+                    minlength: "Your username must be at least 2 characters long"
+                },
+                email: {
+                    required: "Please enter your email",
+                    email: "Please enter a valid email address"
+                },
+                password: {
+                    required: "Your password must be at least 8 characters long",
+                    minlength: "Your password must be at least 8 characters long"
+                },
+                password_confirmation: {
+                    required: "Please confirm your password",
+                    equalTo: "Passwords do not match"
+                },
+                role: {
+                    required: "Please select a role"
+                }
             },
-            password: {
-                required: true,
-                minlength: 8
+            errorClass: "is-invalid",
+            validClass: "is-valid",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                if (element.attr("name") == "role") {
+                    error.insertAfter(element.closest(".row"));
+                } else {
+                    error.addClass("invalid-feedback");
+                    element.closest(".mb-3").append(error);
+                }
             },
-            password_confirmation: {
-                required: true,
-                equalTo: "#password"
+            highlight: function(element) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
             },
-            role: {
-                required: true
+            unhighlight: function(element) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
             }
-        },
-        messages: {
-            name: {
-                required: "Please enter your username",
-                minlength: "Your username must be at least 2 characters long"
+        });
+
+        $('#password').on('keyup', function() {
+            validator.element('#password'); // Validate the password field on keyup
+        });
+
+
+        var gvalidator = $('#google-form').validate({
+            rules: {
+                role: {
+                    required: true
+                }
             },
-            email: {
-                required: "Please enter your email",
-                email: "Please enter a valid email address"
+            messages: {
+                role: {
+                    required: "Please select a role before signing in with Google."
+                }
             },
-            password: {
-                required: "Your password must be at least 8 characters long",
-                minlength: "Your password must be at least 8 characters long"
+            errorClass: "is-invalid",
+            validClass: "is-valid",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                if (element.attr("name") == "role") {
+                    error.insertAfter(element.closest(".row"));
+                } else {
+                    error.addClass("invalid-feedback");
+                    element.closest(".mb-3").append(error);
+                }
             },
-            password_confirmation: {
-                required: "Please confirm your password",
-                equalTo: "Passwords do not match"
+            highlight: function(element) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
             },
-            role: {
-                required: "Please select a role"
+            unhighlight: function(element) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
             }
-        },
-        errorClass: "is-invalid",
-        validClass: "is-valid",
-        errorElement: "div",
-        errorPlacement: function(error, element) {
-            if (element.attr("name") == "role") {
-                error.insertAfter(element.closest(".row"));
+        });
+
+        $('#google-form').on('submit', function(event) {
+            var selectedRole = $('input[name="g-role"]:checked').val();
+            if (!selectedRole) {
+                event.preventDefault();
             } else {
-                error.addClass("invalid-feedback");
-                element.closest(".mb-3").append(error);
+                $('#selected_role').val(selectedRole);
             }
-        },
-        highlight: function(element) {
-            $(element).addClass("is-invalid").removeClass("is-valid");
-        },
-        unhighlight: function(element) {
-            $(element).addClass("is-valid").removeClass("is-invalid");
-        }
+        });
+
     });
-
-    $('#password').on('keyup', function() {
-        validator.element('#password'); // Validate the password field on keyup
-    });
-
-
-    var gvalidator = $('#google-form').validate({
-        rules: {
-            role: {
-                required: true
-            }
-        },
-        messages: {
-            role: {
-                required: "Please select a role before signing in with Google."
-            }
-        },
-        errorClass: "is-invalid",
-        validClass: "is-valid",
-        errorElement: "div",
-        errorPlacement: function(error, element) {
-            if (element.attr("name") == "role") {
-                error.insertAfter(element.closest(".row"));
-            } else {
-                error.addClass("invalid-feedback");
-                element.closest(".mb-3").append(error);
-            }
-        },
-        highlight: function(element) {
-            $(element).addClass("is-invalid").removeClass("is-valid");
-        },
-        unhighlight: function(element) {
-            $(element).addClass("is-valid").removeClass("is-invalid");
-        }
-    });
-
-    $('#google-form').on('submit', function(event) {
-        var selectedRole = $('input[name="g-role"]:checked').val();
-        if (!selectedRole) {
-            event.preventDefault();
-        } else {
-            $('#selected_role').val(selectedRole);
-        }
-    });
-
-});
 </script>
 @endpush

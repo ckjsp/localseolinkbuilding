@@ -145,7 +145,15 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
             <div class="col h-100 map-container mb-5">
                 <!-- Map -->
                 <div id="map" class="h-100 w-100">
-                    <h3 class="mt-5 text-center text-primary">{{ $order[0]->attachment_type }}</h3>
+                    <h3 class="mt-5 text-center text-primary">
+                        @if($order[0]->attachment_type == 'guest_post')
+                        Guest Post
+                        @elseif($order[0]->attachment_type == 'link_insertion')
+                        Link Insertion
+                        @else
+                        {{ $order[0]->attachment_type }}
+                        @endif
+                    </h3>
                     <div class="border w-75 m-auto mb-3"> </div>
                     <div class="order-detail-section">
                         <div class="row mb-3">
@@ -178,7 +186,7 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                                 <strong class="m-2 font-bold">Type: </strong> {{ $order[0]->attachment_type }}
                             </div> -->
 
-                        @if ($order[0]->attachment_type == 'Guest Post')
+                        @if ($order[0]->attachment_type == 'guest_post')
 
                         <!-- Guest Post Section -->
 
@@ -201,7 +209,7 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                         </div>
 
 
-                        @elseif ($order[0]->attachment_type == 'Link Insertion')
+                        @elseif ($order[0]->attachment_type == 'link_insertion')
 
                         <!-- Link Insertion Section -->
 

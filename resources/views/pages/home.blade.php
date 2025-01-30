@@ -22,13 +22,36 @@ $content = 'Links Farmer combines the best of a guest post marketplace and link 
                             agency, or content marketer, improve the website’s authority, visibility, and search engine
                             rankings. Cultivate your online success by exploring our services. We help your brand thrive
                             in the competitive digital world. Your success is our mission! </h3>
-
                         <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
+                            @php
+                            $userRole = auth()->check() ? auth()->user()->role_id : null;
+                            @endphp
 
-                            <a href="#" class="filled-btn">Buy Guest Post</a>
-                            <a href="#" class="outlined-btn">Sell Guest Post</a>
+                            <!-- Buy Guest Post button -->
+                            @if(auth()->check())
+                            @if($userRole == 3)
+                            <a href="{{ route('advertiser') }}" class="filled-btn">Buy Guest Post</a>
+                            @else
+                            <a class="filled-btn disabled" href="javascript:void(0);">Buy Guest Post</a>
+                            @endif
+                            @else
+                            <a href="{{ route('login') }}" class="filled-btn">Buy Guest Post</a>
+                            @endif
 
+                            <!-- Sell Guest Post button -->
+                            @if(auth()->check())
+                            @if($userRole == 2)
+                            <a href="{{ route('publisher') }}" class="outlined-btn">Sell Guest Post</a>
+                            @else
+                            <a class="outlined-btn disabled" href="javascript:void(0);">Sell Guest Post</a>
+                            @endif
+                            @else
+                            <a href="{{ route('login') }}" class="outlined-btn">Sell Guest Post</a>
+                            @endif
                         </div>
+
+
+
                     </div>
                     <div id="heroDashboardAnimation" class="hero-animation-img">
                         <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
@@ -268,7 +291,7 @@ $content = 'Links Farmer combines the best of a guest post marketplace and link 
                     <span class="title-section animated-text">Top Featured</span>
                 </div>
                 <h2 class="subtitle-section text-center">
-                    <span class="animated-text">October</span> Featured Websites
+                    <span class="animated-text">January </span> Featured Websites
                 </h2>
                 <div class="img-wrap">
                     <img src="{{ asset_url('img/Featured Websites.png') }}" alt="top-featured-img">
@@ -434,7 +457,10 @@ $content = 'Links Farmer combines the best of a guest post marketplace and link 
                         <div class="col-md-6">
                             <h2>The First Artificial Intelligence Driven Guest Post & Link Building Spot!</h2>
                             <p>Revolutionize your link-building effortlessly with our AI-driven guest post platform. You'll be 100% sure to reach a wider audience and establish authority on high-DA websites. Embrace it without the hassle of manual outreach.</p>
-                            <button type="button" class="btn-white">Get Registered</button>
+                            <a href="{{ route('register') }}">
+                                <button type="button" class="btn-white">Get Registered</button>
+                            </a>
+
                         </div>
                         <div class="col-md-6">
                             <div class="img-wrap">

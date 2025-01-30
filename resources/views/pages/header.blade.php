@@ -282,17 +282,38 @@
                     <li class="nav-item d-xl-none">
                         <a class="nav-link fw-medium" href="{{ route('register') }}">Sign Up for free</a>
                     </li>
+
                 </ul>
             </div>
             <div class="landing-menu-overlay d-xl-none"></div>
             <div class="navbar-nav flex-row gap-2 align-items-center ms-auto d-none d-xl-flex">
+                @if (Auth::check())
+                <!-- Show when logged in -->
+
+                <a class="outlined-btn" href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <span class="align-middle">{{ __('Log Out') }}</span>
+                </a>
+
+                <!-- Hidden Logout Form -->
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+                <a href="{{ route('dashboard') }}" class="filled-btn">
+                    Dashboard
+                </a>
+                @else
+                <!-- Show when not logged in -->
                 <a href="{{ route('login') }}" class="outlined-btn">
                     Login
                 </a>
                 <a href="{{ route('register') }}" class="filled-btn">
                     Sign Up for free
                 </a>
+                @endif
             </div>
+
         </div>
     </div>
 </nav>

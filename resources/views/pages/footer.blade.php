@@ -72,8 +72,7 @@
                             <input type="email" class=" custom-input mb-4" id="footer-email"
                                 placeholder="Your email address" />
                             <button type="submit" class="filled-btn">
-                                Get Registered
-                            </button>
+                                Submit </button>
                         </div>
                     </form>
                 </div>

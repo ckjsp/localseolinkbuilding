@@ -53,7 +53,7 @@ $content = 'Create impactful content with Links Farmer’s content writing servi
                         </div>
                     </div>
                     <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
-                        <a href="#landingPricing" class="filled-btn">Get Registered Now</a>
+                        <a href="{{ route('register') }}" class="filled-btn">Get Registered Now</a>
                     </div>
                 </div>
             </div>
@@ -438,7 +438,10 @@ $content = 'Create impactful content with Links Farmer’s content writing servi
                         <p>Have you been troubled while articulating your thoughts? Reach us who have skilled content writers. They capture your ideas in your desired length and brand voice. So that we are always a premier choice for exceptional website content and more.
                         </p>
                     </div>
-                    <button type="button" class="btn-white d-block mx-auto">Register Now</button>
+                    <a href="{{ route('register') }}">
+
+                        <button type="button" class="btn-white d-block mx-auto">Register Now</button>
+                    </a>
                 </div>
             </div>
         </section>
