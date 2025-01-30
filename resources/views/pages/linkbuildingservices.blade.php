@@ -18,7 +18,7 @@ $content = 'Links Farmer offers professional link-building solutions to boost yo
                             boosts your site’s authority but also attracts targeted traffic. </h3>
                     </div>
                     <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
-                        <a href="#landingPricing" class="filled-btn">Get Registered Now</a>
+                        <a href="{{ route('register') }}" class="filled-btn">Get Registered Now</a>
                     </div>
                 </div>
             </div>

@@ -116,48 +116,48 @@
 <script src="{{ asset_url('js/pages-auth.js') }}"></script>
 
 <script>
-$(document).ready(function() {
-    // Initialize validation
-    var validator = $('#user-login-form').validate({
-        rules: {
-            email: {
-                required: true,
-                email: true
+    $(document).ready(function() {
+        // Initialize validation
+        var validator = $('#user-login-form').validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 8
+                }
             },
-            password: {
-                required: true,
-                minlength: 8
-            }
-        },
-        messages: {
-            email: {
-                email: "Please enter a valid email address"
+            messages: {
+                email: {
+                    email: "Please enter a valid email address"
+                },
+                password: {
+                    required: "Your password must be at least 8 characters long",
+                    minlength: "Your password must be at least 8 characters long"
+                }
             },
-            password: {
-                required: "Your password must be at least 8 characters long",
-                minlength: "Your password must be at least 8 characters long"
+            errorClass: "is-invalid",
+            validClass: "is-valid",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.addClass("invalid-feedback");
+                element.closest(".mb-3").append(error);
+            },
+            highlight: function(element) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
             }
-        },
-        errorClass: "is-invalid",
-        validClass: "is-valid",
-        errorElement: "div",
-        errorPlacement: function(error, element) {
-            error.addClass("invalid-feedback");
-            element.closest(".mb-3").append(error);
-        },
-        highlight: function(element) {
-            $(element).addClass("is-invalid").removeClass("is-valid");
-        },
-        unhighlight: function(element) {
-            $(element).addClass("is-valid").removeClass("is-invalid");
-        }
-    });
+        });
 
-    // Trigger validation on keyup for the password field
-    $('#password').on('keyup', function() {
-        validator.element('#password'); // Validate the password field on keyup
+        // Trigger validation on keyup for the password field
+        $('#password').on('keyup', function() {
+            validator.element('#password'); // Validate the password field on keyup
+        });
     });
-});
 </script>
 
 @endpush

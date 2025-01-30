@@ -61,7 +61,7 @@
                                                 <div>
                                                     <!-- Upload File Radio -->
                                                     <label for="attachmentFile{{ $v->id }}" style="color: #45e2d0; cursor: pointer;">
-                                                        <input type="radio" name="attachment_type_{{ $v->id }}" value="Guest Post"
+                                                        <input type="radio" name="attachment_type_{{ $v->id }}" value="guest_post"
                                                             id="attachmentFile{{ $v->id }}" class="form-check-input" checked
                                                             onchange="toggleAttachmentType('{{ $v->id }}')">
                                                         Upload File
@@ -69,14 +69,14 @@
 
                                                     <!-- Add Link Radio -->
                                                     <label for="attachmentLink{{ $v->id }}" style="cursor: pointer;">
-                                                        <input type="radio" name="attachment_type_{{ $v->id }}" value="Link Insertion"
+                                                        <input type="radio" name="attachment_type_{{ $v->id }}" value="link_insertion"
                                                             id="attachmentLink{{ $v->id }}" class="form-check-input"
                                                             onchange="toggleAttachmentType('{{ $v->id }}')">
                                                         Add Link
                                                     </label>
 
                                                     <!-- Hidden Input for storing attachment type -->
-                                                    <input type="hidden" name="attachment_type" id="selectedAttachmentType{{ $v->id }}" value="Guest Post">
+                                                    <input type="hidden" name="attachment_type" id="selectedAttachmentType{{ $v->id }}" value="guest_post">
                                                 </div>
                                                 <div class="d-flex mt-4">
                                                     <button type="button" class="btn-close btn-pinned" data-web_id="{{ $v->id }}" onclick="removeFromCart($(this))" aria-label="Close"></button>
@@ -180,7 +180,7 @@
                                                         <input
                                                             type="radio"
                                                             name="attachment_type_{{ $v->id }}"
-                                                            value="Guest Post"
+                                                            value="guest_post"
                                                             id="attachmentFile{{ $v->id }}"
                                                             class="form-check-input"
                                                             onchange="toggleAttachmentType('{{ $v->id }}')">
@@ -191,7 +191,7 @@
                                                         <input
                                                             type="radio"
                                                             name="attachment_type_{{ $v->id }}"
-                                                            value="Link Insertion"
+                                                            value="link_insertion"
                                                             id="attachmentLink{{ $v->id }}"
                                                             class="form-check-input"
                                                             onchange="toggleAttachmentType('{{ $v->id }}')"
@@ -203,7 +203,7 @@
                                                         type="hidden"
                                                         name="attachment_type"
                                                         id="selectedAttachmentType{{ $v->id }}"
-                                                        value="Link Insertion">
+                                                        value="link_insertion">
                                                 </div>
 
                                                 <div class="d-flex mt-4">
