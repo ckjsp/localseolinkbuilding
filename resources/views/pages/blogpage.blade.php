@@ -21,17 +21,18 @@ $content = 'Stay updated with the Links Farmer blog. Get the latest trends, tips
                 </div>
             </div>
 
-            <div class="search-container ">
+            <div class="search-container">
                 <div class="marg_border">
-                    <input type="text" class="search-input mt-3" placeholder="Search blog here...">
+                    <input type="text" id="searchInput" class="search-input mt-3" placeholder="Search blog here...">
                 </div>
             </div>
+
         </section>
         <!-- Hero: End -->
 
         <section class="mb-100">
             <div class="container">
-                <div class="row">
+                <div class="row" id="blogContainer">
                     <div class="col-lg-6 col-sm-12">
                         <div class="figure_wrap">
                             <figure class="figure">
@@ -72,6 +73,25 @@ $content = 'Stay updated with the Links Farmer blog. Get the latest trends, tips
     <script src="{{ asset_url('libs/swiper/swiper.js') }}"></script>
     <script src="{{ asset_url('assets/front-main.js') }}"></script>
     <script src="{{ asset_url('assets/front-page-landing.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#searchInput').on('keyup', function() {
+                var value = $(this).val().toLowerCase();
+
+                $('.figure_wrap').each(function() {
+                    var title = $(this).find('h4').text().toLowerCase();
+
+                    if (title.includes(value)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+
 
 
 </body>
