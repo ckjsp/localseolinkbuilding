@@ -404,8 +404,7 @@ $content = 'Links Farmer offers top-notch content marketing services to help you
                     <span class="title-section animated-text">Our Services</span>
                 </div> -->
                 <h2 class="subtitle-section text-center">
-                    Are you in search of a <span class="animated-text"> complete solution <br />for your </span> digital
-                    product?
+                    Are You In Search Of A <span class="animated-text"> Complete Solution <br />For Your </span> Digital Product?
                 </h2>
                 <h5 class="subtitle2-section text-center">Explore our range of services designed for a well-rounded
                     strategy to boost your online presence.</h5>

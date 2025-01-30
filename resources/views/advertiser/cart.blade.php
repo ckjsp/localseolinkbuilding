@@ -61,22 +61,20 @@
                                                 <div>
                                                     <!-- Upload File Radio -->
                                                     <label for="attachmentFile{{ $v->id }}" style="color: #45e2d0; cursor: pointer;">
-                                                        <input type="radio" name="attachment_type_{{ $v->id }}" value="guest_post"
-                                                            id="attachmentFile{{ $v->id }}" class="form-check-input" checked
-                                                            onchange="toggleAttachmentType('{{ $v->id }}')">
+                                                        <input type="radio" name="attachment_type_{{ $v->id }}" value="provide_content"
+                                                            id="attachmentFile{{ $v->id }}" class="form-check-input" checked>
                                                         Upload File
                                                     </label>
 
                                                     <!-- Add Link Radio -->
                                                     <label for="attachmentLink{{ $v->id }}" style="cursor: pointer;">
                                                         <input type="radio" name="attachment_type_{{ $v->id }}" value="link_insertion"
-                                                            id="attachmentLink{{ $v->id }}" class="form-check-input"
-                                                            onchange="toggleAttachmentType('{{ $v->id }}')">
+                                                            id="attachmentLink{{ $v->id }}" class="form-check-input">
                                                         Add Link
                                                     </label>
 
                                                     <!-- Hidden Input for storing attachment type -->
-                                                    <input type="hidden" name="attachment_type" id="selectedAttachmentType{{ $v->id }}" value="guest_post">
+                                                    <input type="hidden" name="attachment_type" id="selectedAttachmentType{{ $v->id }}" value="provide_content">
                                                 </div>
                                                 <div class="d-flex mt-4">
                                                     <button type="button" class="btn-close btn-pinned" data-web_id="{{ $v->id }}" onclick="removeFromCart($(this))" aria-label="Close"></button>
@@ -180,10 +178,9 @@
                                                         <input
                                                             type="radio"
                                                             name="attachment_type_{{ $v->id }}"
-                                                            value="guest_post"
+                                                            value="provide_content"
                                                             id="attachmentFile{{ $v->id }}"
-                                                            class="form-check-input"
-                                                            onchange="toggleAttachmentType('{{ $v->id }}')">
+                                                            class="form-check-input">
                                                         Upload File
                                                     </label>
 
@@ -194,7 +191,6 @@
                                                             value="link_insertion"
                                                             id="attachmentLink{{ $v->id }}"
                                                             class="form-check-input"
-                                                            onchange="toggleAttachmentType('{{ $v->id }}')"
                                                             checked>
                                                         Add Link
                                                     </label>
@@ -383,6 +379,30 @@
 @endsection
 
 @push('script')
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('input[type=radio]').on('change', function() {
+            var id = $(this).attr('id').replace('attachmentFile', '').replace('attachmentLink', '');
+            var selectedValue = $(this).val();
+
+            if (selectedValue === 'provide_content') {
+                $("#cartform-" + id).show();
+                $("#addlinkcartform-" + id).hide();
+
+                $("#cartform-" + id).find('input[value="provide_content"]').prop('checked', true);
+            } else {
+                $("#cartform-" + id).hide();
+                $("#addlinkcartform-" + id).show();
+
+                $("#addlinkcartform-" + id).find('input[value="link_insertion"]').prop('checked', true);
+            }
+        });
+    });
+</script>
+
 
 
 <script>

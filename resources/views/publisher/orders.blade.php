@@ -60,7 +60,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if($v->attachment_type == 'guest_post')
+                                    @if($v->attachment_type == 'provide_content')
                                     ${{ number_format($v->guest_post_price * $v->quantity, 2) }}
                                     @elseif($v->attachment_type == 'link_insertion')
                                     ${{ number_format($v->link_insertion_price * $v->quantity, 2) }}
