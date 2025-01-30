@@ -384,23 +384,25 @@
 
 <script>
     $(document).ready(function() {
-        $('input[type=radio]').on('change', function() {
+        attachRadioButtonListeners();
+    });
+
+    function attachRadioButtonListeners() {
+        $('input[type=radio]').off('change').on('change', function() {
             var id = $(this).attr('id').replace('attachmentFile', '').replace('attachmentLink', '');
             var selectedValue = $(this).val();
 
             if (selectedValue === 'provide_content') {
                 $("#cartform-" + id).show();
                 $("#addlinkcartform-" + id).hide();
-
                 $("#cartform-" + id).find('input[value="provide_content"]').prop('checked', true);
             } else {
                 $("#cartform-" + id).hide();
                 $("#addlinkcartform-" + id).show();
-
                 $("#addlinkcartform-" + id).find('input[value="link_insertion"]').prop('checked', true);
             }
         });
-    });
+    }
 </script>
 
 
@@ -432,7 +434,6 @@
             submitButton.data('can-submit', false); // Disallow submission
         }
     });
-
 
 
 
@@ -482,6 +483,8 @@
 
         showSuccessMessage("Website successfully added to the cart!");
 
+        // Reattach event listeners after updating the cart
+        setTimeout(attachRadioButtonListeners, 500);
     }
 
     function showSuccessMessage(message) {
@@ -520,24 +523,7 @@
     }
 
 
-    function toggleAttachmentType(id) {
-        // Get the forms and inputs
-        const cartForm = document.getElementById(`cartform-${id}`);
-        const addLinkCartForm = document.getElementById(`addlinkcartform-${id}`);
-        const uploadFileRadio = document.getElementById(`attachmentFile${id}`);
-        const addLinkRadio = document.getElementById(`attachmentLink${id}`);
 
-        // Reset forms visibility based on selection
-        if (uploadFileRadio.checked) {
-            console.log("Upload File selected");
-            cartForm.style.display = 'block';
-            addLinkCartForm.style.display = 'none';
-        } else if (addLinkRadio.checked) {
-            console.log("Add Link selected");
-            cartForm.style.display = 'none';
-            addLinkCartForm.style.display = 'block';
-        }
-    }
 
 
     function updateCartUI(cartItems) {
@@ -590,6 +576,8 @@
         }
 
         updateCartUI($newCartArr);
+        setTimeout(attachRadioButtonListeners, 500);
+
 
         refreshPageContent();
     }
