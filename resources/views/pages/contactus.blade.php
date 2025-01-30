@@ -13,7 +13,7 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
                         <div class="position-relative">
                             <div class="container">
                                 <div class="text-center">
-                                    <h1 class="page-title">Let's <span class="animated-text"> chat today</span> </h1>
+                                    <h1 class="page-title">Let's <span class="animated-text"> Chat Today</span> </h1>
                                     <h3 class="page_subtitle mb-40">
                                         Solve all your queries and concerns regarding Guest Posting and Content Writing
                                         Services. Our experts are<br /> here to help you. We will try our best to get
