@@ -1033,7 +1033,7 @@ input:focus-visible {
   position: relative;
 }
 
-.strait_timeline .timeline_item .left_wrap:before {
+/* .strait_timeline .timeline_item .left_wrap:before {
   content: '';
   background: url('../../img/timeline-dot.png');
   width: 30px;
@@ -1043,6 +1043,20 @@ input:focus-visible {
   transform: translate(-50%, -50%);
   right: -9%;
   top: 50%;
+} */
+.strait_timeline .timeline_item .left_wrap:before {
+  content: '';
+  background: url(../../img/bulletline-img.png);
+  width: 140px;
+  height: 30px;
+  display: inline-block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  right: -26%;
+  top: 50%;
+  background-repeat: no-repeat;
+  z-index: -1;
+
 }
 
 .strait_timeline .timeline_item .left_wrap h5 {
@@ -1054,12 +1068,12 @@ input:focus-visible {
   margin-bottom: 0px;
 }
 
-.strait_timeline .timeline_item .left_wrap span {
+/* .strait_timeline .timeline_item .left_wrap span {
   border: none;
   border-top: 2px dashed #777777;
   height: 1px;
   width: 100%;
-}
+} */
 
 .strait_timeline .timeline_item .right_wrap {
   width: 75%;

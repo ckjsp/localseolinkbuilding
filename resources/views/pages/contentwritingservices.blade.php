@@ -110,7 +110,7 @@ $content = 'Create impactful content with Links Farmer’s content writing servi
         </section>
         <section class="">
             <div class="container">
-                <div class="row gx-5">
+                <div class="row gx-5 gap_clm">
                     <div class="col-lg-6  col-sm-12">
                         <img src="{{ asset_url('img/Brand With Words.png') }}" alt="Brand With Words" width="100%">
                     </div>
