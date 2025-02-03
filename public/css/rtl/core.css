@@ -29260,6 +29260,7 @@ h2.gp {
 }
 
 @media (max-width: 425px) {
+    
     .d-flex.flex-wrap.justify-content-center.gap-2.align-items-center {
       flex-direction: column;
   }
