@@ -455,7 +455,7 @@ $content = 'Links Farmer combines the best of a guest post marketplace and link 
                 <div class="registered-wrap">
                     <div class="row  align-items-center flex-column-reverse flex-md-row">
                         <div class="col-md-6">
-                            <h2>The First Artificial Intelligence Driven Guest Post & Link Building Spot!</h2>
+                            <h2 class="gp">The First Artificial Intelligence Driven Guest Post & Link Building Spot!</h2>
                             <p>Revolutionize your link-building effortlessly with our AI-driven guest post platform. You'll be 100% sure to reach a wider audience and establish authority on high-DA websites. Embrace it without the hassle of manual outreach.</p>
                             <a href="{{ route('register') }}">
                                 <button type="button" class="btn-white">Get Registered</button>
