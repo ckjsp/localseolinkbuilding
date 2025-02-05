@@ -23,7 +23,7 @@
                         </div>
                         <h4 class="ms-1 mb-0">{{$orderCount}}</h4>
                     </div>
-                    <p class="mb-1">Total Orders</p>
+                    <p class="mb-1">Total Order</p>
                     <p class="mb-0">
                         <span class="fw-medium me-1">{{$successOrderCount}}</span>
                         <small class="text-muted">Completed Orders</small>
@@ -79,7 +79,7 @@
             </a>
         </div>
         @else
-        <div class="d-flex justify-content-between my-3 step-3">
+        <div class="d-flex justify-content-between my-3 step-3 bt_cntr">
             <h5 class="card-title">
             </h5>
             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#add-projects-pop" id="addprojectBtn"
@@ -106,7 +106,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row d-flex">
-                            <div class="col col-md-3 border rounded p-4 pb-0 active-bg">
+                            <div class="col col-md-3 border rounded p-4 pb-0 active-bg cl_flx">
                                 <div>
                                     <p>Total Backlinks built from LP</p>
                                     <h4>1</h4>
@@ -120,7 +120,7 @@
                                     <h4>10</h4>
                                 </div>
                             </div>
-                            <div class="col col-md-3 d-flex flex-column border rounded p-3">
+                            <div class="col col-md-3 d-flex flex-column border rounded p-3 cl_flx">
                                 <img src="{{ asset_url('img/pages/project-moz-logo.svg') }}"
                                     style="max-width: 67px; height: 23px;" />
                                 <div class="mt-3 d-flex align-items-center">
@@ -143,7 +143,7 @@
 
                             </div>
 
-                            <div class="col  d-flex flex-column border rounded p-3">
+                            <div class="col  d-flex flex-column border rounded p-3 cl_flx">
                                 <img src="{{ asset_url('img/pages/project-semrush-logo.svg') }}" style="max-width: 30%;"
                                     alt="Project SEMrush Logo" />
                                 <div class="d-flex gap-5 flex-wrap mt-2">
@@ -172,7 +172,7 @@
                                 </div>
                             </div>
 
-                            <div class="col col-md-12 d-flex align-items-center justify-content-end  px-0">
+                            <div class="col col-md-12 d-flex align-items-center justify-content-end  px-0 cl_flx">
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#competitorModal"
                                     data-project-id="{{ $project->id }}" id="addcompetitorBtn"
                                     class="btn btn-primary w-auto step-5 waves-effect waves-light">
