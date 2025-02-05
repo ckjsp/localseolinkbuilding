@@ -7,8 +7,8 @@
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
+            <div class="card tble">
+                <div class="card-header dply">
                     {{ __('My Website') }}
                     <a href="{{ url('/publisher/website/create') }}" class="btn btn-outline-primary float-end"><i
                             class="ti ti-world-plus m-auto p-1"></i> Add Website</a>
@@ -24,7 +24,7 @@
             <div class="card mt-2">
                 @if(count($websites) > 0)
                 <div class="card-datatable table-responsive pt-0">
-                    <table class="table dataTable" id="websiteTbl">
+                    <table class="table dataTable table-responsive web_tab" id="websiteTbl">
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">Website URL</th>

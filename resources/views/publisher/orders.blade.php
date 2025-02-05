@@ -23,8 +23,8 @@
                 @csrf
                 <input type="hidden" id="url" value="{{ url('order/update-status') }}">
                 <div id="alert"></div>
-                <div class="card-datatable overflow-x-auto pt-0">
-                    <table class="datatables-basic table" id="orderTbl">
+                <div class="card-datatable overflow-x-auto pt-0 table-responsive">
+                    <table class="datatables-basic table table-responsive" id="orderTbl">
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">Date</th>

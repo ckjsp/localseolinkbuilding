@@ -20,19 +20,19 @@
     </div>
     @endif
 
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-5 walt-tp-pd">
         <div class="withdraw-section text-center mt-4">
             <form action="{{ route('wallet.withdraw') }}" method="POST" id="withdrawForm">
                 @csrf
                 <div class="form-group mb-3">
-                    <div class="row">
-                        <div class="col-3">
+                    <div class="row flx_clm">
+                        <div class="col-3 wd">
                             <input type="text" id="upi_id" name="upi_id" class="form-control" placeholder="Enter your UPI ID or PayPal Email Id" required>
                         </div>
 
                         <input type="hidden" id="wallet_balance" name="wallet_balance" value="{{ $wallet_balance }}">
 
-                        <div class="col-2">
+                        <div class="col-2 wdt_200">
                             <button type="submit" class="btn btn-success w-100">Withdraw</button>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
         </div>
         <div class="col-md-12">
             <div class="card mt-2">
-                <table class="datatables-basic table" id="payment-tbl">
+                <table class="datatables-basic table table-responsive" id="payment-tbl">
                     <thead class="table-dark">
                         <tr>
                             <th scope="col">Sr.No</th>

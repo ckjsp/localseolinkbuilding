@@ -29235,6 +29235,7 @@ ul.footer-list.social-links-wrap.mt-3 {
 h2.gp {
     margin-bottom: 10px !important;
 }
+
 @media (max-width: 425px){
     .search-input{
         width: -webkit-fill-available;
@@ -29247,6 +29248,7 @@ h2.gp {
 }
 }
 
+/* 03-02-2025 */
 @media (max-width: 992px){
     .landing-hero .hero-text-box {
         margin-bottom: 20px;
@@ -29286,4 +29288,13 @@ h2.gp {
         position: relative;
     }
   }
+  @media (max-width: 767px){
+    .col.col-md-3.border.rounded.p-4.pb-0.active-bg {
+        width: 48% !important;
+    }
+    .col.col-md-3.border.rounded.p-4.pb-0.active-bg {
+        width: 48% !important;
+    }
+  }
+
  

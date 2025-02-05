@@ -2521,11 +2521,11 @@ textarea.form-control-lg {
 }
 
 .form-select-sm {
-    padding-top: 0.266rem;
-    padding-bottom: 0.266rem;
-    padding-left: 0.625rem;
-    font-size: 0.8125rem;
-    border-radius: 0.25rem;
+    padding-top: 0.266rem !important;
+    padding-bottom: 0.266rem !important;
+    padding-left: 0.625rem !important;
+    font-size: 0.8125rem !important;
+    border-radius: 0.25rem !important;
 }
 
 .form-select-lg {
@@ -11288,7 +11288,7 @@ html:not([dir=rtl]) .form-control:not([readonly]):focus::placeholder {
 }
 
 .form-select-sm {
-    background-size: 19px 17px;
+    background-size: 19px 17px !important;
 }
 
 .form-select-lg {
@@ -28973,3 +28973,146 @@ a.bg-vimeo:focus {
 .footer.bg-lighter hr {
     border-color: rgba(207, 211, 236, 0.15);
 }
+
+
+ /* publisher css start */
+ a.nav-item.nav-link.px-0.me-xl-4 i{
+    padding-left: 10px !important;
+  }
+ .card-header.dply {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+select.form-select.form-select-sm {
+    /* width: 75px !important; */
+    padding: 0.422rem 2.45rem 0.422rem 0.875rem;
+    border-color: #45e2d0 !important;
+}
+input.form-control.form-control-sm {
+    border-color: #45e2d0 !important;
+}
+div#payment-tbl_length {
+    padding-left: 10px;
+}
+div#payment-tbl_filter {
+    padding-right: 10px;
+}
+div#payment-tbl_info {
+    padding-left: 10px;
+}
+
+ @media (max-width:1580px){
+  table {
+    table-layout: fixed !important;
+    width: 100%;
+}
+
+ }
+
+ .table-responsive {
+  
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap;
+}
+
+.table {
+    table-layout: fixed; /* Ensures uniform column width */
+    border-collapse: collapse;
+}
+
+th, td {
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: visible;   /* Ensures the full link is shown */
+    max-width: none;     /* Removes any width restriction */
+}
+
+td {
+    min-width: auto; /* Adjust this value based on your table layout */
+    width: auto;      /* Allows the column to expand dynamically */
+}
+
+.table {
+    table-layout: auto !important; /* Allows table to resize columns dynamically */
+}
+
+
+@media (max-width: 768px) {
+    th, td {
+        min-width: 100px; /* Adjust for smaller screens */
+    }
+}
+
+@media (min-width:1043px) and (max-width:1199px){
+    td {
+        min-width: 150px; /* Adjust this value based on your table layout */
+        width: auto;      /* Allows the column to expand dynamically */
+    }
+}
+@media (min-width:1295px) and (max-width:1399px){
+    td {
+        min-width: 150px; /* Adjust this value based on your table layout */
+        width: auto;      /* Allows the column to expand dynamically */
+    }
+}
+@media(max-width:380px){
+    .card-header.dply{
+        flex-direction: column !important;
+        gap:10px;
+    }
+}
+@media(max-width:1024px){
+
+    .row.flx_clm {
+     flex-direction: column;
+ } 
+  .col-3.wd {
+     width: 300px !important;
+ }
+  .row.flx_clm {
+     align-items: center;
+     gap:10px;
+ }
+ .col-2.wdt_200{
+   width: 200px !important;
+ }
+ .walt-tp-pd{
+    margin-top: 30px !important;
+ }
+ }
+
+/* publisher css end */
+
+/* advertiser css start */
+.layout-menu-toggle.navbar-nav.align-items-xl-center.mx-3.me-xl-0.d-xl-none {
+    margin-left: 0px !important;
+}
+
+
+
+
+
+
+@media(max-width:1070px){
+    .col.col-md-3.border.rounded.p-4.pb-0.active-bg {
+    width: 50%;
+}
+
+.col.col-md-3.d-flex.flex-column.border.rounded.p-3 {
+    width: 48%;
+}
+}
+@media(max-width:767px){
+    .cl_flx{
+        flex:auto;
+    }
+    .col.col-md-12.d-flex.align-items-center.justify-content-end.px-0.cl_flx {
+        justify-content: center !important;
+    }
+}
+@media(max-width:575px){
+    .bt_cntr {
+     justify-content:center!important;
+ } 
+ }
+/* advertiser css end */
