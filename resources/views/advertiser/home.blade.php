@@ -69,9 +69,11 @@
     <div class="project_details">
 
         @if($projects->isEmpty())
-        
+
         <div class="row text-center justify-content-center empty-container">
+
             <img src="{{ asset('public/img/pages/add-folder.png') }}" style="max-width: 170px;margin: 0 auto;">
+            
             <h5>Unlock High-Quality Backlinks and Boost<br /> Traffic with a New Project</h5>
             <p>Reach engaged audiences, build brand awareness, and drive conversions</br> through strategic guest
                 posting
