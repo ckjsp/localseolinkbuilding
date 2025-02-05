@@ -13,7 +13,7 @@
 <input type="hidden" id="user_id" value="{{ $userDetail->id }}">
 <input type="hidden" id="user_role" value="{{ $userDetail->role->name }}">
 
-<div class="container-xxl flex-grow-1 container-p-y mt-5">
+<div class="container-xxl flex-grow-1 container-p-y mt-5 res_mt">
     @if(session('success'))
 
     <div class="alert alert-primary mt-3">{{ session('success') }}</div>
@@ -90,15 +90,15 @@
                                                             <p class="m-0 fs-6">Forbidden Categories: <span>{{ $v->forbidden_categories }}</span></p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <div class="col-md-4 text-md" id="inputQuantitydiv{{ $v->id }}">
+                                                    <div class=" col-6 col-md-3">
+                                                        <div class="w-50" id="inputQuantitydiv{{ $v->id }}">
                                                             <label class="form-label">Quantity</label>
                                                             <input type="number" id="inputQuantity{{ $v->id }}" data-price="{{$v->guestpostprice_adminprice}}" data-web_id="{{$v->id}}" onchange="changeQuantity($(this))" class="form-control" value="{{$arrCookie[$k]->quantity}}" min="1" max="5" />
                                                             <div id="quantityError{{ $v->id }}" class="text-danger" style="display:none;">Quantity cannot exceed 5.</div>
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3 text-center d-flex align-items-end justify-content-center">
+                                                    <div class=" col-6 col-md-3 text-center d-flex align-items-end justify-content-center">
                                                         <span class="badge fs-5 p-2 price-box quantityPrice{{$v->id}}" id="guestPostPrice{{$v->id}}">
                                                             ${{ ($v->guestpostprice_adminprice * $arrCookie[$k]->quantity) }}
                                                         </span>
@@ -111,31 +111,42 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="post-title-main d-flex mb-3 justify-content-between">
-                                                    <div class="col-md-12">
+                                                <div class="post-title-main  mb-3 ">
+                                                    <!-- <div class="col-md-12"> -->
 
 
                                                         <div id="uplodefileInputSection{{ $v->id }}">
 
-                                                            <div class="col-md-12 pe-2 ">
+                                                            <!-- <div class="col-md-12 pe-2 "> -->
+                                                                <div class="row g-3" >
+
+                                                                <div class="col-12 col-md-6" >
                                                                 <label class="form-label" for="inputArticleTitle{{$v->id}}">Post Title</label>
                                                                 <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle{{$v->id}}" required placeholder="Enter post title">
 
                                                                 <div class="valid-feedback"></div>
                                                                 <div class="invalid-feedback">Invalid Post Title or Empty Post Title Please Insert Title Without Link.</div>
-                                                            </div>
-                                                            <label class="form-label" for="inputDocFile{{$v->id}}">Attachments <small>Note: Support only doc, docx</small></label>
+                                                                </div>
+                                                                <div class="col-12 col-md-6" >
+                                                                <label class="form-label" for="inputDocFile{{$v->id}}">Attachments <small>Note: Support only doc, docx</small></label>
                                                             <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile{{$v->id}}" required="">
                                                             <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                                             <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 mb-3">
+
+                                                                </div>
+                                                                <div class="col-md-12 mb-3">
                                                     <label class="form-label" for="inputSpecialInstructions{{$v->id}}">Special Instructions</label>
                                                     <textarea type="text" class="form-control" rows="5" name="special_instructions" id="inputSpecialInstructions{{$v->id}}" required></textarea>
                                                 </div>
-                                                <div class="d-flex justify-content-end">
+                                                                </div>
+                                                             
+                                                            <!-- </div> -->
+                                                         
+                                                        </div>
+                                                    <!-- </div> -->
+                                                </div>
+                                             
+                                                <div class="d-flex justify-content-end crt_gapp">
                                                     <div class="text-center mx-2">
                                                         @if(session('selected_project_id'))
                                                         <button type="submit" class="btn btn-primary checkout-btn" data-can-submit="false">
@@ -236,7 +247,7 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="post-title-main d-flex mb-3 justify-content-between">
+                                                <!-- <div class="post-title-main d-flex mb-3 justify-content-between">
 
                                                     <div class="col-md-12">
                                                         <div id="linkInputSection{{ $v->id }}">
@@ -250,13 +261,30 @@
                                                             <input type="text" class="form-control" name="anchor_text" id="anchorText{{ $v->id }}" placeholder="Enter anchor text">
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
+
+                                                <div class="row">
+    <div class="col-12">
+        <label class="form-label" for="existingPostUrl{{ $v->id }}">Existing Post URL</label>
+        <input type="url" class="form-control" name="existing_post_url" id="existingPostUrl{{ $v->id }}" placeholder="Enter existing post URL">
+    </div>
+
+    <div class="col-12 mt-2">
+        <label class="form-label" for="landingPageUrl{{ $v->id }}">Landing Page URL</label>
+        <input type="url" class="form-control" name="landing_page_url" id="landingPageUrl{{ $v->id }}" placeholder="Enter landing page URL">
+    </div>
+
+    <div class="col-12 mt-2">
+        <label class="form-label" for="anchorText{{ $v->id }}">Anchor Text</label>
+        <input type="text" class="form-control" name="anchor_text" id="anchorText{{ $v->id }}" placeholder="Enter anchor text">
+    </div>
+</div>
 
                                                 <div class="col-md-12 mb-3">
                                                     <label class="form-label" for="inputSpecialInstructions{{$v->id}}">Special Instructions</label>
                                                     <textarea type="text" class="form-control" rows="5" name="special_instructions" id="inputSpecialInstructions{{$v->id}}" required></textarea>
                                                 </div>
-                                                <div class="d-flex justify-content-end">
+                                                <div class="d-flex justify-content-end crt_gapp">
                                                     <div class="text-center mx-2">
 
                                                         @if(session('selected_project_id'))

@@ -28,7 +28,7 @@
 
                 <div class="table-responsive text-nowrap m-3">
                     @php $arrCookie = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart']) : array(); @endphp
-                    <table class="table" id="websitesTable">
+                    <table class="table table-responsive" id="websitesTable">
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">Website URL</th>
