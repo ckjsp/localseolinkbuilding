@@ -99,7 +99,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">{{ $project->project_name }}</h5>
-                        <div class="d-flex gap-3">
+                        <div class="d-flex gap-3 respo_gp">
                             <p class="card-text"> {{ $project->project_url }}</p>
                             <span>Created on {{ \Carbon\Carbon::parse($project->created_at)->format('F d, Y') }}</span>
                         </div>
@@ -196,7 +196,7 @@
 <div class="modal fade loader" id="competitorModal" tabindex="-1" aria-labelledby="competitorModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content mt-5">
             <div class="modal-header">
                 <h5 class="modal-title" id="competitorModalLabel">Add Competitor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
