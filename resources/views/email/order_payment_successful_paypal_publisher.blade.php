@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New orders have been successfully placed on your website</title>
+    <title>New orders have been successfully placed for your website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,14 +64,12 @@
             </li>
 
             <li><strong>Order ID:</strong> {{ $order_id }}</li>
-            <li><strong>Payment Method:</strong> Paypal</li>
             <li><strong>Type:</strong>{{ $attachment_type }}</li>
 
         </ul>
 
         <p><strong>Important Notes:</strong></p>
         <ul>
-            <li>This order has been successfully processed.</li>
             <li>You can view and manage this order in your publisher dashboard.</li>
         </ul>
 
