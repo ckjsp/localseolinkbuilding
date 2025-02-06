@@ -21,10 +21,10 @@
     @endif
     <div class="row justify-content-center mt-5">
         <div class="col-md-12">
-            <div class="card mt-2">
+            <div class="card mt-2 ">
                 @if (isset($orders) && count($orders) > 0)
-                <div class="table-responsive">
-                    <table class="table" id="order-tbl">
+                <!-- <div class="table-responsive"> -->
+                    <table class="table table-responsive over_hdn" id="order-tbl">
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">Order Date</th>
