@@ -299,6 +299,7 @@ class OrdersController extends Controller
             $phpWord = IOFactory::load($docxFilePath);
             $content  = '';
             foreach ($phpWord->getSections() as $section) {
+
                 foreach ($section->getElements() as $element) {
                     if (method_exists($element, 'getText')) {
                         $text = $element->getText();
