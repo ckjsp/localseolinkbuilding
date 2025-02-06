@@ -157,7 +157,7 @@ class RazorpayPaymentController extends Controller
                 Mail::send('email.order_payment_successful_razorpay_publisher', $customData, function ($message) use ($customData, $user) {
                     $message->from($customData['mailaddress'], $customData['from_name']);
                     $message->to($user->email);
-                    $message->subject('New orders have been successfully placed on your website');
+                    $message->subject('New orders have been successfully placed for your website');
                 });
 
                 return redirect()->route('advertiser.orders')->with('success', 'Payment completed successfully!');

@@ -91,7 +91,7 @@
                                                         </div>
                                                     </div>
                                                     <div class=" col-6 col-md-3">
-                                                        <div class="w-50" id="inputQuantitydiv{{ $v->id }}">
+                                                        <div class="w-25" id="inputQuantitydiv{{ $v->id }}">
                                                             <label class="form-label">Quantity</label>
                                                             <input type="number" id="inputQuantity{{ $v->id }}" data-price="{{$v->guestpostprice_adminprice}}" data-web_id="{{$v->id}}" onchange="changeQuantity($(this))" class="form-control" value="{{$arrCookie[$k]->quantity}}" min="1" max="5" />
                                                             <div id="quantityError{{ $v->id }}" class="text-danger" style="display:none;">Quantity cannot exceed 5.</div>
@@ -332,7 +332,7 @@
     </div>
 </div>
 
-<div class="container-xxl flex-grow-1 container-p-y mt-5">
+<!-- <div class="container-xxl flex-grow-1 container-p-y mt-5">
     <h5 class="shadow-lg p-3  rounded">Similar Website</h5>
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
@@ -375,7 +375,7 @@
             </tbody>
         </table>
     </div>
-</div>
+</div> -->
 
 <div class="modal fade" id="billing-pop" tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-simple modal-enable-otp modal-dialog-centered">

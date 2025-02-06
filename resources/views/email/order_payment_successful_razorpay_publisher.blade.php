@@ -52,10 +52,10 @@
 <body>
 
     <div class="email-container">
-        <h1>New orders have been successfully placed on your website</h1>
+        <h1>New orders have been successfully placed for your website</h1>
 
         <p>Dear Publisher,</p>
-        <p>New orders have been successfully placed on your website! Here are the details of the recent order:</p>
+        <p>New orders have been successfully placed for your website! Here are the details of the recent order:</p>
 
         <p><strong>Order Details:</strong></p>
         <ul>
