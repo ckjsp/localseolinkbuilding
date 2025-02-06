@@ -60,18 +60,18 @@
                                                 </div>
                                                 <div>
                                                     <!-- Upload File Radio -->
+                                                    <label class="form-label">Choose Your Content Type</label><br>
+
                                                     <label for="attachmentFile{{ $v->id }}" style="color: #45e2d0; cursor: pointer;">
                                                         <input type="radio" name="attachment_type_{{ $v->id }}" value="provide_content"
                                                             id="attachmentFile{{ $v->id }}" class="form-check-input" checked>
-                                                        Upload File
-                                                    </label>
+                                                        Blog Post </label>
 
                                                     <!-- Add Link Radio -->
                                                     <label for="attachmentLink{{ $v->id }}" style="cursor: pointer;">
                                                         <input type="radio" name="attachment_type_{{ $v->id }}" value="link_insertion"
                                                             id="attachmentLink{{ $v->id }}" class="form-check-input">
-                                                        Add Link
-                                                    </label>
+                                                        Link Insertion </label>
 
                                                     <!-- Hidden Input for storing attachment type -->
                                                     <input type="hidden" name="attachment_type" id="selectedAttachmentType{{ $v->id }}" value="provide_content">
@@ -115,37 +115,42 @@
                                                     <!-- <div class="col-md-12"> -->
 
 
-                                                        <div id="uplodefileInputSection{{ $v->id }}">
+                                                    <div id="uplodefileInputSection{{ $v->id }}">
 
-                                                            <!-- <div class="col-md-12 pe-2 "> -->
-                                                                <div class="row g-3" >
+                                                        <!-- <div class="col-md-12 pe-2 "> -->
+                                                        <div class="row g-3">
 
-                                                                <div class="col-12 col-md-6" >
-                                                                <label class="form-label" for="inputArticleTitle{{$v->id}}">Post Title</label>
-                                                                <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle{{$v->id}}" required placeholder="Enter post title">
+                                                            <div class="col-12 ">
+                                                                <label class="form-label" for="inputArticleTitle{{$v->id}}">Blog Title</label>
+                                                                <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle{{$v->id}}" required placeholder="Enter blog title">
 
                                                                 <div class="valid-feedback"></div>
                                                                 <div class="invalid-feedback">Invalid Post Title or Empty Post Title Please Insert Title Without Link.</div>
-                                                                </div>
-                                                                <div class="col-12 col-md-6" >
+                                                            </div>
+                                                            <div class="col-12 ">
                                                                 <label class="form-label" for="inputDocFile{{$v->id}}">Attachments <small>Note: Support only doc, docx</small></label>
-                                                            <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile{{$v->id}}" required="">
-                                                            <div class="valid-feedback">File type is allowed. You can upload it.</div>
-                                                            <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
+                                                                <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile{{$v->id}}" required="">
+                                                                <div class="valid-feedback">File type is allowed. You can upload it.</div>
+                                                                <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
+                                                            </div>
 
-                                                                </div>
-                                                                <div class="col-md-12 mb-3">
-                                                    <label class="form-label" for="inputSpecialInstructions{{$v->id}}">Special Instructions</label>
-                                                    <textarea type="text" class="form-control" rows="5" name="special_instructions" id="inputSpecialInstructions{{$v->id}}" required></textarea>
-                                                </div>
-                                                                </div>
-                                                             
-                                                            <!-- </div> -->
-                                                         
                                                         </div>
+
+                                                        <!-- </div> -->
+
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label class="form-label" for="inputmetadescription{{$v->id}}">Meta Description</label>
+                                                        <textarea type="text" class="form-control" rows="2" name="meta_description" id="inputmetadescription{{$v->id}}"></textarea>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <label class="form-label" for="inputSpecialInstructions{{$v->id}}">Special Instructions</label>
+                                                        <textarea type="text" class="form-control" rows="5" name="special_instructions" id="inputSpecialInstructions{{$v->id}}" required></textarea>
+                                                    </div>
                                                     <!-- </div> -->
                                                 </div>
-                                             
+
                                                 <div class="d-flex justify-content-end crt_gapp">
                                                     <div class="text-center mx-2">
                                                         @if(session('selected_project_id'))
@@ -185,6 +190,8 @@
                                                     <label for="razorpay-${item.web_id}" class="form-check-label">Razorpay</label>
                                                 </div>
                                                 <div>
+                                                    <label class="form-label">Choose Your Content Type</label><br>
+
                                                     <label for="attachmentFile{{ $v->id }}" style="cursor: pointer;">
                                                         <input
                                                             type="radio"
@@ -192,8 +199,7 @@
                                                             value="provide_content"
                                                             id="attachmentFile{{ $v->id }}"
                                                             class="form-check-input">
-                                                        Upload File
-                                                    </label>
+                                                        Blog Post </label>
 
                                                     <label for="attachmentLink{{ $v->id }}" style="color: #45e2d0; cursor: pointer;">
                                                         <input
@@ -203,7 +209,7 @@
                                                             id="attachmentLink{{ $v->id }}"
                                                             class="form-check-input"
                                                             checked>
-                                                        Add Link
+                                                        Link Insertion
                                                     </label>
 
                                                     <input
@@ -264,21 +270,25 @@
                                                 </div> -->
 
                                                 <div class="row">
-    <div class="col-12">
-        <label class="form-label" for="existingPostUrl{{ $v->id }}">Existing Post URL</label>
-        <input type="url" class="form-control" name="existing_post_url" id="existingPostUrl{{ $v->id }}" placeholder="Enter existing post URL">
-    </div>
+                                                    <div class="col-12">
+                                                        <label class="form-label" for="existingPostUrl{{ $v->id }}">Existing Post URL</label>
+                                                        <input type="url" class="form-control" name="existing_post_url" id="existingPostUrl{{ $v->id }}" placeholder="Enter existing post URL">
+                                                    </div>
 
-    <div class="col-12 mt-2">
-        <label class="form-label" for="landingPageUrl{{ $v->id }}">Landing Page URL</label>
-        <input type="url" class="form-control" name="landing_page_url" id="landingPageUrl{{ $v->id }}" placeholder="Enter landing page URL">
-    </div>
+                                                    <div class="col-12 mt-2">
+                                                        <label class="form-label" for="landingPageUrl{{ $v->id }}">Landing Page URL</label>
+                                                        <input type="url" class="form-control" name="landing_page_url" id="landingPageUrl{{ $v->id }}" placeholder="Enter landing page URL">
+                                                    </div>
 
-    <div class="col-12 mt-2">
-        <label class="form-label" for="anchorText{{ $v->id }}">Anchor Text</label>
-        <input type="text" class="form-control" name="anchor_text" id="anchorText{{ $v->id }}" placeholder="Enter anchor text">
-    </div>
-</div>
+                                                    <div class="col-12 mt-2">
+                                                        <label class="form-label" for="anchorText{{ $v->id }}">Anchor Text</label>
+                                                        <input type="text" class="form-control" name="anchor_text" id="anchorText{{ $v->id }}" placeholder="Enter anchor text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label class="form-label" for="inputmetadescription{{$v->id}}">Meta Description</label>
+                                                    <textarea type="text" class="form-control" rows="2" name="meta_description" id="inputmetadescription{{$v->id}}"></textarea>
+                                                </div>
 
                                                 <div class="col-md-12 mb-3">
                                                     <label class="form-label" for="inputSpecialInstructions{{$v->id}}">Special Instructions</label>
@@ -649,8 +659,8 @@
                         for (let i = 1; i <= $quantity; i++) {
                             $fileUploadSection.append(`
                             <div class="col-md-12 pe-2">
-                                <label class="form-label" for="inputArticleTitle${v.id}_${i}">Post Title</label>
-                                <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle${v.id}_${i}" required placeholder="Enter post title">
+                                <label class="form-label" for="inputArticleTitle${v.id}_${i}">Blog Title</label>
+                                <input type="text" class="form-control inputArticleTitle" name="article_title[]" id="inputArticleTitle${v.id}_${i}" required placeholder="Enter blog title">
                                 <div class="valid-feedback"></div>
                                 <div class="invalid-feedback">Invalid Post Title or Empty Post Title. Please insert a title without a link.</div>
                             </div>

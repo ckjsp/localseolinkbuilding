@@ -117,23 +117,12 @@ class RazorpayPaymentController extends Controller
                     'payment_status' => 'success',
                 ]);
 
-                // $transactionData = [
-                //     'publisher_id' => $order->website->user_id,
-                //     'transaction_date' => now(),
-                //     'transaction_type' => 'credit',
-                //     'amount' => $order->price,
-                //     'currency' => 'USD',
-                //     'payment_email' => $order->email,
-                //     'status' => 'pending',
-                //     'description' => $customOrderId,
-                //     'created_at' => now(),
-                //     'updated_at' => now(),
-                // ];
 
-                // // Insert transaction data
-                // lslbTransaction::create($transactionData);
 
                 $website = lslbWebsite::where('id', $order->website_id)->first();
+
+                $categories = explode(',', $website->categories);
+
 
                 $websitename = $website->website_url;
 

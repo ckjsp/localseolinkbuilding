@@ -37,6 +37,7 @@ class lslbOrder extends Authenticatable
         'anchor_text',
         'article_title',
         'special_instructions',
+        'meta_description',
         'selected_project_id',
 
     ];

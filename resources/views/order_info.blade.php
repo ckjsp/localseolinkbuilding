@@ -146,13 +146,7 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                 <!-- Map -->
                 <div id="map" class="h-100 w-100">
                     <h3 class="mt-5 text-center text-primary">
-                        @if($order[0]->attachment_type == 'provide_content')
-                        Provide Content
-                        @elseif($order[0]->attachment_type == 'link_insertion')
-                        Link Insertion
-                        @else
-                        {{ $order[0]->attachment_type }}
-                        @endif
+                        Your Order Information
                     </h3>
                     <div class="border w-75 m-auto mb-3"> </div>
                     <div class="order-detail-section">

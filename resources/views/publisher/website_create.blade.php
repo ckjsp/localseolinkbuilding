@@ -438,16 +438,7 @@
                                 <p>If you have any question follow <a href="javascript:void(0)">this guide</a> where we
                                     explain step by step how to verify you website...</p>
                             </div>
-                            <div class="col-md-6">
-                                <p><strong>Google Analytics Report. How to Share?</strong></p>
-                                <p>How to prepare a report?</p>
-                                <ol>
-                                    <li>Go to the "Reports snapshot" tab in google analytics.</li>
-                                    <li>Make sure "last 30 days" is selected in the top right corner.</li>
-                                    <li>Go to Share Report > Download File > Download PDF.</li>
-                                </ol>
-                                <!-- <p>Attachments* (.pdf files only & maximum 1 file allowed)</p> -->
-                            </div>
+
                         </div>
                     </div>
                     <div class="col-md-12 mb-2">
@@ -469,6 +460,33 @@
                         <div class="form-check">
                             <label class="form-check-label" for="inputReadedGuide">Please confirm that you have read and followed the guide. </label>
                             <input class="form-check-input" type="checkbox" name="readedguide" id="inputReadedGuide" value="yes" required>
+
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label" for="inputReadedGuide">Google Analytics Report. How to Share? </label>
+                            <input class="form-check-input" type="checkbox" name="Google" id="Google" value="yes" required>
+
+                        </div>
+
+                        <div class="form-check">
+                            <label class="form-check-label" for="inputReadedGuide">How to prepare a report? </label>
+                            <input class="form-check-input" type="checkbox" name="prepare" id="prepare" value="yes" required>
+
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label" for="inputReadedGuide">Go to the "Reports snapshot" tab in google analytics. </label>
+                            <input class="form-check-input" type="checkbox" name="snapshot" id="snapshot" value="yes" required>
+
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label" for="inputReadedGuide">Make sure "last 30 days" is selected in the top right corner. </label>
+                            <input class="form-check-input" type="checkbox" name="selected" id="selected" value="yes" required>
+
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label" for="inputReadedGuide">Go to Share Report > Download File > Download PDF. </label>
+                            <input class="form-check-input" type="checkbox" name="Report" id="Report" value="yes" required>
+
                         </div>
                     </div>
                     <div class="col-md-12 text-center">
