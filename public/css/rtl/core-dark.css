@@ -29096,8 +29096,21 @@ aside.layout-menu.menu-vertical.menu.bg-menu-theme {
 i.ti.ti-md.ti-moon {
     display: none;
 }
-
-
+div#order-tbl_length {
+    padding-left: 20px;
+}
+div#order-tbl_filter {
+    padding-right: 20px;
+}
+div#order-tbl_info {
+    padding-left: 20px;
+}
+li#order-tbl_next {
+    margin-right: 20px;
+}
+.over_hdn{
+    display:inline-block !important;
+}
 
 
 @media(max-width:1070px){
