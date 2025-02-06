@@ -22,6 +22,8 @@
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">Website URL</th>
+                                <th scope="col">User Name</th>
+
                                 <th scope="col"><span data-bs-toggle="tooltip" data-bs-placement="top"
                                         data-bs-custom-class="tooltip-secondary"
                                         data-bs-original-title="Domain Authority">DA</span></th>
@@ -48,6 +50,7 @@
                             @endphp
                             <tr class="table-body">
                                 <td>{{ $v->website_url }}</td>
+                                <td>{{ $v->user->name }}</td>
                                 <td>{{ $v->domain_authority }}</td>
                                 <td>{{ $v->page_authority }}</td>
                                 <td>{{ $v->ahrefs_traffic }}</td>
@@ -61,7 +64,7 @@
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ ucwords($v->status) }}
                                     </button>
-                                    <ul class="dropdown-menu" style="">
+                                    <ul class="dropdown-menu">
                                         <li class="dropdown-item webStatus{{ $v->id }} {{ $v->status == 'pending' ? 'active' : '' }}" onclick="webStatus($(this), <?= $v->id ?>)" data-item="pending">Pending</li>
                                         <li class="dropdown-item webStatus{{ $v->id }} {{ $v->status == 'in-review' ? 'active' : '' }}" onclick="webStatus($(this), <?= $v->id ?>)" data-item="in-review">In Review</li>
                                         <li

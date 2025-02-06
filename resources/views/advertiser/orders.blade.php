@@ -24,72 +24,72 @@
             <div class="card mt-2 ">
                 @if (isset($orders) && count($orders) > 0)
                 <!-- <div class="table-responsive"> -->
-                    <table class="table table-responsive over_hdn" id="order-tbl">
-                        <thead class="table-dark">
-                            <tr>
-                                <th scope="col">Order Date</th>
-                                <th scope="col">Order ID</th>
-                                <th scope="col">Website</th>
-                                <th scope="col">Article Title</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Payment Status</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Orders Status</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-border-bottom-0">
-                            @foreach($orders as $k => $v)
-                            @php
-                            $categories = explode(',', $v->categories);
-                            $forbidden_categories = explode(',', $v->forbidden_categories);
-                            @endphp
-                            <tr aria-expanded="false">
-                                <td>{{ date('d M, Y',strtotime($v->order_date)) }}</td>
-                                <td><a href="{{ route('order.info', $v->order_id) }}" title="{{ $v->order_id }}">{{($v->order_id) }}</a></td>
-                                <td><a href="{{ $v->website->website_url }}" target="_blank" title="Web Site Link ({{ $v->website->website_url }})" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="{{ $v->website->website_url }}">{{ $v->website->website_url }}</a></td>
-                                <td>
-                                    @if($v->attachment != '')
-                                    @php
-                                    // Assuming $v->article_title is an array or a comma-separated string
-                                    $titles = is_array($v->article_title) ? implode(", ", $v->article_title) : $v->article_title;
-                                    @endphp
+                <table class="table table-responsive over_hdn" id="order-tbl">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Order Date</th>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Website</th>
+                            <th scope="col">Article Title</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Payment Status</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Orders Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        @foreach($orders as $k => $v)
+                        @php
+                        $categories = explode(',', $v->categories);
+                        $forbidden_categories = explode(',', $v->forbidden_categories);
+                        @endphp
+                        <tr aria-expanded="false">
+                            <td>{{ date('d M, Y',strtotime($v->order_date)) }}</td>
+                            <td><a href="{{ route('order.info', $v->order_id) }}" title="{{ $v->order_id }}">{{($v->order_id) }}</a></td>
+                            <td><a href="{{ $v->website->website_url }}" target="_blank" title="Web Site Link ({{ $v->website->website_url }})" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="{{ $v->website->website_url }}">{{ $v->website->website_url }}</a></td>
+                            <td>
+                                @if($v->attachment != '')
+                                @php
+                                // Assuming $v->article_title is an array or a comma-separated string
+                                $titles = is_array($v->article_title) ? implode(", ", $v->article_title) : $v->article_title;
+                                @endphp
 
-                                    <a href="{{ url('/storage/app/'.$v->attachment) }}" target="_blank" title="Attachment Link">{{ $titles }}</a>
-                                    @else
-                                    Data Not Found
-                                    @endif
-                                </td>
-                                <td>${{ $v->price }}</td>
-                                <td>{{ $v->attachment_type }}</td>
-                                <td>{{ $v->quantity }}</td>
-                                <td>{{ ucwords($v->payment_status) }}</td>
-                                <td>{{ ucwords($v->status) }}</td>
-                                <td>
-                                    <button type="button" class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle{{ $v->id }}" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {{ ucwords($v->advertiser_status) }}
-                                    </button>
-                                    @if($v->status == 'complete' && $v->advertiser_status != 'complete')
+                                <a href="{{ url('/storage/app/'.$v->attachment) }}" target="_blank" title="Attachment Link">{{ $titles }}</a>
+                                @else
+                                Data Not Found
+                                @endif
+                            </td>
+                            <td>${{ $v->price }}</td>
+                            <td>{{ $v->attachment_type == 'provide_content' ? 'Blog Post' : 'Link Insertion' }}</td>
+                            <td>{{ $v->quantity }}</td>
+                            <td>{{ ucwords($v->payment_status) }}</td>
+                            <td>{{ ucwords($v->status) }}</td>
+                            <td>
+                                <button type="button" class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle{{ $v->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ ucwords($v->advertiser_status) }}
+                                </button>
+                                @if($v->status == 'complete' && $v->advertiser_status != 'complete')
 
-                                    <ul class="dropdown-menu">
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'new' ? 'active' : '' }}" onclick="updateOrderStatus({{ $v->id }}, 'new')">New</li>
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'complete' ? 'active' : '' }}" onclick="updateOrderStatus({{ $v->id }}, 'complete')">Complete</li>
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'change' ? 'active' : '' }}" onclick="showChangeModal({{ $v->id }})">Change</li>
-                                    </ul>
-                                    @endif
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                @else
-                <div class="alert alert-info text-center m-3">No record found!</div>
-                @endif
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'new' ? 'active' : '' }}" onclick="updateOrderStatus({{ $v->id }}, 'new')">New</li>
+                                    <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'complete' ? 'active' : '' }}" onclick="updateOrderStatus({{ $v->id }}, 'complete')">Complete</li>
+                                    <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'change' ? 'active' : '' }}" onclick="showChangeModal({{ $v->id }})">Change</li>
+                                </ul>
+                                @endif
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
+            @else
+            <div class="alert alert-info text-center m-3">No record found!</div>
+            @endif
         </div>
     </div>
+</div>
 </div>
 <div class="modal fade" id="delete-pop" tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-simple modal-enable-otp modal-dialog-centered">

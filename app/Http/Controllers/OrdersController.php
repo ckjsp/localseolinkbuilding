@@ -175,6 +175,7 @@ class OrdersController extends Controller
             'status',
             'payment_method',
             'special_instructions',
+            'meta_description',
             'selected_project_id',
             'existing_post_url',
             'landing_page_url',

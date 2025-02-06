@@ -64,16 +64,20 @@
             </li>
 
             <li><strong>Order ID:</strong> {{ $order_id }}</li>
-            <li><strong>Type:</strong>{{ $attachment_type }}</li>
+            <li><strong>Type:</strong> {{ $attachment_type == 'provide_content' ? 'Blog Post' : 'Link Insertion' }}</li>
+            <li><strong>Categories:</strong> {{ implode(', ', $categories) }}</li>
 
         </ul>
 
         <p><strong>Important Notes:</strong></p>
         <ul>
-            <li>You can view and manage this order in your publisher dashboard.</li>
+            <li>
+                <a href="{{ route('publisher') }}">You can view and manage this order in your publisher dashboard.</a>
+            </li>
         </ul>
 
-        <p>If you have any questions or need assistance, feel free to contact our support team.</p>
+
+        <p>If you have any questions or need assistance, feel free to contact our support team (info@linksfarmer.com).</p>
 
         <div class="footer">
             <p>Thank you for partnering with us!</p>

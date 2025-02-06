@@ -90,6 +90,8 @@ class PaypalPaymentController extends Controller
                     ]);
 
                     $website = lslbWebsite::where('id', $order->website_id)->first();
+                    $categories = explode(',', $website->categories);
+
 
                     $websitename = $website->website_url;
 
