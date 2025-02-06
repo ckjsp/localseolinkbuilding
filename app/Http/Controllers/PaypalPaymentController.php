@@ -106,6 +106,8 @@ class PaypalPaymentController extends Controller
                         'websitename' => $websitename,
                         'amount_paid' => $captures['amount']['value'],
                         'payment_id' => $captures['id'],
+                        'categories' =>  $categories,
+
                     ];
 
                     // Send the email using the Blade view

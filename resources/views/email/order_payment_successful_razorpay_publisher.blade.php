@@ -64,8 +64,9 @@
             </li>
 
             <li><strong>Order ID:</strong> {{ $customOrderId }}</li>
-            <li><strong>Type:</strong>{{ $attachment_type }}</li>
             <li><strong>Type:</strong> {{ $attachment_type == 'provide_content' ? 'Blog Post' : 'Link Insertion' }}</li>
+            <li><strong>Categories:</strong> {{ implode(', ', $categories) }}</li>
+
 
         </ul>
 

@@ -144,6 +144,7 @@ class RazorpayPaymentController extends Controller
                     'websitename' => $websitename,
                     'orderPrice' => $order->price,
                     'attachment_type' => $order->attachment_type,
+                    'categories' =>  $categories,
 
                 ];
 
