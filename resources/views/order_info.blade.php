@@ -146,7 +146,7 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                 <!-- Map -->
                 <div id="map" class="h-100 w-100">
                     <h3 class="mt-5 text-center text-primary">
-                        Your Order Information
+                        Order Information
                     </h3>
                     <div class="border w-75 m-auto mb-3"> </div>
                     <div class="order-detail-section">
@@ -188,12 +188,29 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                             <div class="col-md-6">
                                 @if (!empty($order[0]->attachment))
                                 @php
-                                $attachments = explode(',', $order[0]->attachment); // Split the comma-separated file paths
+                                $attachments = explode(',', $order[0]->attachment);
+                                $titles = explode(',', $order[0]->article_title);
+                                $metaDescriptions = explode(',', $order[0]->meta_description);
                                 @endphp
+
                                 @foreach ($attachments as $index => $attachment)
-                                <div class="mb-2">
-                                    <strong>Article Doc {{ $index + 1 }}: </strong>
+                                <div class="mb-3">
+                                    <strong>Article Doc {{ $index + 1 }}:</strong>
                                     <a href="{{ url('/storage/app/' . trim($attachment)) }}" target="_blank" class="btn btn-primary">Download Docx</a>
+
+                                    {{-- Show Blog Title Below the Document --}}
+                                    @if (!empty($titles[$index]))
+                                    <div class="mt-1">
+                                        <strong>Blog Title {{ $index + 1 }}:</strong> {{ trim($titles[$index]) }}
+                                    </div>
+                                    @endif
+
+                                    {{-- Show Meta Description Below the Blog Title --}}
+                                    @if (!empty($metaDescriptions[$index]))
+                                    <div class="mt-1">
+                                        <strong>Meta Description {{ $index + 1 }}:</strong> {{ trim($metaDescriptions[$index]) }}
+                                    </div>
+                                    @endif
                                 </div>
                                 @endforeach
                                 @else

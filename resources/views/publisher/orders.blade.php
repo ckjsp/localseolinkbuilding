@@ -30,14 +30,11 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">View order</th>
                                 <th scope="col">Website</th>
-                                <th scope="col">Article Title</th>
+                                <th scope="col">Order Type</th>
                                 <th scope="col">Price</th>
-                                <!-- <th scope="col">Type</th> -->
-                                <!-- <th scope="col">Time Left</th> -->
+
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Payment Method</th>
-                                <th scope="col">Payment Status</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -53,12 +50,13 @@
                                 <td><a href="{{ route('order.info', $v->order_id) }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="View Order Detail">Order <i class="fa-regular fa-eye"></i></a></td>
                                 <td><a href="{{ $v->website_url }}" target="_blank" title="Web Site Link ({{ $v->website_url }})" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="{{ $v->website_url }}">Link <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
                                 <td>
-                                    @if($v->attachment != '')
-                                    <a href="{{ url('/storage/app/'.$v->attachment) }}">{{ $v->article_title }}</a>
+                                    @if ($v->attachment_type === 'provide_content')
+                                    Blog Post
                                     @else
-                                    Data Not Found
+                                    Link Insertion
                                     @endif
                                 </td>
+
                                 <td>
                                     @if($v->attachment_type == 'provide_content')
                                     ${{ number_format($v->guest_post_price * $v->quantity, 2) }}
@@ -84,8 +82,7 @@
                                         <!-- <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'approved' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="approved">Approved</li> -->
                                     </ul>
                                 </td>
-                                <td>{{ ucwords($v->payment_method) }}</td>
-                                <td>{{ ucwords($v->payment_status) }}</td>
+
                             </tr>
                             @endforeach
                         </tbody>
@@ -193,15 +190,13 @@
     var table = $('#orderTbl').DataTable({
         "columns": [{
                 "width": "11%"
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
+            }, // Date
+            null, // View order
+            null, // Website
+            null, // Order Type
+            null, // Price
+            null, // Quantity
+            null // Status
         ]
     });
 
