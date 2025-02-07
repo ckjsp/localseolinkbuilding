@@ -22,7 +22,7 @@
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">Website URL</th>
-                                <th scope="col">User Name</th>
+                                <th scope="col">Publisher Name</th>
 
                                 <th scope="col"><span data-bs-toggle="tooltip" data-bs-placement="top"
                                         data-bs-custom-class="tooltip-secondary"

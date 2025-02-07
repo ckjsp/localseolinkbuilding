@@ -130,19 +130,22 @@
                                                             <div class="col-12 ">
                                                                 <label class="form-label" for="inputDocFile{{$v->id}}">Attachments <small>Note: Support only doc, docx</small></label>
                                                                 <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile{{$v->id}}" required="">
+                                                                <span> Add Images in the document
+                                                                </span>
                                                                 <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                                                 <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
                                                             </div>
 
                                                         </div>
+                                                        <div class="col-md-12">
+                                                            <label class="form-label" for="inputmetadescription{{$v->id}}">Meta Description</label>
+                                                            <textarea type="text" class="form-control" rows="2" name="meta_description[]" id="inputmetadescription{{$v->id}}"></textarea>
+                                                        </div>
 
                                                         <!-- </div> -->
 
                                                     </div>
-                                                    <div class="col-md-12">
-                                                        <label class="form-label" for="inputmetadescription{{$v->id}}">Meta Description</label>
-                                                        <textarea type="text" class="form-control" rows="2" name="meta_description" id="inputmetadescription{{$v->id}}"></textarea>
-                                                    </div>
+
 
                                                     <div class="col-md-12">
                                                         <label class="form-label" for="inputSpecialInstructions{{$v->id}}">Special Instructions</label>
@@ -284,10 +287,6 @@
                                                         <label class="form-label" for="anchorText{{ $v->id }}">Anchor Text</label>
                                                         <input type="text" class="form-control" name="anchor_text" id="anchorText{{ $v->id }}" placeholder="Enter anchor text">
                                                     </div>
-                                                </div>
-                                                <div class="col-md-12 mb-3">
-                                                    <label class="form-label" for="inputmetadescription{{$v->id}}">Meta Description</label>
-                                                    <textarea type="text" class="form-control" rows="2" name="meta_description" id="inputmetadescription{{$v->id}}"></textarea>
                                                 </div>
 
                                                 <div class="col-md-12 mb-3">
@@ -670,6 +669,10 @@
                                 <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                 <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
                             </div>
+                             <div class="col-md-12">
+                                                            <label class="form-label" >Meta Description</label>
+                                                            <textarea type="text" class="form-control" rows="2" name="meta_description[]" ></textarea>
+                                                        </div>
                         `);
                         }
                     }

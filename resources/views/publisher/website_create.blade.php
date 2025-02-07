@@ -242,17 +242,15 @@
                             placeholder="If you have any specific guidelines regarding word limit, backlink count, anchor text selection, etc. mention them below.">{{ (isset($guidelines) && !empty($guidelines)) ? $guidelines : '' }}</textarea>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <ul>
                                 <li>The post will be Google Indexed</li>
                                 <li>The post will be permanent/at least for 1 year/at least for 2 years</li>
                                 <li>Promotional articles are not allowed</li>
                                 <li>PBN not allowed</li>
                             </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <p style="float :right; font-size: 14px; color: #275570; margin-top: 5px;"> <span id="inputGuidelinesTextCount" class="badge badge-pill bg-info">{{ (isset($guidelines) && !empty($guidelines)) ? (1000-strlen($guidelines)) : 1000 }}</span> Character(s) Remaining</p>
-                        </div>
+                        </div> -->
+
                     </div>
                     <div class="col-md-6 mb-4">
                         @php
@@ -438,6 +436,18 @@
                                 <p>If you have any question follow <a href="javascript:void(0)">this guide</a> where we
                                     explain step by step how to verify you website...</p>
                             </div>
+                            <div class="col-md-6">
+                                <p><strong>Google Analytics Report. How to Share?</strong>
+                                </p>
+                                <strong>How to prepare a report?<strong>
+
+                                        <ol>
+                                            <li>Go to the "Reports snapshot" tab in google analytics.</li>
+                                            <li>Make sure "last 30 days" is selected in the top right corner.</li>
+                                            <li>Go to Share Report > Download File > Download PDF.</li>
+                                        </ol>
+
+                            </div>
 
                         </div>
                     </div>
@@ -457,37 +467,34 @@
                         <div id="file-error" class="text-danger" style="display: none;">Only PDF files are allowed.</div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <div class="form-check">
-                            <label class="form-check-label" for="inputReadedGuide">Please confirm that you have read and followed the guide. </label>
-                            <input class="form-check-input" type="checkbox" name="readedguide" id="inputReadedGuide" value="yes" required>
 
-                        </div>
                         <div class="form-check">
-                            <label class="form-check-label" for="inputReadedGuide">Google Analytics Report. How to Share? </label>
+                            <label class="form-check-label" for="inputReadedGuide">The post will be Google Indexed </label>
                             <input class="form-check-input" type="checkbox" name="Google" id="Google" value="yes" required>
 
                         </div>
 
                         <div class="form-check">
-                            <label class="form-check-label" for="inputReadedGuide">How to prepare a report? </label>
+                            <label class="form-check-label" for="inputReadedGuide">The post will be permanent/at least for 1 year/at least for 2 years </label>
                             <input class="form-check-input" type="checkbox" name="prepare" id="prepare" value="yes" required>
 
                         </div>
                         <div class="form-check">
-                            <label class="form-check-label" for="inputReadedGuide">Go to the "Reports snapshot" tab in google analytics. </label>
+                            <label class="form-check-label" for="inputReadedGuide">Promotional articles are not allowed</label>
                             <input class="form-check-input" type="checkbox" name="snapshot" id="snapshot" value="yes" required>
 
                         </div>
                         <div class="form-check">
-                            <label class="form-check-label" for="inputReadedGuide">Make sure "last 30 days" is selected in the top right corner. </label>
+                            <label class="form-check-label" for="inputReadedGuide">PBN not allowed </label>
                             <input class="form-check-input" type="checkbox" name="selected" id="selected" value="yes" required>
 
                         </div>
                         <div class="form-check">
-                            <label class="form-check-label" for="inputReadedGuide">Go to Share Report > Download File > Download PDF. </label>
-                            <input class="form-check-input" type="checkbox" name="Report" id="Report" value="yes" required>
+                            <label class="form-check-label" for="inputReadedGuide">Please confirm that you have read and followed the guide. </label>
+                            <input class="form-check-input" type="checkbox" name="readedguide" id="inputReadedGuide" value="yes" required>
 
                         </div>
+
                     </div>
                     <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-outline-primary w-25" id="submit">Submit</button>

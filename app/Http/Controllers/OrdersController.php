@@ -38,24 +38,29 @@ class OrdersController extends Controller
 
     public function index()
     {
-        $data = array();
+        $data = [];
         $data['slug'] = 'orders';
         $data['userDetail'] = Auth::user();
+
         if (Auth::user()->role->name == 'Advertiser') {
             $selectedProjectId = session('selected_project_id');
 
             $data['orders'] = lslbOrder::where('u_id', Auth::user()->id)
                 ->where('selected_project_id', $selectedProjectId)
+
                 ->with('website')
                 ->get();
+
             return view('advertiser/orders')->with($data);
         } else {
             $lslbOrder = new lslbOrder;
-            $data['orders'] = $lslbOrder->orderList(Auth::user()->id);
+            $data['orders'] = $lslbOrder->orderList(Auth::user()->id)
+                ->where('payment_status', 'success'); // Filter successful payments
 
             return view('publisher/orders')->with($data);
         }
     }
+
 
     public function updateOrderStatus(Request $request)
     {
@@ -141,6 +146,8 @@ class OrdersController extends Controller
         $validatedData = Validator::make($request->all(), array_merge($this->rules(), [
             'attachment.*' => 'nullable|file|mimes:doc,docx,pdf|max:10240',
             'article_title.*' => 'nullable|string',
+            'meta_description.*' => 'nullable|string',
+
         ]));
 
         if ($validatedData->fails()) {
@@ -175,7 +182,6 @@ class OrdersController extends Controller
             'status',
             'payment_method',
             'special_instructions',
-            'meta_description',
             'selected_project_id',
             'existing_post_url',
             'landing_page_url',
@@ -195,6 +201,20 @@ class OrdersController extends Controller
 
         $articleTitlesString = implode(", ", $storedArticleTitles);
 
+        $metaDescriptions = $request->input('meta_description');
+        $storedMetaDescriptions = [];
+        if ($metaDescriptions && is_array($metaDescriptions)) {
+            foreach ($metaDescriptions as $description) {
+                if (!empty($description)) {
+                    $storedMetaDescriptions[] = $description;
+                }
+            }
+        }
+
+
+        $metaDescriptionsString = implode(", ", $storedMetaDescriptions);
+
+
         $data['order_id'] = 'order-' . md5(time() . 'DS');
         $data['order_date'] = date('Y-m-d');
         $data['payment_status'] = 'pending';
@@ -203,6 +223,9 @@ class OrdersController extends Controller
         $data['status'] = 'new';
 
         $data['attachment'] = !empty($attachmentPaths) ? $attachmentsString : null;
+
+        $data['meta_description'] = !empty($storedMetaDescriptions) ? $metaDescriptionsString : null;
+
 
         $user = lslbUser::find($data['user_id']);
         if ($user) {
