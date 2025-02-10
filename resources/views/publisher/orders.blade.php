@@ -188,17 +188,21 @@
 
 <script>
     var table = $('#orderTbl').DataTable({
+        "order": [
+            [0, "desc"]
+        ],
         "columns": [{
                 "width": "11%"
-            }, // Date
-            null, // View order
-            null, // Website
-            null, // Order Type
-            null, // Price
-            null, // Quantity
-            null // Status
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     });
+
 
     function orderStatus($this, $id) {
         var $status = $this.data('item');
