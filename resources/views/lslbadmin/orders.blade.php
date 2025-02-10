@@ -60,7 +60,15 @@
                                     @endif
                                 </td>
                                 <td>${{ $v->price }}</td>
-                                <td>{{ $v->attachment_type }}</td>
+                                <td>
+                                    @if($v->attachment_type == 'provide_content')
+                                    Blog Post
+                                    @elseif($v->attachment_type == 'link_insertion')
+                                    Link Insertion
+                                    @else
+                                    {{ $v->attachment_type }}
+                                    @endif
+                                </td>
                                 <!-- <td>{{ date('Y-m-d h:i:s A', (strtotime($v->delivery_time) - strtotime(date('Y-m-d h:i:s A')))) }}</td> -->
                                 <td>{{ $v->quantity }}</td>
                                 <td>
@@ -101,23 +109,29 @@
 
 @push('script')
 <script>
-    var table = $('#order-tbl').DataTable({
-        "columns": [{
-                "width": "11%"
-            },
-            {
-                "width": "9%"
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-        ]
+    $(document).ready(function() {
+        var table = $('#order-tbl').DataTable({
+            "order": [
+                [0, "desc"]
+            ], // Sorts by Date in descending order
+            "columns": [{
+                    "width": "11%"
+                }, // Date
+                {
+                    "width": "9%"
+                }, // ID
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        });
     });
+
 
     function orderStatus($this, $id) {
         $status = $this.data('item');

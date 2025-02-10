@@ -29112,6 +29112,10 @@ li#order-tbl_next {
     display:inline-block !important;
 }
 
+select.flter-by-role {
+    width: 14% !important;
+}
+
 
 @media(max-width:1070px){
     .col.col-md-3.border.rounded.p-4.pb-0.active-bg {
