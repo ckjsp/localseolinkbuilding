@@ -163,7 +163,7 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                                     <button type="button" class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ $order[0]->status }}
                                     </button>
-                                    <ul class="dropdown-menu" style="">
+                                    <ul class="dropdown-menu">
                                         <li class="dropdown-item order-status {{ $order[0]->status == 'new' ? 'active' : '' }}" data-item="new">New</li>
                                         <li class="dropdown-item order-status {{ $order[0]->status == 'in-progress' ? 'active' : '' }}" data-item="in-progress">In-Progress</li>
                                         <li class="dropdown-item order-status {{ $order[0]->status == 'delayed' ? 'active' : '' }}" data-item="delayed">Delayed</li>

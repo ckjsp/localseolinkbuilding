@@ -130,8 +130,8 @@
                                                             <div class="col-12 ">
                                                                 <label class="form-label" for="inputDocFile{{$v->id}}">Attachments <small>Note: Support only doc, docx</small></label>
                                                                 <input type="file" class="form-control attachments-control inputDocFile" name="attachment[]" id="inputDocFile{{$v->id}}" required="">
-                                                                <span> Add Images in the document
-                                                                </span>
+                                                                <label class="form-label"> Add Images in the document
+                                                                </label>
                                                                 <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                                                 <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
                                                             </div>
@@ -669,10 +669,14 @@
                                 <div class="valid-feedback">File type is allowed. You can upload it.</div>
                                 <div class="invalid-feedback">Invalid file type. Please select a .doc or .docx file.</div>
                             </div>
+                                                                                            <label class="form-label"> Add Images in the document
+                                                                </label>
+
                              <div class="col-md-12">
                                                             <label class="form-label" >Meta Description</label>
                                                             <textarea type="text" class="form-control" rows="2" name="meta_description[]" ></textarea>
                                                         </div>
+                                                        
                         `);
                         }
                     }

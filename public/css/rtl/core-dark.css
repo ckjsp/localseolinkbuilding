@@ -28974,6 +28974,21 @@ a.bg-vimeo:focus {
     border-color: rgba(207, 211, 236, 0.15);
 }
 
+.role-filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+
+.role-filter-container select {
+    width: 100%;
+    max-width: 200px;
+}
+.role-filter-container label{
+    font-size: 15px;
+}
+
 
  /* publisher css start */
  a.nav-item.nav-link.px-0.me-xl-4 i{

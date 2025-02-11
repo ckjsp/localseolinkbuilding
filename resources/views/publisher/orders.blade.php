@@ -32,9 +32,8 @@
                                 <th scope="col">Website</th>
                                 <th scope="col">Order Type</th>
                                 <th scope="col">Price</th>
-
                                 <th scope="col">Quantity</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Orders Status</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">

@@ -433,19 +433,19 @@
                                     <li>Your actual traffic will be showcased to the clients compared to any other SEO
                                         tool.</li>
                                 </ol>
-                                <p>If you have any question follow <a href="javascript:void(0)">this guide</a> where we
+                                <p>If you have any question follow this guide where we
                                     explain step by step how to verify you website...</p>
                             </div>
                             <div class="col-md-6">
                                 <p><strong>Google Analytics Report. How to Share?</strong>
                                 </p>
-                                <strong>How to prepare a report?<strong>
+                                <strong>How to prepare a report?</strong>
 
-                                        <ol>
-                                            <li>Go to the "Reports snapshot" tab in google analytics.</li>
-                                            <li>Make sure "last 30 days" is selected in the top right corner.</li>
-                                            <li>Go to Share Report > Download File > Download PDF.</li>
-                                        </ol>
+                                <ol>
+                                    <li>Go to the "Reports snapshot" tab in google analytics.</li>
+                                    <li>Make sure "last 30 days" is selected in the top right corner.</li>
+                                    <li>Go to Share Report > Download File > Download PDF.</li>
+                                </ol>
 
                             </div>
 

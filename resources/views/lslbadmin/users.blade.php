@@ -3,6 +3,9 @@
 @endpush
 @section('sidebar-content')
 
+
+
+
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
     @if(session('success'))
@@ -13,15 +16,6 @@
             <div class="card mt-2">
                 @if (count($users) > 0)
                 <div class="m-3">
-                    <!-- Role Filter Dropdown -->
-                    <div class="mb-3 ">
-                        <label for="role-filter" class="form-label">Filter by Role:</label>
-                        <select id="role-filter" class="form-select flter-by-role">
-                            <option value="">All</option>
-                            <option value="Advertiser">Advertiser</option>
-                            <option value="Publisher">Publisher</option>
-                        </select>
-                    </div>
 
                     <div class="table-responsive text-nowrap">
                         <table class="table" id="user-tbl">
@@ -92,15 +86,25 @@
 @push('script')
 <script>
     $(document).ready(function() {
-        var table = $('#user-tbl').DataTable();
+        var table = $('#user-tbl').DataTable({
+            dom: "<'row align-items-center'<'col-md-3'l><'col-md-3'<'role-filter-container'>>" +
+                "<'col-md-6'f>>" +
+                "<'row'<'col-md-12'tr>>" +
+                "<'row'<'col-md-5'i><'col-md-7'p>>",
+        });
+
+        $('.role-filter-container').html(`
+        <label for="role-filter" class="form-label">Filter by Role:</label>
+        <select id="role-filter" class="form-select">
+            <option value="">All</option>
+            <option value="Advertiser">Advertiser</option>
+            <option value="Publisher">Publisher</option>
+        </select>
+    `);
 
         $('#role-filter').on('change', function() {
-            var role = $(this).val();
-            if (role) {
-                table.column(3).search(role).draw();
-            } else {
-                table.column(3).search('').draw();
-            }
+            var role = $(this).val().trim().toLowerCase();
+            table.column(3).search(role ? '^' + role + '$' : '', true, false).draw();
         });
     });
 </script>
