@@ -30,13 +30,12 @@
                             <th scope="col">Order Date</th>
                             <th scope="col">Order ID</th>
                             <th scope="col">Website</th>
-                            <th scope="col">Article Title</th>
                             <th scope="col">Price</th>
                             <th scope="col">Type</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Payment Status</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Orders Status</th>
+                            <th scope="col">Publiser Order Status</th>
+                            <th scope="col">Your Orders Status</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -49,22 +48,13 @@
                             <td>{{ date('d M, Y',strtotime($v->order_date)) }}</td>
                             <td><a href="{{ route('order.info', $v->order_id) }}" title="{{ $v->order_id }}">{{($v->order_id) }}</a></td>
                             <td><a href="{{ $v->website->website_url }}" target="_blank" title="Web Site Link ({{ $v->website->website_url }})" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-secondary" data-bs-original-title="{{ $v->website->website_url }}">{{ $v->website->website_url }}</a></td>
-                            <td>
-                                @if($v->attachment != '')
-                                @php
-                                // Assuming $v->article_title is an array or a comma-separated string
-                                $titles = is_array($v->article_title) ? implode(", ", $v->article_title) : $v->article_title;
-                                @endphp
 
-                                <a href="{{ url('/storage/app/'.$v->attachment) }}" target="_blank" title="Attachment Link">{{ $titles }}</a>
-                                @else
-                                Data Not Found
-                                @endif
-                            </td>
                             <td>${{ $v->price }}</td>
                             <td>{{ $v->attachment_type == 'provide_content' ? 'Blog Post' : 'Link Insertion' }}</td>
                             <td>{{ $v->quantity }}</td>
-                            <td>{{ ucwords($v->payment_status) }}</td>
+                            <td>
+                                {{ $v->payment_status == 'pending' ? 'Failed' : ucwords($v->payment_status) }}
+                            </td>
                             <td>{{ ucwords($v->status) }}</td>
                             <td>
                                 <button type="button" class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle{{ $v->id }}" data-bs-toggle="dropdown" aria-expanded="false">
@@ -192,18 +182,13 @@
 </script>
 <script>
     var table = $('#order-tbl').DataTable({
+        "order": [
+            [0, "desc"]
+        ], // First column (Order Date) sorting in descending order
         "columns": [{
                 "width": "11%"
             },
-            null, // Column 2 (Order ID)
-            null, // Column 3 (Website)
-            null, // Column 4 (Article Title)
-            null, // Column 5 (Price)
-            null, // Column 6 (Type)
-            null, // Column 7 (Quantity)
-            null, // Column 8 (Payment Status)
-            null, // Column 9 (Status)
-            null
+            null, null, null, null, null, null, null, null
         ]
     });
 </script>

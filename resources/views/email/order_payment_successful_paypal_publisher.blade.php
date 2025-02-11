@@ -72,7 +72,7 @@
         <p><strong>Important Notes:</strong></p>
         <ul>
             <li>
-                <a href="{{ route('publisher') }}">You can view and manage this order in your publisher dashboard.</a>
+                You can view and manage this order in your publisher <a href="{{ route('publisher') }}"> dashboard.</a>
             </li>
         </ul>
 
