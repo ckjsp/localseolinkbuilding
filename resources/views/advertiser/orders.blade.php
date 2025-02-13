@@ -65,7 +65,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'new' ? 'active' : '' }}" onclick="updateOrderStatus({{ $v->id }}, 'new')">New</li>
                                     <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'complete' ? 'active' : '' }}" onclick="updateOrderStatus({{ $v->id }}, 'complete')">Complete</li>
-                                    <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'change' ? 'active' : '' }}" onclick="showChangeModal({{ $v->id }})">Change</li>
+                                    <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->advertiser_status == 'update' ? 'active' : '' }}" onclick="showChangeModal({{ $v->id }})">Update</li>
                                 </ul>
                                 @endif
                             </td>
@@ -109,7 +109,7 @@
             <div class="modal-body">
                 <form id="changeStatusForm">
                     <div class="mb-3">
-                        <label for="changeReason" class="form-label">Change</label>
+                        <label for="changeReason" class="form-label">Update</label>
                         <textarea class="form-control" id="changeReason" name="reason" rows="3" required></textarea>
                     </div>
                     <input type="hidden" id="orderId" name="order_id">
@@ -126,7 +126,9 @@
 @push('script')
 <script>
     function updateOrderStatus(orderId, status) {
-        if (status !== 'change') {
+        if (status !== 'update') {
+            console.log("hello");
+
             $.ajax({
                 url: "{{ route('update.order.status') }}",
                 method: "POST",
@@ -166,7 +168,7 @@
             data: {
                 _token: "{{ csrf_token() }}",
                 id: orderId,
-                status: 'change',
+                status: 'update',
                 reason: reason,
             },
             success: function(response) {

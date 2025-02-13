@@ -172,13 +172,13 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                                         <li class="dropdown-item order-status {{ $order[0]->status == 'complete' ? 'active' : '' }}" data-item="complete">Complete</li>
                                     </ul>
                                 </div>
+
+
                             </div>
                             @endif
                         </div>
 
-                        <!-- <div class="col-md-6">
-                                <strong class="m-2 font-bold">Type: </strong> {{ $order[0]->attachment_type }}
-                            </div> -->
+
 
                         @if ($order[0]->attachment_type == 'provide_content')
 
@@ -255,7 +255,6 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
 
                         @endif
 
-
                         <div class="row mb-3">
                             <div class="col-md-6"><strong class="m-2 font-bold">Quantity: </strong> {{ $order[0]->quantity }}</div>
                             <!-- <div class="col-md-6"><strong class="m-2 font-bold">Total Amount: </strong> ${{ $order[0]->price }}</div> -->
@@ -288,6 +287,9 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                         </div>
                         @endif
 
+                        @if(!empty($order[0]->advertiser_change))
+                        <strong class="m-2 font-bold">Advertiser update:</strong> {{ $order[0]->advertiser_change }}
+                        @endif
                         @if($userDetail->role->name != 'Advertiser')
                         <div class="row mb-3 justify-content-center noteBox-div d-none">
                             <div class="col-md-10">
@@ -300,8 +302,10 @@ if (Auth::user()->role->name === 'Admin') $page = 'lslbadmin.sidebar';
                             <label for="urlBox">Enter Complete Url:</label>
                             <input type="url" id="urlBox" name="url" class="form-control" placeholder="Enter URL">
                         </div>
-
                         @endif
+
+
+
                     </div>
                 </div>
             </div>

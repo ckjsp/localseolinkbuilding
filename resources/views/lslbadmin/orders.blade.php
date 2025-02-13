@@ -111,24 +111,29 @@
 <script>
     $(document).ready(function() {
         var table = $('#order-tbl').DataTable({
-            "order": [
-                [0, "desc"]
-            ], // Sorts by Date in descending order
-            "columns": [{
-                    "width": "11%"
-                }, // Date
-                {
-                    "width": "9%"
-                }, // ID
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-            ]
+            dom: "<'row align-items-center'<'col-md-3'l><'col-md-3'<'role-filter-container'>>" +
+                "<'col-md-6'f>>" +
+                "<'row'<'col-md-12'tr>>" +
+                "<'row'<'col-md-5'i><'col-md-7'p>>",
+        });
+
+        $('.role-filter-container').html(`
+        <label for="role-filter" class="form-label">Filter by Status:</label>
+        <select id="role-filter" class="form-select">
+            <option value="">All</option>
+            <option value="New">New</option>
+            <option value="In-Progress">In-Progress</option>
+            <option value="Complete">Complete</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Update">Update</option>
+        </select>
+    `);
+
+        $('#role-filter').on('change', function() {
+            var status = $(this).val();
+            table.column(7)
+                .search(status ? '^' + status + '$' : '', true, false)
+                .draw();
         });
     });
 
