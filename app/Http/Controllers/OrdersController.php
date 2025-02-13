@@ -64,6 +64,8 @@ class OrdersController extends Controller
 
     public function updateOrderStatus(Request $request)
     {
+
+
         try {
             $validated = $request->validate([
                 'id' => 'required|exists:lslb_orders,id',
@@ -75,8 +77,11 @@ class OrdersController extends Controller
 
             $order->advertiser_status = $validated['status'];
 
-            if ($validated['status'] === 'change' && !empty($validated['reason'])) {
+
+            if ($validated['status'] === 'update' && !empty($validated['reason'])) {
                 $order->advertiser_change = $validated['reason'];
+                $order->status = $validated['status']; // Ensuring status column is also updated
+
             }
 
             $order->save();
@@ -368,6 +373,10 @@ class OrdersController extends Controller
             $url = $request->post('url', null);
 
             $updateData = ['status' => $status];
+
+            if ($order->advertiser_status === 'update') {
+                $updateData['advertiser_status'] = 'complete';
+            }
 
             if ($status === 'rejected' && $note) {
                 $updateData['rejection_reason'] = $note;

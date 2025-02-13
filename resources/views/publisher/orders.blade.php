@@ -33,6 +33,7 @@
                                 <th scope="col">Order Type</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
+                                <th scope="col"> Status</th>
                                 <th scope="col">Orders Status</th>
                             </tr>
                         </thead>
@@ -66,6 +67,8 @@
                                     @endif
                                 </td>
                                 <td>{{ $v->quantity }}</td>
+                                <td>{{ $v->status }}</td>
+
 
                                 <td>
                                     <button type="button" class="btn btn-label-primary dropdown-toggle waves-effect statusBtnTitle{{ $v->id }}" data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,8 +77,8 @@
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'new' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="new">New</li>
                                         <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'in-progress' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="in-progress">In-Progress</li>
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'delayed' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="delayed">Delayed</li>
-                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'delivered' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="delivered">Delivered</li>
+                                        <!-- <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'delayed' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="delayed">Delayed</li>
+                                        <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'delivered' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="delivered">Delivered</li> -->
                                         <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'complete' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="complete">Complete</li>
                                         <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'rejected' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="rejected">Rejected</li>
                                         <!-- <li class="dropdown-item orderStatus{{ $v->id }} {{ $v->status == 'approved' ? 'active' : '' }}" onclick="orderStatus($(this), <?= $v->id ?>)" data-item="approved">Approved</li> -->
@@ -164,9 +167,6 @@
         </div>
     </div>
 </div>
-
-
-
 @endsection
 
 @push('script')
@@ -186,22 +186,36 @@
 </script>
 
 <script>
-    var table = $('#orderTbl').DataTable({
-        "order": [
-            [0, "desc"]
-        ],
-        "columns": [{
-                "width": "11%"
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ]
-    });
+    $(document).ready(function() {
+        var table = $('#orderTbl').DataTable({
+            dom: "<'row align-items-center'<'col-md-3'l><'col-md-3'<'role-filter-container'>>" +
+                "<'col-md-6'f>>" +
+                "<'row'<'col-md-12'tr>>" +
+                "<'row'<'col-md-5'i><'col-md-7'p>>",
+            "columnDefs": [{
+                "targets": 6,
+                "visible": false
+            }]
+        });
 
+        $('.role-filter-container').html(`
+        <label for="role-filter" class="form-label">Filter by Status:</label>
+        <select id="role-filter" class="form-select">
+            <option value="">All</option>
+            <option value="New">New</option>
+            <option value="In-Progress">In-Progress</option>
+            <option value="Complete">Complete</option>
+            <option value="Rejected">Rejected</option>
+          <option value="Update">Update</option>
+
+        </select>
+    `);
+
+        $('#role-filter').on('change', function() {
+            var status = $(this).val();
+            table.column(6).search(status ? '^' + status + '$' : '', true, false).draw();
+        });
+    });
 
     function orderStatus($this, $id) {
         var $status = $this.data('item');
@@ -243,7 +257,6 @@
         }
     }
 
-    // Handle Rejection Form Submission
     $('#rejectionForm').on('submit', function(e) {
         e.preventDefault();
         var $id = $('#orderId').val();
@@ -277,7 +290,6 @@
         });
     });
 
-    // Handle Completion Form Submission
     $('#completionForm').on('submit', function(e) {
         e.preventDefault();
         var $id = $('#orderIdComplete').val();
