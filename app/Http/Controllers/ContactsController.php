@@ -8,9 +8,7 @@ use App\Models\Contact;
 class ContactsController extends Controller
 {
     public function store(Request $request)
-
     {
-
         // Validation
         $request->validate([
             'first_name'   => 'required|string|max:255',
@@ -23,6 +21,7 @@ class ContactsController extends Controller
         // Save to database
         Contact::create($request->all());
 
-        return redirect()->back()->with('success', 'Contact submitted successfully!');
+        // Return thankyou page directly
+        return redirect()->route('thankyou');
     }
 }

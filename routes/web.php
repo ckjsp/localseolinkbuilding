@@ -47,6 +47,7 @@ Auth::routes(['verify' => true]);
 Route::get('/', [PagesController::class, 'Home'])->name('home');
 Route::post('/contact', [ContactsController::class, 'store'])->name('contacts.store');
 
+
 Route::get('/terms-condition', [PagesController::class, 'termandconditions'])->name('terms-condition');
 Route::get('/privacy-policy', [PagesController::class, 'privacypolicy'])->name('privacy-policy');
 Route::get('/cancellation-and-refund-policy', [PagesController::class, 'CancellationandRefundPolicy'])->name('cancellation-and-refund-policy');
@@ -61,6 +62,10 @@ Route::get('/about-us', [PagesController::class, 'aboutus'])->name('about-us');
 Route::get('/blog', [PagesController::class, 'blog'])->name('blog');
 Route::get('/easy-ways-content-syndication-can-boast-your-research', [PagesController::class, 'easyways'])->name('easy-ways-content-syndication-can-boast-your-research');
 Route::get('/manual-outreach-vs-links-farmer', [PagesController::class, 'manualoutreach'])->name('manual-outreach-vs-links-farmer');
+Route::get('/terms-condition', [PagesController::class, 'termandconditions'])->name('terms-condition');
+Route::get('/thankyou', function () {
+    return view('pages.thankyou');
+})->name('thankyou');
 Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 Route::get('/faq', [PagesController::class, 'faqpage'])->name('faq');
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
