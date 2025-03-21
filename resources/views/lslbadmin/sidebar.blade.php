@@ -8,17 +8,10 @@
         <a href="{{ route('publisher') }}" class="app-brand-link">
             <img src="{{ asset_url('img/faviconnew.svg') }}" alt="Logo" class="w-100 small-logo">
             <img src="{{ asset_url('img/header-logo.png') }}" alt="Logo" class="w-100 full-logo">
-
         </a>
-
-        <!-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-            <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
-            <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
-        </a> -->
     </div>
 
     <div class="menu-inner-shadow"></div>
-
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
         <li class="menu-item {{ (isset($slug) && $slug == 'dashboard') ? 'active' : '' }}">
@@ -44,6 +37,14 @@
             </a>
         </li>
 
+        <!-- Contact List -->
+        <li class="menu-item {{ (isset($slug) && $slug == 'contact-list') ? 'active' : '' }}">
+            <a href="{{ route('lslbadmin.contact') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-users"></i>
+                <div data-i18n="Contact">Contact</div>
+            </a>
+        </li>
+
         <!-- Orders -->
         <li class="menu-item {{ (isset($slug) && $slug == 'orders-list') ? 'active' : '' }}">
             <a href="{{ route('lslbadmin.orders') }}" class="menu-link">
@@ -59,14 +60,6 @@
                 <div data-i18n="Withdrawal">Withdrawal</div>
             </a>
         </li>
-
-        <!-- Payments -->
-        <!-- <li class="menu-item {{ (isset($slug) && $slug == 'payment') ? 'active' : '' }}">
-            <a href="{{ url('/publisher/payment') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-wallet"></i>
-                <div data-i18n="Payments">Payments</div>
-            </a>
-        </li> -->
     </ul>
 </aside>
 <!-- / Menu -->

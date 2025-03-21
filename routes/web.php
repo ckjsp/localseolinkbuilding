@@ -17,6 +17,7 @@ use App\Http\Controllers\RazorpayPaymentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,6 +45,8 @@ Auth::routes(['verify' => true]);
 // Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/', [PagesController::class, 'Home'])->name('home');
+Route::post('/contact', [ContactsController::class, 'store'])->name('contacts.store');
+
 Route::get('/terms-condition', [PagesController::class, 'termandconditions'])->name('terms-condition');
 Route::get('/privacy-policy', [PagesController::class, 'privacypolicy'])->name('privacy-policy');
 Route::get('/cancellation-and-refund-policy', [PagesController::class, 'CancellationandRefundPolicy'])->name('cancellation-and-refund-policy');
@@ -108,6 +111,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/razorpay/callback', [RazorpayPaymentController::class, 'callback'])->name('razorpay.callback');
         Route::get('/razorpay/cancel', [RazorpayPaymentController::class, 'cancel'])->name('razorpay.cancel');
 
+
         Route::controller(PaymentController::class)->group(function () {
 
             Route::get('/advertiser/payment', 'index')->name('advertiser.payment');
@@ -162,6 +166,7 @@ Route::controller(AdminController::class)->group(function () {
         Route::get('/lslb-admin/user/{id}/edit', 'userEdit')->name('lslbadmin.user.edit');
         Route::post('/lslb-admin/user/{id}', 'userUpdate')->name('lslbadmin.user.update');
         Route::get('/lslb-admin/user/{id}/delete', 'userDestroy')->name('lslbadmin.user.delete');
+        Route::get('/lslb-admin/contact', 'getcontact')->name('lslbadmin.contact');
     });
 });
 

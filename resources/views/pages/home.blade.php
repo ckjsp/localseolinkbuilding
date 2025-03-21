@@ -184,7 +184,7 @@ $content = 'Links Farmer combines the best of a guest post marketplace and link 
 
                                             <div class="d-flex align-items-center mb-3">
                                                 <div class="logo-wrap me-2 ">
-                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
+                                                    <img src="{{ asset_url('img/google-logo.png') }}" alt="google-reviews" />
                                                 </div>
                                                 <div>
                                                     <h5 class="mb-0">David Mitchell</h5>
@@ -208,7 +208,7 @@ $content = 'Links Farmer combines the best of a guest post marketplace and link 
 
                                             <div class="d-flex align-items-center mb-3">
                                                 <div class="logo-wrap me-2 ">
-                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
+                                                    <img src="{{ asset_url('img/google-logo.png') }}" alt="google-reviews" />
                                                 </div>
                                                 <div>
                                                     <h5 class="mb-0">Samantha Collins</h5>
@@ -232,7 +232,7 @@ $content = 'Links Farmer combines the best of a guest post marketplace and link 
 
                                             <div class="d-flex align-items-center mb-3">
                                                 <div class="logo-wrap me-2 ">
-                                                    <img src="{{ asset_url('img/google-logo.png') }}" />
+                                                    <img src="{{ asset_url('img/google-logo.png') }}" alt="google-reviews" />
                                                 </div>
                                                 <div>
                                                     <h5 class="mb-0">Neha Gupta</h5>
@@ -365,10 +365,7 @@ $content = 'Links Farmer combines the best of a guest post marketplace and link 
                     <button id="whyus-next-btn" class="btn swiper-btn ms-3 scaleX-n1-rtl" type="button">
                         <i class="ti ti-chevron-right ti-sm"></i>
                     </button>
-
                 </div>
-
-
             </div>
         </section>
 

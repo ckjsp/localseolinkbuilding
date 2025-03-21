@@ -14,6 +14,8 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('public/img/faviconnew.svg')}}" />
     <meta name="robots" content="noindex, nofollow">
 
+    <meta name="google-site-verification" content="YLCayHYkKvCKvayPOUHJnQ43h6I2p0IEf35uBwX7iQo" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,6 +47,17 @@
     <script src="{{ asset_url('js/helpers.js') }}"></script>
     <script src="{{ asset_url('js/template-customizer.js') }}"></script>
     <script src="{{ asset_url('js/front-config.js') }}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B59LHVYPW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-B59LHVYPW3');
+    </script>
 </head>
 
 
@@ -75,7 +88,7 @@
                 <ul class="navbar-nav mx-auto">
 
                     <li class="nav-item mega-dropdown">
-                        <a href="{{ route('seo-reseller-services') }}"
+                        <a
                             class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium"
                             aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
                             Service
@@ -288,14 +301,12 @@
             <div class="landing-menu-overlay d-xl-none"></div>
             <div class="navbar-nav flex-row gap-2 align-items-center ms-auto d-none d-xl-flex">
                 @if (Auth::check())
-                <!-- Show when logged in -->
 
                 <a class="outlined-btn" href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <span class="align-middle">{{ __('Log Out') }}</span>
                 </a>
 
-                <!-- Hidden Logout Form -->
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
@@ -304,7 +315,6 @@
                     Dashboard
                 </a>
                 @else
-                <!-- Show when not logged in -->
                 <a href="{{ route('login') }}" class="outlined-btn">
                     Login
                 </a>

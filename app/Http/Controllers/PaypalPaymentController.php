@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
-
 use Illuminate\Http\Request;
-
 use App\Models\lslbOrder;
 use App\Models\lslbUser;
 use App\Models\lslbWebsite;
