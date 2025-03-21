@@ -57,8 +57,16 @@
     <script src="{{ asset_url('js/form-validation/additional-methods.min.js') }}"></script>
     <script src="{{ asset_url('js/projectMenu.js') }}"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B59LHVYPW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
+        gtag('config', 'G-B59LHVYPW3');
+    </script>
 </head>
 
 <body>

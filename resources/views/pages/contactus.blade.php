@@ -18,7 +18,6 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
                                         Solve all your queries and concerns regarding Guest Posting and Content Writing
                                         Services. Our experts are<br /> here to help you. We will try our best to get
                                         back to you within 48 hours!</h3>
-
                                 </div>
                             </div>
                         </div>
@@ -27,43 +26,58 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
                     <section>
                         <div class="container">
                             <div class="form-container form_cont mb-30">
-                                <form>
+
+                                <!-- Success Message -->
+                                @if(session('success'))
+                                <div class="alert alert-success mt-3">
+                                    {{ session('success') }}
+                                </div>
+                                @endif
+
+                                <!-- Form -->
+                                <form action="{{ route('contacts.store') }}" method="POST">
+                                    @csrf
                                     <div class="row g-3">
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control fm_cnt" id="firstName"
-                                                placeholder="First Name">
+                                            <input type="text" name="first_name" class="form-control fm_cnt" id="firstName" placeholder="First Name" value="{{ old('first_name') }}" required>
+                                            @error('first_name')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control fm_cnt" id="lastName"
-                                                placeholder="Last Name">
+                                            <input type="text" name="last_name" class="form-control fm_cnt" id="lastName" placeholder="Last Name" value="{{ old('last_name') }}" required>
+                                            @error('last_name')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row g-3 mt-1">
                                         <div class="col-md-6">
-                                            <input type="email" class="form-control fm_cnt" id="email"
-                                                placeholder="Email">
+                                            <input type="email" name="email" class="form-control fm_cnt" id="email" placeholder="Email" value="{{ old('email') }}" required>
+                                            @error('email')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control fm_cnt" id="phone"
-                                                placeholder="Phone Number">
+                                            <input type="text" name="phone_number" class="form-control fm_cnt" id="phone" placeholder="Phone Number" value="{{ old('phone_number') }}" required>
+                                            @error('phone_number')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
-                                    <!-- <div class="mt-3">
-                                        <input type="text" class="form-control fm_cnt" id="company"
-                                            placeholder="Company">
-                                    </div>
+
                                     <div class="mt-3">
-                                        <input type="text" class="form-control fm_cnt" id="position"
-                                            placeholder="Position">
-                                    </div> -->
-                                    <div class="mt-3">
-                                        <textarea class="form-control fm_cnt txtarea" id="message" rows="4"
-                                            placeholder="Message"></textarea>
+                                        <textarea class="form-control fm_cnt txtarea" name="message" id="message" rows="4" placeholder="Message" required>{{ old('message') }}</textarea>
+                                        @error('message')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
+
                                     <a class="mt-4 submitbtn" href="">
                                         <button type="submit" class="btn btn-submit bt mt-3 filled-btn">Submit</button>
                                     </a>
                                 </form>
+
                             </div>
                         </div>
                     </section>
@@ -79,13 +93,10 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
                 <div class="col-lg-12 light-bg p-30 rounded-20 ">
 
                     <div class="mb-2 pb-1 font_dv">Customer Support</div>
-                    <!-- <hr class="my-lg-4" /> -->
                     <p class="pt-lg-2 font_sz">
                         Our friendly customer support is ready to assist with all service, order, or general queries.
                         Providing speedy but helpful replies is what we strive to achieve.
-
                     </p>
-                    <!-- </div> -->
                 </div>
             </div>
 
@@ -93,7 +104,6 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
                 <div class="col-lg-12 light-bg  rounded-20 ">
                     <div class="p-30">
                         <div class="mb-2 pb-1 font_dv">Email Us</div>
-                        <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
                             For those who require any inquiries or request assistance, you can contact us directly at:
                         </p>
@@ -106,7 +116,6 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
 
                     <div class="p-30">
                         <div class="mb-2 pb-1 font_dv">Call Us</div>
-                        <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
                             Do you prefer to talk to someone? Our hours of customer support are Monday to Friday, from 9
                             AM to 6 PM. Call us at:</p>
@@ -119,7 +128,6 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
 
                     <div class="p-30">
                         <div class="mb-2 pb-1 font_dv">Live Chat</div>
-                        <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
                             If you need a response right away, use the chat icon in the bottom right corner of our
                             website to speak with an associate of our team at the moment.</p>
@@ -128,7 +136,6 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
 
                     <div class="p-30">
                         <div class="mb-2 pb-1 font_dv">Office Address</div>
-                        <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
                             Should you want to visit us personally, we are located at:</p>
 
@@ -144,7 +151,6 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
 
                     <div class="p-30">
                         <div class="mb-2 pb-1 font_dv">Social Media</div>
-                        <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
                             You can also connect to us through social media. Subscribe to get updated, news, and
                             promotions:</p>
@@ -172,7 +178,6 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
 
                     <div class="p-30">
                         <div class="mb-2 pb-1 font_dv">Support Hours</div>
-                        <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
                             Our support staff will be here to assist you during the following times:</p>
 
@@ -211,7 +216,6 @@ $content = 'Reach out to Links Farmer for all your guest posting and SEO needs. 
 
                     <div class="p-30">
                         <div class="mb-2 pb-1 font_dv">Feedback and Suggestions</div>
-                        <!-- <hr class="my-lg-4" /> -->
                         <p class="pt-lg-2 font_sz pt-10 ">
                             As part of our continuous improvement process, you are welcome to make comments or
                             suggestions through any of the feedback channels mentioned above. Your comments help us grow

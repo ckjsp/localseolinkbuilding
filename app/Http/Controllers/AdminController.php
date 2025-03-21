@@ -11,6 +11,8 @@ use App\Models\lslbPublisher;
 use App\Models\lslbWebsite;
 use App\Models\lslbOrder;
 use App\Models\lslbUser;
+use App\Models\Contact;
+
 use Illuminate\Support\Facades\Log;
 use App\Models\lslbTransaction;
 
@@ -428,5 +430,11 @@ class AdminController extends Controller
             'success' => false,
             'message' => 'Failed to update status.',
         ]);
+    }
+
+    public function getcontact()
+    {
+        $contacts = Contact::latest()->get();
+        return view('lslbadmin.contact', compact('contacts'));
     }
 }

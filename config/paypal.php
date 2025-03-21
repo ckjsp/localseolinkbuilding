@@ -9,8 +9,8 @@ return [
         'app_id'            => 'APP-80W284485P519543T',
     ],
     'live' => [
-        'client_id'         => env('PAYPAL_LIVE_CLIENT_ID', ''),
-        'client_secret'     => env('PAYPAL_LIVE_CLIENT_SECRET', ''),
+        'client_id'         => env('PAYPAL_LIVE_CLIENT_ID', 'ASSDGta1dQXdZWdFsD7V0vMv888Rfsk_4wiJWQGOrwoHhodV2pNcHt6QITYRasxgeU_NHtXgy4SuHsmb'),
+        'client_secret'     => env('PAYPAL_LIVE_CLIENT_SECRET', 'EOSyuv-Ynm_3q7hmDkSDKe2_ILS_v1EzG0IhF4OmQrsJmmXL1b9x42m4ti8nNI8tM8MBq94g5ybL8M46'),
         'app_id'            => '',
     ],
 
