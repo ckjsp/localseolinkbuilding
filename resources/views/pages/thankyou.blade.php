@@ -23,12 +23,7 @@ $content = 'Offer premium SEO services under your brand with Links Farmer’s wh
             @include('pages.footer')
         </section>
 
-
     </div>
-
-
-
-
 </body>
 <script src="{{ asset_url('libs/popper/popper.js') }}"></script>
 <script src="{{ asset_url('js/bootstrap.js') }}"></script>
